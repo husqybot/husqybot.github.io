@@ -1,0 +1,33 @@
+.reason_highlight {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.reason_main_content {
+    max-width: 50%;
+}
+.reason_main_text {
+    margin-bottom: 32px;
+}
+.reason_description {
+    font-weight: 300;    
+}
+
+@media screen and (max-width: 1024px) {
+    .reason_highlight {
+        justify-content: center;
+        flex-direction: column !important;
+    }
+    .reason_container_image {
+        justify-content: center;
+        margin: auto;
+    }
+    .reason_main_content {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 996px) {
+}

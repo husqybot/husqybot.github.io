@@ -1,0 +1,53 @@
+.discover_item_container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: var(--primary-color-1);
+    border-radius: 24px;
+    padding: 24px;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    transition: 0.15s;
+
+}
+.discover_item_container:hover {
+    transform: scale(1.02); 
+    cursor: pointer;
+}
+
+.discover_item_main_content_container {
+    text-align: start;
+}
+.discover_item_icon {
+    color: var(--accent-color-1);
+    width: 64px;
+    height: 64px;
+    font-size: 64px;
+}
+.discover_item_title {
+    text-align: start;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+
+.discover_item_link_text {
+    color: var(--secondary-color-1);
+    font-family: var(--ifm-font-family-base);
+}
+
+@media screen and (max-width: 1024px) {
+    .discover_item_container {
+        width: 100%;
+    }
+    .discover_item_title {
+        text-align: center;
+    }
+    .discover_item_link_text {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 996px) {
+}

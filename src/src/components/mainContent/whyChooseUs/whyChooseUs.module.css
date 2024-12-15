@@ -1,0 +1,22 @@
+.why_choose_us_container {
+    max-width: var(--content-max-width);
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 64px;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+.why_choose_us_container div:nth-child(even) {
+    flex-direction: row;
+}
+
+@media screen and (max-width: 996px) {
+    .why_choose_us_container {
+        gap: 48px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+  }

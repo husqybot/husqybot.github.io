@@ -1,0 +1,13 @@
+.contentHighlight {
+    width: 100dvw !important;
+    padding: 24px;
+}
+
+/* Styles */
+.contentHighlight_primary {
+    background-color: var(--primary-color-1);
+}
+
+.contentHighlight_secondary {
+    background-color: var(--accent-color-2);
+}
