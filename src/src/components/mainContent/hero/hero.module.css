@@ -16,6 +16,9 @@
 .hero_text_container {
   max-width: 50%;
 }
+.hero_title {
+  font-size: var(--font-size-1);
+}
 .hero_subtitle {
   color: var(--accent-color-1);
   font-family: var(--ifm-font-family-base);

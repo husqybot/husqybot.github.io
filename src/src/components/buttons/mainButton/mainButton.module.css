@@ -1,9 +1,9 @@
 /* Shared overwrites */
 .main_button_overwrite {
-    border-radius: 40px;
-    font-size: var(--font-size-text);
-  }
-  
+  border-radius: 40px;
+  font-size: var(--font-size-text);
+}
+
 /* Button styles */
 .primary {
   background-color: var(--accent-color-2) !important;
@@ -12,4 +12,5 @@
 
 .secondary {
   color: var(--secondary-color-2) !important;
+  border-color: var(--accent-color-1);
 }

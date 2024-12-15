@@ -8,6 +8,7 @@
 @tailwind utilities;
 
 :root {
+  /* Colors */
   --primary-color-1: #0a1931;
   --primary-color-2: #12223d;
 
@@ -19,13 +20,17 @@
   --accent-color-3: #dc3232;
   --accent-color-4: #008b28;
 
+  /* Font sizes */
   --font-size-1: 64px;
-  --font-size-2: 36px;
-  --font-size-3: 24px;
-  --font-size-4: 20px;
+  --font-size-2: 48px;
+  --font-size-3: 32px;
+  --font-size-4: 24px;
+  --font-size-5: 20px;
   --font-size-text: 16px;
 
+  /* Max width */
   --content-max-width: 1500px;
+  --ifm-container-width-xl: var(--content-max-width);
 
   /* Overwrite fonts */
   --ifm-heading-font-family: "Ubuntu", sans-serif;
@@ -51,9 +56,13 @@
   --ifm-color-success-contrast-background: var(--accent-color-4) !important;
   --ifm-color-success-dark: var(--accent-color-4) !important;
   --ifm-color-success-contrast-foreground: var(--secondary-color-2) !important;
-  --ifm-color-secondary-contrast-background: var(--secondary-color-1) !important;
+  --ifm-color-secondary-contrast-background: var(
+    --secondary-color-1
+  ) !important;
   --ifm-color-secondary-dark: var(--secondary-color-1) !important;
-  --ifm-color-secondary-contrast-foreground: var(--secondary-color-2) !important;
+  --ifm-color-secondary-contrast-foreground: var(
+    --secondary-color-2
+  ) !important;
   --ifm-color-warning-contrast-background: var(--accent-color-1) !important;
   --ifm-color-warning-dark: var(--accent-color-1) !important;
   --ifm-color-warning-contrast-foreground: #0a1931 !important;
@@ -63,55 +72,59 @@
 
   /* Sidebar */
   --ifm-navbar-sidebar-width: 100vw;
-  
+
   /* Other */
   --ifm-toc-border-color: var(--secondary-color-1) !important;
   --ifm-toc-link-color: var(--secondary-color-2) !important;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-navbar-height: 97px;
-  --ifm-breadcrumb-separator: url('/img/overwrites/breadcrumb_seperator.svg');
-  --ifm-menu-link-sublist-icon: url('/img/overwrites/table_of_content_arrow.svg');
+  --ifm-breadcrumb-separator: url("/img/overwrites/breadcrumb_seperator.svg");
+  --ifm-menu-link-sublist-icon: url("/img/overwrites/table_of_content_arrow.svg");
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-  [data-theme='dark'] {
-    --ifm-color-primary: #25c2a0;
-    --ifm-color-primary-dark: #21af90;
-    --ifm-color-primary-darker: #1fa588;
-    --ifm-color-primary-darkest: #1a8870;
-    --ifm-color-primary-light: #29d5b0;
-    --ifm-color-primary-lighter: #32d8b4;
-    --ifm-color-primary-lightest: #4fddbf;
-    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  }
-
+/* Webpage general */
 html {
   background-color: var(--primary-color-2) !important;
   color: var(--secondary-color-2) !important;
   font-size: var(--font-size-text);
   overflow-x: hidden;
 }
-
+.main-wrapper {
+  width: 100dvw;
+}
 .menu .menu__link.menu__link--sublist:after {
-  background-image: url("/img/overwrites/sidebar_arrow.svg")
+  background-image: url("/img/overwrites/sidebar_arrow.svg");
 }
 
-
+/* Headings */
 h1 {
-  font-size: var(--font-size-1);
+  font-size: var(--font-size-2);
   margin-bottom: 24px;
 }
 h2 {
-  font-size: var(--font-size-2);
-}
-h3 {
   font-size: var(--font-size-3);
 }
-h4 {
+h3 {
   font-size: var(--font-size-4);
 }
+h4 {
+  font-size: var(--font-size-5);
+}
+a {
+  font-size: var(--font-size-text);
+  color: var(--accent-color-1);
+}
+a:hover {
+  color: var(--accent-color-1);
+  text-decoration: underline;
+}
+.table-of-contents__link {
+  font-size: inherit !important;
+}
 
+
+/* Mobile view changes */
 @media screen and (max-width: 996px) {
   :root {
     --font-size-1: 40px;

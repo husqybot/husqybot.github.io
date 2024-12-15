@@ -2,6 +2,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import tailwindPlugin from "./plugins/tailwind-config.cjs"; // add this
+import type { Options as DocsOptions } from "@docusaurus/plugin-content-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -31,7 +32,42 @@ const config: Config = {
     locales: ["en"],
   },
 
-  plugins: [tailwindPlugin],
+  plugins: [
+    tailwindPlugin,
+    [
+      "content-docs",
+      {
+        id: "faq",
+        path: "faq",
+        routeBasePath: "faq",
+        editCurrentVersion: false,
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
+      } satisfies DocsOptions,
+    ],
+    [
+      "content-docs",
+      {
+        id: "known-issues",
+        path: "known-issues",
+        routeBasePath: "known-issues",
+        editCurrentVersion: false,
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
+      } satisfies DocsOptions,
+    ],
+    [
+      "content-docs",
+      {
+        id: "changelog",
+        path: "changelog",
+        routeBasePath: "changelog",
+        editCurrentVersion: false,
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
+      } satisfies DocsOptions,
+    ],
+  ],
 
   presets: [
     [
@@ -101,27 +137,31 @@ const config: Config = {
       links: [
         {
           label: "Get started",
-          to: "/",
+          to: "/get-started",
         },
         {
           label: "Documentation",
-          to: "/",
+          to: "/docs",
         },
         {
-          label: "Modules",
-          to: "/",
+          label: "FAQ",
+          to: "/faq",
+        },
+        {
+          label: "Known issues",
+          to: "/known-issues",
         },
         {
           label: "Changelog",
-          to: "/",
+          to: "/changelog/husqy.docs",
         },
         {
           label: "Privacy policy",
-          to: "/",
+          to: "/privacy-policy",
         },
         {
           label: "Terms of service",
-          to: "/",
+          to: "/terms-of-service",
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Husqy<br/>Husqy is not part or related to Discord Inc. in any form or way.

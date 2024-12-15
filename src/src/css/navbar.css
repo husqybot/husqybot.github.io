@@ -29,7 +29,8 @@
 
 }
 .navbar__link:hover, .navbar__title:hover {
-    color: var(--accent-color-1)
+    color: var(--accent-color-1);
+    text-decoration: underline;
 }
 
 /* Sidebar */
