@@ -28,6 +28,9 @@
     margin-right: 24px;
 
 }
+.navbar__link:hover, .navbar__title:hover {
+    color: var(--accent-color-1)
+}
 
 /* Sidebar */
 .navbar-sidebar {
