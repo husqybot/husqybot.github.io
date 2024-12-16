@@ -9,12 +9,14 @@ interface IWhyChooseUs {
   image_url: string;
   title: string;
   description: string;
+  url?: string | undefined;
 }
 
 export default function ReasonComponent({
   image_url,
   title,
   description,
+  url,
 }: IWhyChooseUs) {
   return (
     <div className={styles.reason_highlight}>
@@ -36,7 +38,7 @@ export default function ReasonComponent({
             type={1}
             text="Learn more"
             onButtonClick={() => {
-              window.location = "/";
+              window.location = url === undefined ? "/" : url;
             }}
           />
         </div>
