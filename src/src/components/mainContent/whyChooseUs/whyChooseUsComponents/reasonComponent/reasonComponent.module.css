@@ -7,12 +7,23 @@
 }
 .reason_main_content {
     max-width: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .reason_main_text {
     margin-bottom: 32px;
 }
 .reason_description {
     font-weight: 300;    
+}
+.reason_main_title_container {
+    margin-bottom: 12px;
+}
+.reason_subtitle {
+    color: var(--accent-color-1);
+    font-family: var(--ifm-font-family-base);
+    font-weight: 400;
+    opacity: 50%;
 }
 
 @media screen and (max-width: 1024px) {

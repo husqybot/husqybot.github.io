@@ -16,7 +16,7 @@ export default function DiscoverItem({
   return (
     <div
       onClick={() => {
-        window.location = url;
+        window.location = resource_link;
       }}
       className={styles.discover_item_container}
     >

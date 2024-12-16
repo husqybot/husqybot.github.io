@@ -8,15 +8,21 @@ import styles from "./reasonComponent.module.css";
 interface IWhyChooseUs {
   image_url: string;
   title: string;
-  description: string;
+  subtitle: string;
+  description_line_1: string;
+  description_line_2?: string | undefined;
   url?: string | undefined;
+  custom_button_text?: string | undefined;
 }
 
 export default function ReasonComponent({
   image_url,
   title,
-  description,
+  subtitle,
+  description_line_1,
+  description_line_2,
   url,
+  custom_button_text,
 }: IWhyChooseUs) {
   return (
     <div className={styles.reason_highlight}>
@@ -30,13 +36,28 @@ export default function ReasonComponent({
       </div>
       <div className={styles.reason_main_content}>
         <div className={styles.reason_main_text}>
-          <h3 className={styles.reason_title}>{title}</h3>
-          <p className={styles.reason_description}>{description}</p>
+          <div className={styles.reason_main_title_container}>
+            <h3 className={styles.reason_title}>{title}</h3>
+            <label className={styles.reason_subtitle}>{subtitle}</label>
+          </div>
+          <p className={styles.reason_description}>{description_line_1}</p>
+          {description_line_2 === undefined ? (
+            ""
+          ) : (
+            <>
+              <br />
+              <p className={styles.reason_description}>{description_line_2}</p>
+            </>
+          )}
         </div>
         <div className={styles.reason_actions}>
           <MainButton
             type={1}
-            text="Learn more"
+            text={
+              custom_button_text === undefined
+                ? "Learn more"
+                : custom_button_text
+            }
             onButtonClick={() => {
               window.location = url === undefined ? "/" : url;
             }}

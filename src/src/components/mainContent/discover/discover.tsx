@@ -35,7 +35,7 @@ export default function Discover() {
       <DiscoverItem
         icon="update"
         title="Check the changelog"
-        resource_link="https://github.com/husqybot/CHANGELOG/blob/main/CHANGELOG.md"
+        resource_link="/documents/changelog"
       />
     </div>
   );
