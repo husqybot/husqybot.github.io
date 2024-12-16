@@ -59,9 +59,9 @@ const config: Config = {
     [
       "content-docs",
       {
-        id: "changelog",
-        path: "changelog",
-        routeBasePath: "changelog",
+        id: "documents",
+        path: "1-documents",
+        routeBasePath: "documents",
         editCurrentVersion: false,
         showLastUpdateAuthor: false,
         showLastUpdateTime: false,
@@ -153,15 +153,15 @@ const config: Config = {
         },
         {
           label: "Changelog",
-          to: "/changelog/husqy.docs",
+          to: "/documents/changelog",
         },
         {
           label: "Privacy policy",
-          to: "/privacy-policy",
+          to: "/documents/privacy-policy",
         },
         {
           label: "Terms of service",
-          to: "/terms-of-service",
+          to: "/documents/terms-of-service",
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Husqy<br/>Husqy is not part or related to Discord Inc. in any form or way.

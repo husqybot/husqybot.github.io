@@ -21,7 +21,9 @@ export default function DiscoverItem({
       className={styles.discover_item_container}
     >
       <div className={styles.discover_item_icon_container}>
-        <span class={`material-symbols-outlined ${styles.discover_item_icon}`}>
+        <span
+          className={`material-symbols-outlined ${styles.discover_item_icon}`}
+        >
           {icon}
         </span>
       </div>

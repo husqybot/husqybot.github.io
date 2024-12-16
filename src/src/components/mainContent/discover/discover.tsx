@@ -8,7 +8,7 @@ export default function Discover() {
   return (
     <div className={styles.discover_container}>
       <DiscoverItem
-        icon="article"
+        icon="dashboard"
         title="Configure Husqy to your liking using the Husqy dashboard!"
         resource_link="https://dashboard.husqy.xyz/"
       />
@@ -18,22 +18,22 @@ export default function Discover() {
         resource_link="/docs"
       />
       <DiscoverItem
-        icon="article"
+        icon="question_mark"
         title="Any questions? They may be answered on our FAQ page!"
         resource_link="/faq"
       />
       <DiscoverItem
-        icon="article"
+        icon="link"
         title="Join our support server!"
         resource_link="https://discord.gg/W8EdsMkZRm"
       />
       <DiscoverItem
-        icon="article"
+        icon="bug_report"
         title="Check on known issues"
         resource_link="/known-issues"
       />
       <DiscoverItem
-        icon="article"
+        icon="update"
         title="Check the changelog"
         resource_link="https://github.com/husqybot/CHANGELOG/blob/main/CHANGELOG.md"
       />

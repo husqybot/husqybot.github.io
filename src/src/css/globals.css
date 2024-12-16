@@ -31,6 +31,7 @@
   /* Max width */
   --content-max-width: 1500px;
   --ifm-container-width-xl: var(--content-max-width);
+  --ifm-col-width: var(--content-max-width);
 
   /* Overwrite fonts */
   --ifm-heading-font-family: "Ubuntu", sans-serif;
@@ -123,6 +124,21 @@ a:hover {
   font-size: inherit !important;
 }
 
+/* Lists */
+ul {
+  margin: auto;
+  list-style: disc;
+}
+ol {
+  margin: auto;
+  list-style: auto;
+}
+.markdown ul, .markdown ol {
+  padding-left: 32px;
+}
+.table-of-contents ul, .table-of-contents ol, .table-of-contents li, .menu ul, .menu ol, .menu li {
+  list-style: none;
+}
 
 /* Mobile view changes */
 @media screen and (max-width: 996px) {
