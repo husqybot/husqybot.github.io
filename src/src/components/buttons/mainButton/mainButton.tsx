@@ -10,7 +10,7 @@ import styles from "./mainButton.module.css";
 // Interfaces
 interface IMainButton {
   text: string;
-  type: 1 | 2;
+  type: 1 | 2 | 3;
   onButtonClick: (e: PressEvent) => void;
   customClass?: string | undefined;
 }
@@ -38,6 +38,18 @@ export default function MainButton({
         <Button
           onPress={onButtonClick}
           className={`${styles.main_button_overwrite} ${styles.secondary} ${
+            customClass === undefined ? "" : customClass
+          }`}
+          variant="bordered"
+        >
+          {text}
+        </Button>
+      );
+    case 3:
+      return (
+        <Button
+          onPress={onButtonClick}
+          className={`${styles.main_button_overwrite} ${styles.tertiary} ${
             customClass === undefined ? "" : customClass
           }`}
           variant="bordered"

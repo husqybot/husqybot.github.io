@@ -25,6 +25,10 @@
     font-weight: 400;
     opacity: 50%;
 }
+.reason_actions {
+    display: flex;
+    gap: 12px;
+}
 
 @media screen and (max-width: 1024px) {
     .reason_highlight {

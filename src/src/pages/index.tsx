@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
             </h2>
             <div className={styles.contentHighlight_add_husqy_actions}>
               <MainButton
-                type={2}
+                type={3}
                 text="Get started"
                 onButtonClick={() => {
                   window.location = "/get-started";

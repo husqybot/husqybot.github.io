@@ -1,3 +1,5 @@
+import React from "react";
+
 // Import components
 import MainButton from "../../../../buttons/mainButton/mainButton";
 
@@ -6,6 +8,7 @@ import styles from "./reasonComponent.module.css";
 
 // Interface
 interface IWhyChooseUs {
+  children?: React.ReactNode | undefined;
   image_url: string;
   title: string;
   subtitle: string;
@@ -16,6 +19,7 @@ interface IWhyChooseUs {
 }
 
 export default function ReasonComponent({
+  children,
   image_url,
   title,
   subtitle,
@@ -62,6 +66,7 @@ export default function ReasonComponent({
               window.location = url === undefined ? "/" : url;
             }}
           />
+          {children === undefined ? <></> : children}
         </div>
       </div>
     </div>
