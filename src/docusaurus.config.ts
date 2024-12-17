@@ -84,6 +84,8 @@ const config: Config = {
             "./src/css/globals.css",
             "./src/css/navbar.css",
             "./src/css/footer.css",
+            "./src/css/announcement.css",
+            "./src/css/animations.css",
           ],
         },
       } satisfies Preset.Options,

@@ -1,0 +1,13 @@
+:root {
+  --animation-1: opacityChange;
+  /* animation: 1s ease-out 0s 1 var(--animation-1); */
+}
+
+@keyframes opacityChange {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
