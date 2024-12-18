@@ -1,5 +1,6 @@
 .embla {
   overflow: hidden;
+  background-color: var(--accent-color-2);
 }
 .embla__container {
   display: flex;
@@ -9,5 +10,6 @@
   padding: 12px;
   justify-content: center;
   text-align: center;
-  background-color: var(--accent-color-2);
+  background-color: transparent;
+  margin: auto;
 }
