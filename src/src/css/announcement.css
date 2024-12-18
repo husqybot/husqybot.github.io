@@ -1,6 +1,0 @@
-div[class^="announcementBar_"] {
-  font-size: var(--font-size-text);
-  background: var(--secondary-color-2);
-  font-weight: bold;
-  height: 48px;
-}

@@ -20,6 +20,8 @@
     "@mdx-js/react": "^3.0.0",
     "@nextui-org/react": "^2.6.8",
     "clsx": "^2.0.0",
+    "embla-carousel-autoplay": "^8.5.1",
+    "embla-carousel-react": "^8.5.1",
     "framer-motion": "^11.14.4",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",

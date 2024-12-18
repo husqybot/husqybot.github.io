@@ -21,7 +21,7 @@ const config: Config = {
   organizationName: "husqybot", // Usually your GitHub org/user name.
   projectName: "husqybot.github.io", // Usually your repo name.
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
@@ -84,7 +84,6 @@ const config: Config = {
             "./src/css/globals.css",
             "./src/css/navbar.css",
             "./src/css/footer.css",
-            "./src/css/announcement.css",
             "./src/css/animations.css",
           ],
         },
@@ -99,14 +98,6 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     image: "assets/logos/logo_default.png",
-    announcementBar: {
-      id: "announcement",
-      content:
-        "We are celebrating the launch of the new reworked Husqy2.0.0! Noticing any issues since the new update or missing changes in our changelog? Please let us know!",
-      backgroundColor: "#60697b",
-      textColor: "#efefef",
-      isCloseable: false,
-    },
     navbar: {
       title: "Husqy",
       hideOnScroll: false,

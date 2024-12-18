@@ -17,46 +17,44 @@ import styles from "./index.module.css";
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <NextUIProvider>
-      <Layout>
-        <Hero />
-        <ContentHighlight type="primary">
-          <div className={styles.contentHighlight_why_choose_us}>
-            <h2 className={styles.contentHighlight_why_choose_us_title}>
-              Why the community chooses us?
-            </h2>
+    <Layout>
+      <Hero />
+      <ContentHighlight type="primary">
+        <div className={styles.contentHighlight_why_choose_us}>
+          <h2 className={styles.contentHighlight_why_choose_us_title}>
+            Why the community chooses us?
+          </h2>
+        </div>
+      </ContentHighlight>
+      <WhyChooseUs />
+      <ContentHighlight type="primary">
+        <div className={styles.contentHighlight_discover}>
+          <h2 className={styles.contentHighlight_discover_title}>
+            Discover Husqy documentation, FAQ and more!
+          </h2>
+        </div>
+      </ContentHighlight>
+      <Discover />
+      <ContentHighlight type="secondary">
+        <div className={styles.contentHighlight_add_husqy}>
+          <h2 className={styles.contentHighlight_add_husqy_title}>
+            Add Husqy, the most{" "}
+            <span className={styles.contentHighlight_add_husqy_highlight}>
+              complete
+            </span>{" "}
+            Discord bot, to your server today!
+          </h2>
+          <div className={styles.contentHighlight_add_husqy_actions}>
+            <MainButton
+              type={3}
+              text="Get started"
+              onButtonClick={() => {
+                window.location = "/get-started";
+              }}
+            />
           </div>
-        </ContentHighlight>
-        <WhyChooseUs />
-        <ContentHighlight type="primary">
-          <div className={styles.contentHighlight_discover}>
-            <h2 className={styles.contentHighlight_discover_title}>
-              Discover Husqy documentation, FAQ and more!
-            </h2>
-          </div>
-        </ContentHighlight>
-        <Discover />
-        <ContentHighlight type="secondary">
-          <div className={styles.contentHighlight_add_husqy}>
-            <h2 className={styles.contentHighlight_add_husqy_title}>
-              Add Husqy, the most{" "}
-              <span className={styles.contentHighlight_add_husqy_highlight}>
-                complete
-              </span>{" "}
-              Discord bot, to your server today!
-            </h2>
-            <div className={styles.contentHighlight_add_husqy_actions}>
-              <MainButton
-                type={3}
-                text="Get started"
-                onButtonClick={() => {
-                  window.location = "/get-started";
-                }}
-              />
-            </div>
-          </div>
-        </ContentHighlight>
-      </Layout>
-    </NextUIProvider>
+        </div>
+      </ContentHighlight>
+    </Layout>
   );
 }
