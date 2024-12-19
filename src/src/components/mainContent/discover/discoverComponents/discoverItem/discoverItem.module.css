@@ -9,7 +9,7 @@
     margin: auto;
     text-align: center;
     transition: 0.15s;
-
+    opacity: 0;
 }
 .discover_item_container:hover {
     transform: scale(1.02); 
@@ -31,10 +31,18 @@
     margin-bottom: 24px;
 }
 
-
 .discover_item_link_text {
     color: var(--secondary-color-1);
     font-family: var(--ifm-font-family-base);
+}
+
+/* Animations */
+.animate_discover_container {
+    animation: .75s ease-out 0s 1 var(--animation-appear-1)
+
+}
+.opacity_1 {
+    opacity: 1;
 }
 
 @media screen and (max-width: 1024px) {

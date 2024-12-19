@@ -1,8 +1,10 @@
 :root {
-  --animation-slide-in-1: slideInCards;
+  --animation-slide-in-1: slideIn1;
+  --animation-slide-in-2: slideIn2;
+  --animation-appear-1: appear;
 }
 
-@keyframes slideInCards {
+@keyframes slideIn1 {
   0% {
     opacity: 0;
     transform: translateX(-100px);
@@ -10,6 +12,26 @@
   100% {
     opacity: 100;
     transform: translateX(0px);
+  }
+}
+
+@keyframes slideIn2 {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 100;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
   }
 }
 
