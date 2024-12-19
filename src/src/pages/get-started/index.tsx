@@ -107,12 +107,12 @@ export default function GetStarted(): JSX.Element {
                 </p>
               </div>
               <div className={styles.get_started_step_actions_container}>
-                <a href="/docs">
-                  Go to documentation
-                  <span className="material-symbols-outlined">
-                    arrow_forward
-                  </span>
-                </a>
+                <a href="/docs">Go to documentation</a>
+                <span
+                  className={`${styles.get_started_step_actions_container_icon} material-symbols-outlined`}
+                >
+                  arrow_forward
+                </span>
               </div>
             </div>
           </div>
@@ -133,12 +133,12 @@ export default function GetStarted(): JSX.Element {
                 </p>
               </div>
               <div className={styles.get_started_step_actions_container}>
-                <a href="/">
-                  Back to front page
-                  <span className="material-symbols-outlined">
-                    arrow_forward
-                  </span>
-                </a>
+                <a href="/">Back to front page</a>
+                <span
+                  className={`${styles.get_started_step_actions_container_icon} material-symbols-outlined`}
+                >
+                  arrow_forward
+                </span>
               </div>
             </div>
           </div>

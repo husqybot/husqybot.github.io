@@ -70,6 +70,9 @@
 .get_started_step_title {
   font-size: var(--font-size-4);
 }
+.get_started_step_actions_container {
+  display: flex;
+}
 .get_started_step_actions_container a {
   display: flex;
 }
@@ -79,6 +82,10 @@
   margin-left: 8px;
   display: flex;
   flex-direction: row;
+}
+.get_started_step_actions_container_icon {
+  color: var(--accent-color-1);
+  margin-left: 8px;
 }
 .get_started_step_big_icon_container {
   box-sizing: border-box;
