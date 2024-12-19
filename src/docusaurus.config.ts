@@ -157,7 +157,7 @@ const config: Config = {
           to: "/documents/terms-of-service",
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Husqy<br/>Husqy is not part or related to Discord Inc. in any form or way.
+      copyright: `Copyright © ${new Date().getFullYear()} Husqy<br/>Husqy is neither part of nor related to Discord Inc. in any form or way.
 
 `,
     },
