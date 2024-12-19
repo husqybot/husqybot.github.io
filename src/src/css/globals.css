@@ -35,7 +35,8 @@
 
   /* Overwrite fonts */
   --ifm-heading-font-family: "Ubuntu", sans-serif;
-  --ifm-font-family-base: "Fira Sans", sans-serif;
+  --ifm-font-family-base: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* Overwrite default colors */
   --ifm-color-primary: var(--accent-color-1);
