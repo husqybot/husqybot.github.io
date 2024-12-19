@@ -60,7 +60,7 @@ const config: Config = {
       "content-docs",
       {
         id: "documents",
-        path: "1-documents",
+        path: "documents",
         routeBasePath: "documents",
         editCurrentVersion: false,
         showLastUpdateAuthor: false,
