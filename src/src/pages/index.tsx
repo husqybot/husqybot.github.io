@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
@@ -8,6 +9,9 @@ import WhyChooseUs from "../components/mainContent/whyChooseUs/whyChooseUs";
 import Discover from "../components/mainContent/discover/discover";
 import MainButton from "../components/buttons/mainButton/mainButton";
 
+// Import functions
+import isElementInViewport from "../functions/isElementInViewport";
+
 // Import NextUI provider
 import { NextUIProvider } from "@nextui-org/react";
 
@@ -16,6 +20,41 @@ import styles from "./index.module.css";
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
+
+  // Event listeners
+  const checkElements = async () => {
+    var targetWhyChooseUsElements = document.getElementsByClassName(
+      styles.contentHighlight_why_choose_us
+    );
+    var targetDiscoverElements = document.getElementsByClassName(
+      styles.contentHighlight_discover
+    );
+
+    if (isElementInViewport(targetWhyChooseUsElements[0])) {
+      targetWhyChooseUsElements[0].classList.add(
+        styles.animate_contentHighlight_why_choose_us
+      );
+      targetWhyChooseUsElements[0].classList.add(styles.opacity_1);
+    }
+    if (isElementInViewport(targetDiscoverElements[0])) {
+      targetDiscoverElements[0].classList.add(
+        styles.animate_contentHighlight_discover
+      );
+      targetDiscoverElements[0].classList.add(styles.opacity_1);
+    }
+  };
+
+  useEffect(() => {
+    checkElements();
+    // Attach the event listener to the window
+    window.addEventListener("scroll", checkElements);
+
+    // Cleanup the event listener when the component unmounts or is re-rendered
+    return () => {
+      window.removeEventListener("scroll", checkElements);
+    };
+  }, []); // Empty dependency array ensures it runs only once, similar to componentDidMount
+
   return (
     <Layout>
       <Hero />

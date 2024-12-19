@@ -20,14 +20,12 @@ export default function GetStarted(): JSX.Element {
       styles.get_started_step_small_container
     );
 
-    if (isElementInViewport(targetElements[0])) {
-      targetElements[0].classList.add(styles.animate_slide_in_small_cards);
-      targetElements[0].classList.add(styles.opacity_1);
-    }
-    if (isElementInViewport(targetElements[1])) {
-      targetElements[1].classList.add(styles.animate_slide_in_small_cards);
-      targetElements[1].classList.add(styles.opacity_1);
-    }
+    Array.from(targetElements).forEach((element) => {
+      if (isElementInViewport(element)) {
+        element.classList.add(styles.animate_slide_in_small_cards);
+        element.classList.add(styles.opacity_1);
+      }
+    });
   };
 
   useEffect(() => {

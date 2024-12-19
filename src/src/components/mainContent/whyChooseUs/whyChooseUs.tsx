@@ -1,11 +1,42 @@
+import { useEffect } from "react";
+
 // Import components
 import ReasonComponent from "./whyChooseUsComponents/reasonComponent/reasonComponent";
 import MainButton from "../../buttons/mainButton/mainButton";
 
+// Import functions
+import isElementInViewport from "../../../functions/isElementInViewport";
+
 // Import styles
 import styles from "./whyChooseUs.module.css";
+import reasonComponentStyles from "./whyChooseUsComponents/reasonComponent/reasonComponent.module.css";
 
 export default function WhyChooseUs() {
+  // Event listeners
+  const checkElements = async () => {
+    var targetElements = document.getElementsByClassName(
+      reasonComponentStyles.reason_highlight
+    );
+
+    Array.from(targetElements).forEach((element) => {
+      if (isElementInViewport(element)) {
+        element.classList.add(reasonComponentStyles.animate_reason_highlight);
+        element.classList.add(reasonComponentStyles.opacity_1);
+      }
+    });
+  };
+
+  useEffect(() => {
+    checkElements();
+    // Attach the event listener to the window
+    window.addEventListener("scroll", checkElements);
+
+    // Cleanup the event listener when the component unmounts or is re-rendered
+    return () => {
+      window.removeEventListener("scroll", checkElements);
+    };
+  }, []); // Empty dependency array ensures it runs only once, similar to componentDidMount
+
   return (
     <div className={styles.why_choose_us_container}>
       <ReasonComponent

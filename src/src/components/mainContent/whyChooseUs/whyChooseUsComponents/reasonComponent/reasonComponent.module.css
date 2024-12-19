@@ -4,6 +4,7 @@
     justify-content: space-between;
     padding-left: 24px;
     padding-right: 24px;
+    opacity: 0;
 }
 .reason_main_content {
     max-width: 50%;
@@ -28,6 +29,14 @@
 .reason_actions {
     display: flex;
     gap: 12px;
+}
+
+/* Animations */
+.animate_reason_highlight {
+    animation: .75s ease-out 0s 1 var(--animation-appear-1)
+}
+.opacity_1 {
+    opacity: 1;
 }
 
 @media screen and (max-width: 1024px) {
