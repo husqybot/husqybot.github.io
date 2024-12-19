@@ -30,6 +30,10 @@
     display: flex;
     gap: 12px;
 }
+.reason_container_icon_overwrite {
+    font-size: 333px;
+    color: var(--secondary-color-1);
+}
 
 /* Animations */
 .animate_reason_highlight {
@@ -51,7 +55,11 @@
     .reason_main_content {
         max-width: 100%;
     }
+    .reason_container_icon_overwrite {
+        font-size: 222px;
+    }
 }
 
 @media screen and (max-width: 996px) {
+
 }

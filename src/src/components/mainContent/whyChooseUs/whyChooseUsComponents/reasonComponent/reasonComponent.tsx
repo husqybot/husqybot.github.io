@@ -9,7 +9,8 @@ import styles from "./reasonComponent.module.css";
 // Interface
 interface IWhyChooseUs {
   children?: React.ReactNode | undefined;
-  image_url: string;
+  image_url?: string | undefined;
+  icon?: string | undefined;
   title: string;
   subtitle: string;
   description_line_1: string;
@@ -21,6 +22,7 @@ interface IWhyChooseUs {
 export default function ReasonComponent({
   children,
   image_url,
+  icon,
   title,
   subtitle,
   description_line_1,
@@ -31,12 +33,25 @@ export default function ReasonComponent({
   return (
     <div className={styles.reason_highlight}>
       <div className={styles.reason_container_image}>
-        <img
-          className={styles.reason_image}
-          src={image_url}
-          width={484}
-          height={333}
-        />
+        {image_url !== undefined ? (
+          <img
+            className={styles.reason_image}
+            src={image_url}
+            width={484}
+            height={333}
+          />
+        ) : (
+          <></>
+        )}
+        {icon !== undefined ? (
+          <span
+            class={`${styles.reason_container_icon_overwrite} material-symbols-outlined`}
+          >
+            {icon}
+          </span>
+        ) : (
+          <></>
+        )}
       </div>
       <div className={styles.reason_main_content}>
         <div className={styles.reason_main_text}>

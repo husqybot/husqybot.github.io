@@ -40,7 +40,8 @@ export default function WhyChooseUs() {
   return (
     <div className={styles.why_choose_us_container}>
       <ReasonComponent
-        image_url="/img/stock_discord_image.png"
+        // image_url="/img/stock_discord_image.png"
+        icon="dashboard"
         title="Configure everything to your liking"
         subtitle="The dashboard is there when you need it!"
         description_line_1="Almost everything in Husqy is configurable to fit your servers needs. Wether you want to change general Husqy settings, create reminders or giveaways without having access to Discord or enabling, configuring or disabling a Husqy module. You can do it all!"
@@ -49,33 +50,38 @@ export default function WhyChooseUs() {
         custom_button_text="Go to dashboard"
       />
       <ReasonComponent
-        image_url="/img/stock_discord_image.png"
+        // image_url="/img/stock_discord_image.png"
+        icon="browse_activity"
         title="Log your servers events"
         subtitle="See what is happening in your server!"
         description_line_1="Your servers events are important to you (and maybe your members). An easy way to get live notifications for your servers events is using the Husqy. Husqy can log all events that you want to a channel which you have full control over. Want everyone to see the logging messages, configure the channel to comply with your wishes."
         description_line_2="Something being logged you are not interested in? Turn it off using the dashboard."
       />
       <ReasonComponent
-        image_url="/img/stock_discord_image.png"
+        // image_url="/img/stock_discord_image.png"
+        icon="waving_hand"
         title="Greet your new server members"
         subtitle="Give them a warm welcome!"
         description_line_1="Greet your server member and give them standard information when they join to remove repetitiveness either in your servers channel or in the users DM. Choose between embeds or normal messages and give users a default role when they join!"
         description_line_2="Want to let others know when someone leaves? This is also possible!"
       />
       <ReasonComponent
-        image_url="/img/stock_discord_image.png"
+        // image_url="/img/stock_discord_image.png"
+        icon="radio"
         title="Play your favorite music and radio stations"
         subtitle="Never have a boring voice chat again!"
         description_line_1="Ever been in a voice channel where it is all quiet? No more with music and radio stations. Make Husqy join your voice channel and play your favorite music or radiostation. Add full playlists or individual songs, skip songs, check the queue and even change the volume!"
       />
       <ReasonComponent
-        image_url="/img/stock_discord_image.png"
+        // image_url="/img/stock_discord_image.png"
+        icon="celebration"
         title="Create giveaways to engage your community"
         subtitle="Give back to the community!"
         description_line_1="Want to give back to your community? Now you can with Husqy giveaways. Easily create giveaways in your server and let Husqy pick a random winner or even multiple winners. Somebody one in another giveaway and now again? Reroll the giveaway winners to make sure someone doesn't win twice!"
       />
       <ReasonComponent
-        image_url="/img/stock_discord_image.png"
+        // image_url="/img/stock_discord_image.png"
+        icon="more"
         title="And much more"
         subtitle="We think our features and modules are a good fit for your server!"
         description_line_1="There is much more to discover when you start using Husqy, these features just scrape the surface. Other features include creating reminders, using tags in your server, create reactionroles, and more. All of these are split across Husqy modules and standard Husqy features for you to configure in your server."
