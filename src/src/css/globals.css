@@ -74,6 +74,10 @@
   /* Sidebar */
   --ifm-navbar-sidebar-width: 100vw;
 
+  /* Code blocks (Small) */
+  --ifm-code-background: var(--secondary-color-1);
+  --ifm-code-font-size: var(--font-size-text);
+
   /* Other */
   --ifm-toc-border-color: var(--secondary-color-1) !important;
   --ifm-toc-link-color: var(--secondary-color-2) !important;
