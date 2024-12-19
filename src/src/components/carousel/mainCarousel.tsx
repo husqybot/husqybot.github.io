@@ -19,7 +19,7 @@ export default function MainCarousel() {
           Please let us know!
         </div>
         <div className={styles.embla__slide}>
-          Help us translate! Please visit&nbsp;
+          Want to help us translate the Husqy responses? We can't do it without you! Please visit&nbsp;
           <a href="https://github.com/husqybot/translations/">
             our translations repo!
           </a>
