@@ -4,7 +4,8 @@ export default function isElementInViewport(element: HTMLElement) {
     rect.top >= 0 &&
     rect.left >= 0 &&
     rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
+      (window.innerHeight + 150 ||
+        document.documentElement.clientHeight + 150) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
