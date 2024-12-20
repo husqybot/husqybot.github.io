@@ -35,8 +35,10 @@
 
   /* Overwrite fonts */
   --ifm-heading-font-family: "Ubuntu", sans-serif;
-  --ifm-font-family-base: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --ifm-font-family-base: ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
   /* Overwrite default colors */
   --ifm-color-primary: var(--accent-color-1);
@@ -125,6 +127,11 @@ a:hover {
   color: var(--accent-color-1);
   text-decoration: underline;
 }
+.alert--warning a {
+  color: var(--primary-color-1);
+  font-weight: 500;
+}
+
 .table-of-contents__link {
   font-size: inherit !important;
 }
@@ -138,10 +145,16 @@ ol {
   margin: auto;
   list-style: auto;
 }
-.markdown ul, .markdown ol {
+.markdown ul,
+.markdown ol {
   padding-left: 32px;
 }
-.table-of-contents ul, .table-of-contents ol, .table-of-contents li, .menu ul, .menu ol, .menu li {
+.table-of-contents ul,
+.table-of-contents ol,
+.table-of-contents li,
+.menu ul,
+.menu ol,
+.menu li {
   list-style: none;
 }
 
