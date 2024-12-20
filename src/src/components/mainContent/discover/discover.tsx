@@ -17,42 +17,11 @@ export default function Discover() {
       discoverItemStyles.discover_item_container
     );
 
-    if (isElementInViewport(targetElements[0])) {
-      targetElements[0].classList.add(
-        discoverItemStyles.animate_discover_container
-      );
-      targetElements[0].classList.add(discoverItemStyles.opacity_1);
-    }
-    if (isElementInViewport(targetElements[1])) {
-      targetElements[1].classList.add(
-        discoverItemStyles.animate_discover_container
-      );
-      targetElements[1].classList.add(discoverItemStyles.opacity_1);
-    }
-    if (isElementInViewport(targetElements[2])) {
-      targetElements[2].classList.add(
-        discoverItemStyles.animate_discover_container
-      );
-      targetElements[2].classList.add(discoverItemStyles.opacity_1);
-    }
-    if (isElementInViewport(targetElements[3])) {
-      targetElements[3].classList.add(
-        discoverItemStyles.animate_discover_container
-      );
-      targetElements[3].classList.add(discoverItemStyles.opacity_1);
-    }
-    if (isElementInViewport(targetElements[4])) {
-      targetElements[4].classList.add(
-        discoverItemStyles.animate_discover_container
-      );
-      targetElements[4].classList.add(discoverItemStyles.opacity_1);
-    }
-    if (isElementInViewport(targetElements[5])) {
-      targetElements[5].classList.add(
-        discoverItemStyles.animate_discover_container
-      );
-      targetElements[5].classList.add(discoverItemStyles.opacity_1);
-    }
+    Array.from(targetElements).forEach((element) => {
+      if (isElementInViewport(element)) {
+        element.classList.add(discoverItemStyles.animate_discover_container);
+      }
+    });
   };
 
   useEffect(() => {
