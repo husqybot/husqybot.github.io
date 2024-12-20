@@ -105,7 +105,7 @@ export default function GetStarted(): JSX.Element {
                 </p>
               </div>
               <div className={styles.get_started_step_actions_container}>
-                <a href="/docs">Go to documentation</a>
+                <a href="/docs/introduction">Go to documentation</a>
                 <span
                   className={`${styles.get_started_step_actions_container_icon} material-symbols-outlined`}
                 >
