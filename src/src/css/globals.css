@@ -80,6 +80,8 @@
   /* Code blocks (Small) */
   --ifm-code-background: var(--secondary-color-1);
   --ifm-code-font-size: var(--font-size-text);
+  --prism-background-color: var(--secondary-color-1) !important;
+  --ifm-font-color-base: var(--secondary-color-2) !important;
 
   /* Other */
   --ifm-toc-border-color: var(--secondary-color-1) !important;
@@ -103,6 +105,15 @@ html {
 }
 .menu .menu__link.menu__link--sublist:after {
   background-image: url("/img/overwrites/sidebar_arrow.svg");
+}
+
+/* Code blocks */
+.prism-code {
+  background-color: var(--secondary-color-1) !important;
+  color: var(--secondary-color-2) !important;
+}
+.token-line {
+  color: var(--secondary-color-2) !important;
 }
 
 /* Headings */
