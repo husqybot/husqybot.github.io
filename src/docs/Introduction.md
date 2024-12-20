@@ -18,7 +18,7 @@ Husqy functions are functionalities which work immediatly when Husqy joins our D
 
 - [Giveaways](functions/giveaways)
 - [Reminders](functions/reminders)
-- [Music & radio](functions/music%20&%20radio)
+- [Music & radio](functions/music-and-radio)
 - [Moderation](functions/moderation)
 - [Games](functions/games)
 - [Miscellaneous](functions/miscellaneous)
