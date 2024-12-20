@@ -19,6 +19,6 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: cd src && npm install --frozen-lockfile
+        run: npm install --frozen-lockfile
       - name: Test build website
-        run: cd src && npm build
+        run: npm build
