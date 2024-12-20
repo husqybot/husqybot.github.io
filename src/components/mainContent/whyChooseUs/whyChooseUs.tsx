@@ -19,7 +19,7 @@ export default function WhyChooseUs() {
     );
 
     Array.from(targetElements).forEach((element) => {
-      if (isElementInViewport(element)) {
+      if (isElementInViewport(element, 250)) {
         element.classList.add(reasonComponentStyles.animate_reason_highlight);
       }
     });
