@@ -1,0 +1,181 @@
+/* Import Google icons */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+/* Import Google fonts Ubuntu & Fire Sans */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --primary-color-1: #0a1931;
+  --primary-color-2: #12223d;
+
+  --secondary-color-1: #636c7b;
+  --secondary-color-2: #efefef;
+
+  --accent-color-1: #ffc947;
+  --accent-color-2: #185adb;
+  --accent-color-3: #dc3232;
+  --accent-color-4: #008b28;
+
+  /* Font sizes */
+  --font-size-1: 64px;
+  --font-size-2: 48px;
+  --font-size-3: 32px;
+  --font-size-4: 26px;
+  --font-size-5: 20px;
+  --font-size-text: 18px;
+
+  /* Max width */
+  --content-max-width: 1500px;
+  --ifm-container-width-xl: var(--content-max-width);
+  --ifm-col-width: var(--content-max-width);
+
+  /* Overwrite fonts */
+  --ifm-heading-font-family: "Ubuntu", sans-serif;
+  --ifm-font-family-base: ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* Overwrite default colors */
+  --ifm-color-primary: var(--accent-color-1);
+  --ifm-color-primary-dark: var(--accent-color-1);
+  --ifm-color-primary-darker: var(--accent-color-1);
+  --ifm-color-primary-darkest: var(--accent-color-1);
+  --ifm-color-primary-light: var(--accent-color-1);
+  --ifm-color-primary-lighter: var(--accent-color-1);
+  --ifm-color-primary-lightest: var(--accent-color-1);
+  --ifm-menu-color-background-active: var(--secondary-color-1);
+  --ifm-heading-color: var(--secondary-color-2);
+  --ifm-menu-color: var(--secondary-color-2);
+  --ifm-font-color-base: var(--secondary-color-2);
+
+  /* Banner styles */
+  --ifm-color-info-contrast-background: var(--primary-color-1) !important;
+  --ifm-color-info-dark: var(--primary-color-1) !important;
+  --ifm-color-info-contrast-foreground: var(--secondary-color-2) !important;
+  --ifm-color-success-contrast-background: var(--accent-color-4) !important;
+  --ifm-color-success-dark: var(--accent-color-4) !important;
+  --ifm-color-success-contrast-foreground: var(--secondary-color-2) !important;
+  --ifm-color-secondary-contrast-background: var(
+    --secondary-color-1
+  ) !important;
+  --ifm-color-secondary-dark: var(--secondary-color-1) !important;
+  --ifm-color-secondary-contrast-foreground: var(
+    --secondary-color-2
+  ) !important;
+  --ifm-color-warning-contrast-background: var(--accent-color-1) !important;
+  --ifm-color-warning-dark: var(--accent-color-1) !important;
+  --ifm-color-warning-contrast-foreground: #0a1931 !important;
+  --ifm-color-danger-contrast-background: var(--accent-color-3) !important;
+  --ifm-color-danger-dark: var(--accent-color-3) !important;
+  --ifm-color-danger-contrast-foreground: var(--secondary-color-2) !important;
+
+  /* Sidebar */
+  --ifm-navbar-sidebar-width: 100vw;
+
+  /* Code blocks (Small) */
+  --ifm-code-background: var(--secondary-color-1);
+  --ifm-code-font-size: var(--font-size-text);
+  --prism-background-color: var(--secondary-color-1) !important;
+  --ifm-font-color-base: var(--secondary-color-2) !important;
+
+  /* Other */
+  --ifm-toc-border-color: var(--secondary-color-1) !important;
+  --ifm-toc-link-color: var(--secondary-color-2) !important;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-navbar-height: 97px;
+  --ifm-breadcrumb-separator: url("/img/overwrites/breadcrumb_seperator.svg");
+  --ifm-menu-link-sublist-icon: url("/img/overwrites/table_of_content_arrow.svg");
+}
+
+/* Webpage general */
+html {
+  background-color: var(--primary-color-2) !important;
+  color: var(--secondary-color-2) !important;
+  font-size: var(--font-size-text);
+  overflow-x: hidden;
+}
+.main-wrapper {
+  width: 100dvw;
+}
+.menu .menu__link.menu__link--sublist:after {
+  background-image: url("/img/overwrites/sidebar_arrow.svg");
+}
+
+/* Code blocks */
+.prism-code {
+  background-color: var(--secondary-color-1) !important;
+  color: var(--secondary-color-2) !important;
+}
+.token-line {
+  color: var(--secondary-color-2) !important;
+}
+
+/* Headings */
+h1 {
+  font-size: var(--font-size-2);
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: var(--font-size-3);
+}
+h3 {
+  font-size: var(--font-size-4);
+}
+h4 {
+  font-size: var(--font-size-5);
+}
+a {
+  font-size: var(--font-size-text);
+  color: var(--accent-color-1);
+}
+a:hover {
+  color: var(--accent-color-1);
+  text-decoration: underline;
+}
+.alert--warning a {
+  color: var(--primary-color-1);
+  font-weight: 500;
+}
+
+.table-of-contents__link {
+  font-size: inherit !important;
+}
+
+/* Lists */
+ul {
+  margin: auto;
+  list-style: disc;
+}
+ol {
+  margin: auto;
+  list-style: auto;
+}
+.markdown ul,
+.markdown ol {
+  padding-left: 32px;
+}
+.table-of-contents ul,
+.table-of-contents ol,
+.table-of-contents li,
+.menu ul,
+.menu ol,
+.menu li {
+  list-style: none;
+}
+
+/* Mobile view changes */
+@media screen and (max-width: 996px) {
+  :root {
+    --font-size-1: 40px;
+    --font-size-2: 28px;
+    --font-size-3: 24px;
+    --font-size-4: 20px;
+    --font-size-text: 14px;
+  }
+}

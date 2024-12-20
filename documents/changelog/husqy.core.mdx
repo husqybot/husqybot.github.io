@@ -1,0 +1,60 @@
+---
+title: Changelog for Husqy.core
+sidebar_label: Husqy.core
+keywords:
+  - husqy.core
+  - changelog
+sidebar_position: 3
+toc_max_heading_level: 3
+---
+
+:::info
+Experiencing a change that is not listed? Please let us know and contact our support!
+:::
+
+## [Unreleased/Working on]
+
+### [2.0.1 - 2.0.2] - 15-12-2024
+
+#### [Bugfixes]
+
+- Various bugfixes
+
+## [Released]
+
+### [2.0.0] - 23-11-2024
+
+#### [NEW]
+
+- Husqy2.0.0 has an improved backend split up into microservices to ensure better development experiences, faster updates and better uptime.
+- Improved safety on the Husqy2.0.0 Dashboard. We are now using Authjs as our Identity Provider to improve on your safety.
+- Improved safety on our API. The Husqy2.0.0 API now has even more validation to ensure not everybody can edit Husqy's settings in your server.
+- Added support for API keys on the Husqy2.0.0 API.
+- The socials module now allows you to set a channel and mention everyone option per entry not globally per component. All existing entries will have the old channel to ensure proper working after the Husqy2.0.0 update
+- All new `/info` command which allows you to retrieve information about different things, f.e. roles, users or Husqy settings. This is also the place where you can find lists of different modules, f.e. tag entries list, monitored Reddits list, etc.
+- Added new statistics to the statistics module
+  - Reminders: Created & deleted
+  - Giveaways: Created, deleted & Responders
+  - Tempchannels: Created, Creation time & Deletion time
+  - Reactionroles: Check time
+  - Autoresponder: Response time
+  - Tags: Send time
+- New documentation site -> https://docs.husqy.xyz/
+- Updated the main website
+- Improved internal pipelines and automated actions to ensure better quality
+
+#### [BREAKING]
+
+- Improve encyption that Husqy uses so your data stays safe no matter what.
+- The polls functionality of Husqy has temporarily been removed. This functionality will get a rework and will return.
+- Tags functionality has been moved to a module. All existing tags still exist and can still be used.
+- All tag commands except `/tag send` have been removed. Adding, removing or editing tags can now only be done by an administrator via the Husqy2.0.0 Dashboard.
+- The privacy command does not allow you to delete your own data anymore. It will only allow you to toggle privacy mode. If you want to delete your data, please contact our support!
+- The `/invite_link` command has been removed in favour of the new and reworked `/info` commands which allows you to get the invite link.
+- The `/ping` command has been removed in favour of the new and reworked `/info` commands which allows you to get the current ping.
+- The `/support` command has been removed in favour of the new and reworked `/info` commands which allows you to get the support info.
+- Remove the `/playnext` command in favour of the `/play` commands option for `position_in_queue` argument.
+
+#### [Bugfixes]
+
+- Various other improvements and/or bugfixes.

@@ -1,0 +1,675 @@
+---
+description: Quick overview of all changes
+title: Legacy changelog
+sidebar_label: Legacy changelog
+keywords:
+  - changelog
+  - legacy
+sidebar_position: 99
+toc_max_heading_level: 3
+---
+
+## [Released]
+
+### [1.16.8] - 09-05-2024
+
+#### [Bugfixes]
+
+- Small bugfix for audio
+
+### [1.16.7] - 04-05-2024
+
+#### [Bugfixes]
+
+- Small bugfix for audio
+
+### [1.16.6] - 17-03-2024
+
+#### [Changes]
+
+- Removed the support for the message commands (only one command was added here, this was `@Husqy tag "tag_name"`)
+- `/skip` command no longer stops and disconnects Husqy when the queue is empty
+
+#### [Bugfixes]
+
+- Fixed an issue with Husqy audio
+
+### [1.16.5] - 06-01-2024
+
+#### [Bugfixes]
+
+- Fixed an issue where Husqy wouldn't start
+
+### [1.16.4] - 06-01-2024
+
+#### [Changes]
+
+- Internal code cleanup
+- Remove choices limit calculation on Polls based on answer amount
+- Change for tempchannels and permission overwrites (added some overwrites when claiming or transferring ownership). Note: When claiming or transferring an tempchannel, all overwrites will be reset so the new owner can configure the channel to their liking!
+
+#### [Bugfixes]
+
+- Fixed an issue where the seek command didn't work properly
+- Fixed an issue with version number display
+- Fix for `/tempchannel edit` not working
+- Fix `/tempchannel edit` command not being logged by serverstats module (command usage stats)
+- Fix `/tempchannel edit` command not responding when not selecting tempchannel
+- Fix issue where `/tag create` would not check successful tag insert
+- Fixed an issue where the RSS monitor would not send all RSS updates if some are missed
+- Fixed serverstats counter panel for larger servers (abbr. to K (thousand, 1000 > 1K) or M (million, 1000000 > 1M))
+- Fixed an issue where old serverstats message statistics where not deleted
+
+### [1.16.3] - 25-11-2023
+
+#### [Bugfixes]
+
+- Fixed starup issue
+
+### [1.16.2] - 25-11-2023
+
+#### [Bugfixes]
+
+- Fixed an issue where user_mention variable would not work!
+
+### [1.16.1] - 23-08-2023
+
+#### [Changes]
+
+- Fixed an issue where settings where not updating correctly!
+
+### [1.16.0] - 16-08-2023
+
+#### [NEW]
+
+- Implement an all new Husqy dashboard (https://dashboard.husqy.xyz/)
+- Add Dashboard link to `/support`
+- Add Twitch monitoring component to the Socials module (Beta! Functionality might not work as intended!)
+- Add `/privacy` command to allow you to manage your privacy settings in the selected or all servers you share with Husqy. Please beware of the consequenses of all changes you do with this command and read the messages very carefully and always double check data after deletion (of something is wrong, please contact our support ASAP so we can assist you further and fix the issue)!
+
+#### [BREAKING]
+
+- Removed the user discriminator variable to comply with the new Discord Username migration. IF YOU HAVE USED THIS VARIABLE IN SOME CONFIGURATION, PLEASE CHANGE THIS ASAP!
+- The Twitter compontent of the socials module is officially removed including all data configured by the server!
+- Removed the `/settings update` command in favour of the new Husqy Dashboard
+- Removed the `/settings module` command in favour of the new Husqy Dashboard
+
+#### [Changes]
+
+- ID's generated for different entries are now full uuid4 ID's
+
+#### [Bugfixes]
+
+- Fixed an issue where giveaways would not comply with custom winner counts
+- Fixed an issue where giveaways would send multiple winner messages on a finished giveaway
+- Fixed an issue where the counter panel wouldn't enable
+- Fixed an issue where the Tickets module wouldn't be enabled correctly
+- Fixed an issue where RSS feeds without a description would not send new messages
+- Fixed an issue where removing a reaction from a reaction role would not remove the role from the user
+- Fix for reminder list command
+- Fixed an issue where joining Husqy joining a tempchannel would mention the channel instead of making it a text format
+
+### [1.15.1] - 07-07-2023
+
+#### [Changes]
+
+- Removed reminder acknowledge button from DM reminders, DM reminders will be deleted from the database immediately
+
+#### [Bugfixes]
+
+- Fixed an issue where reminders would not be inserted into the database in the correct way
+- Fixed an issue where the invite link would not be inserted into the database the correct way
+- Translation fixes
+
+### [1.15.0] - 18-06-2023
+
+#### [NEW]
+
+- Add list command for tags
+- Added commands to convert: days, hours, minutes and seconds to a total amount of settings (`/utils convert_to_seconds`)
+- Added the Higher/Lower game (`/games higher_lower`)
+- Added `/meme` command to get random memes
+- Added a function to transcribe voice messages (`/transcribe_voice_message`)! DISCLAIMER: The audio files will be downloaded to use for the transciption, once transcribed, they will be deleted IMMEDIATELY!
+- Added RSS monitoring to the socials module
+
+#### [BREAKING]
+
+- Disabled the Twitter monitor for ALL servers, because of the new Twitter API changes and limitations of the free API. All settings regarding this Twitter monitor (f.e. monitored twitter accounts, twitter updates channel, etc.) will be retained (until removed by the servers admin, f.e. by disabling the socials module!). We will keep an eye on possible updates and will enable this module again when possible!
+
+#### [Changes]
+
+- List commands for reminders, giveaways and polls now return all polls in the server and not the ones that are specific to the initiator
+- Command parameters which require to insert a time string, f.e. 1h, now support days, f.e. 2d
+- Removed metrics graphs from info commands!
+- Reminder messages no longer disappear after one minute which may have caused some confusion. A reminder message will be visiable until one of the interactions is chosen. Note: Reminders will be saved until acknowledged (check box component) or until a new reminder is created based of the reminder (repeat box compontent)
+
+#### [Bugfixes]
+
+- Fix for polls
+- Fix for modal utility
+- Fix for embed utility
+
+### [1.14.1] - 18-04-2023
+
+#### [Bugfixes]
+
+- Fix for message text selects not working properly
+
+### [1.14.0] - 10-04-2023
+
+#### [NEW]
+
+- Added giveaway functionality (`/giveaway`)!
+- Added Message Statistcs to the `ServerStats` module!
+- Added the ability to send tags by tagging Husqy. To do this use `@Husqy tag "tag_name"`, make sure the `@Husqy` is a tag, NOT text!
+- Added the ability to check the safety of domains using the new `/utils domain validate_safety` command! This command can be used 2x/user every 5 minutes!
+- Added the ability to generate QR-code with the new `/utils generate_qr` command! DISCLAIMER: The generated QR-code will be saved to send the image, after sending, the saved image will be deleted IMMEDIATELY!
+
+#### [BREAKING]
+
+- Changed the way auto kick is handled, server MUST now insert the desired role to use for auto kick (This can be done using the new parameter `auto_kick_role_id` in the `/settings update moderation` command). The default is no role so auto kick WILL NOT work if servers don't change this! You can also safely remove the previous default Husqy auto kick role since that is now not being used!
+- Bumped dependencies
+- Changed permissions required for some commands:
+  - `/giveaway create`: Manage Server > No Permissions required;
+  - `/settings modules enable`: Manage Server > Adminstrator;
+  - `/settings modules disable`: Manage Server > Adminstrator;
+  - `/settings modules configure`: Manage Server > Adminstrator;
+  - `/settings update general`: Manage Server > Adminstrator;
+  - `/settings update moderation`: Manage Server > Adminstrator;
+  - `/settings update invite_link`: No Permissions required > Adminstrator;
+
+#### [Changes]
+
+- Improved embed sidebar coloring to be inline with the Husqy color
+- Cleanup starting code (internal)
+- Improved logging (internal)
+- Added missing footer to bot info embeds with graphs
+
+#### [Bugfixes]
+
+- Fixed ban command after dependency update
+- Fixed Greetings failing when not using `In server greetings`, `Role on Join` and `In server leave taking`
+- Fixed Tickets module not deleting old configuration messages properly
+- Fixed Tickets module not checking for limit of 25 custom types causing a failing Tickets module
+- Fixed Tickets module channel selection not promting the desired channel types in the select
+- Fixed ServerStats module not allowing to add or delete panels
+- Fixed an issue where embeds of users without any statistics would fail
+- Fixed an issue where embeds of server without any statistics would fail
+- Fixed an issue where deleted reactions would cause an error
+
+### [1.13.2] - 17-03-2023
+
+#### [Bugfixes]
+
+- Fix for starboard messages not being created when reacting to a message very quickly after it being sent!
+- Fix for reaction role configuration not working correctly!
+- Fix for reaction role module not giving out roles and delete the reaction role from the message!
+- Fix for starboard when Serverstats module is disabled (Internal logging fix)
+- NOTE: Testing fix for Reddit monitor of Socials module stoppping unexpectedly (This is in testing and may still not work!)
+- NOTE: Testing fix for Twitter monitor of Socials module stoppping unexpectedly (This is in testing and may still not work!)
+
+### [1.13.1] - 04-03-2023
+
+#### [NEW]
+
+- Added new ServerStats module to `/info` command
+- Added Command Usage statistics to ServerStats module!
+
+#### [BREAKING]
+
+- Migrated `/info` subcommands to `/info` command (No subcommands anymore!)
+- Migrated the `/info` commands to SelectsV2
+- Migrated serverstats module configurations to SelectsV2
+- Removed `/support submit`, please use the official Husqy website or the official Husqy Support Discord server
+
+#### [Changes]
+
+- Changed max Twitter accounts and Subreddits to 5 (previously 3)
+- Changed the way of formatting time in the logging module
+- Changed support command
+
+#### [Bugfixes]
+
+- Fix for logging channel updates if serverstats module is disabled
+- Fix for user greetings (to user) embeds not working
+- Check on channel delete if the deleted channel is a counter panel, if yes, safely remove from config (Note: DO NOT delete the category, this will cause issues!)
+
+### [1.13.0] - 11-02-2023
+
+#### [NEW]
+
+- Add new module ServerStats
+  - Added support for Counter Panels
+  - Added Starboard functionality
+
+#### [BREAKING]
+
+- Migrate select compontents to SelectsV2
+  - Currently the Autoresponder module is not migrated and still is text input based because of limitations by Discord (only a max of 25 channels/roles/users can be selected)
+
+#### [Changes]
+
+- Added extra activities
+- Added database function to delete metrics that are older than 5 days
+
+#### [Bugfixes]
+
+- Implement a fix for music and radio not working well together
+
+### [1.12.5] - 02-02-2023
+
+#### [NEW]
+
+- Better server timezone settings (you can now choose all timezones, not only GMT offsets! f.e. Europe/Amsterdam)
+- Added support for Forum channel creation in `/mod_server channel_create` command
+
+#### [Changes]
+
+- Removed `/admin unblock` and `/admin block` commands (support server and Husqy owner only!)
+- Added a cooldown to the `/support submit` command (command can now be used 2x per 5 min. per user)
+- Fix for `/reminder list` command
+- Fix for `/info` and `/host` commands
+
+### [1.12.4] - 17-01-2023
+
+#### [NEW]
+
+- Changed the way voice channel logging handles Husqy tempchannels
+- Added the command `/restart_song` te restart the song from the beginning
+
+#### [Changes]
+
+- Removed `/admin restart` command (support server and Husqy owner only!)
+
+#### [Bugfixes]
+
+- Fix for Kick Role
+
+### [1.12.3] - 06-01-2023
+
+#### [NEW]
+
+- Added `/utils color view` command to view colors based on a given HEX or RGB value
+- Added `/volume` command to change volume of the audio Husqy plays for all members (NOTE: This is different from the individual sound slider that users have!)
+
+#### [BREAKING]
+
+- Migrate `/reaction_roles configure` command to `/settings module configure` (Note: Make sure to select the reaction roles module!)
+
+#### [Bugfixes]
+
+- Fix for some message components (like buttons) on module functions not working
+- Add credits/attribution for TuneIn radio
+
+### [1.12.2] - 04-01-2023
+
+#### [NEW]
+
+- Command parameters which requires a channel to be selected, are now only showing the channel types which are allowed to be selected
+- `/play radio {country code} {radiostation}` is now changed to `/play radio {radiostation}` and uses TuneIn for radiostations. The radiostation parameter uses Discord Autocomplete!
+
+#### [Bugfixes]
+
+- Fix for some message components (like buttons) not working
+
+### [1.12.1] - 03-01-2023
+
+#### [NEW]
+
+- Added logging for: `User server mute`, `User server unmute`, `User server deafend`, `User server undeafend`, `User self deafend`, `User self undeafend`, `User self muted`, `User self unmuted`, `User started streaming`, `User stopped streaming`, `User turned on camera`, `User turned off camera`
+- Voice channel is now mentioned in logging when Husqy joins a channel
+
+#### [Bugfixes]
+
+- Fix for `User join` logging event triggering when a user muted, deafend, started streaming, etc.
+- Fix for socials configuration wizard reddit button not working
+
+### [1.12.0] - 02-01-2023
+
+#### [NEW]
+
+- Added Autoresponder module
+- Added Ticket module
+- Added Reddit monitoring to the socials module
+  - Added `/socials reddit` command
+- Added `/play tts` command (Experimental!)
+- Added audio playback support for TikTok, Reddit and PornHub (Experimental!)
+- Added `/mod_user vckick` and `/mod_user move` commands
+- Added `/mod_server lock` and `/mod_server unlock` commands
+- Added new label to `/support submit` > Code Cleanup
+- Added `/loop` command to toggle if a song loops
+- Added logging to user joining, leaving and moving voice channels
+- Added `/utils custom_modal create` and `/utils custom_modal preview` commands
+- Added support for Forum Channels in `/info channel` command
+
+#### [BREAKING]
+
+- Bump hikari to 2.0.0.dev114
+- Removed all `/password` commands!
+- Migrate `/socials {components}` commands to `/settings module configure`
+  - Because of this migration, only admins can add, remove or list accounts
+  - This change is valid for: `Twitter` and `Reddit` components!
+  - Getting the monitored list of the components is now located at: `/info bot module_info: socials`
+- Migrated commands `/custom_embed create` and `/custom_embed send` to `/utils custom_embed create` and `/utils custom_embed send` respectively
+- Open-Sourced translations (https://github.com/husqybot/translations)!
+- Open-Sourced changelog (https://github.com/husqybot/CHANGELOG)!
+
+#### [Changes]
+
+- Update to internal logging
+- Update internal file structure
+- Added autocomplete for tag names
+
+#### [Bugfixes]
+
+- Fixed Queue embed bug
+- Fixed nowplaying embed auto delete time when auto_delete is under 20 seconds
+- Fixed bug where some messages with components would not send
+- Fix for Channel updates logging not working when updating permissions
+
+### [1.11.3] - 28-11-2022
+
+#### [Bugfixes]
+
+- Fixed multiple error messages on `/play music`, `/playnext music` and `/remove` commands
+- Fixed an issue with the `/remove` command not working
+- Added extra logging to `/play music`, `/playnext music` and `/remove` commands for troubleshooting
+
+### [1.11.2] - 27-11-2022
+
+#### [Bugfixes]
+
+- Fixed an issue with the `/playnext` command not working
+- Fixed an issue with the `/search` command logging displaying the wrong platform
+
+### [1.11.1] - 26-11-2022
+
+#### [NEW]
+
+- Added position_in_queue parameter to `/play music` command to add the song to the queue in a particular spot
+- Added support for Spotify, Deezer and Apple Music in the `/search` command
+- Added support for Spotify, Deezer and Apple Music in the `/play music` and `/playnext music` commands
+
+#### [Bugfixes]
+
+- Removed queue embed timeout logging
+
+### [1.11.0] - 12-11-2022
+
+#### [NEW]
+
+- Added ability for poll events to be changable in the logging module
+- Added polls feature
+  - Added polls create
+  - Added polls delete
+  - Added polls clear_votes
+  - Added polls list
+  - Added polls details
+  - Added polls stop
+- Reminder list now stays active for a minimum of 20 seconds
+- Added optional auto_shuffle parameter to `/play music` and `/playnext music` commands
+- Added autocomplete for reminder_ids
+- Added `/admin restart` command to allow admins from the support server to restart the bot
+
+#### [Bugfixes]
+
+- Fixed an issue where `/info user` and `/info server` commands would not work
+- Added debug for load_modules
+- Fixed an issue where reaction would be deleted from non reaction role messages
+- Fixed an issue where tag events could not be changed
+- Fixed an issue where queue command would display wrong auto delete time
+- Fix for host command using the wrong logging option
+- Fixed type hints for reminders
+- Fix for ended reminders not being deleted until restart
+- Fix for Greeting module configuration displaying wrong module name
+- Fixed an issue where all users in the support server would be able to block and unblock people from commands
+
+### [1.10.1] - 12-11-2022
+
+#### [Bugfixes]
+
+- Fixed logging issue with queue command
+
+### [1.10.0] - 11-11-2022
+
+#### [NEW]
+
+- Added the ability to see who added the current playing song in the `/nowplaying` dialog
+- Added pagination to the queue command
+
+#### [Bugfixes]
+
+- Bumped dependencies
+- Fixed startup caused after dependencies update
+- Fixed `/host` command not working
+
+### [1.9.2] - 30-10-2022
+
+#### [Bugfixes]
+
+- Fixed an issue where the timezone GMT offset could not be changed
+
+### [1.9.1] - 09-10-2022
+
+#### [Bugfixes]
+
+- Fixed an issue where info bot module logging would not work
+
+### [1.9.0] - 09-10-2022
+
+#### [NEW]
+
+- Added a tag system
+- Added Rock, Paper, Scissors game
+
+#### [Bugfixes]
+
+- Fixed an issue where the `/info role` command did not work
+
+### [1.8.0] - 06-10-2022
+
+#### [NEW]
+
+- Husqy logging will now mention users (without notifying)
+- Added invite_link command for users to use a set invite link determined by the server admin
+  - Added settings command for admins to update or remove the invite link from the Husqy configuration
+
+#### [Bugfixes]
+
+- Fix where a tempchannel could not be deleted if specific permissions where changed (added overwrites for Husqy)
+- Fix where the queue list would disappear after the auto delete time of the server (even if this time is below the minimum time)
+- Fix where reminder linked message link was not clickable
+
+### [1.7.1] - 11-09-2022
+
+#### [Bugfixes]
+
+- Fix for host command latency values
+
+### [1.7.0] - 02-09-2022
+
+#### [NEW]
+
+- Added host command to view host metric information.
+
+#### [Bugfixes]
+
+- Fix for modals not working
+- Updated .gitignore
+- Updated requirements.txt
+
+### [1.6.6] - 08-08-2022
+
+#### [BREAKING]
+
+- Remove Instagram component from the socials module
+
+### [1.6.5] - 27-07-2022
+
+#### [Bugfixes]
+
+- Revert Instagram fix
+
+### [1.6.4] - 27-07-2022
+
+#### [Bugfixes]
+
+- Fix for instagram checker
+- Fix MNM radio link
+
+### [1.6.3] - 15-06-2022
+
+#### [Bugfixes]
+
+- Fix for components stopping if another interaction was made
+- Fix in wait_for not checking channel in MessageCreateEvent
+
+### [1.6.2] - 12-06-2022
+
+#### [Bugfixes]
+
+- Fix for logging module messages not accounting for the server timezone
+
+### [1.6.1] - 10-06-2022
+
+#### [Bugfixes]
+
+- Fix for startup
+- Fix for info bot logging
+
+### [1.6.0] - 10-06-2022
+
+#### [NEW]
+
+- Added support to create reminders!
+- Added seek command for music playback. This makes it possible to jump to a specified time in the song!
+- Added support to change the role linked to an emoji
+- Added support to change the emoji linked to a role
+
+#### [BREAKING]
+
+- Migrated reaction roles to a module
+
+#### [Bugfixes]
+
+- Fix for reaction roles not working
+- Fix for radio stations not playing
+
+### [1.5.2] - 31-05-2022
+
+#### [Bugfixes]
+
+- Fix for playnext and remove commands
+
+### [1.5.1] - 28-05-2022
+
+#### [Bugfixes]
+
+- Fix for TwitterHandler KeyError
+- Custom embed create start message now displays according to the servers auto_delete time
+
+### [1.5.0] - 27-05-2022
+
+#### [NEW]
+
+- Added temporary mute command
+- Added temporary timeout command
+- Added Custom embed commands (Create and send)
+- Added Socials module with support for Twitter and Instagram accounts
+
+#### [Bugfixes]
+
+- Fix for skip command not working
+- Fix for info bot logging command not showing tempchannel logging status when enabled
+- Users are now mentioned when a message and the value `<user_mention>` is used in the greetings module (in server greetings component). Users can't be mentioned in an Embed!
+- Fix for `/search` command not working when no results are found
+- Fix for tempchannels module event firing when the module is disabled (Husqy internal logging)
+- Fix for spotify albums failing to play
+- Fix for music playlist stopping, but continuing one song (which should be stopped) when adding a new song
+
+### [1.4.3] - 15-05-2022
+
+#### [Bugfixes]
+
+- Fix for tempchannels triggering channel events
+- Fix channel, role and user events to only gather variables when the event is logged for that Guild
+
+### [1.4.2] - 15-05-2022
+
+#### [Bugfixes]
+
+- Fix for role update event cache
+- Fix for reaction role delete
+- Fix for greetings module embed
+
+### [1.4.1] - 14-05-2022
+
+#### [Bugfixes]
+
+- Fix for module logging
+- Fix for Husqy internal logging
+
+### [1.4.0] - 14-05-2022
+
+#### [NEW]
+
+- Added Temporary Channels
+
+#### [BREAKING]
+
+- Re-implementation of Modules
+  - Logging is now a module. This is disabled for all servers and must be enabled if you wish to use this.
+  - Greetings is now a module. This is disabled for all servers and must be enabled if you wish to use this.
+  - Temporary Channels are added and are a module. This is disabled for all servers and must be enabled if you wish to use this.
+- Re-worked `/info bot` command. It now support a parameter: module_info to select a module to get info about, this is an optional parameter, if not given, general bot info will be shown!
+
+#### [Bugfixes]
+
+- Change for channel update event.
+- Fix bug where the music event loop would end unexpectedly by changing to Hikari Voice.
+- Fix bug for tempchannels where it would result in a AttributeError.
+- Fix ctx parameter to be type tanjun.abc.SlashContext instead of tanjun.abc.Context.
+- Fix for bot and db variables.
+  - \_bot -> bot.
+  - \_db -> db.
+  - \_lava_client -> lava_client.
+
+### [1.3.10] - 18-04-2022
+
+#### [Bugfixes]
+
+- Fix for info bot command
+
+### [1.3.9] - 15-04-2022
+
+#### [BREAKING]
+
+- Removed Modules
+
+#### [Bugfixes]
+
+- Fix for users not being mentioned when they join a server
+- Fix for leave message not being sent when there is no kick entry available
+
+#### [Changes]
+
+- Change `/mod_server` clear_messages command to be faster
+
+### [1.3.8] - 10-04-2022
+
+#### [Bugfixes]
+
+- Music commands change
+  - `/radio play_{country_code}` -> `/play radio {country_code}`
+  - `/music play` -> `/play music`
+  - `/music playnext` -> `/playnext music`
+  - `/music remove` -> `/remove`
+  - `/music shuffle` -> `/shuffle`
+  - `/music skip` -> `/skip`
+  - `/music search_{platform}` -> `/search` (the platform is now a parameter!)
+
+### [1.3.7] - 10-04-2022
+
+#### [Bugfixes]
+
+- Fix bug with spotify playlist and album playing

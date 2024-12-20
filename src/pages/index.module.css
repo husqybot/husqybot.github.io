@@ -1,0 +1,47 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.contentHighlight_why_choose_us,
+.contentHighlight_discover {
+  display: flex;
+  flex-direction: column;
+  min-height: 116px;
+  margin: auto;
+  justify-content: center;
+  max-width: var(--content-max-width);
+  padding: 24px;
+  opacity: 0;
+}
+.contentHighlight_add_husqy {
+  display: flex;
+  flex-direction: column;
+  min-height: 164px;
+  margin: auto;
+  justify-content: center;
+  padding: 24px;
+}
+.contentHighlight_why_choose_us_title,
+.contentHighlight_add_husqy_title,
+.contentHighlight_add_husqy_actions,
+.contentHighlight_discover_title {
+  margin: 0;
+  text-align: center;
+  align-self: center;
+}
+.contentHighlight_add_husqy_highlight {
+  color: var(--accent-color-1);
+}
+.contentHighlight_add_husqy_actions {
+  margin-top: 12px;
+}
+
+/* Animations */
+.animate_contentHighlight_why_choose_us, .animate_contentHighlight_discover {
+  animation: .75s ease-out 0s 1 var(--animation-appear-1) both;
+  opacity: 1;
+}
+
+@media screen and (max-width: 996px) {
+}

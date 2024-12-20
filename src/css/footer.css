@@ -1,0 +1,33 @@
+.footer {
+    background-color: var(--primary-color-1);
+    padding: 24px;
+    margin: 0px;
+}
+.footer .container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: 0px;
+    max-width: 100%;
+}
+.footer__logo {
+    border-radius: 128px !important;
+}
+.footer__bottom {
+    justify-content: start;
+    text-align: start;
+    opacity: 1;
+}
+.footer__bottom div a {
+    opacity: 1 !important;
+}
+.footer__links {
+    text-align: end;
+    max-width: 100%;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+.footer__copyright {
+    color: var(--secondary-color-1);
+    margin-right: 12px;
+}
