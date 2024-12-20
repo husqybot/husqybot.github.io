@@ -45,7 +45,7 @@ export default function ReasonComponent({
         )}
         {icon !== undefined ? (
           <span
-            class={`${styles.reason_container_icon_overwrite} material-symbols-outlined`}
+            className={`${styles.reason_container_icon_overwrite} material-symbols-outlined`}
           >
             {icon}
           </span>
