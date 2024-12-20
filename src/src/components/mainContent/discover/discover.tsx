@@ -76,7 +76,7 @@ export default function Discover() {
       <DiscoverItem
         icon="article"
         title="Get familiar with Husqy by reading the documentation."
-        resource_link="/docs"
+        resource_link="/docs/introduction"
       />
       <DiscoverItem
         icon="question_mark"
