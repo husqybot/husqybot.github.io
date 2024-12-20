@@ -34,13 +34,11 @@ export default function Home(): JSX.Element {
       targetWhyChooseUsElements[0].classList.add(
         styles.animate_contentHighlight_why_choose_us
       );
-      targetWhyChooseUsElements[0].classList.add(styles.opacity_1);
     }
     if (isElementInViewport(targetDiscoverElements[0])) {
       targetDiscoverElements[0].classList.add(
         styles.animate_contentHighlight_discover
       );
-      targetDiscoverElements[0].classList.add(styles.opacity_1);
     }
   };
 

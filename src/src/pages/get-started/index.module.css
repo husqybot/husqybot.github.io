@@ -108,7 +108,7 @@
 
 /* Animations */
 .animate_slide_in_small_cards {
-  animation: .75s ease-out 0s 1 var(--animation-slide-in-1);
+  animation: .75s ease-out 0s 1 var(--animation-slide-in-1) both;
   opacity: 1;
 }
 
