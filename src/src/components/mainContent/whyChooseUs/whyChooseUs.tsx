@@ -21,7 +21,6 @@ export default function WhyChooseUs() {
     Array.from(targetElements).forEach((element) => {
       if (isElementInViewport(element)) {
         element.classList.add(reasonComponentStyles.animate_reason_highlight);
-        element.classList.add(reasonComponentStyles.opacity_1);
       }
     });
   };

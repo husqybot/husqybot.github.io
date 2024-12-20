@@ -37,9 +37,7 @@
 
 /* Animations */
 .animate_reason_highlight {
-    animation: .75s ease-out 0s 1 var(--animation-appear-1)
-}
-.opacity_1 {
+    animation: .75s ease-out 0s 1 var(--animation-appear-1);
     opacity: 1;
 }
 

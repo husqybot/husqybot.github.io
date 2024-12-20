@@ -23,7 +23,6 @@ export default function GetStarted(): JSX.Element {
     Array.from(targetElements).forEach((element) => {
       if (isElementInViewport(element)) {
         element.classList.add(styles.animate_slide_in_small_cards);
-        element.classList.add(styles.opacity_1);
       }
     });
   };
