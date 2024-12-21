@@ -234,6 +234,56 @@ Possible errors:
 
 </details>
 
+<details>
+  <summary>GET - `/functions/giveaways/privacy/get-user-entries`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy configurator (`/privacy`) command.
+
+:::
+
+Endpoint to get the amount of references to your user.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the specified giveaway entry details from |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to check their references |
+
+Possible errors:
+
+- BadRequestError
+- ForbiddenError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>DELETE - `/functions/giveaways/privacy/delete-user-entries`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy configurator (`/privacy`) command.
+
+:::
+
+Endpoint to get the amount of references to your user.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the giveaway is located |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to check their references |
+
+Possible errors:
+
+- BadRequestError
+- ForbiddenError
+- InternalServerError
+
+</details>
+
 ## Giveaway handler
 
 Endpoints related to entry handling functionality.
@@ -359,6 +409,32 @@ Body data (JSON):
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild where the giveaway is located |
 | giveaway_id | yes | `integer` | The ID of the giveaway to leave |
+
+Possible errors:
+
+- BadRequestError
+
+</details>
+
+<details>
+  <summary>PUT - `/functions/giveaways/handler/edit`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy to edit giveaways.
+
+:::
+
+Endpoint to leave the giveaway in the giveaways entries service.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the giveaway is located |
+| giveaway_id | yes | `integer` | The ID of the giveaway to edit |
+| new_prize | no | `string` | The new prize |
+| new_description | no | `string` | The new description |
+| new_winners | no | `string` | The new winners |
 
 Possible errors:
 
