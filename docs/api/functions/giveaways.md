@@ -243,7 +243,7 @@ Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy
 
 :::
 
-Endpoint to get the amount of references to your user.
+Endpoint to get the amount of references in giveaways to your user.
 
 Query string parameters:
 | field | required | type | description |
@@ -268,13 +268,13 @@ Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy
 
 :::
 
-Endpoint to get the amount of references to your user.
+Endpoint to remove the references in giveaways to your user.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the giveaway is located |
-| privacy_member_id | yes | `integer` | The ID of the member who wants to check their references |
+| guild_id | yes | `integer` | The ID of the guild where the references are located |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to remove their references |
 
 Possible errors:
 
