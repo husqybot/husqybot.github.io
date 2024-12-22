@@ -537,3 +537,57 @@ Possible errors:
 ```
 
 </details>
+
+## Privacy
+
+Endpoints related to privacy and the tags module
+
+<details>
+  <summary>GET - `/modules/tempchannels/privacy/get-user-entries`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy configurator (`/privacy`) command.
+
+:::
+
+Endpoint to get the amount of references in tempchannels to your user.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the specified references in |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to check their references |
+
+Possible errors:
+
+- BadRequestError
+- ForbiddenError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>DELETE - `/modules/tempchannels/privacy/delete-user-entries`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy configurator (`/privacy`) command.
+
+:::
+
+Endpoint to delete the references in tempchannels to your user.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to delete the specified references in |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to remove their references |
+
+Possible errors:
+
+- BadRequestError
+- ForbiddenError
+- InternalServerError
+
+</details>
