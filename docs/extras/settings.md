@@ -20,7 +20,7 @@ Husqy has different settings that can be changed, each setting is used in its ow
 - `Language`: The language in which Husqy will respond;
 - `Timezone`: The timezone to use within the server;
 - `Unit system`: The unit system of the server;
-- `Auto delete`: The time it takes for Husqy to delete its response (for some responses, f.e. big embeds, a base auto delete will be used if the set auto delete time is lower than the - `base time!`);
+- `Auto delete`: The time it takes for Husqy to delete its response (for some responses, f.e. big embeds, a base auto delete will be used if the set auto delete time is lower than the `base time!`). Must be between 0 and 900 seconds;
 - `Max warns`: The amount of warnings a user is allowed to get before getting auto kicked (if auto kick is enabled);
 - `Auto kick role`: The role Husqy will use to kick a member (if a user is assigned this role the user will be kicked). This role will be assigned by Husqy when the max warns is exceeded - `and auto kick is enabled;
 - `Auto kick`: If auto kick is enabled;
