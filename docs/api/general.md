@@ -268,3 +268,57 @@ Possible errors:
 - InternalServerError
 
 </details>
+
+## Privacy
+
+Endpoints related to privacy and other parts of Husqy
+
+<details>
+  <summary>GET - `/privacy/get-user-entries`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy configurator (`/privacy`) command.
+
+:::
+
+Endpoint to get the amount of references to your user in other parts of Husqy.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the specified references in |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to check their references |
+
+Possible errors:
+
+- BadRequestError
+- ForbiddenError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>DELETE - `/privacy/delete-user-entries`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy configurator (`/privacy`) command.
+
+:::
+
+Endpoint to delete the references to your user in other parts of Husqy.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to delete the specified references in |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to remove their references |
+
+Possible errors:
+
+- BadRequestError
+- ForbiddenError
+- InternalServerError
+
+</details>
