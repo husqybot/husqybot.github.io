@@ -194,6 +194,18 @@ Possible errors:
 - BadRequestError
 - SettingsError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
