@@ -194,6 +194,18 @@ Possible errors:
 - BadRequestError
 - SettingsError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
@@ -246,5 +258,60 @@ Body data (JSON):
 Possible errors:
 
 - BadRequestError
+
+</details>
+
+## Privacy
+
+Endpoints related to privacy and the reminders
+
+
+<details>
+  <summary>GET - `/functions/reminders/privacy/get-user-entries`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy configurator (`/privacy`) command.
+
+:::
+
+Endpoint to get the amount of references in reminders to your user.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the specified references in |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to check their references |
+
+Possible errors:
+
+- BadRequestError
+- ForbiddenError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>DELETE - `/functions/reminders/privacy/delete-user-entries`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy configurator (`/privacy`) command.
+
+:::
+
+Endpoint to delete the references in reminders to your user.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to delete the specified references in |
+| privacy_member_id | yes | `integer` | The ID of the member who wants to remove their references |
+
+Possible errors:
+
+- BadRequestError
+- ForbiddenError
+- InternalServerError
 
 </details>

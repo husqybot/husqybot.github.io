@@ -24,13 +24,3 @@ The `/info` command is also the place where you can check the ping of Husqy, acc
 ## Memes
 
 The `/meme` command provides you and your server members to a random meme.
-
-## Transcibing Discord voice messages
-
-The `/transcibe_voice_message` command provides you with an easy way to convert voices messages sent in a Discord text chat to a readable text.
-
-:::warning
-
-Currently only English is officially supported. Feel free to try this with other languages.
-
-:::

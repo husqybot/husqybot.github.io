@@ -60,3 +60,13 @@ To generate a QR-code, run the command `/utils generate_qr` and insert the metad
 ## Converter to seconds
 
 To convert to seconds, run the command `/utils convert_to_seconds` and insert the desired days, hours, minutes and seconds to convert. Once everything is filled in, the total amount of seconds will be returned.
+
+## Transcibing Discord voice messages
+
+The `/transcibe_voice_message` command provides you with an easy way to convert voices messages sent in a Discord text chat to a readable text.
+
+:::warning
+
+Currently only English is officially supported. Feel free to try this with other languages.
+
+:::
