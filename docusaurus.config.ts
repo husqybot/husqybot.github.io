@@ -158,9 +158,26 @@ const config: Config = {
           to: "/documents/terms-of-service",
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Husqy<br/>Husqy is neither part of nor related to Discord Inc. in any form or way.
-
-`,
+      copyright: `Copyright © ${new Date().getFullYear()} Husqy<br/>
+      Husqy is neither part of nor related to Discord Inc. in any form or way.
+      <br/><br/>
+      <ul>
+      <li>
+      <a href="https://reddit.com/u/husqybot" target="_blank">Reddit</a>
+      </li>
+      <span class="socials-seperator">&#183;</span>
+      <li>
+      <a href="https://twitch.tv/husqy_bot" target="_blank">Twitch</a>
+      </li>
+      <span class="socials-seperator">&#183;</span>
+      <li>
+      <a href="https://x.com/husqybot" target="_blank">X</a>
+      </li>
+      <span class="socials-seperator">&#183;</span>
+      <li>
+      <a href="https://instagram.com/husqybot" target="_blank">Instagram</a>
+      </li>
+      </ul>`,
     },
     prism: {
       theme: prismThemes.github,
