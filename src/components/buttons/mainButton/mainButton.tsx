@@ -57,6 +57,19 @@ export default function MainButton({
           {text}
         </Button>
       );
+      case 4:
+        return (
+          <Button
+            onPress={onButtonClick}
+            type="submit"
+            className={`${styles.main_button_overwrite} ${styles.discord_blurple} ${
+              customClass === undefined ? "" : customClass
+            }`}
+            variant="bordered"
+          >
+            {text}
+          </Button>
+        );
   }
   return;
 }

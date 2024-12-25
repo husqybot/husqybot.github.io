@@ -19,3 +19,8 @@
   color: var(--secondary-color-2) !important;
   border-color: var(--secondary-color-2);
 }
+.discord_blurple {
+  color: var(--secondary-color-2);
+  background-color: var(--discord-blurple-color) !important;
+  border-color: transparent;
+}
