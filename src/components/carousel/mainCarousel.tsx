@@ -14,12 +14,17 @@ export default function MainCarousel() {
     <div className={styles.embla} ref={emblaRef}>
       <div className={styles.embla__container}>
         <div className={styles.embla__slide}>
+          We are now verified! Husqy is now a verified bot in Discord making us
+          visible in the app discovery and enabling bigger trust to users!
+        </div>
+        <div className={styles.embla__slide}>
           We are celebrating the launch of the new reworked Husqy2.0.0! Noticing
           any issues since the new update or missing changes in our changelog?
           Please let us know!
         </div>
         <div className={styles.embla__slide}>
-          Want to help us translate the Husqy responses? We can't do it without you! Please visit&nbsp;
+          Want to help us translate the Husqy responses? We can't do it without
+          you! Please visit&nbsp;
           <a href="https://github.com/husqybot/translations/">
             our translations repo!
           </a>
