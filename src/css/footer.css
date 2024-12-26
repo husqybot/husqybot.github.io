@@ -38,8 +38,17 @@
   display: flex;
   list-style: none;
   gap: 8px;
+  flex-wrap: wrap;
 }
 .socials-seperator {
   font-size: 48px;
   line-height: 0.4em;
 }
+
+/* Mobile view changes */
+@media screen and (max-width: 996px) {
+  .socials-seperator {
+    line-height: 0.2em;
+  }
+}
+
