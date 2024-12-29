@@ -24,3 +24,8 @@
   background-color: var(--discord-blurple-color) !important;
   border-color: transparent;
 }
+.danger {
+  background-color: var(--accent-color-3);
+  border-color: transparent;
+  color: var(--secondary-color-2);
+}
