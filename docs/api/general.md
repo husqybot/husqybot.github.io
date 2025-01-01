@@ -210,6 +210,23 @@ Possible errors:
 
 </details>
 
+<details>
+  <summary>GET - `/helpers/get-guild-emojis`</summary>
+
+Endpoint to get a list of custom emojis that are available to use in the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the custom emojis from |
+
+Possible errors:
+
+- BadRequestError
+- InternalServerError
+
+</details>
+
 ## Privacy
 
 Endpoints related to privacy settings.

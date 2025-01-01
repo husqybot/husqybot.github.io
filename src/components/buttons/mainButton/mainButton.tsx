@@ -10,7 +10,7 @@ import styles from "./mainButton.module.css";
 // Interfaces
 interface IMainButton {
   text: string;
-  type: 1 | 2 | 3;
+  type: 1 | 2 | 3 | 4 | 5;
   onButtonClick: (e: PressEvent) => void;
   customClass?: string | undefined;
 }
@@ -57,19 +57,36 @@ export default function MainButton({
           {text}
         </Button>
       );
-      case 4:
-        return (
-          <Button
-            onPress={onButtonClick}
-            type="submit"
-            className={`${styles.main_button_overwrite} ${styles.discord_blurple} ${
-              customClass === undefined ? "" : customClass
-            }`}
-            variant="bordered"
-          >
-            {text}
-          </Button>
-        );
+    case 4:
+      return (
+        <Button
+          onPress={onButtonClick}
+          type="submit"
+          className={`${styles.main_button_overwrite} ${
+            styles.discord_blurple
+          } ${customClass === undefined ? "" : customClass}`}
+          variant="bordered"
+        >
+          {text}
+        </Button>
+      );
+    case 5:
+      return (
+        <Button
+          onPress={
+            onButtonClick !== undefined && onButtonClick !== null
+              ? onButtonClick
+              : () => {}
+          }
+          type="submit"
+          className={`${styles.main_button_overwrite} ${styles.danger} ${
+            customClass === undefined ? "" : customClass
+          }`}
+          variant="bordered"
+        >
+          {text}
+        </Button>
+      );
   }
   return;
 }

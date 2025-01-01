@@ -23,46 +23,9 @@ Home endpoint for the Modules Reactionroles Husqy API. Returns only success mess
 </details>
 
 <details>
-  <summary>GET - `/modules/reactionroles/settings`</summary>
+  <summary>DELETE - `/modules/reactionroles/delete`</summary>
 
-Get the settings of the reactionroles module for the specified guild.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>PUT - `/modules/reactionroles/settings`</summary>
-
-Endpoint to change the settings of the reactionroles module for the specified guild.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to change the reactionroles module settings for |
-| delete_unrelated | yes | `boolean` | If unrelated reactions should be removed from the reactionrole |
-| remove_role_from_users_on_delete | yes | `boolean` | If roles should be deleted from users when the reactionrole entry is removed |
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- DatabaseError
-
-</details>
-
-<details>
-  <summary>DELETE - `/modules/reactionroles/settings/delete`</summary>
-
-Delete all settings of the reactionroles module for a specified guild.
+Delete all panels and reactionrole entries for a specified guild.
 
 Body data (JSON):
 | field | required | type | description |
@@ -105,8 +68,6 @@ Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to enable the reactionroles module for |
-| delete_unrelated | yes | `boolean` | If unrelated reactions should be removed from the reactionrole |
-| remove_role_from_users_on_delete | yes | `boolean` | If roles should be deleted from users when the reactionrole entry is removed |
 
 Possible errors:
 
@@ -136,21 +97,21 @@ Possible errors:
 
 </details>
 
-## Entries
+## Panels
 
-Endpoints related to reactionroles entries
+Endpoints related to reactionrole panels
 
 <details>
-  <summary>GET - `/modules/reactionroles/entries`</summary>
+  <summary>GET - `/modules/reactionroles/panels`</summary>
 
-Returns a list of reactionrole entries for the specified guild.
+Returns a list of reactionrole panels for the specified guild.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the reactionrole entries from |
+| guild_id | yes | `integer` | The ID of the guild to get the reactionrole panels from |
 | page | no | `integer` | The page number to get (default = 1) |
-| page_size | no | `integer` | The amount of entries to return in one page (default = 10) |
+| page_size | no | `integer` | The amount of panels to return in one page (default = 10) |
 
 Possible errors:
 
@@ -162,18 +123,25 @@ Possible errors:
 </details>
 
 <details>
-  <summary>POST - `/modules/reactionroles/entries`</summary>
+  <summary>POST - `/modules/reactionroles/panels`</summary>
 
-Endpoint to create a new reactionrole entry in a guild for a member.
+Endpoint to create a new reactionrole panel in a guild.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to create the reactionrole in |
-| channel_id | yes | `integer` | The ID of the channel where the target message is located |
-| message_id | yes | `integer` | The ID of the message to attach the reactionrole to |
-| reaction | yes | `string` | The reaction to use for the reactionrole |
-| role_id | yes | `integer` | The ID of the role to give when the reactionrole is reacted to |
+| is_register | yes | `boolean` | Wether the message to use for the reactionrole panel already exists. Note: when registering an existing message, panel_type can only be "emoji" |
+| channel_id | yes | `integer` | The ID of the channel where the message is or will be located |
+| limit_roles_to_one | yes | `boolean` | Wether the roles a member can claim via the panel is only based on one entry (entries with multiple roles will give all roles for that entry) |
+| supports_remove | yes | `boolean` | Wether the panel supports removal of entries from users when reacting/removing reactions |
+| remove_roles_from_users_on_entry_delete | yes | `boolean` | Wether the roles for an entry should be removed from a user when the entry gets deleted |
+| panel_type | yes | `string` | The type of the panel. Can be: "emoji", "button" or "dropdown" |
+| keep_counter_at_one | yes (when panel_type is "emoji") | `boolean` | Wether the emoji counter should be kept at one |
+| delete_unrelated_emoji_reactions | yes (when panel_type is "emoji") | `boolean` | Wether other emojis not registered to the panel should be removed |
+| register_message_id | yes (when is_register is True) | `integer` | The ID of the existing message to use as the panel |
+| is_embed | yes (when is_register is False) | `boolean` | Wether the message content is an embed json config |
+| content | yes (when is_register is False) | `string` | The content to use for the message. Can also be embed json config if is_embed is True |
 
 Possible errors:
 
@@ -183,18 +151,30 @@ Possible errors:
 - InternalServerError
 - DiscordApiInteractionError
 - DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
-  <summary>GET - `/modules/reactionroles/entry/{reactionrole_entry_id}`</summary>
+  <summary>GET - `/modules/reactionroles/panel/{reactionrole_panel_id}`</summary>
 
-Returns a details of the specified reactionrole entry in the specified guild.
+Returns a details of the specified reactionrole panel in the specified guild.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the specified reactionrole entry details from |
+| guild_id | yes | `integer` | The ID of the guild to get the specified reactionrole panel details from |
 
 Possible errors:
 
@@ -206,20 +186,183 @@ Possible errors:
 </details>
 
 <details>
-  <summary>DELETE - `/modules/reactionroles/entry/{reactionrole_entry_id}`</summary>
+  <summary>DELETE - `/modules/reactionroles/panel/{reactionrole_panel_id}`</summary>
 
-Deletes the specified reactionrole entry from the specified guild.
+Deletes the specified reactionrole panel and all related reactionrole entries from the specified guild.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the specified reactionrole entry to delete is located |
+| guild_id | yes | `integer` | The ID of the guild where the specified reactionrole panel to delete is located |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+- DatabaseError
+
+</details>
+
+<details>
+  <summary>PUT - `/modules/reactionroles/panel/{reactionrole_panel_id}`</summary>
+
+Edit the settings of the specified reactionrole panel in the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the specified reactionrole panel to delete is located |
+| panel_type | yes | `string` | The new type of the reactionrole panel. Can be: "emoji", "button" or "dropdown" |
+| limit_roles_to_one | yes | `boolean` | The new setting for limit roles to one |
+| supports_remove | yes | `boolean` | The new setting for supports remove |
+| remove_roles_from_users_on_entry_delete | yes | `boolean` | The new setting for remove roles from users on entry delete |
+| keep_counter_at_one | yes (when panel_type is "emoji") | `boolean` | The new setting for keep counter at one |
+| delete_unrelated_emoji_reactions | yes (when panel_type is "emoji") | `boolean` | The new setting for delete unrelated emoji reactions |
+| message_content | yes | `string` | The new message content. Required but can be None if the message is not an Husqy created message |
+| message_is_embed | yes | `boolean` | If the new message content is an embed json config. Required but will not have any effect if the message is not an Husqy created message |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+- DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+## Reactionrole entries
+
+Endpoints to check reactionrole entries for a panel.
+
+<details>
+  <summary>GET - `/modules/reactionroles/panel/{reactionrole_panel_id}/entries`</summary>
+
+Returns a list of reactionrole entries added to the reactionrole panel in the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the panel is located |
 
 Possible errors:
 
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>POST - `/modules/reactionroles/panel/{reactionrole_panel_id}/entries`</summary>
+
+Endpoint to create a new reactionrole entry for a panel in a guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to create the reactionrole in |
+| role_ids | yes | `list` | A list of role ID's to give to the users when reacting |
+| emoji_name | yes | `string` | The literal emoji, f.e. 😁 or the name of the emoji when it is a custom guild emoji |
+| emoji_id | yes | `integer` | The ID of the custom emoji. When using a default emoji, this can be None |
+| text | yes | `string` | The label text of the button or dropdown item. Can be None when the panel is an emoji panel or button panel. Required for a dropdown panel |
+| description | yes | `string` | The description text of the dropdown item. Can be None. |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>GET - `/modules/reactionroles/panel/{reactionrole_panel_id}/entries/{reactionrole_entry_id}`</summary>
+
+Returns the details of a reactionrole entry added to the reactionrole panel in the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the panel is located |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>DELETE - `/modules/reactionroles/panel/{reactionrole_panel_id}/entries/{reactionrole_entry_id}`</summary>
+
+Endpoint to delete the reactionrole entry from the panel in a guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to create the reactionrole in |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- DatabaseError
+
+</details>
+
+<details>
+  <summary>PUT - `/modules/reactionroles/panel/{reactionrole_panel_id}/entries/{reactionrole_entry_id}`</summary>
+
+Endpoint to edit the reactionrole entry for the panel in a guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to create the reactionrole in |
+| role_ids | yes | `list` | The new list of role ID's to link to the reactionrole entry |
+| text | yes | `string` | The new label for the button or dropdown. Can be None when panel type is emoji or button. Required for panel type dropdown |
+| description | yes | `string` | The new description to show in the dropdown for this entry. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
 - DatabaseError
 
 </details>
@@ -229,7 +372,7 @@ Possible errors:
 Endpoints to check entries for adding or deleting
 
 <details>
-  <summary>POST - `/modules/reactionroles/reactionrole/check/add`</summary>
+  <summary>POST - `/modules/reactionroles/check`</summary>
 
 :::danger
 
@@ -237,15 +380,22 @@ Do not use this endpoint yourself! Roles will be added by Husqy when needed.
 
 :::
 
-Endpoint to check if a reactionrole is being reacted to and requires a role to be added to a member.
+Endpoint to handle the interaction with a reactionrole panel (entry).
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the specified reactionrole entry to delete is located |
-| channel_id | yes | `integer` | The ID of the channel where the reacted message is located |
+| guild_id | yes | `integer` | The ID of the guild where the interaction takes place |
+| message_id | yes | `integer` | The ID of the message that is interacted with |
 | message_id | yes | `integer` | The ID of the message to which is reacted |
-| reaction | yes | `string` | The reaction which is given by the member |
+| channel_id | yes | `integer` | The ID of the channel where the interacted with message is located |
+| interaction_type | yes | `string` | The type of interaction. Can be: "component", "reaction_add" or "reaction_delete" |
+| interaction_custom_id | yes (when interaction_type is "component") | `string` | The custom ID linked to the button or dropdown |
+| interaction_id_token | yes (when interaction_type is "component") | `string` | The token of the interaction |
+| application_id | yes (when interaction_type is "component") | `string` | The ID of the application |
+| interaction_value | yes (when interaction_type is "component") | `string` | The value behind the dropdown item. Can be None for buttons |
+| emoji_name | yes (when interaction_type is NOT "component") | `string` | The literal emoji f.e. 😁 that is being reacted with or the name of the custom emoji |
+| emoji_id | yes (when interaction_type is NOT "component") | `string` | The ID of the custom emoji. Can be None for a normal emoji. |
 
 Possible errors:
 
@@ -253,27 +403,51 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- NotFoundError (Custom)
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 404,
+        "message": "Not Found! {reason}",
+    },
+},
+```
+
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 404,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
-  <summary>POST - `/modules/reactionroles/reactionrole/check/remove`</summary>
+  <summary>POST - `/modules/reactionroles/panel/check-delete`</summary>
 
 :::danger
 
-Do not use this endpoint yourself! Roles will be removed by Husqy when needed.
+Do not use this endpoint yourself! Panels will automatically be delete by Husqy when the channel or message that is the panel get deleted.
 
 :::
 
-Endpoint to check if a reactionrole is being reacted to and requires a role to be removed from a member.
+Endpoint to check if a deleted message is or a deleted channel has a reactionrole panel.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild where the specified reactionrole entry to delete is located |
-| channel_id | yes | `integer` | The ID of the channel where the unreacted message is located |
-| message_id | yes | `integer` | The ID of the message to which is unreacted |
-| reaction | yes | `string` | The reaction which is removed by the member |
+| channel_id | yes | `integer` | The ID of the channel which is deleted or where the deleted message is located |
+| message_id | yes | `integer` | The ID of the message which is deleted. Can be None when a channel gets deleted |
 
 Possible errors:
 

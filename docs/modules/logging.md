@@ -168,9 +168,12 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 <details>
   <summary>Reactionroles events</summary>
 
-1. `log_reaction_role_create`: Logs when a new reaction role has been created;
-2. `log_reaction_role_delete`: Logs when a reaction role is deleted;
-3. `log_reaction_role_info`: Logs when information about a reaction role message is requested;
+1. `log_reactionroles_panel_create`: Logs when a new reactionrole panel has been created;
+2. `log_reactionroles_panel_delete`: Logs when a reactionrole panel is deleted;
+3. `log_reactionroles_panel_edit`: Logs when a reactionrole panel is edited;
+4. `log_reactionroles_panel_entry_create`: Logs when a reactionrole entry is added to a panel;
+5. `log_reactionroles_panel_entry_delete`: Logs when a reactionrole entry is deleted from a panel;
+6. `log_reactionroles_panel_entry_edit`: Logs when a reactionrole entry is edited;
 
 </details>
 
