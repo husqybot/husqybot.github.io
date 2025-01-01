@@ -67,7 +67,7 @@ When registering an existing message as a panel, the type of this panel can only
 
 ### Deleting a panel
 
-A panel can be deleted by pressing the `Delete panel` button. The panel and the entries linked to the panel will be deleted immediately. 
+A panel can be deleted by pressing the `Delete panel` button. The panel and the entries linked to the panel will be deleted immediately. When a channel where a panel is located gets deleted or an message which is a panel gets deleted, the panels settings and linked reactionrole entries will automatically be deleted.
 
 ### Editing a panel
 
@@ -110,6 +110,12 @@ After deciding on the details, press the `Add entry` button to add the entry to 
 ### Removing an entry
 
 To remove an entry, navigate to the [Reactionroles dashboard](#additional-info) and press the `View reactionroles` button on the target panels overview box. Here search for the reactionrole entry to remove and press the `Remove reactionrole` button. The entry will be deleted immediately.
+
+:::note
+
+Manually removing a emoji reaction which also is an entry will not delete it from the configuration. Do this manually via the dashboard (or have hidden reactionroles for your users to find!).
+
+:::
 
 ### Editing an entry
 
