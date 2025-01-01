@@ -16,6 +16,25 @@ Experiencing a change that is not listed? Please let us know and contact our sup
 
 ## [Released]
 
+### [1.2.0] - 01-01-2025
+
+#### [BREAKING]
+
+- Reactionroles module now requires a reactionrole panel to be created where reactionroles can be added to.
+- Existing reactionroles will not work and will be removed from the database.
+- A server can only have 1 reactionrole panel registered. This panel can have unlimited reactionrole entries within Discord limits (20 emojis, 25 buttons and 25 dropdown items).
+- Update endpoints to accomodate changes.
+
+#### [NEW]
+
+- Added support for the use of the guilds custom emojis.
+- Updated reactionroles module to support buttons and dropdowns.
+- Reactionrole entries for a panel can now give multiple roles to a user when reacted to.
+- Added support for disabling remove allowing users to claim a role and not remove it via the reactionroles panel
+- On emoji panels: added support for keeping the emoji counter at 1
+- On buttons: added support for a label in the buttons (max 80 characters, Discord limit)
+- On dropdowns: added support for a label and a description (max 100 characters, Discord limit)
+
 ### [1.1.0] - 24-12-2024
 
 #### [NEW]
