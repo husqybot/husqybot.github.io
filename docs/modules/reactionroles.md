@@ -14,7 +14,7 @@ toc_max_heading_level: 6
 
 - Make sure Husqy has the `Manage roles` permission in the Discord server;
 - Make sure the `Husqy` role is (default bot role) at the top of the roles list;
-- Make sure Husqy has the `View Channel`, `Send Messages`, `Embed Links`, `Add Reactions` in the reactionrole panels channel;
+- Make sure Husqy has the `View Channel`, `Send Messages`, `Embed Links`, `Add Reactions` permissions in the reactionrole panels channel;
 
 :::
 
@@ -22,11 +22,11 @@ The reactionroles module allows you to enable some self service to your users by
 
 ## Enabling the module
 
-In order to enable the reactionroles module you have to navigate to the [Reactionroles dashboard](#additional-info). There you will be prompted with an option to enable the reactionroles module, a popup will appear prompting you to confirm the action.
+In order to enable the reactionroles module you have to navigate to the [Reactionroles dashboard](#additional-info--commands). There you will be prompted with an option to enable the reactionroles module, a popup will appear prompting you to confirm the action.
 
 ## Disabling the module
 
-To disable the reactionroles module, navigate to the [Reactionroles dashboard](#additional-info) and turn of the switch at the top right of the screen, a popup will appear prompting you to confirm the action. All module data related to your server will be deleted.
+To disable the reactionroles module, navigate to the [Reactionroles dashboard](#additional-info--commands) and turn of the switch at the top right of the screen, a popup will appear prompting you to confirm the action. All module data related to your server will be deleted.
 
 ## Panels
 
@@ -46,7 +46,7 @@ There is currently a limit of 1 panel per server.
 
 ### Creating a panel
 
-A reactionrole panel can be created by navigating to the [Reactionroles dashboard](#additional-info) and pressing the `Create new panel` button. You will be redirected to a new page where a form with the settings needs to be filled in. This form includes:
+A reactionrole panel can be created by navigating to the [Reactionroles dashboard](#additional-info--commands) and pressing the `Create new panel` button. You will be redirected to a new page where a form with the settings needs to be filled in. This form includes:
 
 - Channel: the channel where the message will be located or is located if it is an existing message;
 - Panel type: the type of the reactionrole panel;
@@ -93,7 +93,7 @@ Husqy has support for custom server emojis to be used to further enhance the cus
 
 ### Adding an entry
 
-Adding an entry to a panel can be done by navigating to the [Reactionroles dashboard](#additional-info) and performing one of the following:
+Adding an entry to a panel can be done by navigating to the [Reactionroles dashboard](#additional-info--commands) and performing one of the following:
 
 - Press the `Add reactionrole` button on the target panels overview box;
 - Press the `View reactionroles` button on the target panels overview box and on the following page pressing the `Add reactionrole` button;
@@ -109,7 +109,7 @@ After deciding on the details, press the `Add entry` button to add the entry to 
 
 ### Removing an entry
 
-To remove an entry, navigate to the [Reactionroles dashboard](#additional-info) and press the `View reactionroles` button on the target panels overview box. Here search for the reactionrole entry to remove and press the `Remove reactionrole` button. The entry will be deleted immediately.
+To remove an entry, navigate to the [Reactionroles dashboard](#additional-info--commands) and press the `View reactionroles` button on the target panels overview box. Here search for the reactionrole entry to remove and press the `Remove reactionrole` button. The entry will be deleted immediately.
 
 :::note
 
@@ -119,9 +119,9 @@ Manually removing a emoji reaction which also is an entry will not delete it fro
 
 ### Editing an entry
 
-To edit an entry, navigate to the [Reactionroles dashboard](#additional-info) and press the `View reactionroles` button on the target panels overview box. Here search for the reactionrole entry to edit and make the changes. After making the changes press the `Save changes` button.
+To edit an entry, navigate to the [Reactionroles dashboard](#additional-info--commands) and press the `View reactionroles` button on the target panels overview box. Here search for the reactionrole entry to edit and make the changes. After making the changes press the `Save changes` button.
 
-## Additional info
+## Additional info & commands
 
 :::info
 
@@ -129,5 +129,11 @@ To edit an entry, navigate to the [Reactionroles dashboard](#additional-info) an
   1. Go to [https://dashboard.husqy.xyz/](https://dashboard.husqy.xyz/);
   2. Select the target server;
   3. In the sidebar press the **_Reactionroles_** tab;
+
+:::
+
+:::info Availabe commands
+
+This module does not provide any commands.
 
 :::

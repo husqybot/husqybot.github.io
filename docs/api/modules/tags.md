@@ -23,7 +23,7 @@ Home endpoint for the Modules Tags Husqy API. Returns only success message displ
 </details>
 
 <details>
-  <summary>DELETE - `/modules/tags/settings/delete`</summary>
+  <summary>DELETE - `/modules/tags/delete`</summary>
 
 Delete all settings of the tags module for a specified guild.
 
@@ -118,6 +118,8 @@ Possible errors:
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
+- InternalServerError
+- DatabaseError
 
 </details>
 
@@ -130,14 +132,19 @@ Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to create the tag in |
-| name | yes | `string` | The name of the tag |
+| owner_id | yes | `integer` | The ID of the owner of the tag |
 | content | yes | `string` | The content of the tag |
+| names | yes | `list` | A list of names for the tag |
+| visibility | yes | `string` | The visibility setting for the tag. Can be "Public" or "Private" |
+| application_id | yes | `list` | Can be None. The application to respond to |
+| token | yes | `list` | Can be None. The token of the application to respond |
 
 Possible errors:
 
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
+- InternalServerError
 - DatabaseError
 
 </details>
@@ -157,7 +164,7 @@ Possible errors:
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
-- DatabaseError
+- InternalServerError
 
 </details>
 
@@ -170,13 +177,28 @@ Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to delete the tag in |
+| application_id | yes | `list` | Can be None. The application to respond to |
+| token | yes | `list` | Can be None. The token of the application to respond |
 
 Possible errors:
 
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
+- InternalServerError
 - DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
@@ -189,19 +211,37 @@ Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to delete the tag in |
+| names | yes | `list` | The new list of names for the tag. All other names will be deleted |
+| owner_id | yes | `integer` | The new ID of the owner |
+| visibility | yes | `string` | The new visibility of the tag. Can be "Public" or "Private" |
 | content | yes | `string` | The new content of the tag |
+| application_id | yes | `list` | Can be None. The application to respond to |
+| token | yes | `list` | Can be None. The token of the application to respond |
 
 Possible errors:
 
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
+- InternalServerError
 - DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
-  <summary>POST - `/modules/tags/entry/send`</summary>
+  <summary>POST - `/modules/tags/entry/{tag_id}/send`</summary>
 
 :::danger
 
@@ -215,8 +255,8 @@ Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to delete the tag in |
-| channel_id | yes | `integer` | The ID of the channel where the `/tags send` command is executed |
-| tag_name | yes | `string` | The name of the tag to send |
+| channel_id | yes | `integer` | The ID of the channel where the `/tags send` command is executed. This channel will also be used for the channel variables |
+| user_mention_id | yes | `integer` | Can be None. The ID of the user to use for the user variables |
 | application_id | yes | `integer` | The ID of the application interaction |
 | token | yes | `integer` | The token of the interaction |
 
@@ -225,7 +265,56 @@ Possible errors:
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
-- DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tags/entry/{tag_id}/preview`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will send tag content automatically when the preview button is used in the dashboard.
+
+:::
+
+Endpoint to post the tag to a channel to preview.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to delete the tag in |
+| channel_id | yes | `integer` | The ID of the channel where the preview message will be located. This channel will also be used for the channel variables |
+| user_id | yes | `integer` | Can be None. The ID of the user to use for the user variables |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
