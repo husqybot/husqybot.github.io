@@ -16,6 +16,22 @@ Experiencing a change that is not listed? Please let us know and contact our sup
 
 ## [Released]
 
+### [1.2.0] - 12-01-2025
+
+#### [BREAKING]
+
+- Autoresponder module now required the use of triggers and responses.
+- Existing autoresponder entries will not work and will be removed from the database.
+- A server can have a maximum of 1 trigger and 5 responses
+- Update endpoints to accomodate changes.
+
+#### [NEW]
+
+- An autoresponder trigger can have multiple responses.
+- Added 3 extra autoresponder trigger types (next to the already existing `Stars with` type): `Wildcard`, `Contains` and `Ends with`.
+- Triggers can now optionally be case sensitive.
+- Responses of type reaction now also support custom server emojis.
+
 ### [1.1.0] - 24-12-2024
 
 #### [NEW]

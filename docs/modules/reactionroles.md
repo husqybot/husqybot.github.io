@@ -132,7 +132,7 @@ To edit an entry, navigate to the [Reactionroles dashboard](#additional-info--co
 
 :::
 
-:::info Availabe commands
+:::info Available commands
 
 This module does not provide any commands.
 

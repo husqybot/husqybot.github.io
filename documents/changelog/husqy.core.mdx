@@ -16,6 +16,16 @@ Experiencing a change that is not listed? Please let us know and contact our sup
 
 ## [Released]
 
+### [2.3.1] - 12-01-2025
+
+#### [NEW]
+
+- Changed autoresponder check request to accommodate new autoresponder update.
+
+#### [Changes]
+
+- Updated `/info` command to accommodate new autoresponder update
+
 ### [2.3.0] - 03-01-2025
 
 #### [NEW]
@@ -49,7 +59,7 @@ Experiencing a change that is not listed? Please let us know and contact our sup
 
 #### [BREAKING]
 
-- Made changes to the `/privacy` command to allow users to set data collection preferences, get their data occurences and remove their data occurences where possible.
+- Made changes to the `/privacy` command to allow users to set data collection preferences, get their data occurrences and remove their data occurrences where possible.
 - Moved `/transcribe_voice_message` to `/utils transcribe_voice_message`.
 
 #### [Bugfixes]
@@ -67,7 +77,7 @@ Experiencing a change that is not listed? Please let us know and contact our sup
 #### [NEW]
 
 - Husqy2.0.0 has an improved backend split up into microservices to ensure better development experiences, faster updates and better uptime.
-- Improved safety on the Husqy2.0.0 Dashboard. We are now using Authjs as our Identity Provider to improve on your safety.
+- Improved safety on the Husqy2.0.0 Dashboard. We are now using AuthJS as our Identity Provider to improve on your safety.
 - Improved safety on our API. The Husqy2.0.0 API now has even more validation to ensure not everybody can edit Husqy's settings in your server.
 - Added support for API keys on the Husqy2.0.0 API.
 - The socials module now allows you to set a channel and mention everyone option per entry not globally per component. All existing entries will have the old channel to ensure proper working after the Husqy2.0.0 update
@@ -85,7 +95,7 @@ Experiencing a change that is not listed? Please let us know and contact our sup
 
 #### [BREAKING]
 
-- Improve encyption that Husqy uses so your data stays safe no matter what.
+- Improve encryption that Husqy uses so your data stays safe no matter what.
 - The polls functionality of Husqy has temporarily been removed. This functionality will get a rework and will return.
 - Tags functionality has been moved to a module. All existing tags still exist and can still be used.
 - All tag commands except `/tag send` have been removed. Adding, removing or editing tags can now only be done by an administrator via the Husqy2.0.0 Dashboard.
