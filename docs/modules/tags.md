@@ -30,7 +30,7 @@ In order to enable the tags module you have to navigate to the [Tags dashboard](
 
 ## Disabling the module
 
-To disable the tags module, navigate to the [Tags dashboard](#additional-info) and turn of the switch at the top right of the screen, a popup will appear prompting you to confirm the action. All module data related to your server will be deleted.
+To disable the tags module, navigate to the [Tags dashboard](#additional-info--commands) and turn of the switch at the top right of the screen, a popup will appear prompting you to confirm the action. All module data related to your server will be deleted.
 
 ## Tags
 
@@ -38,7 +38,7 @@ What are tags then exactly? Tags are essentially a message text configuration. T
 
 Interacting with a tag can be done via two ways (except for preview (dashboard only) and send (slash command only)):
 
-1. The [Tags dashboard](#additional-info);
+1. The [Tags dashboard](#additional-info--commands);
 2. Slash commands;
 
 
@@ -46,7 +46,7 @@ Interacting with a tag can be done via two ways (except for preview (dashboard o
 
 - One tag can have multiple names;
 - A tag name can be used for more than 1 tag, just add it to the other tag;
-- The content of the tags support the markdown styling Discord has implemented;
+- The content of the tags support the markdown styling Discord has implemented and it supports Husqy variables;
 
 :::
 
@@ -58,7 +58,7 @@ There is currently a limit of 20 tags per server.
 
 ### Creating a tag
 
-Using the dashboard, navigate to the [Tags module](#additional-info) page and press the `Create entry` button in the top right of the screen. You will be redirected to a new page where a form with the settings needs to be filled in. This form includes:
+Using the dashboard, navigate to the [Tags module](#additional-info--commands) page and press the `Create entry` button in the top right of the screen. You will be redirected to a new page where a form with the settings needs to be filled in. This form includes:
 
 - Names: the names used for the tag (make sure to press `Add name` to add the name to the list);
 - Content: the content used for the tag;
@@ -80,7 +80,7 @@ Using slash commands, run the command `/tags create` and fill in the options lis
 
 ### Deleting a tag
 
-Using the dashboard, navigate to the [Tags module](#additional-info) page and wait until the tag preview boxes are loaded. Here you can either press the `Delete tag` button to delete the tag immediately or press the `View content` button and press the `Delete tag` button in the next page.
+Using the dashboard, navigate to the [Tags module](#additional-info--commands) page and wait until the tag preview boxes are loaded. Here you can either press the `Delete tag` button to delete the tag immediately or press the `View content` button and press the `Delete tag` button in the next page.
 
 Using slash commands, run the command `/tags delete` and pick the tag from the autocomplete options. The tag will then be deleted immediately.
 
@@ -92,7 +92,7 @@ Using slash commands, run the command `/tags delete` and pick the tag from the a
 
 ### Editing a tag
 
-Using the dashboard, navigate to the [Tags module](#additional-info) page and wait until the tag preview boxes are loaded. Here you can change some of the smaller settings like: the owner and the visibility setting. Make sure to press the `Save changes` button to save the changes made. To edit the names and the content, press the `View content` button. In the following page you can add and remove names (make sure to hit the `Add name` button) and change the content. When finished, press the `Save changes` button at the bottom of the page.
+Using the dashboard, navigate to the [Tags module](#additional-info--commands) page and wait until the tag preview boxes are loaded. Here you can change some of the smaller settings like: the owner and the visibility setting. Make sure to press the `Save changes` button to save the changes made. To edit the names and the content, press the `View content` button. In the following page you can add and remove names (make sure to hit the `Add name` button) and change the content. When finished, press the `Save changes` button at the bottom of the page.
 
 Using slash commands, run the command `/tags edit` and pick the tag from the autocomplete options, optionally, set one or more of the following options:
 
@@ -119,13 +119,13 @@ To send a tag, run the `/tags send` command and insert the name of the tag to se
 
 ### Listing tags
 
-Using the dashboard, navigate to the [Tags module](#additional-info) page and wait until the tag preview boxes are loaded. Here all the tags available in the server will be listed.
+Using the dashboard, navigate to the [Tags module](#additional-info--commands) page and wait until the tag preview boxes are loaded. Here all the tags available in the server will be listed.
 
 To list the tags in Discord, run the `/tags list` command and provide the selection: "Servers tags" to view all public (and your private) tags in the server or "My tags" to view all of your public and private tags.
 
 ### Preview a tag
 
-Using the dashboard, navigate to the [Tags module](#additional-info) page and wait until the tag preview boxes are loaded and press the `View content` button. In the following page when editing the tag, you have a `Preview in Discord` button to send the (edited) tag content to a discord channel of you choosing. You user will be used for the user variables and the selected channel will be used for the channel variables.
+Using the dashboard, navigate to the [Tags module](#additional-info--commands) page and wait until the tag preview boxes are loaded and press the `View content` button. In the following page when editing the tag, you have a `Preview in Discord` button to send the (edited) tag content to a discord channel of you choosing. You user will be used for the user variables and the selected channel will be used for the channel variables.
 
 ## Additional info & commands
 
@@ -138,7 +138,7 @@ Using the dashboard, navigate to the [Tags module](#additional-info) page and wa
 
 :::
 
-:::info Availabe commands
+:::info Available commands
 
 This module provides the following commands:
 

@@ -23,7 +23,7 @@ Home endpoint for the Modules Autoresponder Husqy API. Returns only success mess
 </details>
 
 <details>
-  <summary>DELETE - `/modules/autoresponder/settings/delete`</summary>
+  <summary>DELETE - `/modules/autoresponder/delete`</summary>
 
 Delete all settings of the autoresponder module for a specified guild.
 
@@ -97,14 +97,14 @@ Possible errors:
 
 </details>
 
-## Entries
+## Triggers
 
-Endpoints related to the entries of the module
+Endpoints related to the triggers of the module
 
 <details>
-  <summary>GET - `/modules/autoresponder/entries`</summary>
+  <summary>GET - `/modules/autoresponder/triggers`</summary>
 
-Get the list of entries of the autoresponder module for the specified guild.
+Get the list of triggers for the autoresponder module for the specified guild.
 
 Query string parameters:
 | field | required | type | description |
@@ -118,27 +118,27 @@ Possible errors:
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
-- DatabaseError
 - InternalServerError
 
 </details>
 
 <details>
-  <summary>POST - `/modules/autoresponder/entries`</summary>
+  <summary>POST - `/modules/autoresponder/triggers`</summary>
 
-Add an autoresponder module entry for the specified guild.
+Create a new trigger for the autoresponder module in the specified guild.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild for which to create the autoresponder entry |
-| trigger | yes | `string` | The trigger for the autoresponder entry to be send |
-| type | yes | `string` | The response type |
-| content | yes | `string` | The response content |
-| allowed_channels | yes | `list|string` | The list of channel ID's to allow (may be "all" if all channel are allowed) |
+| guild_id | yes | `integer` | The ID of the guild for which to create the autoresponder trigger |
+| trigger_type | yes | `integer` | The type of the trigger. Can be 1 for "Wildcard", 2 for "Contains", 3 for "Starts with" or 4 for "Ends with" |
+| match_case | yes | `boolean` | Indicated if the trigger matching is case sensitive |
+| trigger | yes | `string` | The trigger |
+| allowed_channels | yes | `list` | The list of channel ID's to allow (may be an empty list when all channels are allowed) |
 | ignored_channels | yes | `list` | The list of channel ID's to ignore |
-| allowed_roles | yes | `list|string` | The list of role ID's to allow (may be "all" if all roles are allowed) |
+| allowed_roles | yes | `list` | The list of role ID's to allow (may be an empty list when all roles are allowed) |
 | ignored_roles | yes | `list` | The list of role ID's to ignore |
+| response_ids | yes | `list` | The list of response ID's to send when the trigger has been hit |
 
 Possible errors:
 
@@ -146,18 +146,49 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
-  <summary>GET - `/modules/autoresponder/entry/{autoresponder_entry_id}`</summary>
+  <summary>GET - `/modules/autoresponder/trigger/{trigger_id}`</summary>
 
-Get the details of the specified autoresponder entry in the specified guild.
+Get the details of the specified autoresponder trigger in the specified guild.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to return the details of the autoresponder entry from |
+| guild_id | yes | `integer` | The ID of the guild to return the details of the autoresponder trigger from |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>DELETE - `/modules/autoresponder/trigger/{trigger_id}`</summary>
+
+Delete the specified autoresponder trigger in the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild for which to delete the trigger | 
 
 Possible errors:
 
@@ -170,14 +201,22 @@ Possible errors:
 </details>
 
 <details>
-  <summary>DELETE - `/modules/autoresponder/entry/{autoresponder_entry_id}`</summary>
+  <summary>PUT - `/modules/autoresponder/trigger/{trigger_id}`</summary>
 
-Delete the specified autoresponder entry in the specified guild.
+Edit the specified autoresponder trigger in the specified guild.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild for which to delete the autoresponder entry |
+| guild_id | yes | `integer` | The ID of the guild for which to edit the trigger |
+trigger_type | yes | `integer` | The type of the trigger. Can be 1 for "Wildcard", 2 for "Contains", 3 for "Starts with" or 4 for "Ends with" |
+| match_case | yes | `boolean` | Indicated if the trigger matching is case sensitive |
+| trigger | yes | `string` | The trigger |
+| allowed_channels | yes | `list` | The list of channel ID's to allow (may be an empty list when all channels are allowed) |
+| ignored_channels | yes | `list` | The list of channel ID's to ignore |
+| allowed_roles | yes | `list` | The list of role ID's to allow (may be an empty list when all roles are allowed) |
+| ignored_roles | yes | `list` | The list of role ID's to ignore |
+| response_ids | yes | `list` | The list of response ID's to send when the trigger has been hit |
 
 Possible errors:
 
@@ -189,22 +228,21 @@ Possible errors:
 </details>
 
 <details>
-  <summary>POST - `/modules/autoresponder/entry/check`</summary>
+  <summary>POST - `/modules/autoresponder/check`</summary>
 
 :::danger
 
-Do not use this endpoint yourself! Autoresponder entries will be send by Husqy when needed.
+Do not use this endpoint yourself! Responses will be send by Husqy when needed.
 
 :::
 
-Endpoint to check if an autoresponder entry has to be send for the specified guild.
+Endpoint to check if an autoresponder trigger has to be send for the specified guild.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to check the autoresponder entry for |
 | origin_message_id | yes | `integer` | The ID of the message the member send that triggered the check |
-| message_content | yes | `string` | The content of message that triggered the check |
 | channel_id | yes | `integer` | The ID of the channel where the message that triggered the check is located |
 | member_roles | yes | `list` | A list of the member that send the triggering message their role ID's |
 
@@ -213,6 +251,105 @@ Possible errors:
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
+- InternalServerError
+
+</details>
+
+## Responses
+
+Endpoints related to the responses of the module
+
+<details>
+  <summary>GET - `/modules/autoresponder/responses`</summary>
+
+Get the list of responses for the autoresponder module for the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to return the entries from |
+| page | no | `integer` | The page number to get (default = 1) |
+| page_size | no | `integer` | The amount of entries to return in one page (default = 10) |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>POST - `/modules/autoresponder/responses`</summary>
+
+Create a new response for the autoresponder module in the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild for which to create the autoresponder trigger |
+| response_type | yes | `integer` | The type of the response. Can be 1 for "Message", 2 for "Embed" or 3 for "Reaction" |
+| response_content | yes | `string` | The content to respond with. Can also be Husqy embed configuration (JSON) or None (for Wildcard trigger type or Reaction response type) |
+| emoji_name | yes | `string` | The literal emoji, f.e. 😁 or the name of the emoji when it is a custom guild emoji. Can also be None if response type is not Reaction |
+| emoji_id | yes | `integer` | The ID of the custom emoji. When using a default emoji, this can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>GET - `/modules/autoresponder/response/{response_id}`</summary>
+
+Get the details of the specified autoresponder response in the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to return the details of the autoresponder response from |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>DELETE - `/modules/autoresponder/response/{response_id}`</summary>
+
+Delete the specified autoresponder response in the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild for which to delete the response |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- DatabaseError
 
 </details>
 

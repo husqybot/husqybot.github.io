@@ -199,9 +199,12 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 <details>
   <summary>Autoresponder events</summary>
 
-1. `log_autoresponder_response_created`: Logs when a new automatic response entry is created;
-2. `log_autoresponder_response_deleted`: Logs when a automatic response entry is deleted;
-3. `log_autoresponder_response_list`: Logs when the list of automatic responses is requested;
+1. `log_autoresponder_trigger_created`: Logs when an new autoresponder trigger is created;
+2. `log_autoresponder_trigger_deleted`: Logs when an autoresponder trigger is deleted;
+3. `log_autoresponder_trigger_edited`: Logs when an autoresponder trigger is edited;
+4. `log_autoresponder_trigger_hit`: Logs when one or more autorsponder trigger is hit;
+5. `log_autoresponder_response_created`: Logs when an new autoresponder response is created;
+6. `log_autoresponder_response_deleted`: Logs when an autoresponder response is deleted;
 
 </details>
 
