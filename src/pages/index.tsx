@@ -13,7 +13,7 @@ import MainButton from "../components/buttons/mainButton/mainButton";
 import isElementInViewport from "../functions/isElementInViewport";
 
 // Import NextUI provider
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 
 // Import styles
 import styles from "./index.module.css";

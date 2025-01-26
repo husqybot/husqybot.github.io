@@ -151,6 +151,21 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
+  <summary>Welcoming events</summary>
+
+1. `log_welcoming_response_create`: Logs when a new welcoming response has been created;
+2. `log_welcoming_response_delete`: Logs when a welcoming response has been deleted;
+3. `log_welcoming_timedrole_create`: Logs when a new timedrole has been created;
+4. `log_welcoming_timedrole_delete`: Logs when a timedrole has been deleted;
+5. `log_welcoming_check_welcome_dm`: Logs when a welcome message to a DM has been checked;
+6. `log_welcoming_check_welcome_channel`: Logs when a welcome message to a channel has been checked;
+7. `log_welcoming_check_leave_channel`: Logs when a leave message to a channel has been checked;
+8. `log_welcoming_check_role_on_join`: Logs when autorole roles have been checked;
+9. `log_welcoming_check_role_timed`: Logs when a timed role is added to a member;
+
+</details>
+
+<details>
   <summary>Socials events</summary>
 
 1. `log_twitch_add`: Logs when a new Twitch account is added to the monitor list;
