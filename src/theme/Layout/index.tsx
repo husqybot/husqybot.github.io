@@ -6,16 +6,16 @@ import type { Props } from "@theme/Layout";
 import MainCarousel from "../../components/carousel/mainCarousel";
 
 // Import NextUI provider
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 
 // Import styles
 import styles from "./styles.module.css";
 
 export default function LayoutWrapper(props: Props): ReactNode {
   return (
-    <NextUIProvider className={styles.nextui_provider_overwrite}>
+    <HeroUIProvider className={styles.nextui_provider_overwrite}>
       <MainCarousel />
       <Layout {...props} />
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }

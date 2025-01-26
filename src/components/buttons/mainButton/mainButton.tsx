@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 
 // Import types
 import { PressEvent } from "@react-types/shared";
