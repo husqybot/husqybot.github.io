@@ -93,7 +93,7 @@ export default function WhyChooseUs() {
             type={2}
             text="Documentation"
             onButtonClick={() => {
-              window.location = "/docs";
+              window.location = "/docs/introduction";
             }}
           />
         </>
