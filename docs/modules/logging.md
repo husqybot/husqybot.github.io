@@ -168,15 +168,14 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 <details>
   <summary>Socials events</summary>
 
-1. `log_twitch_add`: Logs when a new Twitch account is added to the monitor list;
-2. `log_twitch_remove`: Logs when a Twitch account is removed from the monitor list;
-3. `log_twitch_list`: Logs when the monitored Twitch account list is requested;
-4. `log_reddit_add`: Logs when a new Subreddit is added to the monitor list;
-5. `log_reddit_remove`: Logs when a Subreddit is removed from the monitor list;
-6. `log_reddit_list`: Logs when the monitored Subreddit list is requested;
-7. `log_rss_add`: Logs when a new RSS page is added to the monitor list;
-8. `log_rss_remove`: Logs when a RSS page is removed from the monitor list;
-9. `log_rss_list`: Logs when the monitored RSS page list is requested;
+1. `log_socials_reddit_remove`: Logs when a Subreddit is removed from the monitor list;
+2. `log_socials_reddit_add`: Logs when a new Subreddit is added to the monitor list;
+3. `log_socials_rss_remove`: Logs when an RSS Feed is removed from the monitor list;
+4. `log_socials_rss_add`: Logs when a new RSS Feed is added to the monitor list;
+5. `log_socials_twitch_remove`: Logs when a Twitch account is removed from the monitor list;
+6. `log_socials_twitch_add`: Logs when a new Twitch account is added to the monitor list;
+7. `log_socials_youtube_remove`: Logs when a YouTube channel is removed from the monitor list;
+8. `log_socials_youtube_add`: Logs when a new YouTube channel is added to the monitor list;
 
 </details>
 

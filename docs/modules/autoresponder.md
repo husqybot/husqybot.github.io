@@ -119,7 +119,7 @@ Responses can be created by server administrators using the [Autoresponder dashb
 
 To delete a response, go to the [Autoresponder dashboard](#additional-info--commands) and press the `Go to responses` button in the responses explanation box. You will be redirected to a page where all responses of the server will be shown. Here, press the `Delete response` button on the response you want to delete. The response will be deleted immediately.
 
-## Additional info
+## Additional info & commands
 
 :::info
 
