@@ -78,7 +78,7 @@ export default function GetStarted(): JSX.Element {
                   text="Add Husqy"
                   onButtonClick={() => {
                     window.location =
-                      "https://discord.com/api/oauth2/authorize?client_id=868946730878632047&permissions=1506760976631&scope=bot%20applications.commands";
+                      "https://discord.com/api/oauth2/authorize?client_id=868946730878632047&permissions=140737488355327&scope=bot%20applications.commands";
                   }}
                 />
               </div>
