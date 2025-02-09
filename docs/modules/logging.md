@@ -57,12 +57,11 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 3. `log_channel_update`: Logs when a channel is updated;
 4. `log_clear_messages`: Logs when an amount of messages in a channel is deleted using the Husqy /mod_server clear_messages command;
 5. `log_slowmode`: Logs when slowmode is enabled or disabled in a channel using the Husqy /mod_server slowmode command;
-6. `log_tempchannels`: Logs when a existing tempchannel is re-configured;
-7. `log_channel_lock`: Logs when a channel is locked for use;
-8. `log_channel_unlock`: Logs when a channel is unlocked for use;
-9. `log_channel_join`: Logs when a user joins a channel;
-10. `log_channel_leave`: Logs when a user leaves a channel;
-11. `log_channel_move`: Logs when a user moves from one channel to another channel;
+6. `log_channel_lock`: Logs when a channel is locked for use;
+7. `log_channel_unlock`: Logs when a channel is unlocked for use;
+8. `log_channel_join`: Logs when a user joins a channel;
+9. `log_channel_leave`: Logs when a user leaves a channel;
+10. `log_channel_move`: Logs when a user moves from one channel to another channel;
 
 </details>
 
@@ -219,6 +218,35 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 4. `log_autoresponder_trigger_hit`: Logs when one or more autorsponder trigger is hit;
 5. `log_autoresponder_response_created`: Logs when an new autoresponder response is created;
 6. `log_autoresponder_response_deleted`: Logs when an autoresponder response is deleted;
+
+</details>
+
+<details>
+  <summary>Tempchannels events</summary>
+
+1. `log_creation_channel_create`: Logs when new creation channels are created;
+2. `log_creation_channel_delete`: Logs when creation channels are deleted;
+3. `log_creation_channel_edit`: Logs when creation channels are edited;
+4. `log_tempchannel_check_create`: Logs when a join event is checked for creating a tempchannel;
+5. `log_tempchannel_check_delete`: Logs when a leave event is checked for deleting a tempchannel;
+6. `log_tempchannel_name_edited`: Logs when a tempchannels name is edited;
+7. `log_tempchannel_user_limit_edited`: Logs when a tempchannel user limit is edited;
+8. `log_tempchannel_slowmode_edited`: Logs when a tempchannels slowmode is edited;
+9. `log_tempchannel_bitrate_edited`: Logs when a tempchannels bitrate is edited;
+10. `log_tempchannel_age_restriction_edited`: Logs when a tempchannels age restriction setting is edited;
+11. `log_tempchannel_region_edited`: Logs when a tempchannels region is edited;
+12. `log_tempchannel_claimed`: Logs when a tempchannels ownership is claimed*;
+13. `log_tempchannel_transferred`: Logs when a tempchannels ownership is transferred*;
+14. `log_tempchannel_deleted`: Logs when a tempchannel set is deleted**;
+15. `log_tempchannel_block_rule_added`: Logs when a block rule is added to a tempchannel*;
+16. `log_tempchannel_block_rule_removed`: Logs when a block rule is removed from a tempchannel*;
+17. `log_tempchannel_trust_rule_added`: Logs when a trust rule is added to a tempchannel*;
+18. `log_tempchannel_trust_rule_removed`: Logs when a trust rule is removed from a tempchannel*;
+
+<br />
+\* This event is only logged when it is run using the corresponding Husqy command or API (if available)
+<br />
+\** This event is only logged when it is run using the corresponding Husqy command or API (if available). If a channel is deleted manually, the log_channel_delete event is fired.
 
 </details>
 

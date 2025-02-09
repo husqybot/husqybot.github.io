@@ -14,6 +14,10 @@ export default function MainCarousel() {
     <div className={styles.embla} ref={emblaRef}>
       <div className={styles.embla__container}>
         <div className={styles.embla__slide}>
+          The permissions Husqy needs have been updated! Please cross check with
+          the new invite link to make sure you are up to date!
+        </div>
+        <div className={styles.embla__slide}>
           We are now verified! Husqy is now a verified bot in Discord making us
           visible in the app discovery and enabling bigger trust to users!
         </div>
