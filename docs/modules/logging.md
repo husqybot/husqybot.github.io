@@ -251,6 +251,14 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
+  <summary>Verifier events</summary>
+
+1. `log_verifier_verification_create`: Logs when a verification has been created for a user;
+2. `log_verifier_verification_handle`: Logs when a verification has been handled successfully for a user;
+
+</details>
+
+<details>
   <summary>Giveaway events</summary>
 
 1. `log_giveaway_create`: Logs when a giveaway has been created;

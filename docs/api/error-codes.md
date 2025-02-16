@@ -49,7 +49,7 @@ Returns:
   "success": False,
   "data": {},
   "error": {
-      "code": 803,
+      "code": 802,
       "message": "Unable to edit the database for the guild!",
   },
 }
@@ -187,7 +187,7 @@ Returns:
   "success": False,
   "data": {},
   "error": {
-      "code": 802,
+      "code": 801,
       "message": "Unable to fetch the settings of the guild!",
   },
 }
