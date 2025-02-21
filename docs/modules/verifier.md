@@ -24,7 +24,7 @@ The Husqy verifier module supports: `User variables`, `Server variables` and `Ot
 
 :::
 
-The Husqy verifier module is the best way to secure your Discord server and protect it from spam or bots. It is used to provide an extra user action (configurable in different types) before users get full access to your servers channels. Make users press a button to pass or have them know a passphrase before giving them permissions based on Discord roles.
+The Husqy verifier module is the best way to secure your Discord server and protect it from spam or bots. It is used to provide an extra user action (configurable in different types) before users get full access to your servers channels. Make users press a button to pass or have them know a passphrase before giving them permissions based on Discord roles. The verifier module also works seamlessly with the rules module!
 
 ## Enabling the module
 
@@ -69,7 +69,13 @@ The button that will be used here is a link button. It will link to the Husqy da
 
 ## Retriggering verification
 
-A server administrator can use the `/verifier entry retrigger` command to retrigger verification for a users. This command will only start the retriggering of the verification and handle the verification, it will NOT remove configured verified role IDs. After this command is used, the target user follows the same steps as they would when the would join the server. Using this command will also trigger the rules configured in the [rules module](https://husqy.xyz/docs/modules/rules) to be retriggered.
+A server administrator can use the `/verifier entry retrigger` command to retrigger verification for a users. This command will only start the retriggering of the verification and handle the verification, it will NOT remove configured verified role IDs. After this command is used, the target user follows the same steps as they would when the would join the server. 
+
+:::warning
+
+Using this command will also trigger the rules configured in the rules module to be retriggered.
+
+:::
 
 ## Additional info & commands
 

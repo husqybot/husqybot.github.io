@@ -259,6 +259,16 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
+  <summary>Rules events</summary>
+
+1. `log_rules_rule_add`: Logs when a new rule is added;
+2. `log_rules_rule_remove`: Logs when a rule is removed;
+2. `log_rules_send_check`: Logs when a rule sending has been checked successfully;
+2. `log_rules_interaction_check`: Logs when a rules interaction has been checked successfully;
+
+</details>
+
+<details>
   <summary>Giveaway events</summary>
 
 1. `log_giveaway_create`: Logs when a giveaway has been created;
