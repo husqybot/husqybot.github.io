@@ -69,7 +69,7 @@ The button that will be used here is a link button. It will link to the Husqy da
 
 ## Retriggering verification
 
-A server administrator can use the `/verifier entry retrigger` command to retrigger verification for a users. This command will only start the retriggering of the verification and handle the verification, it will NOT remove configured verified role IDs. After this command is used, the target user follows the same steps as they would when the would join the server.
+A server administrator can use the `/verifier entry retrigger` command to retrigger verification for a users. This command will only start the retriggering of the verification and handle the verification, it will NOT remove configured verified role IDs. After this command is used, the target user follows the same steps as they would when the would join the server. Using this command will also trigger the rules configured in the [rules module](https://husqy.xyz/docs/modules/rules) to be retriggered.
 
 ## Additional info & commands
 
