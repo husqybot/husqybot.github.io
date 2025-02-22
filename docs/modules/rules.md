@@ -44,6 +44,38 @@ When enabling the rules module, it gets enabled with some basic information whic
 - `Accepted roles`: The roles that will be given to a member after accepting the rules;
 - `Denied roles`: The roles that will be given to a member after denying the rules (if the rules denied action is "Add roles");
 
+### Adding a rule
+
+Using the dashboard, navigate to the [Rules module](#additional-info--commands) page and press the `View & configure rules` button in the top right of the screen. You will be redirected to a new page where a table overview of all rules will be shown. To add a rule, press the `Add rule` button at the top right of the screen, You will be redirected to a page with a form where the rule text can be filled
+
+Using slash commands, run the command `/rules add` and give the rule text as the commands `text` parameter.
+
+:::warning
+
+- Only the server owner or server administrators can add rules. This goes for both the slash commands as the dashboard.
+- There is currently a limit of 3 rules per server.
+
+:::
+
+### Deleting a rule
+
+Using the dashboard, navigate to the [Rules module](#additional-info--commands) page. Press the `View & configure rules` button in the top right of the screen. You will be redirected to a page where a table overview of all rules will be shown. Here you can press the `Remove` button in the interactions column of the target rule to remove it immediately.
+
+Using slash commands, run the command `/rules remove` and pick the rule from the autocomplete options. The rule will then be deleted immediately.
+
+:::warning
+
+- You must pick from the autocomplete options, these have the ID of the rules linked to prevent accidental deletion of the wrong rule.
+- Only the server owner or server administrators can remove rules. This goes for both the slash commands as the dashboard.
+
+:::
+
+### Listing rules
+
+Using the dashboard, navigate to the [Rules module](#additional-info--commands) page. Press the `View & configure rules` button in the top right of the screen. You will be redirected to a page where a table overview of all rules will be shown.
+
+Server members can also use the `/rules list` command. This command can be used by all server members and is NOT restricted to administrators. Using this command will fetch the up-to-date list of server rules configured in the server. When the rules channel is set to a text channel in a server, this message is also updated when new rules are added or existing rules are removed. Viewing this message is yet another way of listing all current server rules.
+
 ## Accepting and denying rules
 
 When a user joins the server with the rules module enabled, they will (if configured) receive a DM message from Husqy with the rules and (if configured) the option to accept or deny the rules. If the rules channel is configured as a text channel inside the server, they will not receive a DM but can (if configured) accept or deny the rules. Accepting or denying the rules can have consequences for the user.
