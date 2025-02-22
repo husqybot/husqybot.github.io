@@ -51,7 +51,7 @@ Body data (JSON):
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to change the verifier module settings for |
 | verifier_type | yes | `integer` | The type to use for verification. 1 = Click-to-pass, 2 = Passphrase and 3 = Web. |
-| verifier_channel | yes | `integer` | The ID of the channel to send verification requests in. Can be None to use User DM |
+| verifier_channel | yes | `integer` | The ID of the channel to send verification requests in. Can be 'dm' or None to use User DM |
 | verifier_verified_role_ids | yes | `list` | A list of role ID's to give to a user when they are successfully verified |
 | verifier_message_is_embed | yes | `boolean` | If the message to send to users is an Husqy embed config |
 | verifier_message_completed_is_embed | yes | `boolean` | If the message to send to users after successful verification is an Husqy embed config |
