@@ -562,6 +562,27 @@ Possible errors:
 
 </details>
 
+<details>
+  <summary>POST - `/modules/tickets/entry/{ticket_id}/transcribe`</summary>
+
+Endpoint to transcribe a ticket for the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to transfer the ticket in |
+| application_id | yes | `integer` | The ID of the application interaction. Can be None |
+| token | yes | `integer` | The token of the application interaction. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+
+</details>
+
 ## Handling tickets
 
 Endpoints related to handling tickets
