@@ -269,6 +269,24 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
+  <summary>Tickets events</summary>
+
+1. `log_ticket_panel_create`: Logs when a new ticket panel is created;
+2. `log_ticket_panel_edit`: Logs when a ticket panel is edited;
+3. `log_ticket_panel_delete`: Logs when a ticket panel is deleted;
+4. `log_ticket_type_add`: Logs when a new ticket type is added to a ticket panel;
+5. `log_ticket_type_delete`: Logs when a ticket type is removed from a ticket panel;
+6. `log_ticket_create`: Logs when a ticket is created;
+7. `log_ticket_form_showed`: Logs when a ticket form is showed to a user;
+8. `log_ticket_delete`: Logs when a ticket is deleted;
+9. `log_ticket_transfer`: Logs when a ticket is transferred;
+10. `log_ticket_reopen`: Logs when a ticket is reopened;
+11. `log_ticket_close`: Logs when a ticket is closed;
+12. `log_ticket_claim`: Logs when a ticket is claimed;
+
+</details>
+
+<details>
   <summary>Giveaway events</summary>
 
 1. `log_giveaway_create`: Logs when a giveaway has been created;

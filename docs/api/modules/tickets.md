@@ -23,82 +23,18 @@ Home endpoint for the Modules Tickets Husqy API. Returns only success message di
 </details>
 
 <details>
-  <summary>GET - `/modules/tickets/settings`</summary>
+  <summary>DELETE - `/modules/tickets/delete`</summary>
 
-Get the settings of the tickets module for the specified guild.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the settings of |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
-
-</details>
-
-<details>
-  <summary>PUT - `/modules/tickets/settings`</summary>
-
-Endpoint to change the settings of the reactionroles module for the specified guild.
+Delete all related data of the tickets module for a specified guild.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to change the reactionroles module settings for |
-| ticket_support_role | yes | `integer OR string` | The ID of the role to use as the ticket support role (may be "create" if you want Husqy to create a support role) |
-| thread_mode | yes | `boolean` | If new tickets should be created as a thread |
-| ticket_post_channel | yes | `integer` | (May be None if thread_mode is True) The ID of the channel where to post new tickets (may be "create" if you want Husqy to create a ticket post channel) |
-| custom_creation_content | yes | `string` | The content for the custom creation message (may be "default" if you want to use the default message) |
-| custom_creation_embed | yes | `boolean` | If the custom creation content is an embed or message (set to True if you use "default" for the custom_creation_content) |
-| custom_creation_modal | yes | `string` | The content for the custom creation modal (may be "default" if you want to use the default modal) |
-| used_default_ticket_types_create | yes | `list` | A list of default ticket types to add as options |
-| used_default_ticket_types_delete | yes | `list` | A list of default ticket types to remove as options |
-| used_custom_ticket_types_create | yes | `list` | A list of custom ticket types to add as options |
-| used_custom_ticket_types_delete | yes | `list` | A list of custom ticket types to remove as options |
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
-- DatabaseError
-
-</details>
-
-<details>
-  <summary>DELETE - `/modules/tickets/settings/delete`</summary>
-
-Delete all settings of the tickets module for a specified guild.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to delete the settings from |
+| guild_id | yes | `integer` | The ID of the guild to delete the data from |
 
 Possible errors:
 
 - BadRequestError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/tickets/available-ticket-types`</summary>
-
-Get the currently supported default ticket types in the language of the specified guild.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the default ticket types for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
 
 </details>
 
@@ -132,17 +68,6 @@ Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to enable the tickets module for |
-| ticket_support_role | yes | `integer OR string` | The ID of the role to use as the ticket support role (may be "create" if you want Husqy to create a support role) |
-| thread_mode | yes | `boolean` | If new tickets should be created as a thread |
-ticket_creation_category | yes | `integer OR string` | The ID of the category channel to use as the place where users can create tickets (may be "create" if you want Husqy to create a ticket category channel) |
-ticket_creation_channel | yes | `integer OR string` | The ID of the channel to use as the place where users can create tickets (may be "create" if you want Husqy to create a ticket creation channel) |
-| ticket_post_channel | yes | `integer OR string` | (May be None if thread_mode is True) The ID of the channel where to post new tickets (may be "create" if you want Husqy to create a ticket post channel) |
-| setup_mode | yes | `string` | The setup mode you want to use. Can be "Minimal", "Complete" or "Custom" |
-| custom_creation_content | yes | `string` | (May be None if setup_mode is "Minimal") The content for the custom creation message (may be "default" if you want to use the default message) |
-| custom_creation_embed | yes | `boolean` | (May be None if setup_mode is "Minimal") If the custom creation content is an embed or message (set to True if you use "default" for the custom_creation_content) |
-| custom_creation_modal | yes | `string` | (May be None if setup_mode is "Minimal") The content for the custom creation modal (may be "default" if you want to use the default modal) |
-| used_default_ticket_types | yes | `list` | (May be [] if setup_mode is "Minimal") A list of default ticket types to add as options |
-| used_custom_ticket_types | yes | `list` | (May be [] if setup_mode is "Minimal") A list of default ticket types to add as options |
 
 Possible errors:
 
@@ -161,7 +86,7 @@ Endpoint to disable the tickets module for the specified guild.
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to disable the reactionroles module for |
+| guild_id | yes | `integer` | The ID of the guild to disable the tickets module for |
 
 Possible errors:
 
@@ -172,28 +97,229 @@ Possible errors:
 
 </details>
 
-## Handling tickets
+## Panels
 
-Endpoints related to handling tickets
+Endpoints related to the configuration of ticket panels
 
 <details>
-  <summary>POST - `/modules/tickets/ticket/show-form`</summary>
+  <summary>GET - `/modules/tickets/panels`</summary>
 
-:::danger
+Endpoint to get all ticket panels for the specified guild.
 
-Do not use this endpoint yourself! Forms will be showed by Husqy in Discord when needed.
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the panels for |
+| page | no | `integer` | The page number to get (default = 1) |
+| page_size | no | `integer` | The amount of entries to return in one page (default = 10) |
 
-:::
+Possible errors:
 
-Endpoint to make Husqy show the ticket form.
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/panels`</summary>
+
+Endpoint to create a new ticket panel for the specified guild.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| message_id | yes | `integer` | The ID of the message that is reacted to, in other words the ticket message |
-| modal_interaction | yes | `integer` | The ID of the interaction |
-| modal_interaction_token | yes | `integer` | The token of the interaction |
-| ticket_type | yes | `string` | The type of the ticket |
+| guild_id | yes | `integer` | The ID of the guild to disable the tickets module for |
+| panel_type | yes | `string` | The type of ticket panel. Can be 'create button', 'ticket type button' or 'dropdown' |
+| create_message_is_embed | yes | `boolean` | If the create message for creating a ticket is an Husqy embed config |
+| create_message_content | yes | `string` | The content for the create message. Can be Husqy embed config. Can be 'default' to use the default content |
+| form_enabled | yes | `boolean` | If a form should be filled in when users create a ticket |
+| form_content | yes | `string` | The Husqy modal config for the form to show. Can be 'default' to use default config. Can be None if form enabled is false. |
+| ticket_opened_message_is_embed | yes | `string` | If the starting message send to a new ticket is an embed |
+| ticket_opened_message_content | yes | `string` | The content for the message to send when a ticket is created. Can be Husqy embed config. Can be 'default' to use the default content |
+| ticket_opened_name | yes | `string` | The name to give to new tickets |
+| support_engineer_role_id | yes | `integer` | The ID of the role to use for the support engineer. Can be 'create' to create a default support engineer role  |
+| create_message_category_id | yes | `integer` | The ID of the category where the create_message_channel_id is located or should be created. Can also be 'create' to create a default category |
+| create_message_channel_id | yes | `integer` | The ID of the channel where the ticket panel should be located. Must be in the create_message_category_id. Can be 'create' to create a default channel |
+| open_tickets_categories | yes | `list` | A list of category channel IDs where open tickets should be created if threads is not enabled |
+| closed_tickets_categories | yes | `list` | A list of category channel IDs where closed tickets should be moved to if threads is not enabled |
+| threads_enabled | yes | `boolean` | If tickets should be created in threads instead of channels |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- DatabaseError
+- InternalServerError
+- ModuleDisabledError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>GET - `/modules/tickets/panel/{panel_id}`</summary>
+
+Endpoint to get configuration of specified panel for the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the panel config for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>DELETE - `/modules/tickets/panel/{panel_id}`</summary>
+
+Endpoint to delete a ticket panel in the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to disable the tickets module for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- DatabaseError
+- InternalServerError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/panel/{panel_id}`</summary>
+
+Endpoint to change the configuration of a ticket panel for the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to disable the tickets module for |
+| panel_type | yes | `string` | The type of ticket panel. Can be 'create button', 'ticket type button' or 'dropdown' |
+| create_message_is_embed | yes | `boolean` | If the create message for creating a ticket is an Husqy embed config |
+| create_message_content | yes | `string` | The content for the create message. Can be Husqy embed config. Can be 'default' to use the default content |
+| form_enabled | yes | `boolean` | If a form should be filled in when users create a ticket |
+| form_content | yes | `string` | The Husqy modal config for the form to show. Can be 'default' to use default config. Can be None if form enabled is false. |
+| ticket_opened_message_is_embed | yes | `string` | If the starting message send to a new ticket is an embed |
+| ticket_opened_message_content | yes | `string` | The content for the message to send when a ticket is created. Can be Husqy embed config. Can be 'default' to use the default content |
+| ticket_opened_name | yes | `string` | The name to give to new tickets |
+| support_engineer_role_id | yes | `integer` | The ID of the role to use for the support engineer. Can be 'create' to create a default support engineer role  |
+| open_tickets_categories | yes | `list` | A list of category channel IDs where open tickets should be created if threads is not enabled |
+| closed_tickets_categories | yes | `list` | A list of category channel IDs where closed tickets should be moved to if threads is not enabled |
+| threads_enabled | yes | `boolean` | If tickets should be created in threads instead of channels |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- DatabaseError
+- InternalServerError
+- ModuleDisabledError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+## Ticket types
+
+Endpoints related to ticket types on a panel
+
+<details>
+  <summary>GET - `/modules/tickets/panel/{panel_id}/ticket-types`</summary>
+
+Endpoint to get all ticket types configured for the specified panel in the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the entries for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/panel/{panel_id}/ticket-types`</summary>
+
+Endpoint to add a ticket type to a panel.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the panel is located |
+| title | yes | `string` | The title of the ticket type |
+| description | yes | `string` | The description to use when the panel type is 'dropdown'. Can be None. Can be filled when panel type is not 'dropdown' but will be ignored until panel type becomes 'dropdown' |
+| emoji_name | yes | `string` | The literal emoji, f.e. 😁 or the name of the emoji when it is a custom guild emoji. Can be None. |
+| emoji_id | yes | `integer` | The ID of the custom emoji. When using a default emoji, this can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- DatabaseError
+- InternalServerError
+- ModuleDisabledError
+- DiscordApiInteractionError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>GET - `/modules/tickets/panel/{panel_id}/ticket-types/{ticket_type_id}`</summary>
+
+Endpoint to get ticket type configuration for the specified ticket type on the specified panel in the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the ticket type is located |
 
 Possible errors:
 
@@ -204,28 +330,395 @@ Possible errors:
 </details>
 
 <details>
-  <summary>POST - `/modules/tickets/ticket/handle-form`</summary>
+  <summary>DELETE - `/modules/tickets/panel/{panel_id}/ticket-types/{ticket_type_id}`</summary>
 
-:::danger
-
-Do not use this endpoint yourself! Forms will be handled by Husqy when needed.
-
-:::
-
-Endpoint to make Husqy handle the ticket form.
+Endpoint to remove a ticket type from a panel.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| message_id | yes | `integer` | The ID of the message that is reacted to, in other words the ticket message |
-| interaction_custom_id | yes | `integer` | The ID of modal that is reacted to |
-| modal_interaction | yes | `integer` | The ID of the interaction |
-| modal_interaction_token | yes | `integer` | The token of the interaction |
-| first_interaction_value | yes | `integer` | The values of the forms that is reacted to |
-| second_interaction_value | yes | `integer` | The values of the forms that is reacted to |
-| third_interaction_value | yes | `integer` | The values of the forms that is reacted to |
-| fourth_interaction_value | yes | `integer` | The values of the forms that is reacted to |
-| fifth_interaction_value | yes | `integer` | The values of the forms that is reacted to |
+| guild_id | yes | `integer` | The ID of the guild where the ticket type is located |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- DatabaseError
+- InternalServerError
+- ModuleDisabledError
+- DiscordApiInteractionError
+
+</details>
+
+## Tickets
+
+Endpoints related to tickets
+
+<details>
+  <summary>GET - `/modules/tickets/entries`</summary>
+
+Endpoint to get all ticket for the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the entries for |
+| page | no | `integer` | The page number to get (default = 1) |
+| page_size | no | `integer` | The amount of entries to return in one page (default = 10) |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>GET - `/modules/tickets/entry/{ticket_id}`</summary>
+
+Endpoint to information about the specified ticket for the specified guild.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the entries for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>DELETE - `/modules/tickets/entry/{ticket_id}`</summary>
+
+Endpoint to delete a ticket for the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the entries for |
+| application_id | yes | `integer` | The ID of the application interaction. Can be None |
+| token | yes | `integer` | The token of the application interaction. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/entry/{ticket_id}/close`</summary>
+
+Endpoint to close a ticket for the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to close the ticket in |
+| application_id | yes | `integer` | The ID of the application interaction. Can be None |
+| token | yes | `integer` | The token of the application interaction. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+- DiscordApiInteractionError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/entry/{ticket_id}/reopen`</summary>
+
+Endpoint to reopen an existing ticket for the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to reopen the ticket in |
+| application_id | yes | `integer` | The ID of the application interaction. Can be None |
+| token | yes | `integer` | The token of the application interaction. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+- DiscordApiInteractionError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/entry/{ticket_id}/claim`</summary>
+
+Endpoint to claim a ticket for the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to claim the ticket in |
+| application_id | yes | `integer` | The ID of the application interaction. Can be None |
+| token | yes | `integer` | The token of the application interaction. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/entry/{ticket_id}/transfer`</summary>
+
+Endpoint to transfer a ticket for the specified guild.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to transfer the ticket in |
+| new_engineer | yes | `integer` | The ID of the new engineer |
+| application_id | yes | `integer` | The ID of the application interaction. Can be None |
+| token | yes | `integer` | The token of the application interaction. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- InternalServerError
+- ModuleDisabledError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+## Handling tickets
+
+Endpoints related to handling tickets
+
+<details>
+  <summary>POST - `/modules/tickets/events/create-ticket`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will create tickets when needed.
+
+:::
+
+Endpoint to make Husqy create a ticket or show the ticket form.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the ticket should be created |
+| panel_id | yes | `string` | The ID the panel used to start the ticket creation |
+| ticket_type_id | yes | `string` | The ID of the ticket type used |
+| application_id | yes | `integer` | The ID of the application interaction. Can be None |
+| token | yes | `integer` | The token of the application interaction. Can be None |
+| interaction_id | yes | `integer` | The ID of the interaction. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- DiscordApiInteractionError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/events/handle-form`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will create tickets when needed.
+
+:::
+
+Endpoint to make Husqy create a ticket after the form is used.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the ticket should be created |
+| panel_id | yes | `string` | The ID the panel used to start the ticket creation |
+| ticket_type_id | yes | `string` | The ID of the ticket type used |
+| values | yes | `dict` | The values from the filled in form |
+| application_id | yes | `integer` | The ID of the application interaction. Can be None |
+| token | yes | `integer` | The token of the application interaction. Can be None |
+| interaction_id | yes | `integer` | The ID of the interaction. Can be None |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- DiscordApiInteractionError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>GET - `/modules/tickets/entries/messages`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will use this endpoint when needed.
+
+:::
+
+Endpoint to get all messages related to a ticket.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the ticket is located |
+| ticket_id | yes | `string` | The ID of the ticket to get the messages for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>POST - `/modules/tickets/entries/messages`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will link messages to tickets automatically.
+
+:::
+
+Endpoint to link a message to a ticket.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the ticket is located |
+| channel_id | yes | `string` | The ID of the channel where the message is send |
+| message_id | yes | `string` | The ID of the message which is send |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>DELETE - `/modules/tickets/entries/messages`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will unlink messages to tickets automatically.
+
+:::
+
+Endpoint to unlink a message to a ticket.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the ticket is located |
+| channel_id | yes | `string` | The ID of the channel where the message is deleted |
+| message_id | yes | `string` | The ID of the message which is deleted |
 
 Possible errors:
 
