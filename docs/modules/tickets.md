@@ -188,11 +188,21 @@ After a ticket has been reopened, the threads channel will be opened and unlocke
 
 #### Delete
 
-A ticket can be deleted using the `Delete ticket` button on the starting message or by using the `tickets delete` command and inserting the ID of the ticket to delete. Deleting a ticket will delete all related data immediately and can not be reverted. After a ticket has been deleted it CAN NOT be reopened.
+A ticket can be deleted using the `Delete ticket` button on the starting message or by using the `/tickets delete` command and inserting the ID of the ticket to delete. Deleting a ticket will delete all related data immediately and can not be reverted. After a ticket has been deleted it CAN NOT be reopened.
 
 :::warning
 
 Only server administrators can delete tickets.
+
+:::
+
+#### Transcribe
+
+A ticket can, as long as it is not deletd, be transcribed using the `/tickets transcribe` command and inserting the ID of the ticket to transcribe. Transcribing a ticket can be done for both open and closed tickets. Transcriptions for tickets currently support only button components to be visible. Some styling may vary.
+
+:::warning
+
+Only the current support engineer and the ticket creator can transcribe the ticket.
 
 :::
 
@@ -224,5 +234,6 @@ This module provides the following commands:
 - `/tickets claim`;
 - `/tickets close`;
 - `/tickets transfer`;
+- `/tickets transcribe`;
 
 :::

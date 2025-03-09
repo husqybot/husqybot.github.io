@@ -283,6 +283,7 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 10. `log_ticket_reopen`: Logs when a ticket is reopened;
 11. `log_ticket_close`: Logs when a ticket is closed;
 12. `log_ticket_claim`: Logs when a ticket is claimed;
+13. `log_ticket_transcribe`: Logs when a ticket is transcribed;
 
 </details>
 
