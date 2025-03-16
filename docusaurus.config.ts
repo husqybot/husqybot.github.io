@@ -135,7 +135,7 @@ const config: Config = {
         },
         {
           label: "Documentation",
-          to: "/docs",
+          to: "/docs/introduction",
         },
         {
           label: "FAQ",
