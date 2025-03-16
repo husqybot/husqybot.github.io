@@ -288,6 +288,16 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
+  <summary>Invite tracker events</summary>
+
+1. `log_invite_created`: Logs when a new invite has been created;
+2. `log_invite_deleted`: Logs when an invite has been deleted;
+3. `log_invite_based_join`: Logs when a user has joined and shows the inviter;
+4. `log_invite_based_leave`: Logs when a user has left and the inviter;
+
+</details>
+
+<details>
   <summary>Giveaway events</summary>
 
 1. `log_giveaway_create`: Logs when a giveaway has been created;
