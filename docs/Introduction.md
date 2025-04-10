@@ -29,7 +29,7 @@ Husqy functions are functionalities which work immediatly when Husqy joins our D
 Husqy modules are extra functionalities in Husqy which need to be enabled by either the owner or a server admin. These modules provide extra functionality but also require a bit more configuration before they can start to enhance your Husqy experience. Server members can, depending on the module interact with them (with respect to their Husqy privacy settings). Current Husqy modules are:
 
 - [Logging](modules/logging)
-- [Greetings](modules/greetings)
+- [Welcoming](modules/welcoming)
 - [Tempchannels](modules/tempchannels)
 - [Socials](modules/socials)
 - [Reactionroles](modules/reactionroles)
@@ -37,6 +37,9 @@ Husqy modules are extra functionalities in Husqy which need to be enabled by eit
 - [Tickets](modules/tickets)
 - [Serverstats](modules/serverstats)
 - [Tags](modules/tags)
+- [Verifier](modules/verifier)
+- [Rules](modules/rules)
+- [Invite tracker](modules/invite-tracker)
 
 ## What are Husqy extra's?
 

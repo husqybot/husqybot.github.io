@@ -298,6 +298,16 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
+  <summary>Serverstats events</summary>
+
+1. `log_serverstats_counter_created`: Logs when a new counter has been created;
+2. `log_serverstats_counter_deleted`: Logs when a counter has been deleted;
+3. `log_serverstats_starboard_check`: Logs when a starboard check has been triggered;
+4. `log_serverstats_counters_updated`: Logs when all counters for the server have been updated;
+
+</details>
+
+<details>
   <summary>Giveaway events</summary>
 
 1. `log_giveaway_create`: Logs when a giveaway has been created;
