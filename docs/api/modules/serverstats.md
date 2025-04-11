@@ -50,25 +50,28 @@ Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild to change the serverstats module settings for |
-| counter_panel_enabled | yes | `boolean` | If the counter panel should be enabled |
-| counter_panel_category_channel | yes | `integer` | The ID of the category channel to use for the counter panel |
-| counter_panel_member_count_channel | yes | `integer` | (May be None) The ID of the channel to use for the display of current guild member count |
-| counter_panel_online_member_count_channel | yes | `integer` | (May be None) The ID of the channel to use for the display of current online guild member count |
-| counter_panel_custom_panels_create | yes | `list` | (May be []) A list of objects consisting of a channel_name key and role_id key to add as custom panels for online members with role |
-| counter_panel_custom_panels_delete | yes | `list` | (May be []) A list of channel ID's which are a custom panels for online members with role to remove |
-| counter_panel_server_boost_number_channel | yes | `integer` | (May be None) The ID of the channel to use for the display of current guild boosts |
+| counters_enabled | yes | `boolean` | If the counters should be enabled |
+| counters_category_id | yes | `integer` | The ID of the category channel where the counters will be located. Can be 'create' to create a category |
 | starboard_enabled | yes | `boolean` | If the starboard should be enabled |
-| starboard_channel | yes | `integer` | (May be None) The ID of the channel to use as the channel where starred messages are highlighted |
-| starboard_count | yes | `integer` | (May be None if starboard_enabled is false) The amount of stars a message should have before going on the starboard |
-| stats_command_usage | yes | `boolean` | If command statistics should be enabled |
-| stats_message_statistics | yes | `boolean` | If message statistics should be enabled |
-| stats_track_bot_messages | yes | `boolean` | If bot messages should be tracked as part of the message statistics |
-| stats_functions_reminders_statistics_enabled | yes | `boolean` | If reminders statistics should be enabled |
-| stats_functions_giveaways_statistics_enabled | yes | `boolean` | If giveaways statistics should be enabled |
-| stats_modules_tempchannels_statistics_enabled | yes | `boolean` | If tempchannels statistics should be enabled |
-| stats_modules_autoresponder_statistics_enabled | yes | `boolean` | If autoresponder statistics should be enabled |
-| stats_modules_reactionroles_statistics_enabled | yes | `boolean` | If reactionroles statistics should be enabled |
-| stats_modules_tags_statistics_enabled | yes | `boolean` | If command tags should be enabled |
+| starboard_channel | yes | `integer` | The ID of the channel where the starboard messages will be sent. Can be 'create' to create a channel |
+| starboard_count | yes | `integer` | The amount of stars required to get into the starboard channel |
+| stats_messages_enabled | yes | `boolean` | If the message statistics should be enabled |
+| stats_commands_enabled | yes | `boolean` | If the commands statistics should be enabled |
+| stats_members_enabled | yes | `boolean` | If the members statistics should be enabled |
+| stats_activities_enabled | yes | `boolean` | If the activities statistics should be enabled |
+| stats_voice_enabled | yes | `boolean` | If the voice statistics should be enabled |
+| stats_modules_autoresponder_enabled | yes | `boolean` | If the module autoresponder statistics should be enabled |
+| stats_modules_tags_enabled | yes | `boolean` | If the module tags statistics should be enabled |
+| stats_modules_verifier_enabled | yes | `boolean` | If the module verifier statistics should be enabled |
+| stats_modules_socials_enabled | yes | `boolean` | If the module socials statistics should be enabled |
+| stats_modules_rules_enabled | yes | `boolean` | If the module rules statistics should be enabled |
+| stats_modules_invite_tracker_enabled | yes | `boolean` | If the module invite tracker statistics should be enabled |
+| stats_modules_reactionroles_enabled | yes | `boolean` | If the module reactionroles statistics should be enabled |
+| stats_modules_welcoming_enabled | yes | `boolean` | If the module welcoming statistics should be enabled |
+| stats_modules_tempchannels_enabled | yes | `boolean` | If the module tempchannels statistics should be enabled |
+| stats_modules_tickets_enabled | yes | `boolean` | If the module tickets statistics should be enabled |
+| stats_functions_reminders_enabled | yes | `boolean` | If the function reminders statistics should be enabled |
+| stats_functions_giveaways_enabled | yes | `boolean` | If the function giveaways statistics should be enabled |
 
 - BadRequestError
 - SettingsError
@@ -154,6 +157,149 @@ Possible errors:
 
 </details>
 
+## Counters
+
+Endpoints related to counters
+
+<details>
+  <summary>GET - `/modules/serverstats/counters`</summary>
+
+Endpoint to get all active counters in the server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the counters from |
+| page | no | `integer` | The page number to get (default = 1) |
+| page_size | no | `integer` | The amount of counters to return in one page (default = 10) |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/counters`</summary>
+
+Endpoint to create a new counters in the server.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to create the new counters in |
+| counter_type | yes | `integer` | The type of the counter to create. Can be 1 (for: Statuses), 2 (for: Online), 3 (for: Online with role), 4 (for: Offline), 5 (for: DND), 6 (for: Members), 7 (for: Members with role), 8 (for: Boost), 9 (for: Channels), 10 (for: Roles) |
+| new_format | yes | `string` | The format to use for the counters |
+| new_role_id | yes | `integer` | The ID for the role to use. Can be None when the type is not: 3 or 7 |
+| new_goal | yes | `integer` | The goal number to count towards. Can be None. |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- DatabaseError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>GET - `/modules/serverstats/counter/{counter_id}`</summary>
+
+Endpoint to get information about a specific counter in the server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the counters from |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+
+</details>
+
+<details>
+  <summary>DELETE - `/modules/serverstats/counter/{counter_id}`</summary>
+
+Endpoint to delete  a specific counter in the server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild to get the counters from |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- DatabaseError
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/counters/update`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will update counters automatically.
+
+:::
+
+Endpoint to start updating counters for all servers.
+
+Possible errors:
+
+- InternalServerError
+
+</details>
+
+
+<details>
+  <summary>POST - `/modules/serverstats/counters/check-delete`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will update the configuration when a channel that is a counter panel channel is deleted.
+
+:::
+
+Endpoint to check if a channel is a counters channel and update the configuration.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the removed channel is located |
+| channel_id | yes | `integer` | The ID of the channel that is removed |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
 ## Starboard
 
 Endpoints related to starboards
@@ -212,26 +358,16 @@ Possible errors:
 
 </details>
 
-## Statistics
-
-Endpoints related to statistics
-
-:::note
-
-Statistics view endpoints will return a list of objects containing all information you need about the statistics.
-
-:::
-
 <details>
-  <summary>POST - `/modules/serverstats/stats/counter-panel/check-deleted-channel`</summary>
+  <summary>POST - `/modules/serverstats/starboard/check/delete`</summary>
 
 :::danger
 
-Do not use this endpoint yourself! Husqy will update the configuration when a channel that is a counter panel channel is deleted.
+Do not use this endpoint yourself! Husqy will update the configuration when the starboard channel is deleted.
 
 :::
 
-Endpoint to check if a channel is a counter panel channel and update the configuration.
+Endpoint to check if a channel is the starboard channel channel and update the configuration.
 
 Body data (JSON):
 | field | required | type | description |
@@ -248,60 +384,520 @@ Possible errors:
 </details>
 
 <details>
-  <summary>POST - `/modules/serverstats/stats/counter-panel/update`</summary>
+  <summary>POST - `/modules/serverstats/starboard/check/deleted-message`</summary>
 
 :::danger
 
-Do not use this endpoint yourself! Husqy will update counter panel channels on a regular interval.
+Do not use this endpoint yourself! Husqy will update the configuration when the starboard message is deleted.
 
 :::
 
-Endpoint to check if a channel is a counter panel channel and update the configuration.
+Endpoint to check if a message is a starboard message and update the configuration.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the removed channel is located |
+| message_id | yes | `integer` | The ID of the message that is removed |
 
 Possible errors:
 
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+## Statistics
+
+Endpoints related to statistics
+
+:::note
+
+Statistics GET endpoints will return a list of objects containing all information you need about the statistics.
+
+::: 
+
+### Voice
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/voice`</summary>
+
+Endpoint to get voice related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+| channel_id | no | `integer` | The ID of the channel to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/voice`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add voice related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| joined_member_id | yes | `integer` | The ID of the member that joined a voice channel |
+| channel_id | yes | `integer` | The ID of the channel that the user has joined |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+<details>
+  <summary>PUT - `/modules/serverstats/stats/voice`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will update statistical data when appropriate.
+
+:::
+
+Endpoint to update created (POST request) voice related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| left_member_id | yes | `integer` | The ID of the member that left a voice channel |
+| channel_id | yes | `integer` | The ID of the channel that the user has left |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+### Messages
+
+#### Deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/messages/deleted`</summary>
+
+Endpoint to get message deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+| channel_id | no | `integer` | The ID of the channel to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/messages/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add messages deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| author_id | yes | `integer` | The ID of the member that deleted a message |
+| channel_id | yes | `integer` | The ID of the channel where the deleted message was located |
+| message_id | yes | `integer` | The ID of the message that has been deleted |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Sent
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/messages/sent`</summary>
+
+Endpoint to get message sent related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+| channel_id | no | `integer` | The ID of the channel to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/messages/sent`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add messages sent related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| author_id | yes | `integer` | The ID of the member that sent a message |
+| channel_id | yes | `integer` | The ID of the channel where the message is sent |
+| message_id | yes | `integer` | The ID of the message that has been sent |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+### Members
+
+#### Joined
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/members/joined`</summary>
+
+Endpoint to get members joined related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/members/joined`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add members joined related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| joined_member_id | yes | `integer` | The ID of the member that joined the server |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Left
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/members/left`</summary>
+
+Endpoint to get members left related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/members/left`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add members left related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| left_member_id | yes | `integer` | The ID of the member that left the server |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Total
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/members/total`</summary>
+
+Endpoint to get members total related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+### Activities
+
+#### Statuses
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/activities/statuses`</summary>
+
+Endpoint to get activities statuses related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+#### Presence
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/activities/presence`</summary>
+
+Endpoint to get activities presence related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/activities/presence`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add activities presence related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| presence_user_id | yes | `integer` | The ID of the member that has updated their status |
+| activities | yes | `list` | A list of the current activities for the user (Activity is a json object containing: activity_type, name, details and state) |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
 
 </details>
 
 ### Commands
 
 <details>
-  <summary>POST - `/modules/serverstats/stats/command/check`</summary>
+  <summary>GET - `/modules/serverstats/stats/commands/used`</summary>
 
-Endpoint to check if a command usage has to be added to the statistics.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the command has been executed |
-| command | yes | `string` | The command that is executed |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/command/view`</summary>
-
-Get the statistics of the command usage.
+Endpoint to get commands used related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -309,51 +905,44 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
-### Messages
-
 <details>
-  <summary>POST - `/modules/serverstats/stats/message/check`</summary>
+  <summary>POST - `/modules/serverstats/stats/commands/used`</summary>
 
-Endpoint to check if a message has to be added to the statistics.
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add commands used related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the message has been send |
-| member_is_bot | yes | `boolean` | If the member is a bot |
-| channel_id | yes | `integer` | The ID of the channel where the message is sent |
-| message_id | yes | `integer` | The ID of the message that is sent |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| initiator_id | yes | `integer` | The ID of the member that has used a Husqy command |
+| command | yes | `string` | The command the user has used |
 
 Possible errors:
 
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/message/view`</summary>
-
-Get the statistics of the messages.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
-| channel_id | no | `integer` | The ID of the channel to filter the statistics for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
 
 </details>
 
@@ -362,14 +951,54 @@ Possible errors:
 #### Reminders
 
 <details>
+  <summary>GET - `/modules/serverstats/stats/functions/reminders/created`</summary>
+
+Endpoint to get reminders created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
   <summary>POST - `/modules/serverstats/stats/functions/reminders/created`</summary>
 
-Endpoint to check if a created reminder has to be added to the statistics.
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reminders created related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the reminder has been created |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the member that has created a reminder |
 
 Possible errors:
 
@@ -380,16 +1009,16 @@ Possible errors:
 </details>
 
 <details>
-  <summary>GET - `/modules/serverstats/stats/functions/reminders/created/view`</summary>
+  <summary>GET - `/modules/serverstats/stats/functions/reminders/deleted`</summary>
 
-Get the statistics of the created reminders.
+Endpoint to get reminders deleted related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -397,80 +1026,59 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
   <summary>POST - `/modules/serverstats/stats/functions/reminders/deleted`</summary>
 
-Endpoint to check if a deleted reminder has to be added to the statistics.
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reminders deleted related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the reminder has been deleted |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the member that has deleted a reminder |
 
 Possible errors:
 
 - BadRequestError
 - SettingsError
 - ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/functions/reminders/deleted/view`</summary>
-
-Get the statistics of the deleted reminders.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
 
 </details>
 
 #### Giveaways
 
 <details>
-  <summary>POST - `/modules/serverstats/stats/functions/giveaways/responders`</summary>
+  <summary>GET - `/modules/serverstats/stats/functions/giveaways/created`</summary>
 
-Endpoint to check if a giveaway response has to be added to the statistics.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the giveaway that has been responded to is located |
-| old_giveaway_id | yes | `string` | The ID of the giveaway that has been responded to |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/functions/giveaways/responders/view`</summary>
-
-Get the statistics of the responders to giveaways.
+Endpoint to get giveaways created related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -478,18 +1086,37 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
   <summary>POST - `/modules/serverstats/stats/functions/giveaways/created`</summary>
 
-Endpoint to check if a created giveaway has to be added to the statistics.
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add giveaways created related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the giveaway has been created |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the member that has created a giveaway |
 
 Possible errors:
 
@@ -500,16 +1127,16 @@ Possible errors:
 </details>
 
 <details>
-  <summary>GET - `/modules/serverstats/stats/functions/giveaways/created/view`</summary>
+  <summary>GET - `/modules/serverstats/stats/functions/giveaways/deleted`</summary>
 
-Get the statistics of the created giveaway.
+Endpoint to get giveaways deleted related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -517,18 +1144,37 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
   <summary>POST - `/modules/serverstats/stats/functions/giveaways/deleted`</summary>
 
-Endpoint to check if a deleted giveaway has to be added to the statistics.
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add giveaways deleted related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the giveaway has been deleted |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the member that has deleted a giveaway |
 
 Possible errors:
 
@@ -539,16 +1185,16 @@ Possible errors:
 </details>
 
 <details>
-  <summary>GET - `/modules/serverstats/stats/functions/giveaways/deleted/view`</summary>
+  <summary>GET - `/modules/serverstats/stats/functions/giveaways/responders`</summary>
 
-Get the statistics of the deleted giveaway.
+Endpoint to get giveaways responders related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -556,43 +1202,64 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/functions/giveaways/responders`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add giveaways responders related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| responding_user_id | yes | `integer` | The ID of the member that has responded to a giveaway |
+| old_giveaway_id | yes | `string` | The ID of the giveaway that the user responded to |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
 
 </details>
 
 ### Modules
 
-#### Tempchannels
+#### Autoresponder
+
+##### Responses created
 
 <details>
-  <summary>POST - `/modules/serverstats/stats/modules/tempchannels/created`</summary>
+  <summary>GET - `/modules/serverstats/stats/modules/autoresponder/responses/created`</summary>
 
-Endpoint to check if a created tempchannel has to be added to the statistics.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the tempchannel has been created |
-| initial_creator_id | yes | `integer` | The ID of the member creating the tempchannel |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/modules/tempchannels/created/view`</summary>
-
-Get the statistics of the created tempchannels.
+Endpoint to get autoresponder responses created related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -600,20 +1267,37 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
-  <summary>POST - `/modules/serverstats/stats/modules/tempchannels/creation-time`</summary>
+  <summary>POST - `/modules/serverstats/stats/modules/autoresponder/responses/created`</summary>
 
-Endpoint to check if a creation time of a tempchannel has to be added to the statistics.
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add autoresponder responses created related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the tempchannel has been created |
-| initial_creator_id | yes | `integer` | The ID of the member creating the tempchannel |
-| creation_time_delay | yes | `integer` | The amount of time it took for the tempchannel to be created |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the member that has created an autoresponder response |
 
 Possible errors:
 
@@ -623,17 +1307,19 @@ Possible errors:
 
 </details>
 
-<details>
-  <summary>GET - `/modules/serverstats/stats/modules/tempchannels/creation-time/view`</summary>
+##### Responses deleted
 
-Get the statistics of the creation time of tempchannels.
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/autoresponder/responses/deleted`</summary>
+
+Endpoint to get autoresponder responses deleted related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -641,20 +1327,37 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
 <details>
-  <summary>POST - `/modules/serverstats/stats/modules/tempchannels/deletion-time`</summary>
+  <summary>POST - `/modules/serverstats/stats/modules/autoresponder/responses/deleted`</summary>
 
-Endpoint to check if a deletion time of a tempchannel has to be added to the statistics.
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add autoresponder responses deleted related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the tempchannel has been deleted |
-| initial_creator_id | yes | `integer` | The ID of the member who is the initial creator of the tempchannel |
-| deletion_time_delay | yes | `integer` | The amount of time it took for the tempchannel to be deleted |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the member that has deleted an autoresponder response |
 
 Possible errors:
 
@@ -664,17 +1367,19 @@ Possible errors:
 
 </details>
 
-<details>
-  <summary>GET - `/modules/serverstats/stats/modules/tempchannels/deletion-time/view`</summary>
+##### Triggers created
 
-Get the statistics of the deletion time of tempchannels.
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/autoresponder/triggers/created`</summary>
+
+Endpoint to get autoresponder triggers created related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
-| user_id | no | `integer` | The ID of the user to filter the statistics for |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -682,21 +1387,401 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/autoresponder/triggers/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add autoresponder triggers created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the member that has created an autoresponder trigger |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Triggers deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/autoresponder/triggers/deleted`</summary>
+
+Endpoint to get autoresponder triggers deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/autoresponder/triggers/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add autoresponder triggers deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the member that has deleted an autoresponder trigger |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Triggers hit
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/autoresponder/triggers/hit`</summary>
+
+Endpoint to get autoresponder triggers hit related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/autoresponder/triggers/hit`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add autoresponder triggers hit related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| triggering_user_id | yes | `integer` | The ID of the member that has triggered an autoresponder trigger |
+| trigger_id | yes | `string` | The ID of the trigger that has been hit |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Check time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/autoresponder/check-time`</summary>
+
+Endpoint to get autoresponder check time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/autoresponder/check-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add autoresponder check time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| check_time | yes | `float` | The time it took to check if a trigger is hit |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Invite tracker
+
+##### Invites created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/invite_tracker/invite/created`</summary>
+
+Endpoint to get invite tracker invite created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/invite_tracker/invite/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add invite tracker invite created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the invite |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Invites deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/invite_tracker/invite/deleted`</summary>
+
+Endpoint to get invite tracker invite deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/invite_tracker/invite/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add invite tracker invite deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the invite |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
 
 </details>
 
 #### Reactionroles
 
-<details>
-  <summary>POST - `/modules/serverstats/stats/modules/reactionroles/check-time`</summary>
+##### Panels created
 
-Endpoint to check if a reactionrole check time should be added to the statistics.
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reactionroles/panels/created`</summary>
+
+Endpoint to get reactionroles panels created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reactionroles/panels/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reactionroles panels created related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the tempchannel has been deleted |
-| check_time_delay | yes | `integer` | The time it took for the reactionrole to be checked |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the reactionroles panel |
 
 Possible errors:
 
@@ -706,16 +1791,19 @@ Possible errors:
 
 </details>
 
-<details>
-  <summary>GET - `/modules/serverstats/stats/modules/reactionroles/check-time/view`</summary>
+##### Panels deleted
 
-Get the statistics of the check time of reactionroles.
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reactionroles/panels/deleted`</summary>
+
+Endpoint to get reactionroles panels deleted related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -723,40 +1811,543 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reactionroles/panels/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reactionroles panels deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the reactionroles panel |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Reactionroles added
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reactionroles/reactionroles/added`</summary>
+
+Endpoint to get reactionroles reactionroles added related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reactionroles/reactionroles/added`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reactionroles reactionroles added related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has added the reactionrole |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Reactionroles removed
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reactionroles/reactionroles/removed`</summary>
+
+Endpoint to get reactionroles reactionroles removed related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reactionroles/reactionroles/removed`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reactionroles reactionroles removed related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has removed the reactionrole |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Check time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reactionroles/check-time`</summary>
+
+Endpoint to get reactionroles check time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reactionroles/check-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reactionroles check time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| check_time | yes | `float` | The amount of time it took to check a reactionrole reaction |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Rules
+
+##### Rules added
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/rules/rule/added`</summary>
+
+Endpoint to get rules rule added related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/rules/rule/added`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add rules rule added related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has added the rule |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Rules removed
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/rules/rule/removed`</summary>
+
+Endpoint to get rules rule removed related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/rules/rule/removed`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add rules rule removed related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has removed the rule |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Check time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/rules/check-time`</summary>
+
+Endpoint to get rules check time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/rules/check-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add rules check time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| check_time | yes | `float` | The amount of time it took to check a rule accepted/denied interaction |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Socials
+
+##### Entries added
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/socials/entries/added`</summary>
+
+Endpoint to get socials entries added related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/socials/entries/added`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add socials entries added related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has added the socials entry |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Entries removed
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/socials/entries/removed`</summary>
+
+Endpoint to get socials entries removed related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/socials/entries/removed`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add socials entries removed related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has removed the socials entry |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
 
 </details>
 
 #### Tags
 
-<details>
-  <summary>POST - `/modules/serverstats/stats/modules/tags/send-time`</summary>
-
-Endpoint to check if a tag send time should be added to the statistics.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the tempchannel has been deleted |
-| send_time_delay | yes | `integer` | The time it took for the tag to be sent |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
+##### Tag created
 
 <details>
-  <summary>GET - `/modules/serverstats/stats/modules/tags/send-time/view`</summary>
+  <summary>GET - `/modules/serverstats/stats/modules/tags/tag/created`</summary>
 
-Get the statistics of the send time of tags.
+Endpoint to get tags tag created related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -764,21 +2355,37 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
 
 </details>
 
-#### Autoresponder
-
 <details>
-  <summary>POST - `/modules/serverstats/stats/modules/autoresponder/response-time`</summary>
+  <summary>POST - `/modules/serverstats/stats/modules/tags/tag/created`</summary>
 
-Endpoint to check if a autoresponder response time should be added to the statistics.
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tags tag created related statistical data.
 
 Body data (JSON):
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the tempchannel has been deleted |
-| response_time_delay | yes | `integer` | The time it took for the autoresponder response to be checked |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the tag |
 
 Possible errors:
 
@@ -788,16 +2395,19 @@ Possible errors:
 
 </details>
 
-<details>
-  <summary>GET - `/modules/serverstats/stats/modules/autoresponder/response-time/view`</summary>
+##### Tag deleted
 
-Get the statistics of the autoresponde response time.
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tags/tag/deleted`</summary>
+
+Endpoint to get tags tag deleted related statistical data in a server.
 
 Query string parameters:
 | field | required | type | description |
 | --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-| days | no | `integer` | The amount of days to return back (maximum is 30) |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
 
 Possible errors:
 
@@ -805,6 +2415,1246 @@ Possible errors:
 - SettingsError
 - ModuleDisabledError
 - InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tags/tag/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tags tag deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the tag |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Check time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tags/check-time`</summary>
+
+Endpoint to get tags check time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tags/check-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tags check time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| check_time | yes | `float` | The amount of time it took to check a rule accepted/denied interaction |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Tempchannels
+
+##### Creation channel created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tempchannels/creation-channels/created`</summary>
+
+Endpoint to get tempchannels creation channels created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tempchannels/creation-channels/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tempchannels creation channels created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the creation channel |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Creation channel deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tempchannels/creation-channels/deleted`</summary>
+
+Endpoint to get tempchannels creation channels deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tempchannels/creation-channels/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tempchannels creation channels deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the creation channel |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Tempchannels created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tempchannels/tempchannels/created`</summary>
+
+Endpoint to get tempchannels tempchannels created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tempchannels/tempchannels/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tempchannels tempchannels created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has triggered the creation of a tempchannel |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Created check time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tempchannels/created-check-time`</summary>
+
+Endpoint to get tempchannels created check time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tempchannels/created-check-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tempchannels created check time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| check_time | yes | `float` | The amount of time it took to check and create a tempchannel |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Deleted check time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tempchannels/deleted-check-time`</summary>
+
+Endpoint to get tempchannels deleted check time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tempchannels/deleted-check-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tempchannels deleted check time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| check_time | yes | `float` | The amount of time it took to check and delete a tempchannel |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Tickets
+
+##### Panels created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tickets/panels/created`</summary>
+
+Endpoint to get tickets panels created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tickets/panels/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tickets panels created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created a tickets panel |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Panels deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tickets/panels/deleted`</summary>
+
+Endpoint to get tickets panels deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tickets/panels/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tickets panels deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted a tickets panel |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Ticket type added
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tickets/types/added`</summary>
+
+Endpoint to get tickets types added related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tickets/types/added`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tickets types added related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has added the ticket type |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Ticket type removed
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tickets/types/removed`</summary>
+
+Endpoint to get tickets types removed related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tickets/types/removed`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tickets types removed related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has removed the ticket type |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Tickets created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tickets/created`</summary>
+
+Endpoint to get tickets created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tickets/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tickets created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created a ticket |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Tickets deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tickets/deleted`</summary>
+
+Endpoint to get tickets deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tickets/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tickets deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted a ticket |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Tickets closed
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tickets/closed`</summary>
+
+Endpoint to get tickets closed related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tickets/closed`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tickets closed related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has closed a ticket |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Tickets reopened
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/tickets/reopened`</summary>
+
+Endpoint to get tickets reopened related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/tickets/reopened`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add tickets reopened related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has reopened a ticket |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Verifier
+
+##### Check time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/verifier/check-time`</summary>
+
+Endpoint to get verifier check time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/verifier/check-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add verifier check time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| check_time | yes | `float` | The amount of time it took to check a verification interaction |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Welcoming
+
+##### Responses created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/welcoming/responses/created`</summary>
+
+Endpoint to get welcoming responses created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/welcoming/responses/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add welcoming responses created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the response |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Responses deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/welcoming/responses/deleted`</summary>
+
+Endpoint to get welcoming responses deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/welcoming/responses/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add welcoming responses deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the response |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Timedroles created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/welcoming/timedroles/created`</summary>
+
+Endpoint to get welcoming timedroles created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/welcoming/timedroles/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add welcoming timedroles created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the timedroles |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Timedroles deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/welcoming/timedroles/deleted`</summary>
+
+Endpoint to get welcoming timedroles deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/welcoming/timedroles/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add welcoming timedroles deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the timedroles |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Check time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/welcoming/check-time`</summary>
+
+Endpoint to get welcoming check time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/welcoming/check-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add welcoming check time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| check_time | yes | `float` | The amount of time it took to check a welcoming event |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
 
 </details>
 
