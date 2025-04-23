@@ -169,6 +169,11 @@ ol {
   list-style: none;
 }
 
+.alert--premium {
+  background-color: var(--accent-color-2);
+  color: var(--secondary-color-2);
+}
+
 /* Mobile view changes */
 @media screen and (max-width: 996px) {
   :root {

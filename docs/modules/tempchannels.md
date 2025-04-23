@@ -23,6 +23,12 @@ toc_max_heading_level: 6
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 Temporary channels (or also called tempchannels) are channels which server member can create by themself by joining a specified `creation channel`. Tempchannels will automatically be deleted when the last connected user leaves the temporary channel. Temporary channels can be either voice and/or text channels. This functionality is handled by the Husqy tempchannels module.
 
 ## Enabling the module
@@ -39,7 +45,7 @@ Creation channels are the start of the Husqy tempchannels module, they are what 
 
 :::warning
 
-There is currently a limit of 1 creation channel per server.
+The free version of Husqy has a limit of 1 creation channel per server.
 
 :::
 
@@ -99,7 +105,7 @@ A tempchannel set is a combination of a temporary voice and text channels that a
 
 :::warning
 
-There is currently a limit of 10 active tempchannels per server.
+The free version of Husqy has a limit of 5 active tempchannels per server.
 
 :::
 

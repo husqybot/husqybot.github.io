@@ -16,6 +16,12 @@ toc_max_heading_level: 6
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 The Husqy Socials module allows you to keep track of your favorite celebrities, websites or channels, all within your Discord server. The Husqy Socials module provides different components, these are: Reddit, Twitch, YouTube and RSS feeds.
 
 ## Enabling the module
@@ -48,7 +54,7 @@ We try to get all new posts in a subreddit, however, in busy subreddits some new
 
 :::warning
 
-There is currently a limit of 3 subreddits per server.
+The free version of Husqy has a limit of 1 subreddit per server.
 
 :::
 
@@ -62,7 +68,7 @@ To create a new Twitch account monitoring entry. Go to the [Socials dashboard](#
 
 :::warning
 
-There is currently a limit of 3 Twitch accounts per server.
+The free version of Husqy has a limit of 1 Twitch account per server.
 
 :::
 
@@ -83,7 +89,7 @@ To create a new RSS Feed monitoring entry. Go to the [Socials dashboard](#additi
 
 :::warning
 
-There is currently a limit of 1 RSS Feed per server.
+The free version of Husqy has a limit of 1 RSS Feed per server.
 
 :::
 
@@ -110,7 +116,7 @@ This component also monitors YouTube shorts.
 
 :::warning
 
-There is currently a limit of 1 YouTube channel per server.
+The free version of Husqy has a limit of 1 YouTube channel per server.
 
 :::
 

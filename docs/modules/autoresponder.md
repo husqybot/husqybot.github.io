@@ -22,6 +22,12 @@ toc_max_heading_level: 6
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 The Husqy autoresponder module allows you to automatically respond to messages your server members send when they comply with a trigger. The trigger can have multiple responses associated with different types (more on that later). This module can help server administrator to offload default response based on server member messages.
 
 ## Enabling the module
@@ -56,7 +62,7 @@ Triggers are the brains of the autoresponder module, they are what define the co
 
 :::warning
 
-There is currently a limit of 1 trigger per server.
+The free version of Husqy has a limit of 1 trigger per server.
 
 :::
 
@@ -103,7 +109,7 @@ As stated earlier, each trigger can have more than 1 response defined, opening t
 
 :::warning
 
-There is currently a limit of 5 responses per server.
+The free version of Husqy has a limit of 3 responses per server.
 
 :::
 

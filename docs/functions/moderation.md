@@ -38,10 +38,10 @@ To use Husqy Moderation Auto Kick there is only one thing you have to do is to s
 
 Husqy provides you and your server admins with some easy ways of banning, kicking and warning members. Husqy provides these functionalities using Slash commands:
 
-- `/mod_user ban_create`: This command allows you to ban a member by selecting the member in the `member` required command parameter. Optionally, this command provides you with the possibility to state a reason for the ban and allows you to delete up to seven days of message history of the banned user;
-- `/mod_user ban_delete`: This command allows you to unban a user by inserting the ID of the user you want to unban in the `user_id` required command parameter. Optionally, this command provides you with the possibility to state a reason for the unban;
-- `/mod_user warn_create`: This command allows you to warn a member by selecting the member in the `member` required command parameter. Optionally it allows you to set the amount of warning points to give to the user (default is `1`) and it allows you to state a reason for the warn;
-- `/mod_user warn_delete`: This command allows you to unwarn a member by selecting the member in the `member` required command parameter. Optionally it allows you to set the amount of warning points to remove from the user (default is `1`) and it allows you to state a reason for the unwarn;
+- `/mod_user ban create`: This command allows you to ban a member by selecting the member in the `member` required command parameter. Optionally, this command provides you with the possibility to state a reason for the ban and allows you to delete up to seven days of message history of the banned user;
+- `/mod_user ban delete`: This command allows you to unban a user by inserting the ID of the user you want to unban in the `user_id` required command parameter. Optionally, this command provides you with the possibility to state a reason for the unban;
+- `/mod_user warn create`: This command allows you to warn a member by selecting the member in the `member` required command parameter. Optionally it allows you to set the amount of warning points to give to the user (default is `1`) and it allows you to state a reason for the warn;
+- `/mod_user warn delete`: This command allows you to unwarn a member by selecting the member in the `member` required command parameter. Optionally it allows you to set the amount of warning points to remove from the user (default is `1`) and it allows you to state a reason for the unwarn;
 - `/mod_user kick`: This command allows you to kick a user from the server, by selecting the user in the `user` required command parameter. Again, it optionally allows you to state a reason for the kick;
 
 Every command used will notify the user in their DM of the activity that has been done and in combination with the [Logging module](https://husqy.xyz/modules/logging/) ([docs](/docs/modules/logging)) this allows you to keep track of all activities regarding user moderation in your server.
@@ -59,11 +59,11 @@ Besides banning, kicking and warning a user, Husqy provides extra user moderatio
 
 Not only does Husqy provide easy user moderation, it also provides easy server moderation:
 
-1. `/mod_server clear_messages`: This command allows you to quickly delete messages in a text channel;
-2. `/mod_server slowmode`: This command allows you to set slowmode for a channel;
-3. `/mod_server channel_create`: This command allows you to quickly create a channel;
-4. `/mod_server channel_delete`: This command allows you to quickly delete a channel;
-5. `/mod_server role_create`: This command allows you to quickly create a role;
-6. `/mod_server role_delete`: This command allows you to quickly delete a role;
-7. `/mod_server lock`: This command allows you to lock a channel, preventing members from sending messages in the channel;
-8. `/mod_server unlock`: This command allows you to unlock a channel, allowing members to send messages in the channel again;
+1. `/mod_server channel clear_messages`: This command allows you to quickly delete messages in a text channel;
+2. `/mod_server channel slowmode`: This command allows you to set slowmode for a channel;
+3. `/mod_server channel create`: This command allows you to quickly create a channel;
+4. `/mod_server channel delete`: This command allows you to quickly delete a channel;
+5. `/mod_server channel lock`: This command allows you to lock a channel, preventing members from sending messages in the channel;
+6. `/mod_server channel unlock`: This command allows you to unlock a channel, allowing members to send messages in the channel again;
+7. `/mod_server role create`: This command allows you to quickly create a role;
+8. `/mod_server role delete`: This command allows you to quickly delete a role;

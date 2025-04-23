@@ -23,6 +23,12 @@ toc_max_heading_level: 6
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 The serverstats module is the best way to get insides about your server, server members and other modules as well as get some extra features: the starboard and counters. Other modules and function integrate seamlessly with the serverstats module so you can customize it to fit the needs of your server.
 
 ## Enabling the module
@@ -71,7 +77,7 @@ Currently the following counter types are supported:
 
 :::warning
 
-There is currently a limit of 3 counters per server.
+The free version of Husqy has a limit of 3 counters per server.
 
 :::
 

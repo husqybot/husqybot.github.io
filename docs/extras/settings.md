@@ -27,6 +27,12 @@ Husqy has different settings that can be changed, each setting is used in its ow
 - `Invite link`: The invite link to join the server. Members can request this link to invite others;
 - `Giveaway save timeout`: The time to save a giveaway before it gets permanently deleted;
 
+:::tip
+
+Set auto delete to 0 to disable auto delete. This will make Husqy not delete responses and make them stay visible.
+
+:::
+
 ## Additional Information
 
 :::info

@@ -26,6 +26,12 @@ toc_max_heading_level: 6
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 The tickets module is the perfect way to give support to server members using your product or service. You get full control over the ticket types and configuration of a ticket panel. It allows you server member to create a ticket and get the help they need.
 
 ## Enabling the module
@@ -55,7 +61,7 @@ A Husqy ticket panel is essentially a message in Discord where ticket type butto
 
 :::warning
 
-There is currently a limit of 1 panel per server.
+The free version of Husqy has a limit of 1 panel per server.
 
 :::
 
@@ -104,7 +110,7 @@ Ticket types are what allow you to distinguish different tickets by a category l
 :::warning
 
 - Ticket types can only be used when a ticket panel type is `Ticket type buttons` or `Dropdown`.
-- There is currently a limit of 5 ticket types per server.
+- The free version of Husqy has a limit of 5 ticket types per server.
 
 :::
 
@@ -133,7 +139,7 @@ Tickets can be created by member and provide them and the support engineers with
 
 :::warning
 
-There is currently a limit of 25 active tickets per per server. An active ticket is a ticket that is not closed.
+The free version of Husqy has a limit of 10 active tickets per per server. An active ticket is a ticket that is not closed.
 
 :::
 
