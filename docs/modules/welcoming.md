@@ -25,6 +25,12 @@ toc_max_heading_level: 6
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 The Husqy welcoming module is the best way to welcome new members to your server and give them the correct roles without needing any repeated actions by a server administrator. It is also the perfect way to reward members with roles when they stay in the server for a longer period of time.
 
 ## Enabling the module
@@ -91,7 +97,7 @@ These responses can be an Husqy JSON embed config (when the response should be a
 
 :::warning
 
-- There is currently a limit of 1 response per response type per server.
+The free version of Husqy has a limit of 1 response per response type per server.
 
 :::
 
@@ -119,7 +125,7 @@ Timedroles are the roles that get added to server members when they are in a ser
 
 :::warning
 
-- There is currently a limit of 1 timedrole per server.
+The free version of Husqy has a limit of 1 timedrole per server.
 
 :::
 

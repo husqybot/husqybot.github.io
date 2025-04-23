@@ -24,6 +24,12 @@ The Husqy rules module supports: `User variables`, `Server variables` and `Other
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 Rules in a Discord server are one of the most important things to protect your members. The Husqy rules module is the best way to make sure your server members are up-to-date with your servers rules. The rules module supports two different actions: accepting and denying, more on this later. It works seamlessly with the verifier module.
 
 ## Enabling the module
@@ -53,7 +59,7 @@ Using slash commands, run the command `/rules add` and give the rule text as the
 :::warning
 
 - Only the server owner or server administrators can add rules. This goes for both the slash commands as the dashboard.
-- There is currently a limit of 3 rules per server.
+- The free version of Husqy has a limit of 3 rules per server.
 
 :::
 

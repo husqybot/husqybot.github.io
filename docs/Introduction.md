@@ -75,3 +75,7 @@ Warns you about the risks involved.
 :::danger
 Indicates known bugs or other aspects that can negativly impact your Husqy experience.
 :::
+
+:::premium
+Indicates premium functionality can be used.
+:::

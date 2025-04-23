@@ -22,6 +22,12 @@ toc_max_heading_level: 6
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 The tags module allows your servers users to create tags. These tags are a simple way to create default responses for your users to use and can be helpful when repeating message over and over again.
 
 ## Enabling the module
@@ -52,7 +58,7 @@ Interacting with a tag can be done via two ways (except for preview (dashboard o
 
 :::warning
 
-There is currently a limit of 20 tags per server.
+The free version of Husqy has a limit of 10 tags per server.
 
 :::
 

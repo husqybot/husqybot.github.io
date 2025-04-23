@@ -76,6 +76,10 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          admonitions: {
+            keywords: ["premium"],
+            extendDefaults: true,
+          },
         },
         blog: {
           showReadingTime: false,
@@ -109,6 +113,7 @@ const config: Config = {
       style: "primary",
       items: [
         { to: "/get-started", label: "Get started", position: "right" },
+        { to: "/premium", label: "Premium (Coming soon)", position: "right" },
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
@@ -132,6 +137,10 @@ const config: Config = {
         {
           label: "Get started",
           to: "/get-started",
+        },
+        {
+          label: "Premium (Coming soon)",
+          to: "/premium",
         },
         {
           label: "Documentation",

@@ -18,6 +18,12 @@ toc_max_heading_level: 6
 
 :::
 
+:::premium
+
+This module provides [**Husqy+**](https://husqy.xyz/premium) benefits!
+
+:::
+
 The reactionroles module allows you to enable some self service to your users by making them choose the roles they want or need based on your configuration. This also allows for a more personalized way to experience your server and prevents the server members from being basted with information they don't need or want. The Husqy Reactionroles module provides you with the ability to create these reactionroles in your server and offload some of that administrator work.
 
 ## Enabling the module
@@ -40,7 +46,7 @@ Use the Husqy embed utility to create an embed message for your reactionrole pan
 
 :::warning
 
-There is currently a limit of 1 panel per server.
+The free version of Husqy has a limit of 1 panel per server.
 
 :::
 
@@ -85,7 +91,7 @@ Husqy has support for custom server emojis to be used to further enhance the cus
 
 :::warning
 
-- A panel can have as many entries as Discord allows, for emojis this limit is 20 and for buttons and dropdown items this limit is 25.
+- The free version of Husqy has a limit of: 5 for emojis, 5 for buttons and 5 for dropdowns.
 - A button label has a maximum of 80 characters, any more will be ignored.
 - A dropdown label and description have a maximum of 100 characters, any more will be ignored.
 

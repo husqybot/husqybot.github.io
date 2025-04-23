@@ -1,0 +1,10 @@
+.devider {
+  background-color: var(--secondary-color-1);
+  color: var(--secondary-color-1);
+  border: none;
+  border-radius: 48px;
+  height: 1px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-width: 1px;
+}
