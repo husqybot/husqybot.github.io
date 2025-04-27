@@ -3658,6 +3658,308 @@ Possible errors:
 
 </details>
 
+#### Polls
+
+##### Polls created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/polls/poll/created`</summary>
+
+Endpoint to get polls poll created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/polls/poll/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add polls poll created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the poll |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Polls deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/polls/poll/deleted`</summary>
+
+Endpoint to get polls poll deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/polls/poll/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add polls poll deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the poll |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Polls manually closed
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/polls/poll/manually_closed`</summary>
+
+Endpoint to get polls poll manually closed related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/polls/poll/manually_closed`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add polls poll manually closed related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| closing_user_id | yes | `integer` | The ID of the user that has manually closed the poll |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Vote added
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/polls/vote/added`</summary>
+
+Endpoint to get polls vote added related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/polls/vote/added`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add polls vote added related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has added the vote |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Vote removed
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/polls/vote/removed`</summary>
+
+Endpoint to get polls vote removed related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/polls/vote/removed`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add polls vote removed related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has removed the vote |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
 ## Privacy
 
 Endpoints related to privacy and the tags module

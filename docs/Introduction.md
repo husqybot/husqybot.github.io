@@ -40,6 +40,7 @@ Husqy modules are extra functionalities in Husqy which need to be enabled by eit
 - [Verifier](modules/verifier)
 - [Rules](modules/rules)
 - [Invite tracker](modules/invite-tracker)
+- [Polls](modules/polls)
 
 ## What are Husqy extra's?
 

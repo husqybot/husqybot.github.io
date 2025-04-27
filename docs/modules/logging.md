@@ -308,6 +308,19 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
+  <summary>Polls events</summary>
+
+1. `log_polls_created`: Logs when a new poll has been created;
+2. `log_polls_edited`: Logs when a poll has been edited;
+3. `log_polls_deleted`: Logs when a poll has been deleted;
+4. `log_polls_closed`: Logs when a poll has been closed by ending after the poll duration;
+5. `log_polls_closed_manually`: Logs when a poll has been ended manually by a user;
+6. `log_polls_vote_added`: Logs when a vote has been added to a poll answer (NOTE: This event will not be sent when the poll is anonymous);
+7. `log_polls_vote_removed`: Logs when a vote has been removed from a poll answer (NOTE: This event will not be sent when the poll is anonymous);
+
+</details>
+
+<details>
   <summary>Giveaway events</summary>
 
 1. `log_giveaway_create`: Logs when a giveaway has been created;

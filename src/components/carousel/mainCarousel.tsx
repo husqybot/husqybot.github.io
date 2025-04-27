@@ -15,8 +15,8 @@ export default function MainCarousel() {
       <div className={styles.embla__container}>
         <div className={styles.embla__slide}>
           We are testing <a href="https://husqy.xyz/premium">premium</a> Husqy
-          subscription in testing! Please check back soon to unleash the full
-          power of Husqy!
+          subscription! Please check back soon to unleash the full power of
+          Husqy!
         </div>
         <div className={styles.embla__slide}>
           The permissions Husqy needs have been updated! Please cross check with
