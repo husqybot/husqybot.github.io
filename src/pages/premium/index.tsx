@@ -866,6 +866,116 @@ export default function GetStarted(): JSX.Element {
                 </div>
               </div>
             </div>
+            {/* Module Polls */}
+            <div className={styles.premium_comparison_table_body_row}>
+              <div
+                className={styles.premium_comparison_table_body_row_group_title}
+              >
+                <h4>Module Polls</h4>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Discord polls
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    unlimited
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    unlimited
+                  </div>
+                </div>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Answers (Discord polls)
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    10 (Discord limit)
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    10 (Discord limit)
+                  </div>
+                </div>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Husqy polls
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    1
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    unlimited
+                  </div>
+                </div>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Emoji answers (Husqy polls)
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    5
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    20
+                  </div>
+                </div>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Button answers (Husqy polls)
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    5
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    25
+                  </div>
+                </div>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Dropdown answers (Husqy polls)
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    5
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    25
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* SUPPORT */}
             <div className={styles.premium_comparison_table_body_row}>
               <div

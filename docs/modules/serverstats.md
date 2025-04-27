@@ -164,6 +164,7 @@ Stats provide the insights to your Discord server which can be seen by server ad
 - `Module welcoming`: Will track the amount of responses created and deleted, the amount of time it took to check a welcoming event and also the amount of timedroles created and deleted;
 - `Module tempchannels`: Will track the amount of creation channels created and deleted, the amount of time it took to create a tempchannel, the amount of time it took to remove a tempchannel and the amount of tempchannels created;
 - `Module tickets`: Will track the amount of panels created and deleted, the amount of ticket types added and removed and also the amount of tickets created, deleted, closed and reopened;
+- `Module polls`: Will track the amount of polls created, deleted and manually closed as well as the amount of votes added and removed;
 
 These statistics can be enabled/disabled per group (as per the grouping above) and information will be stored for 31 days, after which the information is deleted immediately.
 
