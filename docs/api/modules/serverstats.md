@@ -70,7 +70,7 @@ Body data (JSON):
 | stats_modules_welcoming_enabled | yes | `boolean` | If the module welcoming statistics should be enabled |
 | stats_modules_tempchannels_enabled | yes | `boolean` | If the module tempchannels statistics should be enabled |
 | stats_modules_tickets_enabled | yes | `boolean` | If the module tickets statistics should be enabled |
-| stats_functions_reminders_enabled | yes | `boolean` | If the function reminders statistics should be enabled |
+| stats_modules_reminders_enabled | yes | `boolean` | If the module reminders statistics should be enabled |
 | stats_functions_giveaways_enabled | yes | `boolean` | If the function giveaways statistics should be enabled |
 
 - BadRequestError
@@ -240,7 +240,7 @@ Possible errors:
 <details>
   <summary>DELETE - `/modules/serverstats/counter/{counter_id}`</summary>
 
-Endpoint to delete  a specific counter in the server.
+Endpoint to delete a specific counter in the server.
 
 Query string parameters:
 | field | required | type | description |
@@ -273,7 +273,6 @@ Possible errors:
 - InternalServerError
 
 </details>
-
 
 <details>
   <summary>POST - `/modules/serverstats/counters/check-delete`</summary>
@@ -416,7 +415,7 @@ Endpoints related to statistics
 
 Statistics GET endpoints will return a list of objects containing all information you need about the statistics.
 
-::: 
+:::
 
 ### Voice
 
@@ -947,124 +946,6 @@ Possible errors:
 </details>
 
 ### Functions
-
-#### Reminders
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/functions/reminders/created`</summary>
-
-Endpoint to get reminders created related statistical data in a server.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
-| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
-| user_id | no | `integer` | The ID of the user to filter the statistical data for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
-- Unprocessable Entity
-
-```
-{
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
-```
-
-</details>
-
-<details>
-  <summary>POST - `/modules/serverstats/stats/functions/reminders/created`</summary>
-
-:::danger
-
-Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
-
-:::
-
-Endpoint to add reminders created related statistical data.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
-| creating_user_id | yes | `integer` | The ID of the member that has created a reminder |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/functions/reminders/deleted`</summary>
-
-Endpoint to get reminders deleted related statistical data in a server.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
-| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
-| user_id | no | `integer` | The ID of the user to filter the statistical data for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
-- Unprocessable Entity
-
-```
-{
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
-```
-
-</details>
-
-<details>
-  <summary>POST - `/modules/serverstats/stats/functions/reminders/deleted`</summary>
-
-:::danger
-
-Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
-
-:::
-
-Endpoint to add reminders deleted related statistical data.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
-| deleting_user_id | yes | `integer` | The ID of the member that has deleted a reminder |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
 
 #### Giveaways
 
@@ -3951,6 +3832,245 @@ Body data (JSON):
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild where the event has taken place |
 | deleting_user_id | yes | `integer` | The ID of the user that has removed the vote |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Reminders
+
+##### Reminders created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reminders/reminder/created`</summary>
+
+Endpoint to get reminders reminder created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reminders/reminder/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reminders reminder created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the reminder |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Reminder deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reminders/reminder/deleted`</summary>
+
+Endpoint to get reminders reminder deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reminders/reminder/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reminders reminder deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the reminder |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Reminder send
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reminders/reminder/send`</summary>
+
+Endpoint to get reminders reminder send related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reminders/reminder/send`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reminders reminder send related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Send time
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/reminders/send-time`</summary>
+
+Endpoint to get reminders send time related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/reminders/send-time`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add reminders send time related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| send_time | yes | `float` | The amount of time it took to send the reminder |
 
 Possible errors:
 

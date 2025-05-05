@@ -17,7 +17,6 @@ This documentation aims to provide you with all the information you need to use 
 Husqy functions are functionalities which work immediatly when Husqy joins our Discord server. All members can use these commands (with respect to their Husqy privacy settings) when they want. Current Husqy functions are:
 
 - [Giveaways](functions/giveaways)
-- [Reminders](functions/reminders)
 - [Music & radio](functions/music-and-radio)
 - [Moderation](functions/moderation)
 - [Games](functions/games)
@@ -41,6 +40,7 @@ Husqy modules are extra functionalities in Husqy which need to be enabled by eit
 - [Rules](modules/rules)
 - [Invite tracker](modules/invite-tracker)
 - [Polls](modules/polls)
+- [Reminders](modules/reminders)
 
 ## What are Husqy extra's?
 

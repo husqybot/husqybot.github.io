@@ -99,7 +99,7 @@ To create a counter, make sure the counters are enabled for the server, this can
 
 #### Goal
 
-The goal option on counters allows you to count down towards a goal for the server. The value shown in the counter (`<value>` variable) is calculated by subtracting the current value of the goal value. 
+The goal option on counters allows you to count down towards a goal for the server. The value shown in the counter (`<value>` variable) is calculated by subtracting the current value of the goal value.
 
 F.e. the goal of members is set to 3000 and there are currently 2345 members in the server, the value displayed will be 655.
 
@@ -108,11 +108,8 @@ F.e. the goal of members is set to 3000 and there are currently 2345 members in 
 The format of a counter has support for [Serverstats variables](#serverstats-variables) but there are some important notes:
 
 1. When using your own format you can use the `<value>` variable for specifying where the value must be placed on all counter types except the `statuses` counter type;
-2. When using the `statuses` counter type, use:
-    - `<online>`: for online members;
-    - `<offline>`: for offline members;
-    - `<dnd>`: for members with a do not disturb status;
-<br />
+2. When using the `statuses` counter type, use: - `<online>`: for online members; - `<offline>`: for offline members; - `<dnd>`: for members with a do not disturb status;
+   <br />
 
 :::tip
 
@@ -133,7 +130,7 @@ To delete a counter, go to the [Serverstats dashboard](#additional-info--command
 
 ## Starboard
 
-The starboard is the ultimate, automated way to highlight messages, wether they are funny, want to show support, or any other reason. The starboard watches for reactions of the ⭐️ (`:star:` in Discord) emoji to be reacted to and, if it is reacted enough times (it must be equal to or above the configured starboard count) it will be send to the starboard channel for all users to see! 
+The starboard is the ultimate, automated way to highlight messages, wether they are funny, want to show support, or any other reason. The starboard watches for reactions of the ⭐️ (`:star:` in Discord) emoji to be reacted to and, if it is reacted enough times (it must be equal to or above the configured starboard count) it will be send to the starboard channel for all users to see!
 
 Newly created starboard messages are monitored for 31 days, after which they are deleted from the database but NOT from the channel. Meaning that ⭐️ reactions added or removed from the message will result in the starboard message being edited in the starboard channel to have the accurate count.
 
@@ -152,10 +149,9 @@ Stats provide the insights to your Discord server which can be seen by server ad
 - `Members`: Will track the total amount of members, number of joined members and number of left members;
 - `Activities`: Will track the statuses of members in the server and the activities server members have (incl. the amount of time they have had that activity);
 - `Voice`: Will track the amount of time members are in a voice channel;
-- `Function reminders`: Will track the amount of reminders created and deleted;
 - `Function giveaways`: Will track the amount of giveaways created, deleted and responded to by members;
 - `Module autoresponder`: Will track the amount of triggers created, deleted and hit, the amount of time it took for the triggers to be checked and also the amount of responses created and deleted;
-- `Module verifier`: Will track the amount of time it took for the verification to be handled; 
+- `Module verifier`: Will track the amount of time it took for the verification to be handled;
 - `Module tags`: Will track the amount of tags created and deleted and the time it took for tags to be sent;
 - `Module rules`: Will track the amount of rules added and removed and the time it took to check for the rules to be send;
 - `Module invite tracker`: Will track the amount of invites that are created and deleted;
@@ -165,6 +161,7 @@ Stats provide the insights to your Discord server which can be seen by server ad
 - `Module tempchannels`: Will track the amount of creation channels created and deleted, the amount of time it took to create a tempchannel, the amount of time it took to remove a tempchannel and the amount of tempchannels created;
 - `Module tickets`: Will track the amount of panels created and deleted, the amount of ticket types added and removed and also the amount of tickets created, deleted, closed and reopened;
 - `Module polls`: Will track the amount of polls created, deleted and manually closed as well as the amount of votes added and removed;
+- `Module reminders`: Will track the amount of reminders created, deleted and send as wel ass the time it took to send a reminder;
 
 These statistics can be enabled/disabled per group (as per the grouping above) and information will be stored for 31 days, after which the information is deleted immediately.
 
@@ -184,7 +181,7 @@ Serverstats variables are additional Husqy variables which can only be used in t
 3. `<offline>`: The number of members that have their status as "offline" in Discord;
 4. `<dnd>`: The number of members that have their status as "do not disturb" in Discord;
 5. `<role_name>`: The name of the role that is used in the counter;
-<br />
+   <br />
 
 :::warning
 
