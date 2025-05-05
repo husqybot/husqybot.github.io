@@ -191,15 +191,6 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
-  <summary>Reminder events</summary>
-
-1. `log_reminder_add`: Logs when a user created a new reminder;
-2. `log_reminder_delete`: Logs when a user deleted a reminder;
-3. `log_reminder_list`: Logs when a user requested the list of their reminders;
-
-</details>
-
-<details>
   <summary>Tags events</summary>
 
 1. `log_tag_create`: Logs when a new tag is created;
@@ -235,13 +226,13 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 9. `log_tempchannel_bitrate_edited`: Logs when a tempchannels bitrate is edited;
 10. `log_tempchannel_age_restriction_edited`: Logs when a tempchannels age restriction setting is edited;
 11. `log_tempchannel_region_edited`: Logs when a tempchannels region is edited;
-12. `log_tempchannel_claimed`: Logs when a tempchannels ownership is claimed*;
-13. `log_tempchannel_transferred`: Logs when a tempchannels ownership is transferred*;
-14. `log_tempchannel_deleted`: Logs when a tempchannel set is deleted**;
-15. `log_tempchannel_block_rule_added`: Logs when a block rule is added to a tempchannel*;
-16. `log_tempchannel_block_rule_removed`: Logs when a block rule is removed from a tempchannel*;
-17. `log_tempchannel_trust_rule_added`: Logs when a trust rule is added to a tempchannel*;
-18. `log_tempchannel_trust_rule_removed`: Logs when a trust rule is removed from a tempchannel*;
+12. `log_tempchannel_claimed`: Logs when a tempchannels ownership is claimed\*;
+13. `log_tempchannel_transferred`: Logs when a tempchannels ownership is transferred\*;
+14. `log_tempchannel_deleted`: Logs when a tempchannel set is deleted\*\*;
+15. `log_tempchannel_block_rule_added`: Logs when a block rule is added to a tempchannel\*;
+16. `log_tempchannel_block_rule_removed`: Logs when a block rule is removed from a tempchannel\*;
+17. `log_tempchannel_trust_rule_added`: Logs when a trust rule is added to a tempchannel\*;
+18. `log_tempchannel_trust_rule_removed`: Logs when a trust rule is removed from a tempchannel\*;
 
 <br />
 \* This event is only logged when it is run using the corresponding Husqy command or API (if available)
@@ -263,8 +254,8 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 
 1. `log_rules_rule_add`: Logs when a new rule is added;
 2. `log_rules_rule_remove`: Logs when a rule is removed;
-2. `log_rules_send_check`: Logs when a rule sending has been checked successfully;
-2. `log_rules_interaction_check`: Logs when a rules interaction has been checked successfully;
+3. `log_rules_send_check`: Logs when a rule sending has been checked successfully;
+4. `log_rules_interaction_check`: Logs when a rules interaction has been checked successfully;
 
 </details>
 
@@ -317,6 +308,17 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 5. `log_polls_closed_manually`: Logs when a poll has been ended manually by a user;
 6. `log_polls_vote_added`: Logs when a vote has been added to a poll answer (NOTE: This event will not be sent when the poll is anonymous);
 7. `log_polls_vote_removed`: Logs when a vote has been removed from a poll answer (NOTE: This event will not be sent when the poll is anonymous);
+
+</details>
+
+<details>
+  <summary>Reminders events</summary>
+
+1. `log_reminders_created`: Logs when a new reminder has been created;
+2. `log_reminders_deleted`: Logs when a reminder has been edited;
+3. `log_reminders_send`: Logs when a reminder has been send to the destination;
+4. `log_reminders_completed`: Logs when a reminder has been completed by the owner;
+5. `log_reminders_reminded_later`: Logs when a reminder is re-added to remind later;
 
 </details>
 

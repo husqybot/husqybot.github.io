@@ -70,23 +70,6 @@ export default function GetStarted(): JSX.Element {
                   }
                 >
                   <div className={styles.premium_comparison_table_row_item_1}>
-                    Functions reminders
-                  </div>
-                  <div className={styles.premium_comparison_table_row_item_2}>
-                    ✅
-                  </div>
-                  <div className={styles.premium_comparison_table_row_item_3}>
-                    ✅
-                  </div>
-                </div>
-              </div>
-              <div className={styles.premium_comparison_table_body_row_item}>
-                <div
-                  className={
-                    styles.premium_comparison_table_body_row_item_container
-                  }
-                >
-                  <div className={styles.premium_comparison_table_row_item_1}>
                     Functions giveaways
                   </div>
                   <div className={styles.premium_comparison_table_row_item_2}>
@@ -972,6 +955,65 @@ export default function GetStarted(): JSX.Element {
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
                     25
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Module Reminders */}
+            <div className={styles.premium_comparison_table_body_row}>
+              <div
+                className={styles.premium_comparison_table_body_row_group_title}
+              >
+                <h4>Module Reminders</h4>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Quick reminders (per user per server)
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    3
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    unlimited
+                  </div>
+                </div>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Repeated reminders
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    1
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    unlimited
+                  </div>
+                </div>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Scheduled reminders
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    1
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    unlimited
                   </div>
                 </div>
               </div>
