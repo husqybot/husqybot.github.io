@@ -70,23 +70,6 @@ export default function GetStarted(): JSX.Element {
                   }
                 >
                   <div className={styles.premium_comparison_table_row_item_1}>
-                    Functions giveaways
-                  </div>
-                  <div className={styles.premium_comparison_table_row_item_2}>
-                    ✅
-                  </div>
-                  <div className={styles.premium_comparison_table_row_item_3}>
-                    ✅
-                  </div>
-                </div>
-              </div>
-              <div className={styles.premium_comparison_table_body_row_item}>
-                <div
-                  className={
-                    styles.premium_comparison_table_body_row_item_container
-                  }
-                >
-                  <div className={styles.premium_comparison_table_row_item_1}>
                     Utils commands
                   </div>
                   <div className={styles.premium_comparison_table_row_item_2}>
@@ -541,7 +524,7 @@ export default function GetStarted(): JSX.Element {
                     5
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
-                    20
+                    20 (Discord limit)
                   </div>
                 </div>
               </div>
@@ -558,7 +541,7 @@ export default function GetStarted(): JSX.Element {
                     5
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
-                    25
+                    25 (Discord limit)
                   </div>
                 </div>
               </div>
@@ -575,7 +558,7 @@ export default function GetStarted(): JSX.Element {
                     5
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
-                    25
+                    25 (Discord limit)
                   </div>
                 </div>
               </div>
@@ -617,7 +600,7 @@ export default function GetStarted(): JSX.Element {
                     5
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
-                    25
+                    25 (Discord limit)
                   </div>
                 </div>
               </div>
@@ -920,7 +903,7 @@ export default function GetStarted(): JSX.Element {
                     5
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
-                    20
+                    20 (Discord limit)
                   </div>
                 </div>
               </div>
@@ -937,7 +920,7 @@ export default function GetStarted(): JSX.Element {
                     5
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
-                    25
+                    25 (Discord limit)
                   </div>
                 </div>
               </div>
@@ -954,7 +937,7 @@ export default function GetStarted(): JSX.Element {
                     5
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
-                    25
+                    25 (Discord limit)
                   </div>
                 </div>
               </div>
@@ -1011,6 +994,31 @@ export default function GetStarted(): JSX.Element {
                   </div>
                   <div className={styles.premium_comparison_table_row_item_2}>
                     1
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    unlimited
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Module Giveaways */}
+            <div className={styles.premium_comparison_table_body_row}>
+              <div
+                className={styles.premium_comparison_table_body_row_group_title}
+              >
+                <h4>Module Giveaways</h4>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Giveaways
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    2
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
                     unlimited

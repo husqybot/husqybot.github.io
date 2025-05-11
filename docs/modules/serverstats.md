@@ -149,7 +149,6 @@ Stats provide the insights to your Discord server which can be seen by server ad
 - `Members`: Will track the total amount of members, number of joined members and number of left members;
 - `Activities`: Will track the statuses of members in the server and the activities server members have (incl. the amount of time they have had that activity);
 - `Voice`: Will track the amount of time members are in a voice channel;
-- `Function giveaways`: Will track the amount of giveaways created, deleted and responded to by members;
 - `Module autoresponder`: Will track the amount of triggers created, deleted and hit, the amount of time it took for the triggers to be checked and also the amount of responses created and deleted;
 - `Module verifier`: Will track the amount of time it took for the verification to be handled;
 - `Module tags`: Will track the amount of tags created and deleted and the time it took for tags to be sent;
@@ -162,6 +161,7 @@ Stats provide the insights to your Discord server which can be seen by server ad
 - `Module tickets`: Will track the amount of panels created and deleted, the amount of ticket types added and removed and also the amount of tickets created, deleted, closed and reopened;
 - `Module polls`: Will track the amount of polls created, deleted and manually closed as well as the amount of votes added and removed;
 - `Module reminders`: Will track the amount of reminders created, deleted and send as wel ass the time it took to send a reminder;
+- `Module giveaways`: Will track the amount of giveaways created, deleted, rerolled, enters and leaves;
 
 These statistics can be enabled/disabled per group (as per the grouping above) and information will be stored for 31 days, after which the information is deleted immediately.
 
