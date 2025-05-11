@@ -323,11 +323,15 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 </details>
 
 <details>
-  <summary>Giveaway events</summary>
+  <summary>Giveaways events</summary>
 
-1. `log_giveaway_create`: Logs when a giveaway has been created;
-2. `log_giveaway_delete`: Logs when a giveaway has been deleted;
-3. `log_giveaway_reroll`: Logs when a giveaway has been rerolled;
+1. `log_giveaways_created`: Logs when a giveaway has been created;
+2. `log_giveaways_deleted`: Logs when a giveaway has been deleted;
+3. `log_giveaways_edited`: Logs when a giveaway has been edited;
+4. `log_giveaways_rerolled`: Logs when a giveaway has been rerolled;
+5. `log_giveaways_entered`: Logs when a giveaway has been entered by a member;
+6. `log_giveaways_leaves`: Logs when a giveaway has been left by a member;
+7. `log_giveaways_finished`: Logs when a giveaway has been finished;
 
 </details>
 

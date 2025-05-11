@@ -71,7 +71,7 @@ Body data (JSON):
 | stats_modules_tempchannels_enabled | yes | `boolean` | If the module tempchannels statistics should be enabled |
 | stats_modules_tickets_enabled | yes | `boolean` | If the module tickets statistics should be enabled |
 | stats_modules_reminders_enabled | yes | `boolean` | If the module reminders statistics should be enabled |
-| stats_functions_giveaways_enabled | yes | `boolean` | If the function giveaways statistics should be enabled |
+| stats_modules_giveaways_enabled | yes | `boolean` | If the module giveaways statistics should be enabled |
 
 - BadRequestError
 - SettingsError
@@ -936,185 +936,6 @@ Body data (JSON):
 | guild_id | yes | `integer` | The ID of the guild where the event has taken place |
 | initiator_id | yes | `integer` | The ID of the member that has used a Husqy command |
 | command | yes | `string` | The command the user has used |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
-
-### Functions
-
-#### Giveaways
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/functions/giveaways/created`</summary>
-
-Endpoint to get giveaways created related statistical data in a server.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
-| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
-| user_id | no | `integer` | The ID of the user to filter the statistical data for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
-- Unprocessable Entity
-
-```
-{
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
-```
-
-</details>
-
-<details>
-  <summary>POST - `/modules/serverstats/stats/functions/giveaways/created`</summary>
-
-:::danger
-
-Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
-
-:::
-
-Endpoint to add giveaways created related statistical data.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
-| creating_user_id | yes | `integer` | The ID of the member that has created a giveaway |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/functions/giveaways/deleted`</summary>
-
-Endpoint to get giveaways deleted related statistical data in a server.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
-| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
-| user_id | no | `integer` | The ID of the user to filter the statistical data for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
-- Unprocessable Entity
-
-```
-{
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
-```
-
-</details>
-
-<details>
-  <summary>POST - `/modules/serverstats/stats/functions/giveaways/deleted`</summary>
-
-:::danger
-
-Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
-
-:::
-
-Endpoint to add giveaways deleted related statistical data.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
-| deleting_user_id | yes | `integer` | The ID of the member that has deleted a giveaway |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-
-</details>
-
-<details>
-  <summary>GET - `/modules/serverstats/stats/functions/giveaways/responders`</summary>
-
-Endpoint to get giveaways responders related statistical data in a server.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
-| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
-| user_id | no | `integer` | The ID of the user to filter the statistical data for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
-- Unprocessable Entity
-
-```
-{
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
-```
-
-</details>
-
-<details>
-  <summary>POST - `/modules/serverstats/stats/functions/giveaways/responders`</summary>
-
-:::danger
-
-Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
-
-:::
-
-Endpoint to add giveaways responders related statistical data.
-
-Body data (JSON):
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
-| responding_user_id | yes | `integer` | The ID of the member that has responded to a giveaway |
-| old_giveaway_id | yes | `string` | The ID of the giveaway that the user responded to |
 
 Possible errors:
 
@@ -4071,6 +3892,308 @@ Body data (JSON):
 | --- | --- | --- | --- |
 | guild_id | yes | `integer` | The ID of the guild where the event has taken place |
 | send_time | yes | `float` | The amount of time it took to send the reminder |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+#### Giveaways
+
+##### Giveaways created
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/giveaways/giveaway/created`</summary>
+
+Endpoint to get giveaways giveaway created related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/giveaways/giveaway/created`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add giveaways giveaway created related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has created the giveaway |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Giveaways deleted
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/giveaways/giveaway/deleted`</summary>
+
+Endpoint to get giveaways giveaway deleted related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/giveaways/giveaway/deleted`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add giveaways giveaway deleted related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| deleting_user_id | yes | `integer` | The ID of the user that has deleted the giveaway |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Giveaways rerolled
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/giveaways/giveaway/rerolled`</summary>
+
+Endpoint to get giveaways giveaway rerolled related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/giveaways/giveaway/rerolled`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add giveaways giveaway rerolled related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has rerolled the giveaway |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Giveaways enters
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/giveaways/giveaway/enters`</summary>
+
+Endpoint to get giveaways giveaway enters related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/giveaways/giveaway/enters`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add giveaways giveaway enteres related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has enters the giveaway |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+
+</details>
+
+##### Giveaways leaves
+
+<details>
+  <summary>GET - `/modules/serverstats/stats/modules/giveaways/giveaway/leaves`</summary>
+
+Endpoint to get giveaways giveaway leaves related statistical data in a server.
+
+Query string parameters:
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the statistical data is related to |
+| days | no | `integer` | The number of days to return. Can be between 1 and 30 |
+| user_id | no | `integer` | The ID of the user to filter the statistical data for |
+
+Possible errors:
+
+- BadRequestError
+- SettingsError
+- ModuleDisabledError
+- InternalServerError
+- Unprocessable Entity
+
+```
+{
+    "success": False,
+    "data": {},
+    "error": {
+        "code": 422,
+        "message": "Unprocessable Entity! {reason}",
+    },
+},
+```
+
+</details>
+
+<details>
+  <summary>POST - `/modules/serverstats/stats/modules/giveaways/giveaway/leaves`</summary>
+
+:::danger
+
+Do not use this endpoint yourself! Husqy will add statistical data when appropriate.
+
+:::
+
+Endpoint to add giveaways giveaway leaves related statistical data.
+
+Body data (JSON):
+| field | required | type | description |
+| --- | --- | --- | --- |
+| guild_id | yes | `integer` | The ID of the guild where the event has taken place |
+| creating_user_id | yes | `integer` | The ID of the user that has leaves the giveaway |
 
 Possible errors:
 
