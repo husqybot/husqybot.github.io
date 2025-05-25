@@ -113,7 +113,7 @@ const config: Config = {
       style: "primary",
       items: [
         { to: "/get-started", label: "Get started", position: "right" },
-        { to: "/premium", label: "Premium (Coming soon)", position: "right" },
+        { to: "/premium", label: "Premium", position: "right" },
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
@@ -139,7 +139,7 @@ const config: Config = {
           to: "/get-started",
         },
         {
-          label: "Premium (Coming soon)",
+          label: "Premium",
           to: "/premium",
         },
         {

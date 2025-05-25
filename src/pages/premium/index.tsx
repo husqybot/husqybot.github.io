@@ -19,8 +19,8 @@ export default function GetStarted(): JSX.Element {
             Get extra benefits and unlock Husqy's full potential!
           </span>
           <p className={styles.premium_text}>
-            We are currently testing premium subscription and they will be
-            available soon!
+            Please check out the full documentation about Husqy premium{" "}
+            <a href="https://husqy.xyz/docs/premium">here</a>!
           </p>
         </div>
         <div className={styles.premium_comparison_table}>
@@ -559,6 +559,48 @@ export default function GetStarted(): JSX.Element {
                   </div>
                   <div className={styles.premium_comparison_table_row_item_3}>
                     25 (Discord limit)
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Module Autoresponder */}
+            <div className={styles.premium_comparison_table_body_row}>
+              <div
+                className={styles.premium_comparison_table_body_row_group_title}
+              >
+                <h4>Module Autoresponder</h4>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Triggers
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    1
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    Unlimited
+                  </div>
+                </div>
+              </div>
+              <div className={styles.premium_comparison_table_body_row_item}>
+                <div
+                  className={
+                    styles.premium_comparison_table_body_row_item_container
+                  }
+                >
+                  <div className={styles.premium_comparison_table_row_item_1}>
+                    Responses
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_2}>
+                    3
+                  </div>
+                  <div className={styles.premium_comparison_table_row_item_3}>
+                    unlimited
                   </div>
                 </div>
               </div>
