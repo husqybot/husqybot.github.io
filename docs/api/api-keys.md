@@ -10,6 +10,9 @@ sidebar_position: 2
 toc_max_heading_level: 6
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Overview
 
 API Keys allow you to interact with the Husqy API from another (custom) program or script. API keys are linked to a server and can only be used for interactions related to that server.
@@ -29,86 +32,110 @@ Please handle these API keys with care and store them securely.
 <details>
   <summary>GET - `/auth/api-key/`</summary>
 
-Get all API keys for a specified guild.
+Endpoint to get all API keys in the server.
 
-Query string parameters:
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the API keys of |
-
-Possible errors:
-
-- BadRequestError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to check the API keys in |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "api_keys": [
+      {
+        "id": 0,
+        "guild_id": "string",
+        "api_key": "string",
+        "last_use": "1970-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - List API keys: `https://api.husqy.xyz/v1/auth/api-key?guild_id={guild_id}`
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
   <summary>POST - `/auth/api-key/`</summary>
 
-Create a new API key for a specified guild.
+Endpoint to create a new API key in the server.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to create the API key for |
-
-Possible errors:
-
-- BadRequestError
-- Unprocessable Entity
-
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to create the API keys in |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
 ```
 {
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
+  "data": {
+    "api_key": {
+      "id": 0,
+      "guild_id": "string",
+      "api_key": "string",
+      "last_use": "1970-01-01T00:00:00.000Z"
+    }
+  }
+}
 ```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Create a new API key: `https://api.husqy.xyz/v1/auth/api-key`. Request body:
+    ```
+    {
+      "guild_id": {guild_id},
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
   <summary>DELETE - `/auth/api-key/`</summary>
 
-Delete an API key for a specified guild.
+Endpoint to delete an API key in the server.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to create the API key for |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to delete the API keys in |
 | api_key | yes | `string` | The API key to delete |
-
-Possible errors:
-
-- BadRequestError
-- NotFoundError
-
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
 ```
 {
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 404,
-        "message": "Not Found! {reason}",
-    },
-},
+  "data": {
+    "api_key": {
+      "id": 0,
+      "guild_id": "string",
+      "api_key": "string",
+      "last_use": "1970-01-01T00:00:00.000Z"
+    }
+  }
+}
 ```
-
-- Unprocessable Entity
-
-```
-{
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
-```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Delete an API key: `https://api.husqy.xyz/v1/auth/api-key`. Request body:
+    ```
+    {
+      "guild_id": {guild_id},
+      "api_key": {api_key}
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 

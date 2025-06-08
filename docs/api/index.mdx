@@ -18,28 +18,42 @@ This section contains information about all Husqy API endpoints. Go to the Husqy
 
 :::
 
-## Accessing the API
+## API Reference
 
-All V1 (latest) API endpoints are located at: `https://api.husqy.xyz/v1`. Throughout the documentation you will come across endpoints, make sure this prefix is added before the endpoints.
+The Husqy API is organized around REST, it has clear resource-oriented URLS and returns JSON responses. All V1 (latest) API endpoints are located at the following base URL: `https://api.husqy.xyz/v1`. Throughout the documentation you will come across endpoints, make sure this prefix is added before the endpoints.
 
-## Return JSON structure
+## Authentication
 
-The structure of the JSON that will be returned by all API endpoints is the same and is as follows:
+The Husqy API uses access tokens given by Discord OAuth to authenticate the user and, in combination with known information in the database, to check if a user has access to the server they are interacting with.
+
+### API Keys
+
+Husqy gives server administrators the ability to create API keys which can be used for authentication. API keys have the same level of access as administrators, so be careful when sharing these. More information about API keys can be found [here](https://husqy.xyz/docs/api/api-keys)!
+
+## Errors
+
+The Husqy API uses conventional HTTP response codes to indicate the success or failure of a request. The most common ranges you will encounter are `2xx` for successful requests and `4xx` for errors in the request. When errors occur (so not in the `2xx` range) Husqy makes use of the ProblemDetail response, f.e.:
 
 ```
 {
-  "success": boolean value to display if the request was successfully handled, if so the data key will be filled,
-  "data": empty list, list of objects or an object (which may be empty),
-  "error": {
-      "code": integer with the HTTP status code,
-      "message": string with a description of the error and/or HTTP status code,
-  },
+  "type": "string",
+  "title": "string",
+  "status": 400,
+  "detail": "string",
+  "message": "string",
+  "errors": [],
 }
 ```
 
+:::warning
+
+- Codes in the `5xx` range are possible but most likely indicate in issue in the Husqy API servers.
+- Both the `"message"` and `"errors"` keys in the ProblemDetails return are optional and may not be present in all error responses.
+
+:::
+
 ## Quick links:
 
-- [Error codes](error-codes)
 - [API Keys](api-keys)
 - [General](general)
 
