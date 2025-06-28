@@ -592,7 +592,7 @@ Endpoint to get the amount of references to your user in other parts of Husqy.
 ```
   </TabItem>
   <TabItem value="examples" label="Examples">
-    - Get user entries: `https://api.husqy.xyz/v1/privacy/get-user-entries?guild_id={guild_id}&privacy_member_id={privacy_member_id}`
+    No examples provided. Do not use this endpoint yourself!
   </TabItem>
 </Tabs>
 
@@ -626,13 +626,7 @@ Endpoint to delete the references to your user in other parts of Husqy.
 ```
   </TabItem>
   <TabItem value="examples" label="Examples">
-    - Delete user entries: `https://api.husqy.xyz/v1/privacy/get-user-entries`. Request body:
-    ```
-    {
-      "guild_id": {guild_id},
-      "privacy_member_id": {privacy_member_id}
-    }
-    ```
+    No examples provided. Do not use this endpoint yourself!
   </TabItem>
 </Tabs>
 
