@@ -855,7 +855,7 @@ This endpoints returns the status of the logging module.
 ```
   </TabItem>
   <TabItem value="examples" label="Examples">
-    - Get guilds of signed in user: `https://api.husqy.xyz/v1/helpers/get-husqy-for-guild`
+    - Get the status: `https://api.husqy.xyz/v1/modules/logging/status`
   </TabItem>
 </Tabs>
 
@@ -1310,7 +1310,7 @@ This endpoints sends a logging message to the logs channel.
 
 ## Privacy
 
-Endpoints related to privacy and the tags module
+Endpoints related to privacy and the logging module
 
 <details>
   <summary>GET - `/modules/logging/privacy/get-user-entries`</summary>

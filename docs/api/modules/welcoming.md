@@ -11,6 +11,9 @@ sidebar_position: 2
 toc_max_heading_level: 6
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## General
 
 Endpoints related to general Husqy Modules Welcoming.
@@ -18,74 +21,214 @@ Endpoints related to general Husqy Modules Welcoming.
 <details>
   <summary>GET - `/modules/welcoming/`</summary>
 
-Home endpoint for the Modules Welcoming Husqy API. Returns only success message displaying that it is the Modules Welcoming Husqy API route.
+Home endpoint for the module welcoming Husqy API.
+
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
+This endpoint does not have any parameters.
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "message": "string"
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Get the home message: `https://api.husqy.xyz/v1/modules/welcoming`
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
   <summary>GET - `/modules/welcoming/settings`</summary>
 
-Get the settings of the welcoming module for the specified guild.
+This endpoints returns the settings of welcoming module.
 
-Query string parameters:
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to fetch information for |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "settings": {
+      "id": 0,
+      "guild_id": "string",
+      "welcome_messages_dm_enabled": false,
+      "welcome_messages_enabled": false,
+      "welcome_messages_randomized": false,
+      "welcome_messages_channel": "string",
+      "leave_messages_enabled": false,
+      "leave_messages_randomized": false,
+      "leave_messages_channel": "string",
+      "autorole_enabled": false,
+      "autorole_role_ids": "string",
+      "timedroles_enabled": false,
+      "welcome_messages_dm_randomized": false,
+      "welcome_message_dm_response_id": "string",
+      "welcome_message_response_id": "string",
+      "leave_message_response_id": "string"
+    }
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Get the module welcoming settings of a server: `https://api.husqy.xyz/v1/modules/welcoming/settings?guild_id={guild_id}`
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
   <summary>PUT - `/modules/welcoming/settings`</summary>
 
-Endpoint to change the settings of the welcoming module for the specified guild.
+This endpoints updates the settings of welcoming module.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to change the welcoming module settings for |
-| request_welcome_messages_dm_enabled | yes | `boolean` | If the welcome messages in dm component should be enabled |
-| request_welcome_messages_dm_randomized | yes | `boolean` | If the welcome messages in dm responses that are send should be randomized |
-| request_welcome_message_dm_response_id | yes | `string` | The ID of the response to send. Can be none when responses are randomized |
-| welcome_messages_enabled | yes | `boolean` | If the welcome messages in channel component should be enabled |
-| welcome_messages_randomized | yes | `boolean` | If the welcome messages in channel responses that are send should be randomized |
-| welcome_messages_channel | yes | `integer` | The ID of the channel to use as the welcome message in channel channel. Can be none when welcome messages component is disabled |
-| welcome_message_response_id | yes | `string` | The ID of the response to send. Can be none when responses are randomized |
-| leave_messages_enabled | yes | `boolean` | If the leave messages in channel component should be enabled |
-| leave_messages_randomized | yes | `boolean` | If the leave messages in channel responses that are send should be randomized |
-| leave_messages_channel | yes | `integer` | The ID of the channel to use as the leave message in channel channel. Can be none when leave messages component is disabled |
-| leave_message_response_id | yes | `string` | The ID of the response to send. Can be none when responses are randomized |
-| autorole_enabled | yes | `boolean` | If the autorole component should be enabled |
-| autorole_role_ids | yes | `list` | A list of role IDs to give to new members |
-| timedroles_enabled | yes | `boolean` | If the timedroles component should be enabled |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to update the information for |
+| welcome_messages_dm_enabled | no | `boolean` | The status of the DM welcome component |
+| welcome_messages_dm_randomized | no | `boolean` | If responses of the DM welcome component are randomized |
+| welcome_messages_dm_randomized | no | `boolean` | If responses of the DM welcome component are randomized |
+| welcome_message_dm_response_id | no | `string` | The ID of the response to send when the DM welcome message are not randomized |
+| welcome_messages_randomized | no | `boolean` | If responses of the Channel welcome component are randomized |
+| welcome_messages_channel | no | `integer` | The ID of the channel where messages of the Channel welcome will be send |
+| welcome_message_response_id | no | `string` | The ID of the response to send when the Channel welcome message are not randomized |
+| leave_messages_enabled | no | `boolean` | The status of the Channel leave component |
+| leave_messages_randomized | no | `boolean` | If responses of the Channel leave component are randomized |
+| leave_messages_channel | no | `integer` | The ID of the channel where messages of the Channel leave will be send |
+| leave_message_response_id | no | `string` | The ID of the response to send when the Channel leave message are not randomized |
+| autorole_role_ids | no | `list` | A list of role IDs to automatically give to the user who joins the server |
+| autorole_enabled | no | `boolean` | The status of the autorole component |
+| timedroles_enabled | no | `boolean` | The status of the timedrole component |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
-Possible errors:
+```
+{
+  "data": {
+    "settings": {
+      "id": 0,
+      "guild_id": "string",
+      "welcome_messages_dm_enabled": false,
+      "welcome_messages_enabled": false,
+      "welcome_messages_randomized": false,
+      "welcome_messages_channel": "string",
+      "leave_messages_enabled": false,
+      "leave_messages_randomized": false,
+      "leave_messages_channel": "string",
+      "autorole_enabled": false,
+      "autorole_role_ids": "string",
+      "timedroles_enabled": false,
+      "welcome_messages_dm_randomized": false,
+      "welcome_message_dm_response_id": "string",
+      "welcome_message_response_id": "string",
+      "leave_message_response_id": "string"
+    }
+  }
+}
+```
 
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- DatabaseError
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Change one of the module welcoming settings of a server: `https://api.husqy.xyz/v1/modules/welcoming/settings`:
+    ```
+    {
+      "guild_id": {guild_id},
+      "timedroles_enabled": {new_timedroles_enabled}
+    }
+    ```
+    - Change multiple of the module welcoming settings of a server: `https://api.husqy.xyz/v1/modules/welcoming/settings`:
+    ```
+    {
+      "guild_id": {guild_id},
+      "welcome_messages_dm_enabled": {new_welcome_messages_dm_enabled},
+      "welcome_messages_dm_randomized": {new_welcome_messages_dm_randomized},
+      "welcome_messages_dm_response_id": {new_welcome_messages_dm_response_id}
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
-  <summary>DELETE - `/modules/welcoming/settings/delete`</summary>
+  <summary>DELETE - `/modules/welcoming/settings`</summary>
 
-Delete all settings of the welcoming module for a specified guild.
+This endpoints deletes the settings of welcoming module.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to delete the settings from |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to delete the information for |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
-Possible errors:
+```
+{
+  "data": {
+    "settings": {
+      "id": 0,
+      "guild_id": "string",
+      "welcome_messages_dm_enabled": false,
+      "welcome_messages_enabled": false,
+      "welcome_messages_randomized": false,
+      "welcome_messages_channel": "string",
+      "leave_messages_enabled": false,
+      "leave_messages_randomized": false,
+      "leave_messages_channel": "string",
+      "autorole_enabled": false,
+      "autorole_role_ids": "string",
+      "timedroles_enabled": false,
+      "welcome_messages_dm_randomized": false,
+      "welcome_message_dm_response_id": "string",
+      "welcome_message_response_id": "string",
+      "leave_message_response_id": "string"
+    },
+    "responses": [
+      {
+        "id": 0,
+        "guild_id": "string",
+        "response_id": "string",
+        "response_type": 0,
+        "is_embed": false,
+        "content": "string"
+      }
+    ],
+    "timedroles": [
+      {
+        "id": 0,
+        "guild_id": "string",
+        "timedrole_id": "string",
+        "role_id": "string",
+        "add_after": 0
+      }
+    ]
+  }
+}
+```
 
-- BadRequestError
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Delete the module welcoming settings of a server: `https://api.husqy.xyz/v1/modules/welcoming/settings`:
+    ```
+    {
+      "guild_id": {guild_id}
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
@@ -96,55 +239,144 @@ Endpoints related to the status of the module.
 <details>
   <summary>GET - `/modules/welcoming/status`</summary>
 
-Get the status of the welcoming module for the specified guild.
+This endpoints returns the status of the welcoming module.
 
-Query string parameters:
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to check the status of |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to get the information for |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "status": true
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Get the status: `https://api.husqy.xyz/v1/modules/welcoming/status`
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
   <summary>POST - `/modules/welcoming/enable`</summary>
 
-Endpoint to enable the welcoming module for the specified guild.
+This endpoints enables the welcoming module.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to enable the welcoming module for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleEnabledError
-- DatabaseError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to enable the module for |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "settings": {
+      "id": 0,
+      "guild_id": "string",
+      "welcome_messages_dm_enabled": false,
+      "welcome_messages_enabled": false,
+      "welcome_messages_randomized": false,
+      "welcome_messages_channel": "string",
+      "leave_messages_enabled": false,
+      "leave_messages_randomized": false,
+      "leave_messages_channel": "string",
+      "autorole_enabled": false,
+      "autorole_role_ids": "string",
+      "timedroles_enabled": false,
+      "welcome_messages_dm_randomized": false,
+      "welcome_message_dm_response_id": "string",
+      "welcome_message_response_id": "string",
+      "leave_message_response_id": "string"
+    }
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Enable the module: `https://api.husqy.xyz/v1/modules/welcoming/enable`:
+    ```
+    {
+      "guild_id": {guild_id}
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
   <summary>POST - `/modules/welcoming/disable`</summary>
 
-Endpoint to disable the welcoming module for the specified guild.
+This endpoints disables the welcoming module.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to disable the welcoming module for |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- DatabaseError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to disable the module for |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "settings": {
+      "id": 0,
+      "guild_id": "string",
+      "welcome_messages_dm_enabled": false,
+      "welcome_messages_enabled": false,
+      "welcome_messages_randomized": false,
+      "welcome_messages_channel": "string",
+      "leave_messages_enabled": false,
+      "leave_messages_randomized": false,
+      "leave_messages_channel": "string",
+      "autorole_enabled": false,
+      "autorole_role_ids": "string",
+      "timedroles_enabled": false,
+      "welcome_messages_dm_randomized": false,
+      "welcome_message_dm_response_id": "string",
+      "welcome_message_response_id": "string",
+      "leave_message_response_id": "string"
+    },
+    "responses": [
+      {
+        "id": 0,
+        "guild_id": "string",
+        "response_id": "string",
+        "response_type": 0,
+        "is_embed": false,
+        "content": "string"
+      }
+    ],
+    "timedroles": [
+      {
+        "id": 0,
+        "guild_id": "string",
+        "timedrole_id": "string",
+        "role_id": "string",
+        "add_after": 0
+      }
+    ]
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Disable the module: `https://api.husqy.xyz/v1/modules/welcoming/disable`:
+    ```
+    {
+      "guild_id": {guild_id}
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
@@ -155,91 +387,160 @@ Endpoint related to responses of the welcoming module.
 <details>
   <summary>GET - `/modules/welcoming/responses`</summary>
 
-Endpoint to get the responses of the welcoming module.
+This endpoints gets the responses of the welcoming module.
 
-Query string parameters:
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the welcoming responses from |
-| page | no | `integer` | The page number to get (default = 1) |
-| page_size | no | `integer` | The amount of panels to return in one page (default = 10) |
-| response_type | no | `integer` | The type of responses to get (1 = DM welcome messages, 2 = Channel welcome messages, 3 = Leave channel messages) |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to disable the module for |
+| response_type | no | `integer` | The response type to get (1 = DM welcome messages, 2 = Channel welcome messages, 3 = Leave channel messages) |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "responses": [
+      {
+        "id": 0,
+        "guild_id": "string",
+        "response_id": "string",
+        "response_type": 0,
+        "is_embed": false,
+        "content": "string"
+      }
+    ]
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Get all responses: `https://api.husqy.xyz/v1/modules/welcoming/responses?guild_id={guild_id}`:
+    - Get all responses of response type 2: `https://api.husqy.xyz/v1/modules/welcoming/responses?guild_id={guild_id}&response_type=2`:
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
   <summary>POST - `/modules/welcoming/responses`</summary>
 
-Endpoint to create a new welcoming response in a guild.
+This endpoint creates a new response for the welcoming module.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to create the response in |
-| response_type | yes | `integer` | The type of response to create (1 = DM welcome messages, 2 = Channel welcome messages, 3 = Leave channel messages) |
-| is_embed | yes | `boolean` | Wether the message content is an embed json config |
-| content | yes | `string` | The content to use for the message. Can also be embed json config if is_embed is True |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- DatabaseError
-- Unprocessable Entity
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to add the response for |
+| response_type | yes | `integer` | The type of the response (1 = DM welcome messages, 2 = Channel welcome messages, 3 = Leave channel messages) |
+| is_embed | yes | `boolean` | If the content is a Husqy embed config |
+| content | yes | `string` | The content of the response (can be Husqy embed config) |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
 ```
 {
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
+  "data": {
+    "response": {
+      "id": 0,
+      "guild_id": "string",
+      "response_id": "string",
+      "response_type": 0,
+      "is_embed": false,
+      "content": "string"
+    }
+  }
+}
 ```
 
-</details>
-
-<details>
-  <summary>GET - `/modules/welcoming/response/{response_id}`</summary>
-
-Endpoint to get a response of the welcoming module.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the welcoming response from |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Create a new response: `https://api.husqy.xyz/v1/modules/welcoming/responses`:
+    ```
+    {
+      "guild_id": {guild_id},
+      "response_type": {response_type},
+      "is_embed": {is_embed},
+      "content": "{content}"
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
-  <summary>DELETE - `/modules/welcoming/response/{response_id}`</summary>
+  <summary>GET - `/modules/welcoming/responses/{response_id}`</summary>
 
-Endpoint to delete a response of the welcoming module.
+This endpoints gets the specified response of the welcoming module.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to delete the response in |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to get the response in |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "response": {
+      "id": 0,
+      "guild_id": "string",
+      "response_id": "string",
+      "response_type": 0,
+      "is_embed": false,
+      "content": "string"
+    }
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Get the responses: `https://api.husqy.xyz/v1/modules/welcoming/responses/{response_id}?guild_id={guild_id}`:
+  </TabItem>
+</Tabs>
 
-Possible errors:
+</details>
 
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
+<details>
+  <summary>DELETE - `/modules/welcoming/responses/{response_id}`</summary>
+
+This endpoint deletes the specified response for the welcoming module.
+
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
+| field | required | type | description |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to delete the response for |
+</TabItem>
+<TabItem value="success-response" label="Success response">
+
+```
+{
+  "data": {
+    "response": {
+      "id": 0,
+      "guild_id": "string",
+      "response_id": "string",
+      "response_type": 0,
+      "is_embed": false,
+      "content": "string"
+    }
+  }
+}
+```
+
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Delete a response: `https://api.husqy.xyz/v1/modules/welcoming/responses/{response_id}`:
+    ```
+    {
+      "guild_id": {guild_id},
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
@@ -250,89 +551,152 @@ Endpoint related to timedroles of the welcoming module.
 <details>
   <summary>GET - `/modules/welcoming/timedroles`</summary>
 
-Endpoint to get the timedroles of the welcoming module.
+This endpoints gets the timedroles of the welcoming module.
 
-Query string parameters:
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the welcoming timedroles from |
-| page | no | `integer` | The page number to get (default = 1) |
-| page_size | no | `integer` | The amount of panels to return in one page (default = 10) |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to get the timedrole for |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "timedroles": [
+      {
+        "id": 0,
+        "guild_id": "string",
+        "timedrole_id": "string",
+        "role_id": "string",
+        "add_after": 0
+      }
+    ]
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Get timedroles: `https://api.husqy.xyz/v1/modules/welcoming/timedroles?guild_id={guild_id}`:
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
   <summary>POST - `/modules/welcoming/timedroles`</summary>
 
-Endpoint to create a new timedrole in a guild.
+This endpoint creates a new timedrole for the welcoming module.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to create the response in |
-| role_id | yes | `integer` | The ID of the role to add to a member |
-| add_after | yes | `integer` | The amount of seconds a member must be in a channel before getting a role |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- DatabaseError
-- Unprocessable Entity
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to add the response for |
+| role_id | yes | `integer` | The ID of the role to add to the member |
+| add_after | yes | `integer` | The duration in seconds a user must be in a server to get the role |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
 ```
 {
-    "success": False,
-    "data": {},
-    "error": {
-        "code": 422,
-        "message": "Unprocessable Entity! {reason}",
-    },
-},
+  "data": {
+    "timedrole": {
+      "id": 0,
+      "guild_id": "string",
+      "timedrole_id": "string",
+      "role_id": "string",
+      "add_after": 0
+    }
+  }
+}
 ```
 
-</details>
-
-<details>
-  <summary>GET - `/modules/welcoming/timedrole/{timedrole_id}`</summary>
-
-Endpoint to get a timedrole of the welcoming module.
-
-Query string parameters:
-| field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the timedrole from |
-
-Possible errors:
-
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Create a new timedrole: `https://api.husqy.xyz/v1/modules/welcoming/timedroles`:
+    ```
+    {
+      "guild_id": {guild_id},
+      "role_id": {role_id},
+      "add_after": {add_after},
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
-  <summary>DELETE - `/modules/welcoming/timedrole/{timedrole_id}`</summary>
+  <summary>GET - `/modules/welcoming/timedroles/{timedrole_id}`</summary>
 
-Endpoint to delete a timedrole of the welcoming module.
+This endpoints gets the specified timedrole of the welcoming module.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to delete the timedrole in |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to get the timedrole in |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "timedrole": {
+      "id": 0,
+      "guild_id": "string",
+      "timedrole_id": "string",
+      "role_id": "string",
+      "add_after": 0
+    }
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Get the timedroles: `https://api.husqy.xyz/v1/modules/welcoming/timedroles/{timedrole_id}?guild_id={guild_id}`:
+  </TabItem>
+</Tabs>
 
-Possible errors:
+</details>
 
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
+<details>
+  <summary>DELETE - `/modules/welcoming/timedroles/{timedrole_id}`</summary>
+
+This endpoint deletes the specified timedrole for the welcoming module.
+
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
+| field | required | type | description |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to delete the timedrole for |
+</TabItem>
+<TabItem value="success-response" label="Success response">
+
+```
+{
+  "data": {
+    "timedrole": {
+      "id": 0,
+      "guild_id": "string",
+      "timedrole_id": "string",
+      "role_id": "string",
+      "add_after": 0
+    }
+  }
+}
+```
+
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    - Delete a timedrole: `https://api.husqy.xyz/v1/modules/welcoming/timedroles/{timedrole_id}`:
+    ```
+    {
+      "guild_id": {guild_id},
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 </details>
 
@@ -349,19 +713,29 @@ Do not use this endpoint yourself! Messages will be send by Husqy when needed.
 
 :::
 
-Endpoint to check if a message should be send to the joined users DM.
+This endpoint checks the member join event to validate the sending of a response to the members DM.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the member has joined |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to check the event in |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
-Possible errors:
+```
+{
+  "data": {
+    "message": "string"
+  }
+}
+```
 
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    No examples provided. Do not use this endpoint yourself!
+  </TabItem>
+</Tabs>
 
 </details>
 
@@ -374,19 +748,29 @@ Do not use this endpoint yourself! Messages will be send by Husqy when needed.
 
 :::
 
-Endpoint to check if a message should be send to the welcome message channel.
+This endpoint checks the member join event to validate the sending of a response to the welcome channel.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the member has joined |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to check the event in |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
-Possible errors:
+```
+{
+  "data": {
+    "message": "string"
+  }
+}
+```
 
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    No examples provided. Do not use this endpoint yourself!
+  </TabItem>
+</Tabs>
 
 </details>
 
@@ -399,19 +783,29 @@ Do not use this endpoint yourself! Messages will be send by Husqy when needed.
 
 :::
 
-Endpoint to check if a message should be send to the leave message channel.
+This endpoint checks the member leave event to validate the sending of a response to the leave channel.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild which the member has left |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to check the event in |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
-Possible errors:
+```
+{
+  "data": {
+    "message": "string"
+  }
+}
+```
 
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    No examples provided. Do not use this endpoint yourself!
+  </TabItem>
+</Tabs>
 
 </details>
 
@@ -424,19 +818,29 @@ Do not use this endpoint yourself! Roles will be added by Husqy when needed.
 
 :::
 
-Endpoint to check if a new member should get roles from the autorole component.
+This endpoint checks the member join event to validate if a role must be added.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild where the member has joined |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to check the event in |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
-Possible errors:
+```
+{
+  "data": {
+    "message": "string"
+  }
+}
+```
 
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    No examples provided. Do not use this endpoint yourself!
+  </TabItem>
+</Tabs>
 
 </details>
 
@@ -449,23 +853,38 @@ Do not use this endpoint yourself! Roles will be added by Husqy when needed.
 
 :::
 
-Endpoint to check if a member should get roles from the timedroles component.
+This endpoint checks if members need to get a configured timedrole.
 
-Possible errors:
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
+| field | required | type | description |
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to check the event in |
+</TabItem>
+<TabItem value="success-response" label="Success response">
 
-- BadRequestError
-- SettingsError
-- ModuleDisabledError
-- InternalServerError
+```
+{
+  "data": {
+    "message": "string"
+  }
+}
+```
+
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    No examples provided. Do not use this endpoint yourself!
+  </TabItem>
+</Tabs>
 
 </details>
 
 ## Privacy
 
-Endpoints related to privacy and the tags module
+Endpoints related to privacy and the welcoming module
 
 <details>
-  <summary>GET - `/modules/greetings/privacy/get-user-entries`</summary>
+  <summary>GET - `/modules/welcoming/privacy/get-user-entries`</summary>
 
 :::danger
 
@@ -473,24 +892,37 @@ Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy
 
 :::
 
-Endpoint to get the amount of references in greetings to your user.
+Endpoint to get the amount of references to your user in other parts of Husqy.
 
-Query string parameters:
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to get the specified references in |
-| privacy_member_id | yes | `integer` | The ID of the member who wants to check their references |
-
-Possible errors:
-
-- BadRequestError
-- ForbiddenError
-- InternalServerError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to check the user for |
+| privacy_member_id | yes | `integer` | The ID of the user to check |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "username": 0,
+    "display_name": 0,
+    "global_name": 0,
+    "nickname": 0,
+    "id": 0
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    No examples provided. Do not use this endpoint yourself!
+  </TabItem>
+</Tabs>
 
 </details>
 
 <details>
-  <summary>DELETE - `/modules/greetings/privacy/delete-user-entries`</summary>
+  <summary>DELETE - `/modules/welcoming/privacy/delete-user-entries`</summary>
 
 :::danger
 
@@ -498,18 +930,27 @@ Do not use this endpoint yourself! This endpoint will be used by Husqy's Privacy
 
 :::
 
-Endpoint to delete the references in greetings to your user.
+Endpoint to delete the references to your user in other parts of Husqy.
 
-Body data (JSON):
+<Tabs>
+  <TabItem value="parameters" label="Paramters" default>
 | field | required | type | description |
-| --- | --- | --- | --- |
-| guild_id | yes | `integer` | The ID of the guild to delete the specified references in |
-| privacy_member_id | yes | `integer` | The ID of the member who wants to remove their references |
-
-Possible errors:
-
-- BadRequestError
-- ForbiddenError
-- InternalServerError
+| ----- | -------- | ---- | ----------- |
+| guild_id | yes | `integer` | The ID of the guild to check the user for |
+| privacy_member_id | yes | `integer` | The ID of the user to check |
+  </TabItem>
+  <TabItem value="success-response" label="Success response">
+```
+{
+  "data": {
+    "message": "string"
+  }
+}
+```
+  </TabItem>
+  <TabItem value="examples" label="Examples">
+    No examples provided. Do not use this endpoint yourself!
+  </TabItem>
+</Tabs>
 
 </details>
