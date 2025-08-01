@@ -1,0 +1,74 @@
+theme:
+  openapi:
+    disableSearch: true
+    theme:
+      colors:
+        primary:
+          main: "#ffc947"              # --accent-color-1
+        success:
+          main: "#008b28"              # --accent-color-4
+        warning:
+          main: "#ffc947"              # --accent-color-1
+        error:
+          main: "#dc3232"              # --accent-color-3
+        text:
+          primary: "#efefef"           # --secondary-color-2
+          secondary: "#636c7b"         # --secondary-color-1
+        http:
+          get: "#008b28"               # --accent-color-4
+          post: "#185adb"              # --accent-color-2
+          put: "#ffc947"               # --accent-color-1
+          delete: "#dc3232"            # --accent-color-3
+      typography:
+        fontFamily: 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
+        headings:
+          fontFamily: '"Ubuntu", sans-serif'
+          fontWeight: 600
+          lineHeight: 1.2
+          h1FontSize: "64px"           # --font-size-1
+          h2FontSize: "48px"           # --font-size-2
+          h3FontSize: "32px"           # --font-size-3
+          h4FontSize: "26px"           # --font-size-4
+          h5FontSize: "20px"           # --font-size-5
+        code:
+          fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+          fontSize: "95%"              # from --ifm-code-font-size
+        rightPanelHeading:
+          fontWeight: 600
+      sidebar:
+        fontSize: "18px"
+        fontWeight: "500"
+        backgroundColor: "#12223d"     # --primary-color-1
+        textColor: "#efefef"           # --secondary-color-2
+        spacing:
+          offsetTop: "97px !important"
+        groupItems:
+          activeBackgroundColor: "#0a1931" # --primary-color-1
+      rightPanel:
+        backgroundColor: "#0a1931"     # --primary-color-2
+        panelControlsBackgroundColor: "#0a1931"     # --primary-color-2
+      menu:
+        backgroundColor: "#0a1931"     # --primary-color-1
+        textColor: "#efefef"           # --secondary-color-2
+        activeTextColor: "#ffc947"     # --accent-color-1
+        arrow:
+          size: "1em"
+      codeBlock:
+        backgroundColor: "#636c7b"     # --secondary-color-1
+        textColor: "#efefef"           # --secondary-color-2
+      logo:
+        gutter: "20px"
+      # spacing:
+      #   sectionVertical: "40px"
+      breakpoints:
+        small: "600px"
+        medium: "992px"
+        large: "1500px"                # --content-max-width
+      schema:
+        linesColor: "#636c7b"          # --secondary-color-1
+        typeNameColor: "#efefef"       # --accent-color-2
+        typeTitleColor: "#efefef"      # --accent-color-1
+      toc:
+        backgroundColor: "#0a1931"     # --primary-color-1
+        textColor: "#0a1931ç"           # --secondary-color-2
+        borderColor: "#636c7b"         # --secondary-color-1
