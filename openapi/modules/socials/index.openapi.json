@@ -3527,28 +3527,28 @@
                 "properties": {
                     "youtube": {
                         "items": {
-                            "$ref": "#/components/schemas/Module_Socials_Youtube"
+                            "$ref": "#/components/schemas/Module_Socials_Monitor_Youtube"
                         },
                         "type": "array",
                         "title": "Youtube"
                     },
                     "rss": {
                         "items": {
-                            "$ref": "#/components/schemas/Module_Socials_Rss"
+                            "$ref": "#/components/schemas/Module_Socials_Monitor_Rss"
                         },
                         "type": "array",
                         "title": "Rss"
                     },
                     "reddit": {
                         "items": {
-                            "$ref": "#/components/schemas/Module_Socials_Reddit"
+                            "$ref": "#/components/schemas/Module_Socials_Monitor_Reddit"
                         },
                         "type": "array",
                         "title": "Reddit"
                     },
                     "twitch": {
                         "items": {
-                            "$ref": "#/components/schemas/Module_Socials_Twitch"
+                            "$ref": "#/components/schemas/Module_Socials_Monitor_Twitch"
                         },
                         "type": "array",
                         "title": "Twitch"
@@ -3584,7 +3584,7 @@
             "EntriesRedditDeleteResponse": {
                 "properties": {
                     "entry": {
-                        "$ref": "#/components/schemas/Module_Socials_Reddit"
+                        "$ref": "#/components/schemas/Module_Socials_Monitor_Reddit"
                     }
                 },
                 "type": "object",
@@ -3597,7 +3597,7 @@
                 "properties": {
                     "entries": {
                         "items": {
-                            "$ref": "#/components/schemas/Module_Socials_Reddit"
+                            "$ref": "#/components/schemas/Module_Socials_Monitor_Reddit"
                         },
                         "type": "array",
                         "title": "Entries"
@@ -3640,7 +3640,7 @@
             "EntriesRedditPostResponse": {
                 "properties": {
                     "entry": {
-                        "$ref": "#/components/schemas/Module_Socials_Reddit"
+                        "$ref": "#/components/schemas/Module_Socials_Monitor_Reddit"
                     }
                 },
                 "type": "object",
@@ -3670,7 +3670,7 @@
             "EntriesRssDeleteResponse": {
                 "properties": {
                     "entry": {
-                        "$ref": "#/components/schemas/Module_Socials_Rss"
+                        "$ref": "#/components/schemas/Module_Socials_Monitor_Rss"
                     }
                 },
                 "type": "object",
@@ -3683,7 +3683,7 @@
                 "properties": {
                     "entries": {
                         "items": {
-                            "$ref": "#/components/schemas/Module_Socials_Rss"
+                            "$ref": "#/components/schemas/Module_Socials_Monitor_Rss"
                         },
                         "type": "array",
                         "title": "Entries"
@@ -3726,7 +3726,7 @@
             "EntriesRssPostResponse": {
                 "properties": {
                     "entry": {
-                        "$ref": "#/components/schemas/Module_Socials_Rss"
+                        "$ref": "#/components/schemas/Module_Socials_Monitor_Rss"
                     }
                 },
                 "type": "object",
@@ -3885,7 +3885,7 @@
             "EntriesTwitchDeleteResponse": {
                 "properties": {
                     "entry": {
-                        "$ref": "#/components/schemas/Module_Socials_Twitch"
+                        "$ref": "#/components/schemas/Module_Socials_Monitor_Twitch"
                     }
                 },
                 "type": "object",
@@ -3898,7 +3898,7 @@
                 "properties": {
                     "entries": {
                         "items": {
-                            "$ref": "#/components/schemas/Module_Socials_Twitch"
+                            "$ref": "#/components/schemas/Module_Socials_Monitor_Twitch"
                         },
                         "type": "array",
                         "title": "Entries"
@@ -3941,7 +3941,7 @@
             "EntriesTwitchPostResponse": {
                 "properties": {
                     "entry": {
-                        "$ref": "#/components/schemas/Module_Socials_Twitch"
+                        "$ref": "#/components/schemas/Module_Socials_Monitor_Twitch"
                     }
                 },
                 "type": "object",
@@ -3971,7 +3971,7 @@
             "EntriesYoutubeDeleteResponse": {
                 "properties": {
                     "entry": {
-                        "$ref": "#/components/schemas/Module_Socials_Youtube"
+                        "$ref": "#/components/schemas/Module_Socials_Monitor_Youtube"
                     }
                 },
                 "type": "object",
@@ -3984,7 +3984,7 @@
                 "properties": {
                     "entries": {
                         "items": {
-                            "$ref": "#/components/schemas/Module_Socials_Youtube"
+                            "$ref": "#/components/schemas/Module_Socials_Monitor_Youtube"
                         },
                         "type": "array",
                         "title": "Entries"
@@ -4027,7 +4027,7 @@
             "EntriesYoutubePostResponse": {
                 "properties": {
                     "entry": {
-                        "$ref": "#/components/schemas/Module_Socials_Youtube"
+                        "$ref": "#/components/schemas/Module_Socials_Monitor_Youtube"
                     }
                 },
                 "type": "object",
@@ -4220,7 +4220,7 @@
                 ],
                 "title": "Module_Socials"
             },
-            "Module_Socials_Reddit": {
+            "Module_Socials_Monitor_Reddit": {
                 "properties": {
                     "id": {
                         "type": "integer",
@@ -4251,9 +4251,9 @@
                     "subreddit",
                     "target_channel_id"
                 ],
-                "title": "Module_Socials_Reddit"
+                "title": "Module_Socials_Monitor_Reddit"
             },
-            "Module_Socials_Rss": {
+            "Module_Socials_Monitor_Rss": {
                 "properties": {
                     "id": {
                         "type": "integer",
@@ -4296,9 +4296,9 @@
                     "latest_entry",
                     "target_channel_id"
                 ],
-                "title": "Module_Socials_Rss"
+                "title": "Module_Socials_Monitor_Rss"
             },
-            "Module_Socials_Twitch": {
+            "Module_Socials_Monitor_Twitch": {
                 "properties": {
                     "id": {
                         "type": "integer",
@@ -4329,9 +4329,9 @@
                     "twitch_account",
                     "target_channel_id"
                 ],
-                "title": "Module_Socials_Twitch"
+                "title": "Module_Socials_Monitor_Twitch"
             },
-            "Module_Socials_Youtube": {
+            "Module_Socials_Monitor_Youtube": {
                 "properties": {
                     "id": {
                         "type": "integer",
@@ -4379,7 +4379,7 @@
                     "latest_video_id",
                     "target_channel_id"
                 ],
-                "title": "Module_Socials_Youtube"
+                "title": "Module_Socials_Monitor_Youtube"
             },
             "SettingsDeleteRequest": {
                 "properties": {
