@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "https://api.husqy.xyz/"
+            "url": "https://api.husqy.xyz/v1"
         }
     ],
     "paths": {
