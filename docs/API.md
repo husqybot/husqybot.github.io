@@ -71,7 +71,7 @@ The Husqy API uses conventional HTTP response codes to indicate the success or f
 - [Module tickets API](/api/modules/tickets)
 - [Module serverstats API](/api/modules/serverstats)
 - [Module tags API](/api/modules/tags)
-- [Module verfier API](/api/modules/verfier)
+- [Module verfier API](/api/modules/verifier)
 - [Module rules API](/api/modules/rules)
 - [Module invite tracker API](/api/modules/invite-tracker)
 - [Module polls API](/api/modules/polls)
