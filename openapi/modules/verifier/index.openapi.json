@@ -1,0 +1,2324 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Husqy.modules.verifier",
+        "version": "2.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.husqy.xyz/v1/modules/verifier"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Home Endpoint For The Husqy.Modules.Verifier Microservice",
+                "description": "Home endpoint for the Husqy.general microservice",
+                "operationId": "Home_endpoint_for_the_Husqy_modules_verifier_microservice__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_HomeResponse_"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/status": {
+            "get": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Get The Status Of The Verifier Module In A Server",
+                "description": "Status endpoint for the Husqy.modules.verifier microservice",
+                "operationId": "Get_the_status_of_the_verifier_module_in_a_server_status_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_StatusGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/disable": {
+            "post": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Disable The Verifier Module",
+                "description": "Enable the verifier module for a server",
+                "operationId": "Disable_the_verifier_module_disable_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DisablePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_DisablePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
+                                    "title": "Conflict",
+                                    "status": 409,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/enable": {
+            "post": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Enable The Verifier Module In A Server",
+                "description": "Enable the verifier module for a server",
+                "operationId": "Enable_the_verifier_module_in_a_server_enable_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EnablePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EnablePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
+                                    "title": "Conflict",
+                                    "status": 409,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/settings": {
+            "get": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Get The Settings Of The Verifier Module In A Server",
+                "description": "Get the settings for Husqy verifier module for a guild",
+                "operationId": "Get_the_settings_of_the_verifier_module_in_a_server_settings_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_SettingsGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Delete The Settings Of The Verifier Module In A Server",
+                "description": "Delete the settings for Husqy verifier module for a guild",
+                "operationId": "Delete_the_settings_of_the_verifier_module_in_a_server_settings_delete",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SettingsDeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_SettingsDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Update The Settings Of The Logging Module In A Server",
+                "description": "Change the settings for Husqy verifier module for a guild",
+                "operationId": "Update_the_settings_of_the_logging_module_in_a_server_settings_put",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleVerifierUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_SettingsPutResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/entries": {
+            "get": {
+                "tags": [
+                    "Entries"
+                ],
+                "summary": "Get All Current Verifier Entries In A Server",
+                "description": "Get the entry for Husqy verifier module for a guild",
+                "operationId": "Get_all_current_verifier_entries_in_a_server_entries_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/entries/{entry_id}": {
+            "get": {
+                "tags": [
+                    "Entries"
+                ],
+                "summary": "Get Information About A Verifier Entry In A Server",
+                "description": "Get the entry for Husqy verifier module for a guild",
+                "operationId": "Get_information_about_a_verifier_entry_in_a_server_entries__entry_id__get",
+                "parameters": [
+                    {
+                        "name": "entry_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Entry Id"
+                        }
+                    },
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesEntryIdGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event/create-verification": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Create A Verification Entry For A New Member",
+                "description": "Create a verification for Husqy verifier module for a guild",
+                "operationId": "Create_a_verification_entry_for_a_new_member_event_create_verification_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EventCreateVerificationPostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EventCreateVerificationPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
+                                    "title": "Conflict",
+                                    "status": 409,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event/handle-verification": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Handle A Verification Entry For A New Member",
+                "description": "Handle a verification for Husqy verifier module for a guild",
+                "operationId": "Handle_a_verification_entry_for_a_new_member_event_handle_verification_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EventHandleVerificationPostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EventHandleVerificationPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
+                                    "title": "Conflict",
+                                    "status": 409,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/privacy/get-user-entries": {
+            "get": {
+                "tags": [
+                    "Privacy"
+                ],
+                "summary": "Get The Privacy Data Of A User For The Husqy.Modules.Verifier Microservice",
+                "description": "Get user entries",
+                "operationId": "Get_the_privacy_data_of_a_user_for_the_Husqy_modules_verifier_microservice_privacy_get_user_entries_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "privacy_member_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Privacy Member Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_GetUserEntriesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/privacy/delete-user-entries": {
+            "delete": {
+                "tags": [
+                    "Privacy"
+                ],
+                "summary": "Delete The Privacy Data Of A User For The Husqy.Modules.Verifier Microservice",
+                "description": "Delete user entries",
+                "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_modules_verifier_microservice_privacy_delete_user_entries_delete",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "privacy_member_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Privacy Member Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_DeleteUserEntriesDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
+                                    "title": "ValidationError",
+                                    "status": 400,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
+                                    "title": "Unauthorized",
+                                    "status": 401,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
+                                    "title": "Forbidden",
+                                    "status": 403,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
+                                    "title": "NotFound",
+                                    "status": 404,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Problem"
+                                },
+                                "example": {
+                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
+                                    "title": "InternalServerError",
+                                    "status": 500,
+                                    "detail": "Additional error context."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ApiResponse_DeleteUserEntriesDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/DeleteUserEntriesDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[DeleteUserEntriesDeleteResponse]"
+            },
+            "ApiResponse_DisablePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/DisablePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[DisablePostResponse]"
+            },
+            "ApiResponse_EnablePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EnablePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EnablePostResponse]"
+            },
+            "ApiResponse_EntriesEntryIdGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesEntryIdGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesEntryIdGetResponse]"
+            },
+            "ApiResponse_EntriesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesGetResponse]"
+            },
+            "ApiResponse_EventCreateVerificationPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EventCreateVerificationPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EventCreateVerificationPostResponse]"
+            },
+            "ApiResponse_EventHandleVerificationPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EventHandleVerificationPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EventHandleVerificationPostResponse]"
+            },
+            "ApiResponse_GetUserEntriesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/GetUserEntriesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[GetUserEntriesGetResponse]"
+            },
+            "ApiResponse_HomeResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/HomeResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[HomeResponse]"
+            },
+            "ApiResponse_SettingsDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SettingsDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[SettingsDeleteResponse]"
+            },
+            "ApiResponse_SettingsGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SettingsGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[SettingsGetResponse]"
+            },
+            "ApiResponse_SettingsPutResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SettingsPutResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[SettingsPutResponse]"
+            },
+            "ApiResponse_StatusGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/StatusGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[StatusGetResponse]"
+            },
+            "DeleteUserEntriesDeleteResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "DeleteUserEntriesDeleteResponse"
+            },
+            "DisablePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "DisablePostRequest"
+            },
+            "DisablePostResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Verifier"
+                    },
+                    "entries": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Verifier_Entries"
+                        },
+                        "type": "array",
+                        "title": "Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings",
+                    "entries"
+                ],
+                "title": "DisablePostResponse"
+            },
+            "EnablePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "EnablePostRequest"
+            },
+            "EnablePostResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Verifier"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings"
+                ],
+                "title": "EnablePostResponse"
+            },
+            "EntriesEntryIdGetResponse": {
+                "properties": {
+                    "entry": {
+                        "$ref": "#/components/schemas/Module_Verifier_Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "entry"
+                ],
+                "title": "EntriesEntryIdGetResponse"
+            },
+            "EntriesGetResponse": {
+                "properties": {
+                    "entries": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Verifier_Entries"
+                        },
+                        "type": "array",
+                        "title": "Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "entries"
+                ],
+                "title": "EntriesGetResponse"
+            },
+            "EventCreateVerificationPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "requester": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "title": "Requester"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Token"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "requester"
+                ],
+                "title": "EventCreateVerificationPostRequest"
+            },
+            "EventCreateVerificationPostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EventCreateVerificationPostResponse"
+            },
+            "EventHandleVerificationPostRequest": {
+                "properties": {
+                    "verifier_id": {
+                        "type": "string",
+                        "title": "Verifier Id"
+                    },
+                    "interaction_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Interaction Id"
+                    },
+                    "token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Token"
+                    },
+                    "interaction_type": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Interaction Type"
+                    },
+                    "passphrase_value": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Passphrase Value"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "verifier_id"
+                ],
+                "title": "EventHandleVerificationPostRequest"
+            },
+            "EventHandleVerificationPostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EventHandleVerificationPostResponse"
+            },
+            "GetUserEntriesGetResponse": {
+                "properties": {
+                    "username": {
+                        "type": "integer",
+                        "title": "Username"
+                    },
+                    "display_name": {
+                        "type": "integer",
+                        "title": "Display Name"
+                    },
+                    "global_name": {
+                        "type": "integer",
+                        "title": "Global Name"
+                    },
+                    "nickname": {
+                        "type": "integer",
+                        "title": "Nickname"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username",
+                    "display_name",
+                    "global_name",
+                    "nickname",
+                    "id"
+                ],
+                "title": "GetUserEntriesGetResponse"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "title": "Problem Title"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Problem type"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "title": "Status code"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "type",
+                    "title",
+                    "errors",
+                    "status"
+                ],
+                "title": "RequestValidationError"
+            },
+            "HomeResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "HomeResponse"
+            },
+            "ModuleVerifierUpdate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "verifier_type": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Type"
+                    },
+                    "verifier_verified_role_ids": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Verified Role Ids"
+                    },
+                    "verifier_message_is_embed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Message Is Embed"
+                    },
+                    "verifier_message_content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Message Content"
+                    },
+                    "verifier_channel": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Channel"
+                    },
+                    "verifier_message_content_completed": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Message Content Completed"
+                    },
+                    "verifier_passphrase": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Passphrase"
+                    },
+                    "verifier_message_completed_is_embed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Message Completed Is Embed"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "ModuleVerifierUpdate"
+            },
+            "Module_Verifier": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "verifier_type": {
+                        "type": "integer",
+                        "title": "Verifier Type",
+                        "default": 1
+                    },
+                    "verifier_verified_role_ids": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Verified Role Ids"
+                    },
+                    "verifier_message_is_embed": {
+                        "type": "boolean",
+                        "title": "Verifier Message Is Embed",
+                        "default": true
+                    },
+                    "verifier_message_content": {
+                        "type": "string",
+                        "title": "Verifier Message Content"
+                    },
+                    "verifier_channel": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Channel"
+                    },
+                    "verifier_message_content_completed": {
+                        "type": "string",
+                        "title": "Verifier Message Content Completed"
+                    },
+                    "verifier_passphrase": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Verifier Passphrase"
+                    },
+                    "verifier_message_completed_is_embed": {
+                        "type": "boolean",
+                        "title": "Verifier Message Completed Is Embed",
+                        "default": true
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "verifier_message_content",
+                    "verifier_message_content_completed"
+                ],
+                "title": "Module_Verifier"
+            },
+            "Module_Verifier_Entries": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "verifier_id": {
+                        "type": "string",
+                        "title": "Verifier Id"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "title": "User Id"
+                    },
+                    "is_verified": {
+                        "type": "boolean",
+                        "title": "Is Verified",
+                        "default": false
+                    },
+                    "verify_message_id": {
+                        "type": "string",
+                        "title": "Verify Message Id"
+                    },
+                    "verify_channel_id": {
+                        "type": "string",
+                        "title": "Verify Channel Id"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Timestamp",
+                        "default": "2025-10-31T20:30:10.614909"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "verifier_id",
+                    "user_id",
+                    "verify_message_id",
+                    "verify_channel_id"
+                ],
+                "title": "Module_Verifier_Entries"
+            },
+            "SettingsDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "SettingsDeleteRequest"
+            },
+            "SettingsDeleteResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Verifier"
+                    },
+                    "entries": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Verifier_Entries"
+                        },
+                        "type": "array",
+                        "title": "Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings",
+                    "entries"
+                ],
+                "title": "SettingsDeleteResponse"
+            },
+            "SettingsGetResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Verifier"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings"
+                ],
+                "title": "SettingsGetResponse"
+            },
+            "SettingsPutResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Verifier"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings"
+                ],
+                "title": "SettingsPutResponse"
+            },
+            "StatusGetResponse": {
+                "properties": {
+                    "status": {
+                        "type": "boolean",
+                        "title": "Status"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status"
+                ],
+                "title": "StatusGetResponse"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            },
+            "Problem": {
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "title": "Problem Title"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Problem type"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "title": "Status code"
+                    },
+                    "detail": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Problem detail"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "type",
+                    "title",
+                    "detail",
+                    "status"
+                ],
+                "title": "Problem"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Settings",
+            "description": "Operations related to the settings of the verifier module"
+        },
+        {
+            "name": "Status",
+            "description": "Operations related to the status of the verifier module"
+        },
+        {
+            "name": "Entries",
+            "description": "Operations related to verifier entries"
+        },
+        {
+            "name": "Events",
+            "description": "Operations related to verifier entries"
+        },
+        {
+            "name": "Privacy",
+            "description": "Operations for a users privacy data"
+        }
+    ]
+}
