@@ -55,7 +55,7 @@ export default function Discover() {
       <DiscoverItem
         icon="link"
         title="Join our support server!"
-        resource_link="https://discord.gg/W8EdsMkZRm"
+        resource_link="https://discord.gg/ZgsUhSEr43"
       />
       <DiscoverItem
         icon="bug_report"

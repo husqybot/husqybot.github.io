@@ -10,7 +10,7 @@ Take control of your Discord Server with Husqy, the most advanced Discord bot yo
 
 ## Our documentation
 
-This documentation aims to provide you with all the information you need to use and configure Husqy and all of its functions, modules and extra's! Any questions or missing items in this documentation? Please [let us know](https://discord.gg/W8EdsMkZRm)!
+This documentation aims to provide you with all the information you need to use and configure Husqy and all of its functions, modules and extra's! Any questions or missing items in this documentation? Please [let us know](https://discord.gg/ZgsUhSEr43)!
 
 ## What are Husqy functions?
 
