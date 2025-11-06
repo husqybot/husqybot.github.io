@@ -5739,26 +5739,16 @@
                 "summary": "Add The Modules Invite Tracker Invite Created Stats",
                 "description": "Endpoint to add the modules invite tracker invite created stats",
                 "operationId": "Add_the_modules_invite_tracker_invite_created_stats_stats_modules_invite_tracker_invite_created_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "creating_user_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Creating User Id"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesInviteTrackerInviteCreatedPostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -5998,26 +5988,16 @@
                 "summary": "Add The Modules Invite Tracker Invite Deleted Stats",
                 "description": "Endpoint to add the modules invite tracker invite deleted stats",
                 "operationId": "Add_the_modules_invite_tracker_invite_deleted_stats_stats_modules_invite_tracker_invite_deleted_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "deleting_user_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Deleting User Id"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesInviteTrackerInviteDeletedPostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -19915,6 +19895,9 @@
                                 "type": "integer"
                             },
                             {
+                                "type": "string"
+                            },
+                            {
                                 "type": "null"
                             }
                         ],
@@ -19935,6 +19918,9 @@
                         "anyOf": [
                             {
                                 "type": "integer"
+                            },
+                            {
+                                "type": "string"
                             },
                             {
                                 "type": "null"
@@ -20385,7 +20371,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Monitoring Start",
-                        "default": "2025-10-24T07:56:58.624360"
+                        "default": "2025-11-06T16:36:51.674885"
                     }
                 },
                 "type": "object",
@@ -21427,6 +21413,24 @@
                 ],
                 "title": "StatsModulesInviteTrackerInviteCreatedGetResponse"
             },
+            "StatsModulesInviteTrackerInviteCreatedPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "creating_user_id": {
+                        "type": "integer",
+                        "title": "Creating User Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "creating_user_id"
+                ],
+                "title": "StatsModulesInviteTrackerInviteCreatedPostRequest"
+            },
             "StatsModulesInviteTrackerInviteCreatedPostResponse": {
                 "properties": {
                     "message": {
@@ -21455,6 +21459,24 @@
                     "stats"
                 ],
                 "title": "StatsModulesInviteTrackerInviteDeletedGetResponse"
+            },
+            "StatsModulesInviteTrackerInviteDeletedPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "deleting_user_id": {
+                        "type": "integer",
+                        "title": "Deleting User Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "deleting_user_id"
+                ],
+                "title": "StatsModulesInviteTrackerInviteDeletedPostRequest"
             },
             "StatsModulesInviteTrackerInviteDeletedPostResponse": {
                 "properties": {
@@ -23285,7 +23307,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.652870"
+                        "default": "2025-11-06T16:36:51.703901"
                     }
                 },
                 "type": "object",
@@ -23315,7 +23337,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.654623"
+                        "default": "2025-11-06T16:36:51.705416"
                     }
                 },
                 "type": "object",
@@ -23344,7 +23366,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.655652"
+                        "default": "2025-11-06T16:36:51.706403"
                     }
                 },
                 "type": "object",
@@ -23373,7 +23395,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.656609"
+                        "default": "2025-11-06T16:36:51.707394"
                     }
                 },
                 "type": "object",
@@ -23410,7 +23432,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.657543"
+                        "default": "2025-11-06T16:36:51.708367"
                     }
                 },
                 "type": "object",
@@ -23449,7 +23471,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.658600"
+                        "default": "2025-11-06T16:36:51.709525"
                     }
                 },
                 "type": "object",
@@ -23476,7 +23498,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.659560"
+                        "default": "2025-11-06T16:36:51.710582"
                     },
                     "check_time": {
                         "type": "number",
@@ -23505,7 +23527,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.660469"
+                        "default": "2025-11-06T16:36:51.711532"
                     },
                     "user_id": {
                         "type": "string",
@@ -23534,7 +23556,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.661328"
+                        "default": "2025-11-06T16:36:51.712422"
                     },
                     "user_id": {
                         "type": "string",
@@ -23563,7 +23585,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.662227"
+                        "default": "2025-11-06T16:36:51.714055"
                     },
                     "user_id": {
                         "type": "string",
@@ -23592,7 +23614,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.663196"
+                        "default": "2025-11-06T16:36:51.715027"
                     },
                     "user_id": {
                         "type": "string",
@@ -23621,7 +23643,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.664221"
+                        "default": "2025-11-06T16:36:51.715977"
                     },
                     "triggering_user_id": {
                         "type": "string",
@@ -23655,7 +23677,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.665195"
+                        "default": "2025-11-06T16:36:51.716969"
                     },
                     "user_id": {
                         "type": "string",
@@ -23684,7 +23706,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.666582"
+                        "default": "2025-11-06T16:36:51.717930"
                     },
                     "user_id": {
                         "type": "string",
@@ -23713,7 +23735,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.667660"
+                        "default": "2025-11-06T16:36:51.718785"
                     },
                     "user_id": {
                         "type": "string",
@@ -23742,7 +23764,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.668756"
+                        "default": "2025-11-06T16:36:51.719602"
                     },
                     "user_id": {
                         "type": "string",
@@ -23771,7 +23793,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.669951"
+                        "default": "2025-11-06T16:36:51.720493"
                     },
                     "user_id": {
                         "type": "string",
@@ -23800,7 +23822,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.670844"
+                        "default": "2025-11-06T16:36:51.721370"
                     },
                     "user_id": {
                         "type": "string",
@@ -23829,7 +23851,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.671991"
+                        "default": "2025-11-06T16:36:51.722442"
                     },
                     "user_id": {
                         "type": "string",
@@ -23858,7 +23880,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.672921"
+                        "default": "2025-11-06T16:36:51.723335"
                     },
                     "user_id": {
                         "type": "string",
@@ -23887,7 +23909,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.673867"
+                        "default": "2025-11-06T16:36:51.724278"
                     },
                     "user_id": {
                         "type": "string",
@@ -23916,7 +23938,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.674942"
+                        "default": "2025-11-06T16:36:51.725125"
                     },
                     "user_id": {
                         "type": "string",
@@ -23945,7 +23967,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.675889"
+                        "default": "2025-11-06T16:36:51.726031"
                     },
                     "user_id": {
                         "type": "string",
@@ -23974,7 +23996,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.676916"
+                        "default": "2025-11-06T16:36:51.726865"
                     },
                     "user_id": {
                         "type": "string",
@@ -24003,7 +24025,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.677910"
+                        "default": "2025-11-06T16:36:51.727752"
                     },
                     "check_time": {
                         "type": "number",
@@ -24032,7 +24054,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.678802"
+                        "default": "2025-11-06T16:36:51.728602"
                     },
                     "user_id": {
                         "type": "string",
@@ -24061,7 +24083,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.679725"
+                        "default": "2025-11-06T16:36:51.729533"
                     },
                     "user_id": {
                         "type": "string",
@@ -24090,7 +24112,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.680587"
+                        "default": "2025-11-06T16:36:51.730437"
                     },
                     "user_id": {
                         "type": "string",
@@ -24119,7 +24141,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.681426"
+                        "default": "2025-11-06T16:36:51.731578"
                     },
                     "user_id": {
                         "type": "string",
@@ -24148,7 +24170,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.682338"
+                        "default": "2025-11-06T16:36:51.732628"
                     },
                     "user_id": {
                         "type": "string",
@@ -24177,7 +24199,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.683192"
+                        "default": "2025-11-06T16:36:51.733517"
                     },
                     "user_id": {
                         "type": "string",
@@ -24206,7 +24228,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.684094"
+                        "default": "2025-11-06T16:36:51.734432"
                     }
                 },
                 "type": "object",
@@ -24230,7 +24252,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.685368"
+                        "default": "2025-11-06T16:36:51.735216"
                     },
                     "send_time": {
                         "type": "number",
@@ -24259,7 +24281,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.686558"
+                        "default": "2025-11-06T16:36:51.736198"
                     },
                     "check_time": {
                         "type": "number",
@@ -24288,7 +24310,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.687640"
+                        "default": "2025-11-06T16:36:51.737192"
                     },
                     "user_id": {
                         "type": "string",
@@ -24317,7 +24339,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.688795"
+                        "default": "2025-11-06T16:36:51.738774"
                     },
                     "user_id": {
                         "type": "string",
@@ -24346,7 +24368,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.689680"
+                        "default": "2025-11-06T16:36:51.739785"
                     },
                     "user_id": {
                         "type": "string",
@@ -24375,7 +24397,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.690576"
+                        "default": "2025-11-06T16:36:51.741057"
                     },
                     "user_id": {
                         "type": "string",
@@ -24404,7 +24426,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.691418"
+                        "default": "2025-11-06T16:36:51.742032"
                     },
                     "check_time": {
                         "type": "number",
@@ -24433,7 +24455,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.692462"
+                        "default": "2025-11-06T16:36:51.742977"
                     },
                     "user_id": {
                         "type": "string",
@@ -24462,7 +24484,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.694306"
+                        "default": "2025-11-06T16:36:51.743978"
                     },
                     "user_id": {
                         "type": "string",
@@ -24491,7 +24513,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.695447"
+                        "default": "2025-11-06T16:36:51.744864"
                     },
                     "check_time": {
                         "type": "number",
@@ -24520,7 +24542,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.696586"
+                        "default": "2025-11-06T16:36:51.745769"
                     },
                     "user_id": {
                         "type": "string",
@@ -24549,7 +24571,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.697724"
+                        "default": "2025-11-06T16:36:51.746709"
                     },
                     "user_id": {
                         "type": "string",
@@ -24578,7 +24600,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.698974"
+                        "default": "2025-11-06T16:36:51.747683"
                     },
                     "check_time": {
                         "type": "number",
@@ -24607,7 +24629,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.700066"
+                        "default": "2025-11-06T16:36:51.748956"
                     },
                     "user_id": {
                         "type": "string",
@@ -24636,7 +24658,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.701219"
+                        "default": "2025-11-06T16:36:51.750514"
                     },
                     "user_id": {
                         "type": "string",
@@ -24665,7 +24687,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.702174"
+                        "default": "2025-11-06T16:36:51.751705"
                     },
                     "user_id": {
                         "type": "string",
@@ -24694,7 +24716,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.703091"
+                        "default": "2025-11-06T16:36:51.752789"
                     },
                     "user_id": {
                         "type": "string",
@@ -24723,7 +24745,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.703964"
+                        "default": "2025-11-06T16:36:51.753756"
                     },
                     "user_id": {
                         "type": "string",
@@ -24752,7 +24774,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.704818"
+                        "default": "2025-11-06T16:36:51.754698"
                     },
                     "user_id": {
                         "type": "string",
@@ -24781,7 +24803,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.706420"
+                        "default": "2025-11-06T16:36:51.755573"
                     },
                     "user_id": {
                         "type": "string",
@@ -24810,7 +24832,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.707544"
+                        "default": "2025-11-06T16:36:51.756495"
                     },
                     "user_id": {
                         "type": "string",
@@ -24839,7 +24861,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.708503"
+                        "default": "2025-11-06T16:36:51.757517"
                     },
                     "user_id": {
                         "type": "string",
@@ -24868,7 +24890,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.709383"
+                        "default": "2025-11-06T16:36:51.758472"
                     },
                     "check_time": {
                         "type": "number",
@@ -24897,7 +24919,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.710313"
+                        "default": "2025-11-06T16:36:51.759855"
                     },
                     "check_time": {
                         "type": "number",
@@ -24926,7 +24948,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.711175"
+                        "default": "2025-11-06T16:36:51.761050"
                     },
                     "user_id": {
                         "type": "string",
@@ -24955,7 +24977,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.712140"
+                        "default": "2025-11-06T16:36:51.762182"
                     },
                     "user_id": {
                         "type": "string",
@@ -24984,7 +25006,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.713039"
+                        "default": "2025-11-06T16:36:51.763974"
                     },
                     "user_id": {
                         "type": "string",
@@ -25013,7 +25035,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.713966"
+                        "default": "2025-11-06T16:36:51.765061"
                     },
                     "user_id": {
                         "type": "string",
@@ -25046,7 +25068,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Start Time",
-                        "default": "2025-10-24T07:56:58.715233"
+                        "default": "2025-11-06T16:36:51.766025"
                     },
                     "end_time": {
                         "anyOf": [
@@ -25108,7 +25130,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-10-24T07:56:58.716723"
+                        "default": "2025-11-06T16:36:51.767999"
                     }
                 },
                 "type": "object",
@@ -25140,7 +25162,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Joined At",
-                        "default": "2025-10-24T07:56:58.718019"
+                        "default": "2025-11-06T16:36:51.769438"
                     },
                     "left_at": {
                         "anyOf": [
