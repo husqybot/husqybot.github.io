@@ -2231,16 +2231,6 @@
                 "summary": "Check If A Timedrole Needs To Be Added To A User",
                 "description": "Check a timedrole for Husqy welcoming module for a guild",
                 "operationId": "Check_if_a_timedrole_needs_to_be_added_to_a_user_check_role_timed_post",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/CheckRoleTimedPostRequest"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -2913,19 +2903,6 @@
                     "message"
                 ],
                 "title": "CheckRoleOnJoinPostResponse"
-            },
-            "CheckRoleTimedPostRequest": {
-                "properties": {
-                    "guild_id": {
-                        "type": "integer",
-                        "title": "Guild Id"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "guild_id"
-                ],
-                "title": "CheckRoleTimedPostRequest"
             },
             "CheckRoleTimedPostResponse": {
                 "properties": {

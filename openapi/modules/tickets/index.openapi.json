@@ -3892,11 +3892,25 @@
                         "title": "Ticket Type Id"
                     },
                     "application_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Application Id"
                     },
                     "token": {
-                        "type": "string",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Token"
                     },
                     "interaction_id": {
@@ -4061,11 +4075,25 @@
                         "title": "Guild Id"
                     },
                     "application_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Application Id"
                     },
                     "token": {
-                        "type": "string",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Token"
                     }
                 },
@@ -4097,11 +4125,25 @@
                         "title": "Guild Id"
                     },
                     "application_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Application Id"
                     },
                     "token": {
-                        "type": "string",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Token"
                     }
                 },
@@ -4133,11 +4175,25 @@
                         "title": "Guild Id"
                     },
                     "application_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Application Id"
                     },
                     "token": {
-                        "type": "string",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Token"
                     }
                 },
@@ -4180,11 +4236,25 @@
                         "title": "Guild Id"
                     },
                     "application_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Application Id"
                     },
                     "token": {
-                        "type": "string",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Token"
                     }
                 },
@@ -4216,11 +4286,25 @@
                         "title": "Guild Id"
                     },
                     "application_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Application Id"
                     },
                     "token": {
-                        "type": "string",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Token"
                     }
                 },
@@ -4256,11 +4340,25 @@
                         "title": "New Engineer"
                     },
                     "application_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Application Id"
                     },
                     "token": {
-                        "type": "string",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Token"
                     }
                 },
@@ -4466,7 +4564,14 @@
                         "title": "Ticket Type Id"
                     },
                     "application_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Application Id"
                     },
                     "values": {
@@ -4480,7 +4585,14 @@
                         "title": "Values"
                     },
                     "token": {
-                        "type": "string",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "Token"
                     },
                     "interaction_id": {
@@ -4901,7 +5013,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Opened At",
-                        "default": "2025-08-29T08:40:00.133876"
+                        "default": "2025-11-13T09:01:39.345027"
                     },
                     "closed_at": {
                         "anyOf": [

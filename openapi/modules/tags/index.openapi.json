@@ -2099,7 +2099,14 @@
                         "title": "Channel Id"
                     },
                     "user_mention_id": {
-                        "type": "integer",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
                         "title": "User Mention Id"
                     },
                     "application_id": {
@@ -2128,8 +2135,7 @@
                 "type": "object",
                 "required": [
                     "guild_id",
-                    "channel_id",
-                    "user_mention_id"
+                    "channel_id"
                 ],
                 "title": "EntriesEntryIdSendPostRequest"
             },
@@ -2362,7 +2368,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Created At",
-                        "default": "2025-10-26T15:00:01.118221"
+                        "default": "2025-11-13T09:01:39.005886"
                     },
                     "last_update": {
                         "anyOf": [
@@ -2414,7 +2420,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Created At",
-                        "default": "2025-10-26T15:00:01.122974"
+                        "default": "2025-11-13T09:01:39.023228"
                     }
                 },
                 "type": "object",

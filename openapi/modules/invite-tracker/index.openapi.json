@@ -2915,7 +2915,7 @@
                         "type": "string",
                         "format": "date-time",
                         "title": "Timestamp",
-                        "default": "2025-11-05T12:29:52.184010"
+                        "default": "2025-11-13T09:01:38.661942"
                     },
                     "channel_id": {
                         "type": "string",

@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "https://api.husqy.xyz/v1"
+            "url": "https://api.husqy.xyz/v1/"
         }
     ],
     "paths": {
@@ -2792,6 +2792,11 @@
                     "module_reminders": {
                         "type": "boolean",
                         "title": "Module Reminders",
+                        "default": false
+                    },
+                    "module_giveaways": {
+                        "type": "boolean",
+                        "title": "Module Giveaways",
                         "default": false
                     }
                 },
