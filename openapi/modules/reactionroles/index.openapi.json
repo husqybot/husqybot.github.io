@@ -13,7 +13,7 @@
         "/": {
             "get": {
                 "summary": "Home Endpoint For The Husqy.Modules.Reactionroles Microservice",
-                "description": "Home endpoint for the Husqy.general microservice",
+                "description": "Home endpoint for the Husqy.general microservice.",
                 "operationId": "Home_endpoint_for_the_Husqy_modules_reactionroles_microservice__get",
                 "responses": {
                     "200": {
@@ -35,7 +35,7 @@
                     "Settings"
                 ],
                 "summary": "Delete The Settings Of The Reactionroles Module In A Server",
-                "description": "Delete the settings for Husqy reactionroles module for a guild",
+                "description": "Delete the settings for Husqy reactionroles module for a guild.",
                 "operationId": "Delete_the_settings_of_the_reactionroles_module_in_a_server_settings_delete",
                 "requestBody": {
                     "content": {
@@ -61,15 +61,9 @@
                     "400": {
                         "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -77,15 +71,9 @@
                     "401": {
                         "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -93,15 +81,9 @@
                     "403": {
                         "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -109,15 +91,9 @@
                     "404": {
                         "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -125,15 +101,9 @@
                     "500": {
                         "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -147,7 +117,7 @@
                     "Status"
                 ],
                 "summary": "Get The Status Of The Reactionroles Module",
-                "description": "Status endpoint for the Husqy.modules.reactionroles microservice",
+                "description": "Status endpoint for the Husqy.modules.reactionroles microservice.",
                 "operationId": "Get_the_status_of_the_reactionroles_module_status_get",
                 "parameters": [
                     {
@@ -172,84 +142,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -260,7 +200,7 @@
                     "Status"
                 ],
                 "summary": "Enable The Reactionroles Module",
-                "description": "Enable the reactionroles module for a server",
+                "description": "Enable the reactionroles module for a server.",
                 "operationId": "Enable_the_reactionroles_module_enable_post",
                 "requestBody": {
                     "content": {
@@ -286,15 +226,9 @@
                     "400": {
                         "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -302,15 +236,9 @@
                     "401": {
                         "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -318,15 +246,9 @@
                     "403": {
                         "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -334,15 +256,9 @@
                     "404": {
                         "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -350,15 +266,9 @@
                     "409": {
                         "description": "Conflict",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
-                                    "title": "Conflict",
-                                    "status": 409,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -366,15 +276,9 @@
                     "500": {
                         "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -388,7 +292,7 @@
                     "Status"
                 ],
                 "summary": "Disable The Reactionroles Module",
-                "description": "Enable the reactionroles module for a server",
+                "description": "Enable the reactionroles module for a server.",
                 "operationId": "Disable_the_reactionroles_module_disable_post",
                 "requestBody": {
                     "content": {
@@ -414,15 +318,9 @@
                     "400": {
                         "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -430,15 +328,9 @@
                     "401": {
                         "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -446,15 +338,9 @@
                     "403": {
                         "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -462,15 +348,9 @@
                     "404": {
                         "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -478,15 +358,9 @@
                     "409": {
                         "description": "Conflict",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
-                                    "title": "Conflict",
-                                    "status": 409,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -494,15 +368,9 @@
                     "500": {
                         "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -516,7 +384,7 @@
                     "Panels"
                 ],
                 "summary": "Get The Reactionrole Panels In The Server",
-                "description": "Get the panels for Husqy reactionroles module for a guild",
+                "description": "Get the panels for Husqy reactionroles module for a guild.",
                 "operationId": "Get_the_reactionrole_panels_in_the_server_panels_get",
                 "parameters": [
                     {
@@ -541,84 +409,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -627,7 +465,7 @@
                     "Panels"
                 ],
                 "summary": "Create A New Reactionroles Panel",
-                "description": "Create a new panel for a guild",
+                "description": "Create a new panel for a guild.",
                 "operationId": "Create_a_new_reactionroles_panel_panels_post",
                 "requestBody": {
                     "required": true,
@@ -651,100 +489,64 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "409": {
-                        "description": "Conflict",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
-                                    "title": "Conflict",
-                                    "status": 409,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Conflict"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -755,7 +557,7 @@
                     "Panels"
                 ],
                 "summary": "Get The Configuration Of A Reactionrole Panel",
-                "description": "Get the response for Husqy reactionroles module for a guild",
+                "description": "Get the response for Husqy reactionroles module for a guild.",
                 "operationId": "Get_the_configuration_of_a_reactionrole_panel_panels__panel_id__get",
                 "parameters": [
                     {
@@ -789,84 +591,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -875,7 +647,7 @@
                     "Panels"
                 ],
                 "summary": "Delete The Configuration Of A Reactionrole Panel",
-                "description": "Delete the reactionrole for Husqy reactionroles module for a guild",
+                "description": "Delete the reactionrole for Husqy reactionroles module for a guild.",
                 "operationId": "Delete_the_configuration_of_a_reactionrole_panel_panels__panel_id__delete",
                 "parameters": [
                     {
@@ -910,84 +682,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -996,7 +738,7 @@
                     "Panels"
                 ],
                 "summary": "Edit The Configuration Of A Reactionrole Panel",
-                "description": "Update the reactionrole panel for Husqy reactionroles module for a guild",
+                "description": "Update the reactionrole panel for Husqy reactionroles module for a guild.",
                 "operationId": "Edit_the_configuration_of_a_reactionrole_panel_panels__panel_id__put",
                 "parameters": [
                     {
@@ -1031,84 +773,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -1119,7 +831,7 @@
                     "Panels"
                 ],
                 "summary": "Check If A Deleted Message Or Channel Is Or Has A Reactionrole Panel",
-                "description": "Enable the reactionroles module for a server",
+                "description": "Enable the reactionroles module for a server.",
                 "operationId": "Check_if_a_deleted_message_or_channel_is_or_has_a_reactionrole_panel_panels_check_delete_post",
                 "requestBody": {
                     "content": {
@@ -1145,15 +857,9 @@
                     "400": {
                         "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1161,15 +867,9 @@
                     "401": {
                         "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1177,15 +877,9 @@
                     "403": {
                         "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1193,15 +887,9 @@
                     "404": {
                         "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1209,15 +897,9 @@
                     "409": {
                         "description": "Conflict",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
-                                    "title": "Conflict",
-                                    "status": 409,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1225,15 +907,9 @@
                     "500": {
                         "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1247,7 +923,7 @@
                     "Reactionroles"
                 ],
                 "summary": "Check An Interaction",
-                "description": "Create a new panel for a guild",
+                "description": "Create a new panel for a guild.",
                 "operationId": "Check_an_interaction_check_post",
                 "requestBody": {
                     "content": {
@@ -1273,15 +949,9 @@
                     "400": {
                         "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1289,15 +959,9 @@
                     "401": {
                         "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1305,15 +969,9 @@
                     "403": {
                         "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1321,15 +979,9 @@
                     "404": {
                         "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1337,15 +989,9 @@
                     "409": {
                         "description": "Conflict",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
-                                    "title": "Conflict",
-                                    "status": 409,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1353,15 +999,9 @@
                     "500": {
                         "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1375,7 +1015,7 @@
                     "Reactionroles"
                 ],
                 "summary": "Get All Reactionroles For A Panel",
-                "description": "Get the response for Husqy reactionroles module for a guild",
+                "description": "Get the response for Husqy reactionroles module for a guild.",
                 "operationId": "Get_all_reactionroles_for_a_panel_panels__panel_id__entries_get",
                 "parameters": [
                     {
@@ -1409,84 +1049,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -1495,7 +1105,7 @@
                     "Reactionroles"
                 ],
                 "summary": "Delete The Configuration Of A Reactionrole",
-                "description": "Delete the reactionrole for Husqy reactionroles module for a guild",
+                "description": "Delete the reactionrole for Husqy reactionroles module for a guild.",
                 "operationId": "Delete_the_configuration_of_a_reactionrole_panels__panel_id__entries_post",
                 "parameters": [
                     {
@@ -1530,100 +1140,64 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "409": {
-                        "description": "Conflict",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict",
-                                    "title": "Conflict",
-                                    "status": 409,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Conflict"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -1634,7 +1208,7 @@
                     "Reactionroles"
                 ],
                 "summary": "Get The Configuration Of A Reactionrole",
-                "description": "Get the response for Husqy reactionroles module for a guild",
+                "description": "Get the response for Husqy reactionroles module for a guild.",
                 "operationId": "Get_the_configuration_of_a_reactionrole_panels__panel_id__entries__entry_id__get",
                 "parameters": [
                     {
@@ -1677,84 +1251,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -1763,7 +1307,7 @@
                     "Reactionroles"
                 ],
                 "summary": "Edit The Configuration Of A Reactionrole",
-                "description": "Delete the reactionrole for Husqy reactionroles module for a guild",
+                "description": "Delete the reactionrole for Husqy reactionroles module for a guild.",
                 "operationId": "Edit_the_configuration_of_a_reactionrole_panels__panel_id__entries__entry_id__put",
                 "parameters": [
                     {
@@ -1807,84 +1351,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -1893,7 +1407,7 @@
                     "Reactionroles"
                 ],
                 "summary": "Delete The Configuration Of A Reactionrole",
-                "description": "Delete the reactionrole for Husqy reactionroles module for a guild",
+                "description": "Delete the reactionrole for Husqy reactionroles module for a guild.",
                 "operationId": "Delete_the_configuration_of_a_reactionrole_panels__panel_id__entries__entry_id__delete",
                 "parameters": [
                     {
@@ -1937,84 +1451,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -2025,7 +1509,7 @@
                     "Privacy"
                 ],
                 "summary": "Get The Privacy Data Of A User For The Husqy.Modules.Reactionroles Microservice",
-                "description": "Get user entries",
+                "description": "Get user entries.",
                 "operationId": "Get_the_privacy_data_of_a_user_for_the_Husqy_modules_reactionroles_microservice_privacy_get_user_entries_get",
                 "parameters": [
                     {
@@ -2059,84 +1543,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -2147,7 +1601,7 @@
                     "Privacy"
                 ],
                 "summary": "Delete The Privacy Data Of A User For The Husqy.Modules.Reactionroles Microservice",
-                "description": "Delete user entries",
+                "description": "Delete user entries.",
                 "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_modules_reactionroles_microservice_privacy_delete_user_entries_delete",
                 "parameters": [
                     {
@@ -2181,84 +1635,54 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request",
-                                    "title": "ValidationError",
-                                    "status": 400,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Bad Request"
                     },
                     "401": {
-                        "description": "Unauthorized",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized",
-                                    "title": "Unauthorized",
-                                    "status": 401,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Unauthorized"
                     },
                     "403": {
-                        "description": "Forbidden",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden",
-                                    "title": "Forbidden",
-                                    "status": 403,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Forbidden"
                     },
                     "404": {
-                        "description": "Not Found",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found",
-                                    "title": "NotFound",
-                                    "status": 404,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "Internal Server Error",
                         "content": {
-                            "application/problem+json": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Problem"
-                                },
-                                "example": {
-                                    "type": "https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error",
-                                    "title": "InternalServerError",
-                                    "status": 500,
-                                    "detail": "Additional error context."
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        }
+                        },
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -2782,33 +2206,16 @@
             },
             "HTTPValidationError": {
                 "properties": {
-                    "title": {
-                        "type": "string",
-                        "title": "Problem Title"
-                    },
-                    "type": {
-                        "type": "string",
-                        "title": "Problem type"
-                    },
-                    "status": {
-                        "type": "integer",
-                        "title": "Status code"
-                    },
-                    "errors": {
-                        "type": "array",
+                    "detail": {
                         "items": {
                             "$ref": "#/components/schemas/ValidationError"
-                        }
+                        },
+                        "type": "array",
+                        "title": "Detail"
                     }
                 },
                 "type": "object",
-                "required": [
-                    "type",
-                    "title",
-                    "errors",
-                    "status"
-                ],
-                "title": "RequestValidationError"
+                "title": "HTTPValidationError"
             },
             "HomeResponse": {
                 "properties": {
@@ -3457,6 +2864,54 @@
                 ],
                 "title": "PanelsPostResponse"
             },
+            "ProblemDetailsBase": {
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "title": "Type",
+                        "default": "https://example.com"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "title": "Status"
+                    },
+                    "detail": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Detail"
+                    },
+                    "message": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "status",
+                    "detail",
+                    "message"
+                ],
+                "title": "ProblemDetailsBase",
+                "description": "Base problem details model for a standardized response."
+            },
             "SettingsDeleteRequest": {
                 "properties": {
                     "guild_id": {
@@ -3539,41 +2994,6 @@
                     "type"
                 ],
                 "title": "ValidationError"
-            },
-            "Problem": {
-                "properties": {
-                    "title": {
-                        "type": "string",
-                        "title": "Problem Title"
-                    },
-                    "type": {
-                        "type": "string",
-                        "title": "Problem type"
-                    },
-                    "status": {
-                        "type": "integer",
-                        "title": "Status code"
-                    },
-                    "detail": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Problem detail"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "type",
-                    "title",
-                    "detail",
-                    "status"
-                ],
-                "title": "Problem"
             }
         }
     },
