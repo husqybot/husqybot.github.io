@@ -1,0 +1,3022 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Husqy.modules.reactionroles",
+        "version": "2.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.husqy.xyz/v1/modules/reactionroles"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Home Endpoint For The Husqy.Modules.Reactionroles Microservice",
+                "description": "Home endpoint for the Husqy.general microservice.",
+                "operationId": "Home_endpoint_for_the_Husqy_modules_reactionroles_microservice__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_HomeResponse_"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/settings": {
+            "delete": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Delete The Settings Of The Reactionroles Module In A Server",
+                "description": "Delete the settings for Husqy reactionroles module for a guild.",
+                "operationId": "Delete_the_settings_of_the_reactionroles_module_in_a_server_settings_delete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SettingsDeleteRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_SettingsDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/status": {
+            "get": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Get The Status Of The Reactionroles Module",
+                "description": "Status endpoint for the Husqy.modules.reactionroles microservice.",
+                "operationId": "Get_the_status_of_the_reactionroles_module_status_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_StatusGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/enable": {
+            "post": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Enable The Reactionroles Module",
+                "description": "Enable the reactionroles module for a server.",
+                "operationId": "Enable_the_reactionroles_module_enable_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EnablePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EnablePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/disable": {
+            "post": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Disable The Reactionroles Module",
+                "description": "Enable the reactionroles module for a server.",
+                "operationId": "Disable_the_reactionroles_module_disable_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DisablePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_DisablePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/panels": {
+            "get": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Get The Reactionrole Panels In The Server",
+                "description": "Get the panels for Husqy reactionroles module for a guild.",
+                "operationId": "Get_the_reactionrole_panels_in_the_server_panels_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Create A New Reactionroles Panel",
+                "description": "Create a new panel for a guild.",
+                "operationId": "Create_a_new_reactionroles_panel_panels_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleReactionrolesPanelsCreate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/panels/{panel_id}": {
+            "get": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Get The Configuration Of A Reactionrole Panel",
+                "description": "Get the response for Husqy reactionroles module for a guild.",
+                "operationId": "Get_the_configuration_of_a_reactionrole_panel_panels__panel_id__get",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Delete The Configuration Of A Reactionrole Panel",
+                "description": "Delete the reactionrole for Husqy reactionroles module for a guild.",
+                "operationId": "Delete_the_configuration_of_a_reactionrole_panel_panels__panel_id__delete",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PanelsPanelIdDeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Edit The Configuration Of A Reactionrole Panel",
+                "description": "Update the reactionrole panel for Husqy reactionroles module for a guild.",
+                "operationId": "Edit_the_configuration_of_a_reactionrole_panel_panels__panel_id__put",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleReactionrolesPanelsUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdPutResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/panels/check-delete": {
+            "post": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Check If A Deleted Message Or Channel Is Or Has A Reactionrole Panel",
+                "description": "Enable the reactionroles module for a server.",
+                "operationId": "Check_if_a_deleted_message_or_channel_is_or_has_a_reactionrole_panel_panels_check_delete_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckDeletePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_CheckDeletePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/check": {
+            "post": {
+                "tags": [
+                    "Reactionroles"
+                ],
+                "summary": "Check An Interaction",
+                "description": "Create a new panel for a guild.",
+                "operationId": "Check_an_interaction_check_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckInteractionPostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_CheckInteractionPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/panels/{panel_id}/entries": {
+            "get": {
+                "tags": [
+                    "Reactionroles"
+                ],
+                "summary": "Get All Reactionroles For A Panel",
+                "description": "Get the response for Husqy reactionroles module for a guild.",
+                "operationId": "Get_all_reactionroles_for_a_panel_panels__panel_id__entries_get",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdReactionrolesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reactionroles"
+                ],
+                "summary": "Delete The Configuration Of A Reactionrole",
+                "description": "Delete the reactionrole for Husqy reactionroles module for a guild.",
+                "operationId": "Delete_the_configuration_of_a_reactionrole_panels__panel_id__entries_post",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleReactionrolesEntriesCreate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdReactionrolesPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/panels/{panel_id}/entries/{entry_id}": {
+            "get": {
+                "tags": [
+                    "Reactionroles"
+                ],
+                "summary": "Get The Configuration Of A Reactionrole",
+                "description": "Get the response for Husqy reactionroles module for a guild.",
+                "operationId": "Get_the_configuration_of_a_reactionrole_panels__panel_id__entries__entry_id__get",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "entry_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Entry Id"
+                        }
+                    },
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdReactionrolesEntryIdGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reactionroles"
+                ],
+                "summary": "Edit The Configuration Of A Reactionrole",
+                "description": "Delete the reactionrole for Husqy reactionroles module for a guild.",
+                "operationId": "Edit_the_configuration_of_a_reactionrole_panels__panel_id__entries__entry_id__put",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "entry_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Entry Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleReactionrolesEntriesUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdReactionrolesEntryIdPutResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reactionroles"
+                ],
+                "summary": "Delete The Configuration Of A Reactionrole",
+                "description": "Delete the reactionrole for Husqy reactionroles module for a guild.",
+                "operationId": "Delete_the_configuration_of_a_reactionrole_panels__panel_id__entries__entry_id__delete",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "entry_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Entry Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PanelsPanelIdReactionrolesEntryIdDeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdReactionrolesEntryIdDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/privacy/get-user-entries": {
+            "get": {
+                "tags": [
+                    "Privacy"
+                ],
+                "summary": "Get The Privacy Data Of A User For The Husqy.Modules.Reactionroles Microservice",
+                "description": "Get user entries.",
+                "operationId": "Get_the_privacy_data_of_a_user_for_the_Husqy_modules_reactionroles_microservice_privacy_get_user_entries_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "privacy_member_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Privacy Member Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_GetUserEntriesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/privacy/delete-user-entries": {
+            "delete": {
+                "tags": [
+                    "Privacy"
+                ],
+                "summary": "Delete The Privacy Data Of A User For The Husqy.Modules.Reactionroles Microservice",
+                "description": "Delete user entries.",
+                "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_modules_reactionroles_microservice_privacy_delete_user_entries_delete",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "privacy_member_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Privacy Member Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_DeleteUserEntriesDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ApiResponse_CheckDeletePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CheckDeletePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[CheckDeletePostResponse]"
+            },
+            "ApiResponse_CheckInteractionPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CheckInteractionPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[CheckInteractionPostResponse]"
+            },
+            "ApiResponse_DeleteUserEntriesDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/DeleteUserEntriesDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[DeleteUserEntriesDeleteResponse]"
+            },
+            "ApiResponse_DisablePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/DisablePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[DisablePostResponse]"
+            },
+            "ApiResponse_EnablePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EnablePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EnablePostResponse]"
+            },
+            "ApiResponse_GetUserEntriesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/GetUserEntriesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[GetUserEntriesGetResponse]"
+            },
+            "ApiResponse_HomeResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/HomeResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[HomeResponse]"
+            },
+            "ApiResponse_PanelsGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsGetResponse]"
+            },
+            "ApiResponse_PanelsPanelIdDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdDeleteResponse]"
+            },
+            "ApiResponse_PanelsPanelIdGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdGetResponse]"
+            },
+            "ApiResponse_PanelsPanelIdPutResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdPutResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdPutResponse]"
+            },
+            "ApiResponse_PanelsPanelIdReactionrolesEntryIdDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdReactionrolesEntryIdDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdReactionrolesEntryIdDeleteResponse]"
+            },
+            "ApiResponse_PanelsPanelIdReactionrolesEntryIdGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdReactionrolesEntryIdGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdReactionrolesEntryIdGetResponse]"
+            },
+            "ApiResponse_PanelsPanelIdReactionrolesEntryIdPutResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdReactionrolesEntryIdPutResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdReactionrolesEntryIdPutResponse]"
+            },
+            "ApiResponse_PanelsPanelIdReactionrolesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdReactionrolesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdReactionrolesGetResponse]"
+            },
+            "ApiResponse_PanelsPanelIdReactionrolesPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdReactionrolesPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdReactionrolesPostResponse]"
+            },
+            "ApiResponse_PanelsPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPostResponse]"
+            },
+            "ApiResponse_SettingsDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SettingsDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[SettingsDeleteResponse]"
+            },
+            "ApiResponse_StatusGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/StatusGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[StatusGetResponse]"
+            },
+            "CheckDeletePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "channel_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Channel Id"
+                    },
+                    "message_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "CheckDeletePostRequest"
+            },
+            "CheckDeletePostResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    },
+                    "reactionroles": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                        },
+                        "type": "array",
+                        "title": "Reactionroles"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels",
+                    "reactionroles"
+                ],
+                "title": "CheckDeletePostResponse"
+            },
+            "CheckInteractionPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "message_id": {
+                        "type": "integer",
+                        "title": "Message Id"
+                    },
+                    "channel_id": {
+                        "type": "integer",
+                        "title": "Channel Id"
+                    },
+                    "interaction_type": {
+                        "type": "string",
+                        "title": "Interaction Type"
+                    },
+                    "interaction_custom_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Interaction Custom Id"
+                    },
+                    "interaction_id_token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Interaction Id Token"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "interaction_value": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Interaction Value"
+                    },
+                    "emoji_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Emoji Id"
+                    },
+                    "emoji_name": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Emoji Name"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "message_id",
+                    "channel_id",
+                    "interaction_type"
+                ],
+                "title": "CheckInteractionPostRequest"
+            },
+            "CheckInteractionPostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "CheckInteractionPostResponse"
+            },
+            "DeleteUserEntriesDeleteResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "DeleteUserEntriesDeleteResponse"
+            },
+            "DisablePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "DisablePostRequest"
+            },
+            "DisablePostResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    },
+                    "reactionroles": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                        },
+                        "type": "array",
+                        "title": "Reactionroles"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels",
+                    "reactionroles"
+                ],
+                "title": "DisablePostResponse"
+            },
+            "EnablePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "EnablePostRequest"
+            },
+            "EnablePostResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    },
+                    "reactionroles": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                        },
+                        "type": "array",
+                        "title": "Reactionroles"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels",
+                    "reactionroles"
+                ],
+                "title": "EnablePostResponse"
+            },
+            "GetUserEntriesGetResponse": {
+                "properties": {
+                    "username": {
+                        "type": "integer",
+                        "title": "Username"
+                    },
+                    "display_name": {
+                        "type": "integer",
+                        "title": "Display Name"
+                    },
+                    "global_name": {
+                        "type": "integer",
+                        "title": "Global Name"
+                    },
+                    "nickname": {
+                        "type": "integer",
+                        "title": "Nickname"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username",
+                    "display_name",
+                    "global_name",
+                    "nickname",
+                    "id"
+                ],
+                "title": "GetUserEntriesGetResponse"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "HomeResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "HomeResponse"
+            },
+            "ModuleReactionrolesEntriesCreate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "role_ids": {
+                        "items": {
+                            "type": "integer"
+                        },
+                        "type": "array",
+                        "title": "Role Ids"
+                    },
+                    "text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Text"
+                    },
+                    "description": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Description"
+                    },
+                    "emoji_name": {
+                        "type": "string",
+                        "title": "Emoji Name"
+                    },
+                    "emoji_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Emoji Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "role_ids",
+                    "emoji_name"
+                ],
+                "title": "ModuleReactionrolesEntriesCreate"
+            },
+            "ModuleReactionrolesEntriesUpdate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "role_ids": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Role Ids"
+                    },
+                    "text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Text"
+                    },
+                    "description": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Description"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "ModuleReactionrolesEntriesUpdate"
+            },
+            "ModuleReactionrolesPanelsCreate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "panel_type": {
+                        "type": "string",
+                        "title": "Panel Type"
+                    },
+                    "channel_id": {
+                        "type": "integer",
+                        "title": "Channel Id"
+                    },
+                    "limit_roles_to_one": {
+                        "type": "boolean",
+                        "title": "Limit Roles To One"
+                    },
+                    "supports_remove": {
+                        "type": "boolean",
+                        "title": "Supports Remove"
+                    },
+                    "remove_roles_from_users_on_entry_delete": {
+                        "type": "boolean",
+                        "title": "Remove Roles From Users On Entry Delete"
+                    },
+                    "is_register": {
+                        "type": "boolean",
+                        "title": "Is Register"
+                    },
+                    "keep_counter_at_one": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Keep Counter At One"
+                    },
+                    "delete_unrelated_emoji_reactions": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Delete Unrelated Emoji Reactions"
+                    },
+                    "message_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message Id"
+                    },
+                    "is_embed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Is Embed"
+                    },
+                    "content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Content"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "panel_type",
+                    "channel_id",
+                    "limit_roles_to_one",
+                    "supports_remove",
+                    "remove_roles_from_users_on_entry_delete",
+                    "is_register"
+                ],
+                "title": "ModuleReactionrolesPanelsCreate"
+            },
+            "ModuleReactionrolesPanelsUpdate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "panel_type": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Panel Type"
+                    },
+                    "limit_roles_to_one": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Limit Roles To One"
+                    },
+                    "supports_remove": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Supports Remove"
+                    },
+                    "keep_counter_at_one": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Keep Counter At One"
+                    },
+                    "delete_unrelated_emoji_reactions": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Delete Unrelated Emoji Reactions"
+                    },
+                    "remove_roles_from_users_on_entry_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Remove Roles From Users On Entry Delete"
+                    },
+                    "message_content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message Content"
+                    },
+                    "message_is_embed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message Is Embed"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "ModuleReactionrolesPanelsUpdate"
+            },
+            "Module_Reactionroles_Entries": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "panel_id": {
+                        "type": "string",
+                        "title": "Panel Id"
+                    },
+                    "role_ids": {
+                        "type": "string",
+                        "title": "Role Ids"
+                    },
+                    "emoji_name": {
+                        "type": "string",
+                        "title": "Emoji Name"
+                    },
+                    "emoji_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Emoji Id"
+                    },
+                    "text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Text"
+                    },
+                    "entry_id": {
+                        "type": "string",
+                        "title": "Entry Id"
+                    },
+                    "description": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Description"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "panel_id",
+                    "role_ids",
+                    "emoji_name",
+                    "entry_id"
+                ],
+                "title": "Module_Reactionroles_Entries"
+            },
+            "Module_Reactionroles_Panels": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "panel_id": {
+                        "type": "string",
+                        "title": "Panel Id"
+                    },
+                    "panel_message_id": {
+                        "type": "string",
+                        "title": "Panel Message Id"
+                    },
+                    "is_type_button": {
+                        "type": "boolean",
+                        "title": "Is Type Button",
+                        "default": false
+                    },
+                    "is_type_dropdown": {
+                        "type": "boolean",
+                        "title": "Is Type Dropdown",
+                        "default": false
+                    },
+                    "is_type_emoji": {
+                        "type": "boolean",
+                        "title": "Is Type Emoji",
+                        "default": false
+                    },
+                    "limit_roles_to_one": {
+                        "type": "boolean",
+                        "title": "Limit Roles To One",
+                        "default": false
+                    },
+                    "supports_remove": {
+                        "type": "boolean",
+                        "title": "Supports Remove",
+                        "default": false
+                    },
+                    "keep_counter_at_one": {
+                        "type": "boolean",
+                        "title": "Keep Counter At One",
+                        "default": false
+                    },
+                    "delete_unrelated_emoji_reactions": {
+                        "type": "boolean",
+                        "title": "Delete Unrelated Emoji Reactions",
+                        "default": false
+                    },
+                    "remove_roles_from_users_on_entry_delete": {
+                        "type": "boolean",
+                        "title": "Remove Roles From Users On Entry Delete",
+                        "default": false
+                    },
+                    "panel_channel_id": {
+                        "type": "string",
+                        "title": "Panel Channel Id"
+                    },
+                    "is_husqy_message": {
+                        "type": "boolean",
+                        "title": "Is Husqy Message",
+                        "default": false
+                    },
+                    "message_content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message Content"
+                    },
+                    "message_is_embed": {
+                        "type": "boolean",
+                        "title": "Message Is Embed",
+                        "default": false
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "panel_id",
+                    "panel_message_id",
+                    "panel_channel_id"
+                ],
+                "title": "Module_Reactionroles_Panels"
+            },
+            "PanelsGetResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels"
+                ],
+                "title": "PanelsGetResponse"
+            },
+            "PanelsPanelIdDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "PanelsPanelIdDeleteRequest"
+            },
+            "PanelsPanelIdDeleteResponse": {
+                "properties": {
+                    "panel": {
+                        "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                    },
+                    "reactionroles": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                        },
+                        "type": "array",
+                        "title": "Reactionroles"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panel",
+                    "reactionroles"
+                ],
+                "title": "PanelsPanelIdDeleteResponse"
+            },
+            "PanelsPanelIdGetResponse": {
+                "properties": {
+                    "panel": {
+                        "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panel"
+                ],
+                "title": "PanelsPanelIdGetResponse"
+            },
+            "PanelsPanelIdPutResponse": {
+                "properties": {
+                    "panel": {
+                        "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panel"
+                ],
+                "title": "PanelsPanelIdPutResponse"
+            },
+            "PanelsPanelIdReactionrolesEntryIdDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "PanelsPanelIdReactionrolesEntryIdDeleteRequest"
+            },
+            "PanelsPanelIdReactionrolesEntryIdDeleteResponse": {
+                "properties": {
+                    "reactionrole": {
+                        "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "reactionrole"
+                ],
+                "title": "PanelsPanelIdReactionrolesEntryIdDeleteResponse"
+            },
+            "PanelsPanelIdReactionrolesEntryIdGetResponse": {
+                "properties": {
+                    "reactionrole": {
+                        "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "reactionrole"
+                ],
+                "title": "PanelsPanelIdReactionrolesEntryIdGetResponse"
+            },
+            "PanelsPanelIdReactionrolesEntryIdPutResponse": {
+                "properties": {
+                    "reactionrole": {
+                        "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "reactionrole"
+                ],
+                "title": "PanelsPanelIdReactionrolesEntryIdPutResponse"
+            },
+            "PanelsPanelIdReactionrolesGetResponse": {
+                "properties": {
+                    "reactionroles": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                        },
+                        "type": "array",
+                        "title": "Reactionroles"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "reactionroles"
+                ],
+                "title": "PanelsPanelIdReactionrolesGetResponse"
+            },
+            "PanelsPanelIdReactionrolesPostResponse": {
+                "properties": {
+                    "reactionrole": {
+                        "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "reactionrole"
+                ],
+                "title": "PanelsPanelIdReactionrolesPostResponse"
+            },
+            "PanelsPostResponse": {
+                "properties": {
+                    "panel": {
+                        "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panel"
+                ],
+                "title": "PanelsPostResponse"
+            },
+            "ProblemDetailsBase": {
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "title": "Type",
+                        "default": "https://example.com"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "title": "Status"
+                    },
+                    "detail": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Detail"
+                    },
+                    "message": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "status",
+                    "detail",
+                    "message"
+                ],
+                "title": "ProblemDetailsBase",
+                "description": "Base problem details model for a standardized response."
+            },
+            "SettingsDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "SettingsDeleteRequest"
+            },
+            "SettingsDeleteResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    },
+                    "reactionroles": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Reactionroles_Entries"
+                        },
+                        "type": "array",
+                        "title": "Reactionroles"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels",
+                    "reactionroles"
+                ],
+                "title": "SettingsDeleteResponse"
+            },
+            "StatusGetResponse": {
+                "properties": {
+                    "status": {
+                        "type": "boolean",
+                        "title": "Status"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status"
+                ],
+                "title": "StatusGetResponse"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Settings",
+            "description": "Operations related to the settings of the reactionroles module"
+        },
+        {
+            "name": "Status",
+            "description": "Operations related to the status of the reactionroles module"
+        },
+        {
+            "name": "Panels",
+            "description": "Operations related to reactionrole panels"
+        },
+        {
+            "name": "Reactionroles",
+            "description": "Operations related to a reactionrole panels reactionroles"
+        },
+        {
+            "name": "Privacy",
+            "description": "Operations for a users privacy data"
+        }
+    ]
+}

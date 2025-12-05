@@ -52,7 +52,7 @@ After succesfully logging in, the ["home page”](https://dashboard.husqy.xyz/) 
 
 When you have selected the server you want to configure, you can configure a lot of settings, modules and functions of Husqy. You can also view if server members have enabled privacy mode preventing Husqy from collecting their data (and thus limiting the functionality of Husqy for them)S.
 
-The [Husqy dashboard](#additional-information) is always being developed. If you encounter any issues, please join our [Discord server](https://discord.gg/W8EdsMkZRm) and open a ticket.
+The [Husqy dashboard](#additional-information) is always being developed. If you encounter any issues, please join our [Discord server](https://discord.gg/ZgsUhSEr43) and open a ticket.
 
 ## Logging out
 

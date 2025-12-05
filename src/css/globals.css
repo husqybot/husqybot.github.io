@@ -48,7 +48,7 @@
   --ifm-color-primary-light: var(--accent-color-1);
   --ifm-color-primary-lighter: var(--accent-color-1);
   --ifm-color-primary-lightest: var(--accent-color-1);
-  --ifm-menu-color-background-active: var(--secondary-color-1);
+  --ifm-menu-color-background-active: var(--primary-color-1);
   --ifm-heading-color: var(--secondary-color-2);
   --ifm-menu-color: var(--secondary-color-2);
   --ifm-font-color-base: var(--secondary-color-2);
@@ -91,6 +91,7 @@
   --ifm-navbar-height: 97px;
   --ifm-breadcrumb-separator: url("/img/overwrites/breadcrumb_seperator.svg");
   --ifm-menu-link-sublist-icon: url("/img/overwrites/table_of_content_arrow.svg");
+  --ifm-background-surface-color: var(--primary-color-2);
 }
 
 /* Webpage general */
@@ -172,6 +173,17 @@ ol {
 .alert--premium {
   background-color: var(--accent-color-2);
   color: var(--secondary-color-2);
+}
+
+.tabs {
+  padding-left: 0px !important;
+  --ifm-tabs-color-active-border: var(--accent-color-1) !important;
+}
+
+/* ! OVERWRITE REDOC SIDEBAR */
+.menu-content {
+  top: 97px !important;
+  height: calc(97px + 100vh) !important;
 }
 
 /* Mobile view changes */

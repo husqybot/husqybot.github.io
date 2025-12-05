@@ -1,0 +1,4664 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Husqy.modules.tickets",
+        "version": "2.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.husqy.xyz/v1/modules/tickets"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Home Endpoint For The Husqy.Modules.Tickets Microservice",
+                "description": "Home endpoint for the Husqy.modules.tickets microservice.",
+                "operationId": "Home_endpoint_for_the_Husqy_modules_tickets_microservice__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_HomeResponse_"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/settings": {
+            "delete": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Delete The Settings Of The Tickets Module In A Server",
+                "description": "Delete the settings for Husqy tickets module for a guild.",
+                "operationId": "Delete_the_settings_of_the_tickets_module_in_a_server_settings_delete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SettingsDeleteRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_SettingsDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/status": {
+            "get": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Get The Status Of The Tickets Module In A Server",
+                "description": "Status endpoint for the Husqy.modules.tickets microservice.",
+                "operationId": "Get_the_status_of_the_tickets_module_in_a_server_status_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_StatusGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/enable": {
+            "post": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Enable The Tickets Module",
+                "description": "Enable the tickets module for a server.",
+                "operationId": "Enable_the_tickets_module_enable_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EnablePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EnablePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/disable": {
+            "post": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Disable The Tickets Module",
+                "description": "Enable the tickets module for a server.",
+                "operationId": "Disable_the_tickets_module_disable_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DisablePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_DisablePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/panels": {
+            "get": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Get All Ticket Panels In A Server",
+                "description": "Get the panels for Husqy tickets module for a guild.",
+                "operationId": "Get_all_ticket_panels_in_a_server_panels_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Create A New Ticket Type For A Panel",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Create_a_new_ticket_type_for_a_panel_panels_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleTicketsPanelsCreate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/panels/{panel_id}": {
+            "get": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Get The Configuration Of A Panel",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Get_the_configuration_of_a_panel_panels__panel_id__get",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Delete A Ticket Panel",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Delete_a_ticket_panel_panels__panel_id__delete",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PanelsPanelIdDeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Edit A Ticket Panel",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Edit_a_ticket_panel_panels__panel_id__put",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleTicketsPanelsUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdPutResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/panels/{panel_id}/ticket-types": {
+            "get": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Get The Configuration Of All Ticket Types Of A Panel",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Get_the_configuration_of_all_ticket_types_of_a_panel_panels__panel_id__ticket_types_get",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdTicketTypesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Create A New Ticket Type For A Panel",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Create_a_new_ticket_type_for_a_panel_panels__panel_id__ticket_types_post",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleTicketsTypesCreate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdTicketTypesPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/panels/{panel_id}/ticket-types/{ticket_type_id}": {
+            "get": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Get The Configuration Of A Panels Ticket Type",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Get_the_configuration_of_a_panels_ticket_type_panels__panel_id__ticket_types__ticket_type_id__get",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "ticket_type_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Type Id"
+                        }
+                    },
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdTicketTypesTicketTypeIdGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Panels"
+                ],
+                "summary": "Delete A Ticket Type From A Panel",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Delete_a_ticket_type_from_a_panel_panels__panel_id__ticket_types__ticket_type_id__delete",
+                "parameters": [
+                    {
+                        "name": "panel_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Panel Id"
+                        }
+                    },
+                    {
+                        "name": "ticket_type_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Type Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PanelsPanelIdTicketTypesTicketTypeIdDeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_PanelsPanelIdTicketTypesTicketTypeIdDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/entries": {
+            "get": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Get All Tickets",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Get_all_tickets_entries_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/entries/{ticket_id}": {
+            "get": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Get Information About A Ticket",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Get_information_about_a_ticket_entries__ticket_id__get",
+                "parameters": [
+                    {
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Id"
+                        }
+                    },
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesEntryIdGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Delete A Ticket",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Delete_a_ticket_entries__ticket_id__delete",
+                "parameters": [
+                    {
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EntriesEntryIdDeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesEntryIdDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/entries/{ticket_id}/claim": {
+            "post": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Claim A Ticket And Become The Current Support Engineer",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Claim_a_ticket_and_become_the_current_support_engineer_entries__ticket_id__claim_post",
+                "parameters": [
+                    {
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EntriesEntryIdClaimPostRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesEntryIdClaimPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/entries/{ticket_id}/close": {
+            "post": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Close An Open Ticket",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Close_an_open_ticket_entries__ticket_id__close_post",
+                "parameters": [
+                    {
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EntriesEntryIdClosePostRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesEntryIdClosePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/entries/{ticket_id}/reopen": {
+            "post": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Reopen An Open Ticket",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Reopen_an_open_ticket_entries__ticket_id__reopen_post",
+                "parameters": [
+                    {
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EntriesEntryIdReopenPostRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesEntryIdReopenPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/entries/{ticket_id}/transfer": {
+            "post": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Transfer An Open Ticket",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Transfer_an_open_ticket_entries__ticket_id__transfer_post",
+                "parameters": [
+                    {
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EntriesEntryIdTransferPostRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesEntryIdTransferPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/entries/{ticket_id}/transcribe": {
+            "post": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Transcribe An Open Ticket",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Transcribe_an_open_ticket_entries__ticket_id__transcribe_post",
+                "parameters": [
+                    {
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EntriesEntryIdTranscribePostRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesEntryIdTranscribePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/entry/messages": {
+            "get": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Get Messages Send Related To A Ticket",
+                "description": "Get the response for Husqy tickets module for a guild.",
+                "operationId": "Get_messages_send_related_to_a_ticket_entry_messages_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "ticket_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Ticket Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesMessagesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Create Messages Related To A Ticket",
+                "description": "Post the response for Husqy tickets module for a guild.",
+                "operationId": "Create_messages_related_to_a_ticket_entry_messages_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EntriesMessagesPostRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesMessagesPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Delete A Message Related To A Ticket",
+                "description": "Delete the response for Husqy tickets module for a guild.",
+                "operationId": "Delete_a_message_related_to_a_ticket_entry_messages_delete",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EntriesMessagesDeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EntriesMessagesDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/events/create-ticket": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Start Creation Of A New Ticket",
+                "description": "Start creating a new ticket (if form is enabled, ticket will be fully created on events/handle-form).",
+                "operationId": "Start_creation_of_a_new_ticket_events_create_ticket_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTicketPostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_CreateTicketPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/events/handle-form": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Start Creation Of A New Ticket",
+                "description": "Start creating a new ticket (if form is enabled, ticket will be fully created on events/handle-form).",
+                "operationId": "Start_creation_of_a_new_ticket_events_handle_form_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HandleFormPostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_HandleFormPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/privacy/get-user-entries": {
+            "get": {
+                "tags": [
+                    "Privacy"
+                ],
+                "summary": "Get The Privacy Data Of A User For The Husqy.Modules.Welcoming Microservice",
+                "description": "Get user entries.",
+                "operationId": "Get_the_privacy_data_of_a_user_for_the_Husqy_modules_welcoming_microservice_privacy_get_user_entries_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "privacy_member_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Privacy Member Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_GetUserEntriesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/privacy/delete-user-entries": {
+            "delete": {
+                "tags": [
+                    "Privacy"
+                ],
+                "summary": "Delete The Privacy Data Of A User For The Husqy.Modules.Welcoming Microservice",
+                "description": "Delete user entries.",
+                "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_modules_welcoming_microservice_privacy_delete_user_entries_delete",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "privacy_member_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Privacy Member Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_DeleteUserEntriesDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ApiResponse_CreateTicketPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/CreateTicketPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[CreateTicketPostResponse]"
+            },
+            "ApiResponse_DeleteUserEntriesDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/DeleteUserEntriesDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[DeleteUserEntriesDeleteResponse]"
+            },
+            "ApiResponse_DisablePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/DisablePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[DisablePostResponse]"
+            },
+            "ApiResponse_EnablePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EnablePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EnablePostResponse]"
+            },
+            "ApiResponse_EntriesEntryIdClaimPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesEntryIdClaimPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesEntryIdClaimPostResponse]"
+            },
+            "ApiResponse_EntriesEntryIdClosePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesEntryIdClosePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesEntryIdClosePostResponse]"
+            },
+            "ApiResponse_EntriesEntryIdDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesEntryIdDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesEntryIdDeleteResponse]"
+            },
+            "ApiResponse_EntriesEntryIdGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesEntryIdGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesEntryIdGetResponse]"
+            },
+            "ApiResponse_EntriesEntryIdReopenPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesEntryIdReopenPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesEntryIdReopenPostResponse]"
+            },
+            "ApiResponse_EntriesEntryIdTranscribePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesEntryIdTranscribePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesEntryIdTranscribePostResponse]"
+            },
+            "ApiResponse_EntriesEntryIdTransferPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesEntryIdTransferPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesEntryIdTransferPostResponse]"
+            },
+            "ApiResponse_EntriesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesGetResponse]"
+            },
+            "ApiResponse_EntriesMessagesDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesMessagesDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesMessagesDeleteResponse]"
+            },
+            "ApiResponse_EntriesMessagesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesMessagesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesMessagesGetResponse]"
+            },
+            "ApiResponse_EntriesMessagesPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EntriesMessagesPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EntriesMessagesPostResponse]"
+            },
+            "ApiResponse_GetUserEntriesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/GetUserEntriesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[GetUserEntriesGetResponse]"
+            },
+            "ApiResponse_HandleFormPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/HandleFormPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[HandleFormPostResponse]"
+            },
+            "ApiResponse_HomeResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/HomeResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[HomeResponse]"
+            },
+            "ApiResponse_PanelsGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsGetResponse]"
+            },
+            "ApiResponse_PanelsPanelIdDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdDeleteResponse]"
+            },
+            "ApiResponse_PanelsPanelIdGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdGetResponse]"
+            },
+            "ApiResponse_PanelsPanelIdPutResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdPutResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdPutResponse]"
+            },
+            "ApiResponse_PanelsPanelIdTicketTypesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdTicketTypesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdTicketTypesGetResponse]"
+            },
+            "ApiResponse_PanelsPanelIdTicketTypesPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdTicketTypesPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdTicketTypesPostResponse]"
+            },
+            "ApiResponse_PanelsPanelIdTicketTypesTicketTypeIdDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdTicketTypesTicketTypeIdDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdTicketTypesTicketTypeIdDeleteResponse]"
+            },
+            "ApiResponse_PanelsPanelIdTicketTypesTicketTypeIdGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPanelIdTicketTypesTicketTypeIdGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPanelIdTicketTypesTicketTypeIdGetResponse]"
+            },
+            "ApiResponse_PanelsPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/PanelsPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[PanelsPostResponse]"
+            },
+            "ApiResponse_SettingsDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SettingsDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[SettingsDeleteResponse]"
+            },
+            "ApiResponse_StatusGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/StatusGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[StatusGetResponse]"
+            },
+            "CreateTicketPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "panel_id": {
+                        "type": "string",
+                        "title": "Panel Id"
+                    },
+                    "ticket_type_id": {
+                        "type": "string",
+                        "title": "Ticket Type Id"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "token": {
+                        "type": "string",
+                        "title": "Token"
+                    },
+                    "interaction_id": {
+                        "type": "integer",
+                        "title": "Interaction Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "panel_id",
+                    "ticket_type_id",
+                    "application_id",
+                    "token",
+                    "interaction_id"
+                ],
+                "title": "CreateTicketPostRequest"
+            },
+            "CreateTicketPostResponse": {
+                "properties": {
+                    "ticket": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Module_Tickets_Entries"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "title": "Ticket"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ticket"
+                ],
+                "title": "CreateTicketPostResponse"
+            },
+            "DeleteUserEntriesDeleteResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "DeleteUserEntriesDeleteResponse"
+            },
+            "DisablePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "DisablePostRequest"
+            },
+            "DisablePostResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    },
+                    "tickets": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entries"
+                        },
+                        "type": "array",
+                        "title": "Tickets"
+                    },
+                    "messages": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entry_Messages"
+                        },
+                        "type": "array",
+                        "title": "Messages"
+                    },
+                    "ticket_types": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Types"
+                        },
+                        "type": "array",
+                        "title": "Ticket Types"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels",
+                    "tickets",
+                    "messages",
+                    "ticket_types"
+                ],
+                "title": "DisablePostResponse"
+            },
+            "EnablePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "EnablePostRequest"
+            },
+            "EnablePostResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    },
+                    "tickets": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entries"
+                        },
+                        "type": "array",
+                        "title": "Tickets"
+                    },
+                    "messages": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entry_Messages"
+                        },
+                        "type": "array",
+                        "title": "Messages"
+                    },
+                    "ticket_types": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Types"
+                        },
+                        "type": "array",
+                        "title": "Ticket Types"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels",
+                    "tickets",
+                    "messages",
+                    "ticket_types"
+                ],
+                "title": "EnablePostResponse"
+            },
+            "EntriesEntryIdClaimPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Token"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "application_id",
+                    "token"
+                ],
+                "title": "EntriesEntryIdClaimPostRequest"
+            },
+            "EntriesEntryIdClaimPostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EntriesEntryIdClaimPostResponse"
+            },
+            "EntriesEntryIdClosePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Token"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "application_id",
+                    "token"
+                ],
+                "title": "EntriesEntryIdClosePostRequest"
+            },
+            "EntriesEntryIdClosePostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EntriesEntryIdClosePostResponse"
+            },
+            "EntriesEntryIdDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Token"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "application_id",
+                    "token"
+                ],
+                "title": "EntriesEntryIdDeleteRequest"
+            },
+            "EntriesEntryIdDeleteResponse": {
+                "properties": {
+                    "ticket": {
+                        "$ref": "#/components/schemas/Module_Tickets_Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ticket"
+                ],
+                "title": "EntriesEntryIdDeleteResponse"
+            },
+            "EntriesEntryIdGetResponse": {
+                "properties": {
+                    "ticket": {
+                        "$ref": "#/components/schemas/Module_Tickets_Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ticket"
+                ],
+                "title": "EntriesEntryIdGetResponse"
+            },
+            "EntriesEntryIdReopenPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Token"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "application_id",
+                    "token"
+                ],
+                "title": "EntriesEntryIdReopenPostRequest"
+            },
+            "EntriesEntryIdReopenPostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EntriesEntryIdReopenPostResponse"
+            },
+            "EntriesEntryIdTranscribePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Token"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "application_id",
+                    "token"
+                ],
+                "title": "EntriesEntryIdTranscribePostRequest"
+            },
+            "EntriesEntryIdTranscribePostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EntriesEntryIdTranscribePostResponse"
+            },
+            "EntriesEntryIdTransferPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "new_engineer": {
+                        "type": "integer",
+                        "title": "New Engineer"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "token": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Token"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "new_engineer",
+                    "application_id",
+                    "token"
+                ],
+                "title": "EntriesEntryIdTransferPostRequest"
+            },
+            "EntriesEntryIdTransferPostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EntriesEntryIdTransferPostResponse"
+            },
+            "EntriesGetResponse": {
+                "properties": {
+                    "tickets": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entries"
+                        },
+                        "type": "array",
+                        "title": "Tickets"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "tickets"
+                ],
+                "title": "EntriesGetResponse"
+            },
+            "EntriesMessagesDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "channel_id": {
+                        "type": "integer",
+                        "title": "Channel Id"
+                    },
+                    "message_id": {
+                        "type": "integer",
+                        "title": "Message Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "channel_id",
+                    "message_id"
+                ],
+                "title": "EntriesMessagesDeleteRequest"
+            },
+            "EntriesMessagesDeleteResponse": {
+                "properties": {
+                    "message": {
+                        "$ref": "#/components/schemas/Module_Tickets_Entry_Messages"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EntriesMessagesDeleteResponse"
+            },
+            "EntriesMessagesGetResponse": {
+                "properties": {
+                    "messages": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entry_Messages"
+                        },
+                        "type": "array",
+                        "title": "Messages"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "messages"
+                ],
+                "title": "EntriesMessagesGetResponse"
+            },
+            "EntriesMessagesPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "channel_id": {
+                        "type": "integer",
+                        "title": "Channel Id"
+                    },
+                    "message_id": {
+                        "type": "integer",
+                        "title": "Message Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "channel_id",
+                    "message_id"
+                ],
+                "title": "EntriesMessagesPostRequest"
+            },
+            "EntriesMessagesPostResponse": {
+                "properties": {
+                    "message": {
+                        "$ref": "#/components/schemas/Module_Tickets_Entry_Messages"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EntriesMessagesPostResponse"
+            },
+            "GetUserEntriesGetResponse": {
+                "properties": {
+                    "username": {
+                        "type": "integer",
+                        "title": "Username"
+                    },
+                    "display_name": {
+                        "type": "integer",
+                        "title": "Display Name"
+                    },
+                    "global_name": {
+                        "type": "integer",
+                        "title": "Global Name"
+                    },
+                    "nickname": {
+                        "type": "integer",
+                        "title": "Nickname"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username",
+                    "display_name",
+                    "global_name",
+                    "nickname",
+                    "id"
+                ],
+                "title": "GetUserEntriesGetResponse"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "HandleFormPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "panel_id": {
+                        "type": "string",
+                        "title": "Panel Id"
+                    },
+                    "ticket_type_id": {
+                        "type": "string",
+                        "title": "Ticket Type Id"
+                    },
+                    "application_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Application Id"
+                    },
+                    "values": {
+                        "items": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "type": "object"
+                        },
+                        "type": "array",
+                        "title": "Values"
+                    },
+                    "token": {
+                        "type": "string",
+                        "title": "Token"
+                    },
+                    "interaction_id": {
+                        "type": "integer",
+                        "title": "Interaction Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "panel_id",
+                    "ticket_type_id",
+                    "application_id",
+                    "values",
+                    "token",
+                    "interaction_id"
+                ],
+                "title": "HandleFormPostRequest"
+            },
+            "HandleFormPostResponse": {
+                "properties": {
+                    "ticket": {
+                        "$ref": "#/components/schemas/Module_Tickets_Entries"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ticket"
+                ],
+                "title": "HandleFormPostResponse"
+            },
+            "HomeResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "HomeResponse"
+            },
+            "ModuleTicketsPanelsCreate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "panel_type": {
+                        "type": "string",
+                        "title": "Panel Type"
+                    },
+                    "create_message_is_embed": {
+                        "type": "boolean",
+                        "title": "Create Message Is Embed"
+                    },
+                    "create_message_content": {
+                        "type": "string",
+                        "title": "Create Message Content"
+                    },
+                    "form_enabled": {
+                        "type": "boolean",
+                        "title": "Form Enabled"
+                    },
+                    "form_content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Form Content"
+                    },
+                    "ticket_opened_message_is_embed": {
+                        "type": "boolean",
+                        "title": "Ticket Opened Message Is Embed"
+                    },
+                    "threads_enabled": {
+                        "type": "boolean",
+                        "title": "Threads Enabled"
+                    },
+                    "ticket_opened_message_content": {
+                        "type": "string",
+                        "title": "Ticket Opened Message Content"
+                    },
+                    "ticket_opened_name": {
+                        "type": "string",
+                        "title": "Ticket Opened Name"
+                    },
+                    "support_engineer_role_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "title": "Support Engineer Role Id"
+                    },
+                    "create_message_category_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "title": "Create Message Category Id"
+                    },
+                    "create_message_channel_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "title": "Create Message Channel Id"
+                    },
+                    "open_tickets_categories": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Open Tickets Categories"
+                    },
+                    "closed_tickets_categories": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Closed Tickets Categories"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "panel_type",
+                    "create_message_is_embed",
+                    "create_message_content",
+                    "form_enabled",
+                    "ticket_opened_message_is_embed",
+                    "threads_enabled",
+                    "ticket_opened_message_content",
+                    "ticket_opened_name",
+                    "support_engineer_role_id",
+                    "create_message_category_id",
+                    "create_message_channel_id"
+                ],
+                "title": "ModuleTicketsPanelsCreate"
+            },
+            "ModuleTicketsPanelsUpdate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "panel_type": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Panel Type"
+                    },
+                    "create_message_is_embed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Create Message Is Embed"
+                    },
+                    "create_message_content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Create Message Content"
+                    },
+                    "form_enabled": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Form Enabled"
+                    },
+                    "form_content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Form Content"
+                    },
+                    "ticket_opened_message_is_embed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Ticket Opened Message Is Embed"
+                    },
+                    "threads_enabled": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Threads Enabled"
+                    },
+                    "ticket_opened_message_content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Ticket Opened Message Content"
+                    },
+                    "ticket_opened_name": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Ticket Opened Name"
+                    },
+                    "support_engineer_role_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Support Engineer Role Id"
+                    },
+                    "open_tickets_categories": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Open Tickets Categories"
+                    },
+                    "closed_tickets_categories": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Closed Tickets Categories"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "ModuleTicketsPanelsUpdate"
+            },
+            "ModuleTicketsTypesCreate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "description": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Description"
+                    },
+                    "emoji_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Emoji Id"
+                    },
+                    "emoji_name": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Emoji Name"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "title"
+                ],
+                "title": "ModuleTicketsTypesCreate"
+            },
+            "Module_Tickets_Entries": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "ticket_id": {
+                        "type": "string",
+                        "title": "Ticket Id"
+                    },
+                    "channel_id": {
+                        "type": "string",
+                        "title": "Channel Id"
+                    },
+                    "start_message_id": {
+                        "type": "string",
+                        "title": "Start Message Id"
+                    },
+                    "panel_id": {
+                        "type": "string",
+                        "title": "Panel Id"
+                    },
+                    "current_support_engineer": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Current Support Engineer"
+                    },
+                    "is_closed": {
+                        "type": "boolean",
+                        "title": "Is Closed",
+                        "default": false
+                    },
+                    "opened_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Opened At",
+                        "default": "2025-11-23T16:12:42.588758Z"
+                    },
+                    "closed_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Closed At"
+                    },
+                    "ticket_creator": {
+                        "type": "string",
+                        "title": "Ticket Creator"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "ticket_id",
+                    "channel_id",
+                    "start_message_id",
+                    "panel_id",
+                    "ticket_creator"
+                ],
+                "title": "Module_Tickets_Entries"
+            },
+            "Module_Tickets_Entry_Messages": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "ticket_id": {
+                        "type": "string",
+                        "title": "Ticket Id"
+                    },
+                    "channel_id": {
+                        "type": "string",
+                        "title": "Channel Id"
+                    },
+                    "message_id": {
+                        "type": "string",
+                        "title": "Message Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "ticket_id",
+                    "channel_id",
+                    "message_id"
+                ],
+                "title": "Module_Tickets_Entry_Messages"
+            },
+            "Module_Tickets_Panels": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "panel_id": {
+                        "type": "string",
+                        "title": "Panel Id"
+                    },
+                    "panel_type": {
+                        "type": "integer",
+                        "title": "Panel Type"
+                    },
+                    "create_message_is_embed": {
+                        "type": "boolean",
+                        "title": "Create Message Is Embed",
+                        "default": false
+                    },
+                    "create_message_content": {
+                        "type": "string",
+                        "title": "Create Message Content"
+                    },
+                    "form_enabled": {
+                        "type": "boolean",
+                        "title": "Form Enabled",
+                        "default": false
+                    },
+                    "form_content": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Form Content"
+                    },
+                    "ticket_opened_message_is_embed": {
+                        "type": "boolean",
+                        "title": "Ticket Opened Message Is Embed",
+                        "default": false
+                    },
+                    "ticket_opened_message_content": {
+                        "type": "string",
+                        "title": "Ticket Opened Message Content"
+                    },
+                    "ticket_opened_name": {
+                        "type": "string",
+                        "title": "Ticket Opened Name"
+                    },
+                    "support_engineer_role_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Support Engineer Role Id"
+                    },
+                    "create_message_category_id": {
+                        "type": "string",
+                        "title": "Create Message Category Id"
+                    },
+                    "create_message_channel_id": {
+                        "type": "string",
+                        "title": "Create Message Channel Id"
+                    },
+                    "open_tickets_categories": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Open Tickets Categories"
+                    },
+                    "closed_tickets_categories": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Closed Tickets Categories"
+                    },
+                    "threads_enabled": {
+                        "type": "boolean",
+                        "title": "Threads Enabled",
+                        "default": false
+                    },
+                    "create_message_id": {
+                        "type": "string",
+                        "title": "Create Message Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "panel_id",
+                    "panel_type",
+                    "create_message_content",
+                    "ticket_opened_message_content",
+                    "ticket_opened_name",
+                    "create_message_category_id",
+                    "create_message_channel_id",
+                    "create_message_id"
+                ],
+                "title": "Module_Tickets_Panels"
+            },
+            "Module_Tickets_Types": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "panel_id": {
+                        "type": "string",
+                        "title": "Panel Id"
+                    },
+                    "ticket_type_id": {
+                        "type": "string",
+                        "title": "Ticket Type Id"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "description": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Description"
+                    },
+                    "emoji_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Emoji Id"
+                    },
+                    "emoji_name": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Emoji Name"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "panel_id",
+                    "ticket_type_id",
+                    "title"
+                ],
+                "title": "Module_Tickets_Types"
+            },
+            "PanelsGetResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels"
+                ],
+                "title": "PanelsGetResponse"
+            },
+            "PanelsPanelIdDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "PanelsPanelIdDeleteRequest"
+            },
+            "PanelsPanelIdDeleteResponse": {
+                "properties": {
+                    "panel": {
+                        "$ref": "#/components/schemas/Module_Tickets_Panels"
+                    },
+                    "tickets": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entries"
+                        },
+                        "type": "array",
+                        "title": "Tickets"
+                    },
+                    "ticket_types": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Types"
+                        },
+                        "type": "array",
+                        "title": "Ticket Types"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panel",
+                    "tickets",
+                    "ticket_types"
+                ],
+                "title": "PanelsPanelIdDeleteResponse"
+            },
+            "PanelsPanelIdGetResponse": {
+                "properties": {
+                    "panel": {
+                        "$ref": "#/components/schemas/Module_Tickets_Panels"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panel"
+                ],
+                "title": "PanelsPanelIdGetResponse"
+            },
+            "PanelsPanelIdPutResponse": {
+                "properties": {
+                    "panel": {
+                        "$ref": "#/components/schemas/Module_Tickets_Panels"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panel"
+                ],
+                "title": "PanelsPanelIdPutResponse"
+            },
+            "PanelsPanelIdTicketTypesGetResponse": {
+                "properties": {
+                    "ticket_types": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Types"
+                        },
+                        "type": "array",
+                        "title": "Ticket Types"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ticket_types"
+                ],
+                "title": "PanelsPanelIdTicketTypesGetResponse"
+            },
+            "PanelsPanelIdTicketTypesPostResponse": {
+                "properties": {
+                    "ticket_type": {
+                        "$ref": "#/components/schemas/Module_Tickets_Types"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ticket_type"
+                ],
+                "title": "PanelsPanelIdTicketTypesPostResponse"
+            },
+            "PanelsPanelIdTicketTypesTicketTypeIdDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "PanelsPanelIdTicketTypesTicketTypeIdDeleteRequest"
+            },
+            "PanelsPanelIdTicketTypesTicketTypeIdDeleteResponse": {
+                "properties": {
+                    "ticket_type": {
+                        "$ref": "#/components/schemas/Module_Tickets_Types"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ticket_type"
+                ],
+                "title": "PanelsPanelIdTicketTypesTicketTypeIdDeleteResponse"
+            },
+            "PanelsPanelIdTicketTypesTicketTypeIdGetResponse": {
+                "properties": {
+                    "ticket_type": {
+                        "$ref": "#/components/schemas/Module_Tickets_Types"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ticket_type"
+                ],
+                "title": "PanelsPanelIdTicketTypesTicketTypeIdGetResponse"
+            },
+            "PanelsPostResponse": {
+                "properties": {
+                    "panel": {
+                        "$ref": "#/components/schemas/Module_Tickets_Panels"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panel"
+                ],
+                "title": "PanelsPostResponse"
+            },
+            "ProblemDetailsBase": {
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "title": "Type",
+                        "default": "https://example.com"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "title": "Status"
+                    },
+                    "detail": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Detail"
+                    },
+                    "message": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "status",
+                    "detail",
+                    "message"
+                ],
+                "title": "ProblemDetailsBase",
+                "description": "Base problem details model for a standardized response."
+            },
+            "SettingsDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "SettingsDeleteRequest"
+            },
+            "SettingsDeleteResponse": {
+                "properties": {
+                    "panels": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Panels"
+                        },
+                        "type": "array",
+                        "title": "Panels"
+                    },
+                    "tickets": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entries"
+                        },
+                        "type": "array",
+                        "title": "Tickets"
+                    },
+                    "messages": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Entry_Messages"
+                        },
+                        "type": "array",
+                        "title": "Messages"
+                    },
+                    "ticket_types": {
+                        "items": {
+                            "$ref": "#/components/schemas/Module_Tickets_Types"
+                        },
+                        "type": "array",
+                        "title": "Ticket Types"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "panels",
+                    "tickets",
+                    "messages",
+                    "ticket_types"
+                ],
+                "title": "SettingsDeleteResponse"
+            },
+            "StatusGetResponse": {
+                "properties": {
+                    "status": {
+                        "type": "boolean",
+                        "title": "Status"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status"
+                ],
+                "title": "StatusGetResponse"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Settings",
+            "description": "Operations related to the settings of the tickets module"
+        },
+        {
+            "name": "Status",
+            "description": "Operations related to the status of the tickets module"
+        },
+        {
+            "name": "Panels",
+            "description": "Operations related to ticket panels"
+        },
+        {
+            "name": "Tickets",
+            "description": "Operations related to a tickets"
+        },
+        {
+            "name": "Events",
+            "description": "Operations related to a ticket events"
+        },
+        {
+            "name": "Privacy",
+            "description": "Operations for a users privacy data"
+        }
+    ]
+}

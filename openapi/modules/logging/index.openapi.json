@@ -1,0 +1,4028 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Husqy.modules.logging",
+        "version": "2.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.husqy.xyz/v1/modules/logging"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Home Endpoint For The Husqy.Modules.Logging Microservice",
+                "description": "Home endpoint for the Husqy.general microservice.",
+                "operationId": "Home_endpoint_for_the_Husqy_modules_logging_microservice__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_HomeResponse_"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/status": {
+            "get": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Get The Status Of The Logging Module In A Server",
+                "description": "Status endpoint for the Husqy.modules.logging microservice.",
+                "operationId": "Get_the_status_of_the_logging_module_in_a_server_status_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_StatusGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/enable": {
+            "post": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Enable The Logging Module",
+                "description": "Enable the logging module for a server.",
+                "operationId": "Enable_the_logging_module_enable_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EnablePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EnablePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/disable": {
+            "post": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Disable The Logging Module And Delete The Settings",
+                "description": "Enable the logging module for a server.",
+                "operationId": "Disable_the_logging_module_and_delete_the_settings_disable_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DisablePostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_DisablePostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/settings": {
+            "get": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Get The Settings Of The Logging Module In A Server",
+                "description": "Get the settings for Husqy logging module for a guild.",
+                "operationId": "Get_the_settings_of_the_logging_module_in_a_server_settings_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_SettingsGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Update The Settings Of The Logging Module In A Server",
+                "description": "Change the settings for Husqy logging module for a guild.",
+                "operationId": "Update_the_settings_of_the_logging_module_in_a_server_settings_put",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModuleLoggingUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_SettingsPutResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Delete The Settings Of The Logging Module In A Server",
+                "description": "Delete the settings for Husqy logging module for a guild.",
+                "operationId": "Delete_the_settings_of_the_logging_module_in_a_server_settings_delete",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SettingsDeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_SettingsDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/events/check": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Send A Log Message To A Logs Channel If Enabled",
+                "description": "Send a logging event to be logged to the channel.",
+                "operationId": "Send_a_log_message_to_a_logs_channel_if_enabled_events_check_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EventsCheckPostRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_EventsCheckPostResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/privacy/get-user-entries": {
+            "get": {
+                "tags": [
+                    "Privacy"
+                ],
+                "summary": "Get The Privacy Data Of A User For The Husqy.Modules.Logging Microservice",
+                "description": "Get user entries.",
+                "operationId": "Get_the_privacy_data_of_a_user_for_the_Husqy_modules_logging_microservice_privacy_get_user_entries_get",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "privacy_member_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Privacy Member Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_GetUserEntriesGetResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/privacy/delete-user-entries": {
+            "delete": {
+                "tags": [
+                    "Privacy"
+                ],
+                "summary": "Delete The Privacy Data Of A User For The Husqy.Modules.Logging Microservice",
+                "description": "Delete user entries.",
+                "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_modules_logging_microservice_privacy_delete_user_entries_delete",
+                "parameters": [
+                    {
+                        "name": "guild_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Guild Id"
+                        }
+                    },
+                    {
+                        "name": "privacy_member_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Privacy Member Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_DeleteUserEntriesDeleteResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ApiResponse_DeleteUserEntriesDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/DeleteUserEntriesDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[DeleteUserEntriesDeleteResponse]"
+            },
+            "ApiResponse_DisablePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/DisablePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[DisablePostResponse]"
+            },
+            "ApiResponse_EnablePostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EnablePostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EnablePostResponse]"
+            },
+            "ApiResponse_EventsCheckPostResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EventsCheckPostResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[EventsCheckPostResponse]"
+            },
+            "ApiResponse_GetUserEntriesGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/GetUserEntriesGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[GetUserEntriesGetResponse]"
+            },
+            "ApiResponse_HomeResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/HomeResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[HomeResponse]"
+            },
+            "ApiResponse_SettingsDeleteResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SettingsDeleteResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[SettingsDeleteResponse]"
+            },
+            "ApiResponse_SettingsGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SettingsGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[SettingsGetResponse]"
+            },
+            "ApiResponse_SettingsPutResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/SettingsPutResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[SettingsPutResponse]"
+            },
+            "ApiResponse_StatusGetResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/StatusGetResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[StatusGetResponse]"
+            },
+            "DeleteUserEntriesDeleteResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "DeleteUserEntriesDeleteResponse"
+            },
+            "DisablePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "DisablePostRequest"
+            },
+            "DisablePostResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Logging"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings"
+                ],
+                "title": "DisablePostResponse"
+            },
+            "EnablePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "EnablePostRequest"
+            },
+            "EnablePostResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Logging"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings"
+                ],
+                "title": "EnablePostResponse"
+            },
+            "EventInfo": {
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "title": "Category"
+                    },
+                    "success": {
+                        "type": "boolean",
+                        "title": "Success"
+                    },
+                    "command": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Command"
+                    },
+                    "event": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Event"
+                    },
+                    "reason": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Reason"
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "additionalProperties": true,
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "category",
+                    "success"
+                ],
+                "title": "EventInfo"
+            },
+            "EventsCheckPostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "event_info": {
+                        "$ref": "#/components/schemas/EventInfo"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "event_info"
+                ],
+                "title": "EventsCheckPostRequest"
+            },
+            "EventsCheckPostResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "EventsCheckPostResponse"
+            },
+            "GetUserEntriesGetResponse": {
+                "properties": {
+                    "username": {
+                        "type": "integer",
+                        "title": "Username"
+                    },
+                    "display_name": {
+                        "type": "integer",
+                        "title": "Display Name"
+                    },
+                    "global_name": {
+                        "type": "integer",
+                        "title": "Global Name"
+                    },
+                    "nickname": {
+                        "type": "integer",
+                        "title": "Nickname"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username",
+                    "display_name",
+                    "global_name",
+                    "nickname",
+                    "id"
+                ],
+                "title": "GetUserEntriesGetResponse"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "HomeResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message"
+                ],
+                "title": "HomeResponse"
+            },
+            "ModuleLoggingUpdate": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "logs_channel_id": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Logs Channel Id"
+                    },
+                    "log_errors": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Errors"
+                    },
+                    "log_info": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Info"
+                    },
+                    "log_settings_changed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Settings Changed"
+                    },
+                    "log_channel_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Channel Create"
+                    },
+                    "log_channel_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Channel Delete"
+                    },
+                    "log_channel_update": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Channel Update"
+                    },
+                    "log_clear_messages": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Clear Messages"
+                    },
+                    "log_slowmode": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Slowmode"
+                    },
+                    "log_role_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Role Create"
+                    },
+                    "log_role_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Role Delete"
+                    },
+                    "log_role_update": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Role Update"
+                    },
+                    "log_user_warn_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Warn Create"
+                    },
+                    "log_user_warn_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Warn Delete"
+                    },
+                    "log_kick_events": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Kick Events"
+                    },
+                    "log_ban_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ban Create"
+                    },
+                    "log_ban_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ban Delete"
+                    },
+                    "log_games": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Games"
+                    },
+                    "log_audio_join": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Join"
+                    },
+                    "log_audio_leave": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Leave"
+                    },
+                    "log_audio_stop": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Stop"
+                    },
+                    "log_audio_skip": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Skip"
+                    },
+                    "log_audio_pause": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Pause"
+                    },
+                    "log_audio_resume": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Resume"
+                    },
+                    "log_audio_nowplaying": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Nowplaying"
+                    },
+                    "log_audio_queue": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Queue"
+                    },
+                    "log_music_play": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Music Play"
+                    },
+                    "log_music_playnext": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Music Playnext"
+                    },
+                    "log_music_remove": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Music Remove"
+                    },
+                    "log_music_shuffle": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Music Shuffle"
+                    },
+                    "log_music_search": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Music Search"
+                    },
+                    "log_radio_play": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Radio Play"
+                    },
+                    "log_support": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Support"
+                    },
+                    "log_modules": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Modules"
+                    },
+                    "log_tempmute": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempmute"
+                    },
+                    "log_temptimeout": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Temptimeout"
+                    },
+                    "log_customembed_send": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Customembed Send"
+                    },
+                    "log_customembed_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Customembed Create"
+                    },
+                    "log_audio_seek": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Seek"
+                    },
+                    "log_music_tts": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Music Tts"
+                    },
+                    "log_vckick": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Vckick"
+                    },
+                    "log_move": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Move"
+                    },
+                    "log_channel_lock": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Channel Lock"
+                    },
+                    "log_channel_unlock": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Channel Unlock"
+                    },
+                    "log_audio_loop": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Loop"
+                    },
+                    "log_channel_join": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Channel Join"
+                    },
+                    "log_channel_leave": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Channel Leave"
+                    },
+                    "log_channel_move": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Channel Move"
+                    },
+                    "log_custommodal_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Custommodal Create"
+                    },
+                    "log_custommodal_preview": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Custommodal Preview"
+                    },
+                    "log_user_server_muted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Server Muted"
+                    },
+                    "log_user_server_unmuted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Server Unmuted"
+                    },
+                    "log_user_server_deafend": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Server Deafend"
+                    },
+                    "log_user_server_undeafend": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Server Undeafend"
+                    },
+                    "log_user_deafend": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Deafend"
+                    },
+                    "log_user_undeafend": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Undeafend"
+                    },
+                    "log_user_muted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Muted"
+                    },
+                    "log_user_unmuted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Unmuted"
+                    },
+                    "log_user_stream_started": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Stream Started"
+                    },
+                    "log_user_stream_stopped": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Stream Stopped"
+                    },
+                    "log_user_camera_stream_started": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Camera Stream Started"
+                    },
+                    "log_user_camera_stream_stopped": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log User Camera Stream Stopped"
+                    },
+                    "log_color_viewed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Color Viewed"
+                    },
+                    "log_audio_volume": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Volume"
+                    },
+                    "log_audio_restart": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Audio Restart"
+                    },
+                    "log_domain_validated": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Domain Validated"
+                    },
+                    "log_qr_generated": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Qr Generated"
+                    },
+                    "log_time_converted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Time Converted"
+                    },
+                    "log_voice_message_transcribe": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Voice Message Transcribe"
+                    },
+                    "log_meme": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Meme"
+                    },
+                    "log_reactionroles_panel_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reactionroles Panel Create"
+                    },
+                    "log_reactionroles_panel_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reactionroles Panel Delete"
+                    },
+                    "log_reactionroles_panel_edit": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reactionroles Panel Edit"
+                    },
+                    "log_reactionroles_panel_entry_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reactionroles Panel Entry Create"
+                    },
+                    "log_reactionroles_panel_entry_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reactionroles Panel Entry Delete"
+                    },
+                    "log_reactionroles_panel_entry_edit": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reactionroles Panel Entry Edit"
+                    },
+                    "log_tag_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tag Create"
+                    },
+                    "log_tag_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tag Delete"
+                    },
+                    "log_tag_edit": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tag Edit"
+                    },
+                    "log_tag_send": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tag Send"
+                    },
+                    "log_tag_preview": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tag Preview"
+                    },
+                    "log_autoresponder_trigger_created": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Autoresponder Trigger Created"
+                    },
+                    "log_autoresponder_trigger_deleted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Autoresponder Trigger Deleted"
+                    },
+                    "log_autoresponder_trigger_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Autoresponder Trigger Edited"
+                    },
+                    "log_autoresponder_trigger_hit": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Autoresponder Trigger Hit"
+                    },
+                    "log_autoresponder_response_created": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Autoresponder Response Created"
+                    },
+                    "log_autoresponder_response_deleted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Autoresponder Response Deleted"
+                    },
+                    "log_welcoming_response_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Response Create"
+                    },
+                    "log_welcoming_response_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Response Delete"
+                    },
+                    "log_welcoming_timedrole_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Timedrole Create"
+                    },
+                    "log_welcoming_timedrole_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Timedrole Delete"
+                    },
+                    "log_welcoming_check_welcome_dm": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Check Welcome Dm"
+                    },
+                    "log_welcoming_check_welcome_channel": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Check Welcome Channel"
+                    },
+                    "log_welcoming_check_leave_channel": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Check Leave Channel"
+                    },
+                    "log_welcoming_check_role_on_join": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Check Role On Join"
+                    },
+                    "log_welcoming_check_role_timed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Welcoming Check Role Timed"
+                    },
+                    "log_socials_reddit_remove": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Socials Reddit Remove"
+                    },
+                    "log_socials_reddit_add": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Socials Reddit Add"
+                    },
+                    "log_socials_rss_remove": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Socials Rss Remove"
+                    },
+                    "log_socials_rss_add": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Socials Rss Add"
+                    },
+                    "log_socials_twitch_remove": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Socials Twitch Remove"
+                    },
+                    "log_socials_twitch_add": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Socials Twitch Add"
+                    },
+                    "log_socials_youtube_remove": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Socials Youtube Remove"
+                    },
+                    "log_socials_youtube_add": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Socials Youtube Add"
+                    },
+                    "log_creation_channel_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Creation Channel Create"
+                    },
+                    "log_creation_channel_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Creation Channel Delete"
+                    },
+                    "log_creation_channel_edit": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Creation Channel Edit"
+                    },
+                    "log_tempchannel_check_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Check Create"
+                    },
+                    "log_tempchannel_check_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Check Delete"
+                    },
+                    "log_tempchannel_name_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Name Edited"
+                    },
+                    "log_tempchannel_user_limit_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel User Limit Edited"
+                    },
+                    "log_tempchannel_slowmode_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Slowmode Edited"
+                    },
+                    "log_tempchannel_bitrate_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Bitrate Edited"
+                    },
+                    "log_tempchannel_age_restriction_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Age Restriction Edited"
+                    },
+                    "log_tempchannel_region_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Region Edited"
+                    },
+                    "log_tempchannel_claimed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Claimed"
+                    },
+                    "log_tempchannel_transferred": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Transferred"
+                    },
+                    "log_tempchannel_deleted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Deleted"
+                    },
+                    "log_tempchannel_block_rule_added": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Block Rule Added"
+                    },
+                    "log_tempchannel_block_rule_removed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Block Rule Removed"
+                    },
+                    "log_tempchannel_trust_rule_added": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Trust Rule Added"
+                    },
+                    "log_tempchannel_trust_rule_removed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Tempchannel Trust Rule Removed"
+                    },
+                    "log_verifier_verification_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Verifier Verification Create"
+                    },
+                    "log_verifier_verification_handle": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Verifier Verification Handle"
+                    },
+                    "log_rules_rule_add": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Rules Rule Add"
+                    },
+                    "log_rules_rule_remove": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Rules Rule Remove"
+                    },
+                    "log_rules_send_check": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Rules Send Check"
+                    },
+                    "log_rules_interaction_check": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Rules Interaction Check"
+                    },
+                    "log_ticket_panel_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Panel Create"
+                    },
+                    "log_ticket_panel_edit": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Panel Edit"
+                    },
+                    "log_ticket_panel_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Panel Delete"
+                    },
+                    "log_ticket_type_add": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Type Add"
+                    },
+                    "log_ticket_type_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Type Delete"
+                    },
+                    "log_ticket_create": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Create"
+                    },
+                    "log_ticket_form_showed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Form Showed"
+                    },
+                    "log_ticket_delete": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Delete"
+                    },
+                    "log_ticket_transfer": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Transfer"
+                    },
+                    "log_ticket_reopen": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Reopen"
+                    },
+                    "log_ticket_close": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Close"
+                    },
+                    "log_ticket_claim": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Claim"
+                    },
+                    "log_ticket_transcribe": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Ticket Transcribe"
+                    },
+                    "log_invite_created": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Invite Created"
+                    },
+                    "log_invite_deleted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Invite Deleted"
+                    },
+                    "log_invite_based_join": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Invite Based Join"
+                    },
+                    "log_invite_based_leave": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Invite Based Leave"
+                    },
+                    "log_serverstats_counter_created": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Serverstats Counter Created"
+                    },
+                    "log_serverstats_counter_deleted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Serverstats Counter Deleted"
+                    },
+                    "log_serverstats_starboard_check": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Serverstats Starboard Check"
+                    },
+                    "log_serverstats_counters_updated": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Serverstats Counters Updated"
+                    },
+                    "log_polls_created": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Polls Created"
+                    },
+                    "log_polls_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Polls Edited"
+                    },
+                    "log_polls_deleted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Polls Deleted"
+                    },
+                    "log_polls_closed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Polls Closed"
+                    },
+                    "log_polls_closed_manually": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Polls Closed Manually"
+                    },
+                    "log_polls_vote_added": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Polls Vote Added"
+                    },
+                    "log_polls_vote_removed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Polls Vote Removed"
+                    },
+                    "log_reminders_created": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reminders Created"
+                    },
+                    "log_reminders_deleted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reminders Deleted"
+                    },
+                    "log_reminders_send": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reminders Send"
+                    },
+                    "log_reminders_completed": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reminders Completed"
+                    },
+                    "log_reminders_reminded_later": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Reminders Reminded Later"
+                    },
+                    "log_giveaways_created": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Giveaways Created"
+                    },
+                    "log_giveaways_deleted": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Giveaways Deleted"
+                    },
+                    "log_giveaways_edited": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Giveaways Edited"
+                    },
+                    "log_giveaways_rerolled": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Giveaways Rerolled"
+                    },
+                    "log_giveaways_entered": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Giveaways Entered"
+                    },
+                    "log_giveaways_leaves": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Giveaways Leaves"
+                    },
+                    "log_giveaways_finished": {
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Log Giveaways Finished"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "ModuleLoggingUpdate"
+            },
+            "Module_Logging": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "guild_id": {
+                        "type": "string",
+                        "title": "Guild Id"
+                    },
+                    "logs_channel_id": {
+                        "type": "string",
+                        "title": "Logs Channel Id"
+                    },
+                    "log_errors": {
+                        "type": "boolean",
+                        "title": "Log Errors",
+                        "default": true
+                    },
+                    "log_info": {
+                        "type": "boolean",
+                        "title": "Log Info",
+                        "default": true
+                    },
+                    "log_settings_changed": {
+                        "type": "boolean",
+                        "title": "Log Settings Changed",
+                        "default": true
+                    },
+                    "log_channel_create": {
+                        "type": "boolean",
+                        "title": "Log Channel Create",
+                        "default": true
+                    },
+                    "log_channel_delete": {
+                        "type": "boolean",
+                        "title": "Log Channel Delete",
+                        "default": true
+                    },
+                    "log_channel_update": {
+                        "type": "boolean",
+                        "title": "Log Channel Update",
+                        "default": true
+                    },
+                    "log_clear_messages": {
+                        "type": "boolean",
+                        "title": "Log Clear Messages",
+                        "default": true
+                    },
+                    "log_slowmode": {
+                        "type": "boolean",
+                        "title": "Log Slowmode",
+                        "default": true
+                    },
+                    "log_role_create": {
+                        "type": "boolean",
+                        "title": "Log Role Create",
+                        "default": true
+                    },
+                    "log_role_delete": {
+                        "type": "boolean",
+                        "title": "Log Role Delete",
+                        "default": true
+                    },
+                    "log_role_update": {
+                        "type": "boolean",
+                        "title": "Log Role Update",
+                        "default": true
+                    },
+                    "log_user_warn_create": {
+                        "type": "boolean",
+                        "title": "Log User Warn Create",
+                        "default": true
+                    },
+                    "log_user_warn_delete": {
+                        "type": "boolean",
+                        "title": "Log User Warn Delete",
+                        "default": true
+                    },
+                    "log_kick_events": {
+                        "type": "boolean",
+                        "title": "Log Kick Events",
+                        "default": true
+                    },
+                    "log_ban_create": {
+                        "type": "boolean",
+                        "title": "Log Ban Create",
+                        "default": true
+                    },
+                    "log_ban_delete": {
+                        "type": "boolean",
+                        "title": "Log Ban Delete",
+                        "default": true
+                    },
+                    "log_games": {
+                        "type": "boolean",
+                        "title": "Log Games",
+                        "default": true
+                    },
+                    "log_audio_join": {
+                        "type": "boolean",
+                        "title": "Log Audio Join",
+                        "default": true
+                    },
+                    "log_audio_leave": {
+                        "type": "boolean",
+                        "title": "Log Audio Leave",
+                        "default": true
+                    },
+                    "log_audio_stop": {
+                        "type": "boolean",
+                        "title": "Log Audio Stop",
+                        "default": true
+                    },
+                    "log_audio_skip": {
+                        "type": "boolean",
+                        "title": "Log Audio Skip",
+                        "default": true
+                    },
+                    "log_audio_pause": {
+                        "type": "boolean",
+                        "title": "Log Audio Pause",
+                        "default": true
+                    },
+                    "log_audio_resume": {
+                        "type": "boolean",
+                        "title": "Log Audio Resume",
+                        "default": true
+                    },
+                    "log_audio_nowplaying": {
+                        "type": "boolean",
+                        "title": "Log Audio Nowplaying",
+                        "default": true
+                    },
+                    "log_audio_queue": {
+                        "type": "boolean",
+                        "title": "Log Audio Queue",
+                        "default": true
+                    },
+                    "log_music_play": {
+                        "type": "boolean",
+                        "title": "Log Music Play",
+                        "default": true
+                    },
+                    "log_music_playnext": {
+                        "type": "boolean",
+                        "title": "Log Music Playnext",
+                        "default": true
+                    },
+                    "log_music_remove": {
+                        "type": "boolean",
+                        "title": "Log Music Remove",
+                        "default": true
+                    },
+                    "log_music_shuffle": {
+                        "type": "boolean",
+                        "title": "Log Music Shuffle",
+                        "default": true
+                    },
+                    "log_music_search": {
+                        "type": "boolean",
+                        "title": "Log Music Search",
+                        "default": true
+                    },
+                    "log_radio_play": {
+                        "type": "boolean",
+                        "title": "Log Radio Play",
+                        "default": true
+                    },
+                    "log_support": {
+                        "type": "boolean",
+                        "title": "Log Support",
+                        "default": true
+                    },
+                    "log_modules": {
+                        "type": "boolean",
+                        "title": "Log Modules",
+                        "default": true
+                    },
+                    "log_tempmute": {
+                        "type": "boolean",
+                        "title": "Log Tempmute",
+                        "default": true
+                    },
+                    "log_temptimeout": {
+                        "type": "boolean",
+                        "title": "Log Temptimeout",
+                        "default": true
+                    },
+                    "log_customembed_send": {
+                        "type": "boolean",
+                        "title": "Log Customembed Send",
+                        "default": true
+                    },
+                    "log_customembed_create": {
+                        "type": "boolean",
+                        "title": "Log Customembed Create",
+                        "default": true
+                    },
+                    "log_audio_seek": {
+                        "type": "boolean",
+                        "title": "Log Audio Seek",
+                        "default": true
+                    },
+                    "log_music_tts": {
+                        "type": "boolean",
+                        "title": "Log Music Tts",
+                        "default": true
+                    },
+                    "log_vckick": {
+                        "type": "boolean",
+                        "title": "Log Vckick",
+                        "default": true
+                    },
+                    "log_move": {
+                        "type": "boolean",
+                        "title": "Log Move",
+                        "default": true
+                    },
+                    "log_channel_lock": {
+                        "type": "boolean",
+                        "title": "Log Channel Lock",
+                        "default": true
+                    },
+                    "log_channel_unlock": {
+                        "type": "boolean",
+                        "title": "Log Channel Unlock",
+                        "default": true
+                    },
+                    "log_audio_loop": {
+                        "type": "boolean",
+                        "title": "Log Audio Loop",
+                        "default": true
+                    },
+                    "log_channel_join": {
+                        "type": "boolean",
+                        "title": "Log Channel Join",
+                        "default": true
+                    },
+                    "log_channel_leave": {
+                        "type": "boolean",
+                        "title": "Log Channel Leave",
+                        "default": true
+                    },
+                    "log_channel_move": {
+                        "type": "boolean",
+                        "title": "Log Channel Move",
+                        "default": true
+                    },
+                    "log_custommodal_create": {
+                        "type": "boolean",
+                        "title": "Log Custommodal Create",
+                        "default": true
+                    },
+                    "log_custommodal_preview": {
+                        "type": "boolean",
+                        "title": "Log Custommodal Preview",
+                        "default": true
+                    },
+                    "log_user_server_muted": {
+                        "type": "boolean",
+                        "title": "Log User Server Muted",
+                        "default": true
+                    },
+                    "log_user_server_unmuted": {
+                        "type": "boolean",
+                        "title": "Log User Server Unmuted",
+                        "default": true
+                    },
+                    "log_user_server_deafend": {
+                        "type": "boolean",
+                        "title": "Log User Server Deafend",
+                        "default": true
+                    },
+                    "log_user_server_undeafend": {
+                        "type": "boolean",
+                        "title": "Log User Server Undeafend",
+                        "default": true
+                    },
+                    "log_user_deafend": {
+                        "type": "boolean",
+                        "title": "Log User Deafend",
+                        "default": true
+                    },
+                    "log_user_undeafend": {
+                        "type": "boolean",
+                        "title": "Log User Undeafend",
+                        "default": true
+                    },
+                    "log_user_muted": {
+                        "type": "boolean",
+                        "title": "Log User Muted",
+                        "default": true
+                    },
+                    "log_user_unmuted": {
+                        "type": "boolean",
+                        "title": "Log User Unmuted",
+                        "default": true
+                    },
+                    "log_user_stream_started": {
+                        "type": "boolean",
+                        "title": "Log User Stream Started",
+                        "default": true
+                    },
+                    "log_user_stream_stopped": {
+                        "type": "boolean",
+                        "title": "Log User Stream Stopped",
+                        "default": true
+                    },
+                    "log_user_camera_stream_started": {
+                        "type": "boolean",
+                        "title": "Log User Camera Stream Started",
+                        "default": true
+                    },
+                    "log_user_camera_stream_stopped": {
+                        "type": "boolean",
+                        "title": "Log User Camera Stream Stopped",
+                        "default": true
+                    },
+                    "log_color_viewed": {
+                        "type": "boolean",
+                        "title": "Log Color Viewed",
+                        "default": true
+                    },
+                    "log_audio_volume": {
+                        "type": "boolean",
+                        "title": "Log Audio Volume",
+                        "default": true
+                    },
+                    "log_audio_restart": {
+                        "type": "boolean",
+                        "title": "Log Audio Restart",
+                        "default": true
+                    },
+                    "log_domain_validated": {
+                        "type": "boolean",
+                        "title": "Log Domain Validated",
+                        "default": true
+                    },
+                    "log_qr_generated": {
+                        "type": "boolean",
+                        "title": "Log Qr Generated",
+                        "default": true
+                    },
+                    "log_time_converted": {
+                        "type": "boolean",
+                        "title": "Log Time Converted",
+                        "default": true
+                    },
+                    "log_voice_message_transcribe": {
+                        "type": "boolean",
+                        "title": "Log Voice Message Transcribe",
+                        "default": true
+                    },
+                    "log_meme": {
+                        "type": "boolean",
+                        "title": "Log Meme",
+                        "default": true
+                    },
+                    "log_reactionroles_panel_create": {
+                        "type": "boolean",
+                        "title": "Log Reactionroles Panel Create",
+                        "default": true
+                    },
+                    "log_reactionroles_panel_delete": {
+                        "type": "boolean",
+                        "title": "Log Reactionroles Panel Delete",
+                        "default": true
+                    },
+                    "log_reactionroles_panel_edit": {
+                        "type": "boolean",
+                        "title": "Log Reactionroles Panel Edit",
+                        "default": true
+                    },
+                    "log_reactionroles_panel_entry_create": {
+                        "type": "boolean",
+                        "title": "Log Reactionroles Panel Entry Create",
+                        "default": true
+                    },
+                    "log_reactionroles_panel_entry_delete": {
+                        "type": "boolean",
+                        "title": "Log Reactionroles Panel Entry Delete",
+                        "default": true
+                    },
+                    "log_reactionroles_panel_entry_edit": {
+                        "type": "boolean",
+                        "title": "Log Reactionroles Panel Entry Edit",
+                        "default": true
+                    },
+                    "log_tag_create": {
+                        "type": "boolean",
+                        "title": "Log Tag Create",
+                        "default": true
+                    },
+                    "log_tag_delete": {
+                        "type": "boolean",
+                        "title": "Log Tag Delete",
+                        "default": true
+                    },
+                    "log_tag_edit": {
+                        "type": "boolean",
+                        "title": "Log Tag Edit",
+                        "default": true
+                    },
+                    "log_tag_send": {
+                        "type": "boolean",
+                        "title": "Log Tag Send",
+                        "default": true
+                    },
+                    "log_tag_preview": {
+                        "type": "boolean",
+                        "title": "Log Tag Preview",
+                        "default": true
+                    },
+                    "log_autoresponder_trigger_created": {
+                        "type": "boolean",
+                        "title": "Log Autoresponder Trigger Created",
+                        "default": true
+                    },
+                    "log_autoresponder_trigger_deleted": {
+                        "type": "boolean",
+                        "title": "Log Autoresponder Trigger Deleted",
+                        "default": true
+                    },
+                    "log_autoresponder_trigger_edited": {
+                        "type": "boolean",
+                        "title": "Log Autoresponder Trigger Edited",
+                        "default": true
+                    },
+                    "log_autoresponder_trigger_hit": {
+                        "type": "boolean",
+                        "title": "Log Autoresponder Trigger Hit",
+                        "default": true
+                    },
+                    "log_autoresponder_response_created": {
+                        "type": "boolean",
+                        "title": "Log Autoresponder Response Created",
+                        "default": true
+                    },
+                    "log_autoresponder_response_deleted": {
+                        "type": "boolean",
+                        "title": "Log Autoresponder Response Deleted",
+                        "default": true
+                    },
+                    "log_welcoming_response_create": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Response Create",
+                        "default": true
+                    },
+                    "log_welcoming_response_delete": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Response Delete",
+                        "default": true
+                    },
+                    "log_welcoming_timedrole_create": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Timedrole Create",
+                        "default": true
+                    },
+                    "log_welcoming_timedrole_delete": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Timedrole Delete",
+                        "default": true
+                    },
+                    "log_welcoming_check_welcome_dm": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Check Welcome Dm",
+                        "default": true
+                    },
+                    "log_welcoming_check_welcome_channel": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Check Welcome Channel",
+                        "default": true
+                    },
+                    "log_welcoming_check_leave_channel": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Check Leave Channel",
+                        "default": true
+                    },
+                    "log_welcoming_check_role_on_join": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Check Role On Join",
+                        "default": true
+                    },
+                    "log_welcoming_check_role_timed": {
+                        "type": "boolean",
+                        "title": "Log Welcoming Check Role Timed",
+                        "default": true
+                    },
+                    "log_socials_reddit_remove": {
+                        "type": "boolean",
+                        "title": "Log Socials Reddit Remove",
+                        "default": true
+                    },
+                    "log_socials_reddit_add": {
+                        "type": "boolean",
+                        "title": "Log Socials Reddit Add",
+                        "default": true
+                    },
+                    "log_socials_rss_remove": {
+                        "type": "boolean",
+                        "title": "Log Socials Rss Remove",
+                        "default": true
+                    },
+                    "log_socials_rss_add": {
+                        "type": "boolean",
+                        "title": "Log Socials Rss Add",
+                        "default": true
+                    },
+                    "log_socials_twitch_remove": {
+                        "type": "boolean",
+                        "title": "Log Socials Twitch Remove",
+                        "default": true
+                    },
+                    "log_socials_twitch_add": {
+                        "type": "boolean",
+                        "title": "Log Socials Twitch Add",
+                        "default": true
+                    },
+                    "log_socials_youtube_remove": {
+                        "type": "boolean",
+                        "title": "Log Socials Youtube Remove",
+                        "default": true
+                    },
+                    "log_socials_youtube_add": {
+                        "type": "boolean",
+                        "title": "Log Socials Youtube Add",
+                        "default": true
+                    },
+                    "log_creation_channel_create": {
+                        "type": "boolean",
+                        "title": "Log Creation Channel Create",
+                        "default": true
+                    },
+                    "log_creation_channel_delete": {
+                        "type": "boolean",
+                        "title": "Log Creation Channel Delete",
+                        "default": true
+                    },
+                    "log_creation_channel_edit": {
+                        "type": "boolean",
+                        "title": "Log Creation Channel Edit",
+                        "default": true
+                    },
+                    "log_tempchannel_check_create": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Check Create",
+                        "default": true
+                    },
+                    "log_tempchannel_check_delete": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Check Delete",
+                        "default": true
+                    },
+                    "log_tempchannel_name_edited": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Name Edited",
+                        "default": true
+                    },
+                    "log_tempchannel_user_limit_edited": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel User Limit Edited",
+                        "default": true
+                    },
+                    "log_tempchannel_slowmode_edited": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Slowmode Edited",
+                        "default": true
+                    },
+                    "log_tempchannel_bitrate_edited": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Bitrate Edited",
+                        "default": true
+                    },
+                    "log_tempchannel_age_restriction_edited": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Age Restriction Edited",
+                        "default": true
+                    },
+                    "log_tempchannel_region_edited": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Region Edited",
+                        "default": true
+                    },
+                    "log_tempchannel_claimed": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Claimed",
+                        "default": true
+                    },
+                    "log_tempchannel_transferred": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Transferred",
+                        "default": true
+                    },
+                    "log_tempchannel_deleted": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Deleted",
+                        "default": true
+                    },
+                    "log_tempchannel_block_rule_added": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Block Rule Added",
+                        "default": true
+                    },
+                    "log_tempchannel_block_rule_removed": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Block Rule Removed",
+                        "default": true
+                    },
+                    "log_tempchannel_trust_rule_added": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Trust Rule Added",
+                        "default": true
+                    },
+                    "log_tempchannel_trust_rule_removed": {
+                        "type": "boolean",
+                        "title": "Log Tempchannel Trust Rule Removed",
+                        "default": true
+                    },
+                    "log_verifier_verification_create": {
+                        "type": "boolean",
+                        "title": "Log Verifier Verification Create",
+                        "default": true
+                    },
+                    "log_verifier_verification_handle": {
+                        "type": "boolean",
+                        "title": "Log Verifier Verification Handle",
+                        "default": true
+                    },
+                    "log_rules_rule_add": {
+                        "type": "boolean",
+                        "title": "Log Rules Rule Add",
+                        "default": true
+                    },
+                    "log_rules_rule_remove": {
+                        "type": "boolean",
+                        "title": "Log Rules Rule Remove",
+                        "default": true
+                    },
+                    "log_rules_send_check": {
+                        "type": "boolean",
+                        "title": "Log Rules Send Check",
+                        "default": true
+                    },
+                    "log_rules_interaction_check": {
+                        "type": "boolean",
+                        "title": "Log Rules Interaction Check",
+                        "default": true
+                    },
+                    "log_ticket_panel_create": {
+                        "type": "boolean",
+                        "title": "Log Ticket Panel Create",
+                        "default": true
+                    },
+                    "log_ticket_panel_edit": {
+                        "type": "boolean",
+                        "title": "Log Ticket Panel Edit",
+                        "default": true
+                    },
+                    "log_ticket_panel_delete": {
+                        "type": "boolean",
+                        "title": "Log Ticket Panel Delete",
+                        "default": true
+                    },
+                    "log_ticket_type_add": {
+                        "type": "boolean",
+                        "title": "Log Ticket Type Add",
+                        "default": true
+                    },
+                    "log_ticket_type_delete": {
+                        "type": "boolean",
+                        "title": "Log Ticket Type Delete",
+                        "default": true
+                    },
+                    "log_ticket_create": {
+                        "type": "boolean",
+                        "title": "Log Ticket Create",
+                        "default": true
+                    },
+                    "log_ticket_form_showed": {
+                        "type": "boolean",
+                        "title": "Log Ticket Form Showed",
+                        "default": true
+                    },
+                    "log_ticket_delete": {
+                        "type": "boolean",
+                        "title": "Log Ticket Delete",
+                        "default": true
+                    },
+                    "log_ticket_transfer": {
+                        "type": "boolean",
+                        "title": "Log Ticket Transfer",
+                        "default": true
+                    },
+                    "log_ticket_reopen": {
+                        "type": "boolean",
+                        "title": "Log Ticket Reopen",
+                        "default": true
+                    },
+                    "log_ticket_close": {
+                        "type": "boolean",
+                        "title": "Log Ticket Close",
+                        "default": true
+                    },
+                    "log_ticket_claim": {
+                        "type": "boolean",
+                        "title": "Log Ticket Claim",
+                        "default": true
+                    },
+                    "log_ticket_transcribe": {
+                        "type": "boolean",
+                        "title": "Log Ticket Transcribe",
+                        "default": true
+                    },
+                    "log_invite_created": {
+                        "type": "boolean",
+                        "title": "Log Invite Created",
+                        "default": true
+                    },
+                    "log_invite_deleted": {
+                        "type": "boolean",
+                        "title": "Log Invite Deleted",
+                        "default": true
+                    },
+                    "log_invite_based_join": {
+                        "type": "boolean",
+                        "title": "Log Invite Based Join",
+                        "default": true
+                    },
+                    "log_invite_based_leave": {
+                        "type": "boolean",
+                        "title": "Log Invite Based Leave",
+                        "default": true
+                    },
+                    "log_serverstats_counter_created": {
+                        "type": "boolean",
+                        "title": "Log Serverstats Counter Created",
+                        "default": true
+                    },
+                    "log_serverstats_counter_deleted": {
+                        "type": "boolean",
+                        "title": "Log Serverstats Counter Deleted",
+                        "default": true
+                    },
+                    "log_serverstats_starboard_check": {
+                        "type": "boolean",
+                        "title": "Log Serverstats Starboard Check",
+                        "default": true
+                    },
+                    "log_serverstats_counters_updated": {
+                        "type": "boolean",
+                        "title": "Log Serverstats Counters Updated",
+                        "default": true
+                    },
+                    "log_polls_created": {
+                        "type": "boolean",
+                        "title": "Log Polls Created",
+                        "default": true
+                    },
+                    "log_polls_edited": {
+                        "type": "boolean",
+                        "title": "Log Polls Edited",
+                        "default": true
+                    },
+                    "log_polls_deleted": {
+                        "type": "boolean",
+                        "title": "Log Polls Deleted",
+                        "default": true
+                    },
+                    "log_polls_closed": {
+                        "type": "boolean",
+                        "title": "Log Polls Closed",
+                        "default": true
+                    },
+                    "log_polls_closed_manually": {
+                        "type": "boolean",
+                        "title": "Log Polls Closed Manually",
+                        "default": true
+                    },
+                    "log_polls_vote_added": {
+                        "type": "boolean",
+                        "title": "Log Polls Vote Added",
+                        "default": true
+                    },
+                    "log_polls_vote_removed": {
+                        "type": "boolean",
+                        "title": "Log Polls Vote Removed",
+                        "default": true
+                    },
+                    "log_reminders_created": {
+                        "type": "boolean",
+                        "title": "Log Reminders Created",
+                        "default": true
+                    },
+                    "log_reminders_deleted": {
+                        "type": "boolean",
+                        "title": "Log Reminders Deleted",
+                        "default": true
+                    },
+                    "log_reminders_send": {
+                        "type": "boolean",
+                        "title": "Log Reminders Send",
+                        "default": true
+                    },
+                    "log_reminders_completed": {
+                        "type": "boolean",
+                        "title": "Log Reminders Completed",
+                        "default": true
+                    },
+                    "log_reminders_reminded_later": {
+                        "type": "boolean",
+                        "title": "Log Reminders Reminded Later",
+                        "default": true
+                    },
+                    "log_giveaways_created": {
+                        "type": "boolean",
+                        "title": "Log Giveaways Created",
+                        "default": true
+                    },
+                    "log_giveaways_deleted": {
+                        "type": "boolean",
+                        "title": "Log Giveaways Deleted",
+                        "default": true
+                    },
+                    "log_giveaways_edited": {
+                        "type": "boolean",
+                        "title": "Log Giveaways Edited",
+                        "default": true
+                    },
+                    "log_giveaways_rerolled": {
+                        "type": "boolean",
+                        "title": "Log Giveaways Rerolled",
+                        "default": true
+                    },
+                    "log_giveaways_entered": {
+                        "type": "boolean",
+                        "title": "Log Giveaways Entered",
+                        "default": true
+                    },
+                    "log_giveaways_leaves": {
+                        "type": "boolean",
+                        "title": "Log Giveaways Leaves",
+                        "default": true
+                    },
+                    "log_giveaways_finished": {
+                        "type": "boolean",
+                        "title": "Log Giveaways Finished",
+                        "default": true
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "guild_id",
+                    "logs_channel_id"
+                ],
+                "title": "Module_Logging"
+            },
+            "ProblemDetailsBase": {
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "title": "Type",
+                        "default": "https://example.com"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "title": "Status"
+                    },
+                    "detail": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Detail"
+                    },
+                    "message": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "status",
+                    "detail",
+                    "message"
+                ],
+                "title": "ProblemDetailsBase",
+                "description": "Base problem details model for a standardized response."
+            },
+            "SettingsDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id"
+                ],
+                "title": "SettingsDeleteRequest"
+            },
+            "SettingsDeleteResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Logging"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings"
+                ],
+                "title": "SettingsDeleteResponse"
+            },
+            "SettingsGetResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Logging"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings"
+                ],
+                "title": "SettingsGetResponse"
+            },
+            "SettingsPutResponse": {
+                "properties": {
+                    "settings": {
+                        "$ref": "#/components/schemas/Module_Logging"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settings"
+                ],
+                "title": "SettingsPutResponse"
+            },
+            "StatusGetResponse": {
+                "properties": {
+                    "status": {
+                        "type": "boolean",
+                        "title": "Status"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status"
+                ],
+                "title": "StatusGetResponse"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Settings",
+            "description": "Operations related to the settings of the logging module"
+        },
+        {
+            "name": "Status",
+            "description": "Operations related to the status of the logging module"
+        },
+        {
+            "name": "Events",
+            "description": "Operations related to logging events"
+        },
+        {
+            "name": "Privacy",
+            "description": "Operations for a users privacy data"
+        }
+    ]
+}

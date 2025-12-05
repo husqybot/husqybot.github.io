@@ -3,6 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import tailwindPlugin from "./plugins/tailwind-config.cjs"; // add this
 import type { Options as DocsOptions } from "@docusaurus/plugin-content-docs";
+import type * as Redocusaurus from "redocusaurus";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -23,7 +24,12 @@ const config: Config = {
   trailingSlash: false,
 
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
+  
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -94,6 +100,31 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
+    [
+      "redocusaurus",
+      {
+        openapi: {
+          // Folder to scan for *.openapi.yaml files
+          path: "openapi",
+          routeBasePath: "/api",
+        },
+        // theme: {
+        //   primaryColor: "#0a1931",
+        //   primaryColorDark: "#0a1931",
+        //   options: {
+        //     disableSearch: true,
+        //   },
+        //   openapi: {
+        //     sidebar: {
+        //       backgroundColor: "#0a1931",
+        //       activeBgColor: "#636c7b",
+        //       activeTextColor: "#ffc947",
+        //       offsetTop: "97px",
+        //     },
+        //   },
+        // },
+      },
+    ] satisfies Redocusaurus.PresetEntry,
   ],
 
   themeConfig: {
