@@ -14,6 +14,10 @@ export default function MainCarousel() {
     <div className={styles.embla} ref={emblaRef}>
       <div className={styles.embla__container}>
         <div className={styles.embla__slide}>
+          We are updating Husqy, you might experience issues in the coming days!
+          Please bare with us!
+        </div>
+        {/* <div className={styles.embla__slide}>
           We are testing <a href="https://husqy.xyz/premium">premium</a> Husqy
           subscription! Please check back soon to unleash the full power of
           Husqy!
@@ -32,7 +36,7 @@ export default function MainCarousel() {
           <a href="https://github.com/husqybot/translations/">
             our translations repo!
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
