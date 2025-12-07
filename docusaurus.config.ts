@@ -87,6 +87,10 @@ const config: Config = {
             extendDefaults: true,
           },
         },
+        gtag: {
+          trackingID: 'G-L5G1JDYD8B',
+          anonymizeIP: true,
+        },
         blog: {
           showReadingTime: false,
         },
@@ -125,15 +129,6 @@ const config: Config = {
         // },
       },
     ] satisfies Redocusaurus.PresetEntry,
-    [
-      '@docusaurus/preset-classic',
-      {
-        gtag: {
-          trackingID: 'G-L5G1JDYD8B',
-          anonymizeIP: true,
-        },
-      },
-    ],
   ],
 
   themeConfig: {
