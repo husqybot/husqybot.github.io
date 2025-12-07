@@ -1,10 +1,18 @@
 ---
+description: An overview of the Husqy premium subscriptions
+title: Premium
+sidebar_label: Premium
+keywords:
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Premium
 sidebar_position: 2
 showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
-
-# Premium
 
 Husqy premium is unlocks Husqys full potential against a low monthly fee of only $2.99. It increases the limits you have in your server to properly setup and configure to your liking when working with big servers, settings and members. Husqy premium is available now on our [Discord store page](https://discord.com/discovery/applications/868946730878632047/store)!
 

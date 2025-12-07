@@ -125,6 +125,15 @@ const config: Config = {
         // },
       },
     ] satisfies Redocusaurus.PresetEntry,
+    [
+      '@docusaurus/preset-classic',
+      {
+        gtag: {
+          trackingID: 'G-L5G1JDYD8B',
+          anonymizeIP: true,
+        },
+      },
+    ],
   ],
 
   themeConfig: {
@@ -223,6 +232,9 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    metadata: [
+      {name: 'keywords', content: 'Husqy, Discord, Bot, Discord bot, Multipurpose, Free, Freemium, Subscription'},
+    ],
   } satisfies Preset.ThemeConfig,
 };
 

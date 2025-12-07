@@ -1,12 +1,18 @@
 ---
-description: Other variables
+description: Other available variables that can be used in Husqy configuration
 title: Other variables
 sidebar_label: Other variables
 keywords:
-  - docs
-  - other
-  - variables
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Variables
+  - Other variables
+  - Husqy configuration
 sidebar_position: 4
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -18,7 +24,7 @@ Other variables are variables which will be used that cannot be categorized unde
 2. `<current_time>`: The current time based on the timezone setting set by the server. The format will be HH:MM:SS;;
 3. `<current_datetime>`: The current date and time based on the timezone setting set by the server. The format will be dd-mm-yyyy HH:MM:SS;
 4. `<current_datetime_iso>`: The current date and time based on the timezone setting set by the server. The format will be the ISO format;
-<br />
+   <br />
 
 :::tip
 

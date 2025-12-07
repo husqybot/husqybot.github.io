@@ -1,12 +1,17 @@
 ---
-description: Giveaways
+description: An overview of the Husqy giveaways module
 title: Giveaways
 sidebar_label: Giveaways
 keywords:
-  - docs
-  - modules
-  - giveaways
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Giveaways
 sidebar_position: 15
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

@@ -1,12 +1,23 @@
 ---
-description: Verifier
+description: An overview of the Husqy verifier module
 title: Verifier
 sidebar_label: Verifier
 keywords:
-  - docs
-  - modules
-  - verifier
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Verifier
+  - Click-to-pass
+  - Passphrase
+  - Web
+  - Anti-spam
+  - Anti-raid
+  - Raid protection
 sidebar_position: 10
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -69,7 +80,7 @@ The button that will be used here is a link button. It will link to the Husqy da
 
 ## Retriggering verification
 
-A server administrator can use the `/verifier entry retrigger` command to retrigger verification for a users. This command will only start the retriggering of the verification and handle the verification, it will NOT remove configured verified role IDs. After this command is used, the target user follows the same steps as they would when the would join the server. 
+A server administrator can use the `/verifier entry retrigger` command to retrigger verification for a users. This command will only start the retriggering of the verification and handle the verification, it will NOT remove configured verified role IDs. After this command is used, the target user follows the same steps as they would when the would join the server.
 
 :::warning
 

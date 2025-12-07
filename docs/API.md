@@ -1,10 +1,19 @@
 ---
+description: An overview of the available API documentation for Husqy API endpoints
+title: API Docs
+sidebar_label: API Docs
+keywords:
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - API
+  - REST API
 sidebar_position: 5
 showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
-
-# API Docs
 
 This section contains information about all Husqy API endpoints. Go to the Husqy API with the next page button or use one of the quick links.
 

@@ -1,12 +1,21 @@
 ---
-description: Socials
+description: An overview of the Husqy socials module
 title: Socials
 sidebar_label: Socials
 keywords:
-  - docs
-  - modules
-  - socials
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Socials
+  - Reddit
+  - YouTube
+  - Twitch
+  - RSS
 sidebar_position: 4
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

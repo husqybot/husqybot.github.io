@@ -1,11 +1,16 @@
 ---
-description: Games
+description: An overview over Husqy and games features
 title: Games
 sidebar_label: Games
 keywords:
-  - docs
-  - games
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Games
 sidebar_position: 5
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

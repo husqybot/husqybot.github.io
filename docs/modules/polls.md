@@ -1,12 +1,19 @@
 ---
-description: Polls
+description: An overview of the Husqy polls module
 title: Polls
 sidebar_label: Polls
 keywords:
-  - docs
-  - modules
-  - polls
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Polls
+  - Husqy polls
+  - Discord polls
 sidebar_position: 13
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

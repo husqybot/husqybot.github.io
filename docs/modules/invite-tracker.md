@@ -1,13 +1,19 @@
 ---
-description: Invite tracker
+description: An overview of the Husqy invite tracker module
 title: Invite tracker
 sidebar_label: Invite tracker
 keywords:
-  - docs
-  - modules
-  - invite
-  - tracker
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Invites
+  - Invite tracker
+  - Tracker
 sidebar_position: 12
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

@@ -1,12 +1,20 @@
 ---
-description: Reminders
+description: An overview of the Husqy reminders module
 title: Reminders
 sidebar_label: Reminders
 keywords:
-  - docs
-  - modules
-  - reminders
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Reminders
+  - Quick
+  - Scheduled
+  - Repeated
 sidebar_position: 14
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

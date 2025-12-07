@@ -1,12 +1,18 @@
 ---
-description: Tickets
+description: An overview of the Husqy tickets module
 title: Tickets
 sidebar_label: Tickets
 keywords:
-  - docs
-  - modules
-  - autoresponder
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Tickets
+  - Support
 sidebar_position: 7
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

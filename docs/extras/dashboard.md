@@ -1,11 +1,17 @@
 ---
-description: Dashboard
+description: An overview of the Husqy dashboard
 title: Dashboard
 sidebar_label: Dashboard
 keywords:
-  - docs
-  - dashboard
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Dashboard
+  - Husqy configuration
 sidebar_position: 2
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

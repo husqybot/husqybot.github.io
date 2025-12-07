@@ -1,12 +1,17 @@
 ---
-description: Tags
+description: An overview of the Husqy tags module
 title: Tags
 sidebar_label: Tags
 keywords:
-  - docs
-  - modules
-  - tags
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Tags
 sidebar_position: 9
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -46,7 +51,6 @@ Interacting with a tag can be done via two ways (except for preview (dashboard o
 
 1. The [Tags dashboard](#additional-info--commands);
 2. Slash commands;
-
 
 :::tip
 
@@ -155,4 +159,3 @@ This module provides the following commands:
 - `/tags send`;
 
 :::
-

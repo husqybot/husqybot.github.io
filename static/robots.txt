@@ -1,0 +1,2 @@
+Sitemap: https://husqy.xyz/sitemap.xml
+Sitemap: https://www.husqy.xyz/sitemap.xml

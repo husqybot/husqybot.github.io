@@ -1,12 +1,21 @@
 ---
-description: Music & radio
+description: An overview over Husqy music, radio and other audio features
 title: Music & radio
 sidebar_label: Music & radio
 keywords:
-  - docs
-  - music
-  - radio
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Music
+  - Radio
+  - Audio
+  - Voice channel
+  - Playback
+  - Text-to-speech
 sidebar_position: 3
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

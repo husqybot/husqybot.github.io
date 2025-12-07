@@ -1,11 +1,16 @@
 ---
-description: Miscellaneous
+description: An overview over Husqy miscellaneous features
 title: Miscellaneous
 sidebar_label: Miscellaneous
 keywords:
-  - docs
-  - miscellaneous
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Miscellaneous
 sidebar_position: 6
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

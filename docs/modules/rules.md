@@ -1,12 +1,17 @@
 ---
-description: Rules
+description: An overview of the Husqy rules module
 title: Rules
 sidebar_label: Rules
 keywords:
-  - docs
-  - modules
-  - rules
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Rules
 sidebar_position: 11
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

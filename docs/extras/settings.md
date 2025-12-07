@@ -1,11 +1,16 @@
 ---
-description: Settings
+description: An overview over Husqy settings
 title: Settings
 sidebar_label: Settings
 keywords:
-  - docs
-  - settings
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Settings
 sidebar_position: 3
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

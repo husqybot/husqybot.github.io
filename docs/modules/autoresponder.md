@@ -1,12 +1,17 @@
 ---
-description: Autoresponder
+description: An overview of the Husqy autoresponder module
 title: Autoresponder
 sidebar_label: Autoresponder
 keywords:
-  - docs
-  - modules
-  - autoresponder
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Autoresponder
 sidebar_position: 6
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

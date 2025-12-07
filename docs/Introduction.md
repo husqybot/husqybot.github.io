@@ -1,10 +1,18 @@
 ---
+description: An introduction to the Husqy documentation
+title: Introduction
+sidebar_label: Introduction
+keywords:
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Introduction
 sidebar_position: 1
 showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
-
-# Introduction
 
 Take control of your Discord Server with Husqy, the most advanced Discord bot you can add (for free!). Husqy is designed to make your life as a server manager easier. Configure everything yourself with the help of our documentation.
 

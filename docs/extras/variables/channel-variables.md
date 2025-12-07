@@ -1,12 +1,19 @@
 ---
-description: Channel variables
+description: Available channel variables that can be used in Husqy configuration
 title: Channel variables
 sidebar_label: Channel variables
 keywords:
-  - docs
-  - channel
-  - variables
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Channels
+  - Variables
+  - Channel variables
+  - Husqy configuration
 sidebar_position: 2
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -19,7 +26,7 @@ Channel variables are, as the name implies, variables related to the channel of 
 3. `<channel_name>`: The name of the channel where the variable is used (f.e. info-and-rules);
 4. `<channel_type>`: The type of the channel (f.e. GUILD_TEXT, GUILD_VOICE or GUILD_FORUM);
 5. `<channel_created_at>`: The date and time of when the channel was created based on the timezone setting set by the server. The format will be dd-mm-yyyy HH:MM:SS;
-<br />
+   <br />
 
 :::warning
 

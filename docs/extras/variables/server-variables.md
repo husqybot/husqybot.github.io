@@ -1,12 +1,19 @@
 ---
-description: Server variables
+description: Available server variables that can be used in Husqy configuration
 title: Server variables
 sidebar_label: Server variables
 keywords:
-  - docs
-  - server
-  - variables
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Servers
+  - Variables
+  - Server variables
+  - Husqy configuration
 sidebar_position: 3
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -30,7 +37,7 @@ Server variables are, as the name implies, variables related to the server where
 14. `<server_rules_channel>`: This will mention the channel where the servers rules and guidelines are displayed or will be Not in use if there is no channel set;
 15. `<server_system_channel>`: This will mention the system channel or will be Not in use if there is no channel set;
 16. `<server_widget_channel>`: This will mention the widget channel or will be Not in use if there is no channel set;
-<br />
+    <br />
 
 :::warning
 

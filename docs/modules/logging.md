@@ -1,12 +1,17 @@
 ---
-description: Logging
+description: An overview of the Husqy logging module
 title: Logging
 sidebar_label: Logging
 keywords:
-  - docs
-  - modules
-  - logging
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Logging
 sidebar_position: 1
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

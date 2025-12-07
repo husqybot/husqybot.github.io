@@ -1,11 +1,17 @@
 ---
-description: Husqy privacy
+description: An overview over Husqy and privacy
 title: Husqy privacy
 sidebar_label: Husqy privacy
 keywords:
-  - docs
-  - privacy
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Privacy
+  - User data
 sidebar_position: 1
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -56,7 +62,7 @@ To change the status of your data collection settings, you can use the `/privacy
 
 1. `Enable data collection`: This option will allow Husqy to gather your data to provide you with its services (in the server where the command is run);
 2. `Disable data collection`: This option will prevent Husqy from gathering your data (in the server where the command is run). This action does however limit your use of Husqy and may limit functionality for other users. N.B. This option DOES NOT delete data, see [Removing your data](#removing-your-data) to accomplish this;
-<br />
+   <br />
 
 :::danger
 

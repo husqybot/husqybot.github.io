@@ -1,12 +1,22 @@
 ---
-description: Tempchannels
+description: An overview of the Husqy tempchannels module
 title: Tempchannels
 sidebar_label: Tempchannels
 keywords:
-  - docs
-  - modules
-  - tempchannels
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Tempchannels
+  - Temporary channels
+  - Temporary voice channels
+  - Temporary text channels
+  - Text channels
+  - Voice channels
 sidebar_position: 3
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -67,7 +77,7 @@ As you can see, you have full control over what channels will be created, voice 
 1. `Voice only`: When the creation channel is joined, a voice channel will be created and the user will be moved to their temporary voice channel;
 2. `Text only`: When the creation channel is joined, a text channel will be created and the user will be disconnected;
 3. `Voice & text`: When the creation channel is joined, a voice and a text channel will both be created. The user will be moved to the created temporary voice channel;
-4. `None`: No channel will be created and the user will be disconnected; 
+4. `None`: No channel will be created and the user will be disconnected;
 
 ### Deleting creation channels
 
@@ -75,7 +85,7 @@ There are two ways to delete creation channels:
 
 1. **(Preferred)** In the [Tempchannels dashboard](#additional-info--commands), find the creation channel to delete in the shown table. Here click `delete` in the `Interactions` column;
 2. Server administrators can manually delete creation channels in Discord;
-<br />
+   <br />
 
 :::warning
 
@@ -95,7 +105,7 @@ The configuration edited here is only for the Husqy tempchannels module and for 
 
 ## Tempchannels
 
-Tempchannels are the real temporary channels which automatically get deleted and which allow the user to have their own space. Owners of a tempchannel gain full control over their tempchannel set in the Discord interface or via commands provided by Husqy like `/tempchannel edit add_block_rule`. 
+Tempchannels are the real temporary channels which automatically get deleted and which allow the user to have their own space. Owners of a tempchannel gain full control over their tempchannel set in the Discord interface or via commands provided by Husqy like `/tempchannel edit add_block_rule`.
 
 :::note
 
@@ -115,7 +125,7 @@ A tempchannel can be created by server members by joining the creation channel i
 
 ### Deleting a tempchannel
 
-Deleting a tempchannel is done based on the lifetime of a temporary channel and the type of a temporary channel: 
+Deleting a tempchannel is done based on the lifetime of a temporary channel and the type of a temporary channel:
 
 <details>
   <summary>Voice channels</summary>
@@ -148,7 +158,7 @@ By sending messages in a temporary text channel, the last activity updates even 
 
 :::warning
 
-- Editing a channel does not count toward activity. Activity is measured using sending messages and sending messages ONLY. 
+- Editing a channel does not count toward activity. Activity is measured using sending messages and sending messages ONLY.
 - "Witing 10 minutes after creation" is a estimate. Checking runs on a schedule and can happen quicker than 10 minutes!
 
 :::
@@ -170,7 +180,6 @@ The Husqy logging module is fully integrated with Husqy provided slash commands 
 - Not all slash commands can be used for voice and text channels and will result in a error message.
 
 :::
-
 
 ## Additional info & commands
 

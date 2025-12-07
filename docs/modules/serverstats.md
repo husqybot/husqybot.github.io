@@ -1,12 +1,22 @@
 ---
-description: Serverstats
+description: An overview of the Husqy serverstats module
 title: Serverstats
 sidebar_label: Serverstats
 keywords:
-  - docs
-  - modules
-  - serverstats
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Serverstats
+  - Statistics
+  - Stats
+  - Analytics
+  - Channel counters
+  - Starboard
 sidebar_position: 8
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

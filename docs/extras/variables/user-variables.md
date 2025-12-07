@@ -1,12 +1,19 @@
 ---
-description: User variables
+description: Available user variables that can be used in Husqy configuration
 title: User variables
 sidebar_label: User variables
 keywords:
-  - docs
-  - user
-  - variables
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Users
+  - Variables
+  - User variables
+  - Husqy configuration
 sidebar_position: 1
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -26,7 +33,7 @@ User variables are, as the name implies, variables related to the user of the ev
 10. `<user_roles>`: This will mention all roles that have been assigned to the user;
 11. `<user_communication_disabled_until>`: Will be None or the timeout set before this user is able to communicate again;
 12. `<user_avatar_url>`: The URL of the users avatar;
-<br />
+    <br />
 
 :::warning
 

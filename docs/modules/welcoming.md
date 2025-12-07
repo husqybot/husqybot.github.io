@@ -1,12 +1,17 @@
 ---
-description: Welcoming
+description: An overview of the Husqy welcoming module
 title: Welcoming
 sidebar_label: Welcoming
 keywords:
-  - docs
-  - modules
-  - welcoming
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Welcoming
 sidebar_position: 2
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -57,11 +62,11 @@ The `Welcome messages in DM` component enables you to send a message to a users 
 
 ### Welcome messages in channel
 
-The `Welcome messages in channel` component enables you to send a message to a server channel (which you can choose) when a user joins your server. This component also makes use of responses, this time with the type: `Channel welcome message`. You can randomize responses if you have multiple responses with this type. 
+The `Welcome messages in channel` component enables you to send a message to a server channel (which you can choose) when a user joins your server. This component also makes use of responses, this time with the type: `Channel welcome message`. You can randomize responses if you have multiple responses with this type.
 
 ### Leave messages
 
-The `Leave messages` component enables you to send a message to a server channel (which you can choose) when a user leaves your server. This component also makes use of responses, this time with the type: `Channel leave message`. You can randomize responses if you have multiple responses with this type. 
+The `Leave messages` component enables you to send a message to a server channel (which you can choose) when a user leaves your server. This component also makes use of responses, this time with the type: `Channel leave message`. You can randomize responses if you have multiple responses with this type.
 
 ### Autorole
 

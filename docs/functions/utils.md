@@ -1,11 +1,17 @@
 ---
-description: Utils
+description: An overview over Husqy utility and helper features
 title: Utils
 sidebar_label: Utils
 keywords:
-  - docs
-  - utils
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Utils
+  - Husqy configuration
 sidebar_position: 7
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

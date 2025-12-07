@@ -1,11 +1,16 @@
 ---
-description: Moderation
+description: An overview over Husqy moderation features
 title: Moderation
 sidebar_label: Moderation
 keywords:
-  - docs
-  - moderation
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Moderation
 sidebar_position: 4
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 

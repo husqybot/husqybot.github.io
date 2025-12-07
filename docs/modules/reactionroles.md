@@ -1,12 +1,17 @@
 ---
-description: Reactionroles
-title: Reactionroles
-sidebar_label: Reactionroles
+description: An overview of the Husqy reactionroles module
+title: Polls
+sidebar_label: Polls
 keywords:
-  - docs
-  - modules
-  - reactionroles
+  - Husqy
+  - Discord
+  - Discord bot
+  - Documentation
+  - Docs
+  - Modules
+  - Reactionroles
 sidebar_position: 5
+showLastUpdateTime: true
 toc_max_heading_level: 6
 ---
 
@@ -77,7 +82,7 @@ A panel can be deleted by pressing the `Delete panel` button. The panel and the 
 
 ### Editing a panel
 
-A panel can be edited by changing the settings in the panels box and then pressing the `Save changes` button. The panel settings will be edited and if needed the message will be changed if it is a Husqy message. 
+A panel can be edited by changing the settings in the panels box and then pressing the `Save changes` button. The panel settings will be edited and if needed the message will be changed if it is a Husqy message.
 
 ## Reactionrole entries
 
