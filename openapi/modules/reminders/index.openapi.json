@@ -2,7 +2,7 @@
     "openapi": "3.1.0",
     "info": {
         "title": "Husqy.modules.reminders",
-        "version": "2.0.0"
+        "version": "2.2.0"
     },
     "servers": [
         {
@@ -22,6 +22,54 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ApiResponse_HomeResponse_"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/livez": {
+            "get": {
+                "summary": "Liveliness Endpoint For The Husqy.Modules.Reminders Microservice",
+                "description": "Liveliness endpoint for the Husqy.modules.reminders microservice.",
+                "operationId": "Liveliness_endpoint_for_the_Husqy_modules_reminders_microservice_livez_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_LivezResponse_"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/readyz": {
+            "get": {
+                "summary": "Readiness Endpoint For The Husqy.Modules.Reminders Microservice",
+                "description": "Readiness endpoint for the Husqy.modules.reminders microservice.",
+                "operationId": "Readiness_endpoint_for_the_Husqy_modules_reminders_microservice_readyz_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse_ReadyzResponse_"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
                         }
@@ -1302,6 +1350,30 @@
                 ],
                 "title": "ApiResponse[HomeResponse]"
             },
+            "ApiResponse_LivezResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/LivezResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[LivezResponse]"
+            },
+            "ApiResponse_ReadyzResponse_": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/ReadyzResponse"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ApiResponse[ReadyzResponse]"
+            },
             "ApiResponse_SettingsDeleteResponse_": {
                 "properties": {
                     "data": {
@@ -1763,6 +1835,19 @@
                 ],
                 "title": "HomeResponse"
             },
+            "LivezResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "title": "Status"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status"
+                ],
+                "title": "LivezResponse"
+            },
             "Module_Reminders_Entries": {
                 "properties": {
                     "id": {
@@ -1913,6 +1998,20 @@
                             }
                         ],
                         "title": "Message"
+                    },
+                    "errors": {
+                        "anyOf": [
+                            {
+                                "additionalProperties": {
+                                    "type": "string"
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Errors"
                     }
                 },
                 "type": "object",
@@ -1924,6 +2023,19 @@
                 ],
                 "title": "ProblemDetailsBase",
                 "description": "Base problem details model for a standardized response."
+            },
+            "ReadyzResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "title": "Status"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status"
+                ],
+                "title": "ReadyzResponse"
             },
             "SettingsDeleteRequest": {
                 "properties": {
