@@ -66,13 +66,6 @@ export default function WhyChooseUs() {
       />
       <ReasonComponent
         // image_url="/img/stock_discord_image.png"
-        icon="radio"
-        title="Play your favorite music and radio stations"
-        subtitle="Never have a boring voice chat again!"
-        description_line_1="Ever been in a voice channel where it is all quiet? No more with music and radio stations. Make Husqy join your voice channel and play your favorite music or radiostation. Add full playlists or individual songs, skip songs, check the queue and even change the volume!"
-      />
-      <ReasonComponent
-        // image_url="/img/stock_discord_image.png"
         icon="celebration"
         title="Create giveaways to engage your community"
         subtitle="Give back to the community!"
