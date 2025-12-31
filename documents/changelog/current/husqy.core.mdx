@@ -24,6 +24,41 @@ Experiencing a change that is not listed? Please let us know and contact our sup
 
 ## [Released]
 
+### [2.16.0] - 31-12-2025
+
+#### [BREAKING]
+
+- Remove support for radio/music playback. These may return later in a module. If your server requires this please let us know so we can change our prioritization.
+- Remove moderation (mod_user & mod_server) commands. These may return later in a module. If your server requires this please let us know so we can change our prioritization.
+- Remove `/utils custom_embed create` command, please use online tools like [Discohook](https://discohook.app/) for creating custom embeds.
+
+#### [NEW]
+
+- Added support for multiple embeds in one message in the `/utils custom_embed send` command
+- Change styling to use Components V2 in most places, others will follow later
+
+#### [Changes]
+
+- Split up `/privacy` commands into separate commands:
+  - `/privacy get_data`
+  - `/privacy delete_data`
+  - `/privacy shared_servers`
+  - `/privacy info`
+- Split up `/info` commands into separate commands:
+  - `/info bot`
+  - `/info server`
+  - `/info channel`
+  - `/info user`
+  - `/info role`
+  - `/info ping`
+- Modules info commands (if available) are now located per module, for example: `/socials info`
+- Rework internal structure
+
+#### [Bugfixes]
+
+- Various bigfixes have been done.
+- Various security updates
+
 ### [2.15.0] - 11-12-2025
 
 #### [NEW]

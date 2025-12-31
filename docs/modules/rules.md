@@ -156,7 +156,7 @@ This module provides the following commands:
 
 - `/rules add`;
 - `/rules remove`;
-- `/rules list`;
+- `/rules info`;
 - `/rules retrigger`;
 
 :::

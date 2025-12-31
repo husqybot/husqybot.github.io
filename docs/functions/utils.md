@@ -17,23 +17,47 @@ toc_max_heading_level: 6
 
 The Husqy Utils functions are grouped functionalities which provides server members or administrators with different tools. These tools can be used for configuring Husqy, playing around or general quick help questions.
 
-## Custom embed creator
+## Custom embeds
 
-To create a custom embed, you will need to run the command `/utils custom_embed create`. This will provide you with a message that is only visable to you. In this message is a base embed and different buttons to completely build out your embed. When you are done creating your embed, press the **_Finish_** button to retrieve the JSON of your embed.
+### Creating embeds
 
-To completely reset the embed and start over, press the **_Reset_** button!
+Some Husqy modules support the usage of custom embeds in messages, f.e. the welcoming module with channel welcomes. To create these custom embeds we recommend using [Discohook](https://discohook.app/). Discohook (or other providers) allow you to create embeds and view their layout in a browser, and most importantly copy their JSON configuration.
 
-The JSON you retrieve after finishing your embed can be used to either send the custom embed to a channel using Husqy (`/utils custom_embed send`) or can be used in different Husqy modules for configuration, f.e. the tickets module for the ticket creation message!
+An example configuration is:
 
-:::danger Important!
+```
+{
+  "embeds": [
+    {
+      "title": "Embed title",
+      "description": "Embed description",
+      "color": 5814783,
+      "fields": []
+    }
+  ],
+}
+```
 
-Whenever you need to configure an embed for Husqy, use this Custom embed creator utility. Husqy only knows how to convert the JSON output of this utility to an embed.
+:::tip
+
+- Husqy supports sending multiple embeds (maximum 5, Discord limit) in one message.
+- We try to use the default JSON format Discord uses for embeds, so any embed creator should work when they use the default JSON format.
 
 :::
 
+:::danger Important!
+
+The example is the format to use, any other keys besides `embeds` (which may be added when creating embeds or messages using embed creators online like `components`) are ignored and only the embeds inside the `embeds` key are used. 
+
+:::
+
+### Sending embeds
+
+To validate that Husqy and its modules can send the embeds, you can use the `/utils custom_embed send` command and provide the created embeds JSON configuration. If the configuration is send the embeds are going to be send. This command also supports setting users, channels and server variables so you can fully see what the final embed will look like.
+
 ## Custom modal creator
 
-The custom modal utility is very similar to the custom embed utility. Run the command `/utils custom_modal create`. This will provide you with a message that is only visable to you. In this message is a base embed without any modal configuration. Using the buttons you can build out the modal to your liking, be sure to preview the modal using the **_Preview_** button. Press the Finish modal button to retrieve the JSON of your modal.
+The custom modal utility can be used to create custom modals which can be used by Husqy and its modules. Run the command `/utils custom_modal create`. This will provide you with a message that is only visable to you. In this message is a base embed without any modal configuration. Using the buttons you can build out the modal to your liking, be sure to preview the modal using the **_Preview_** button. Press the Finish modal button to retrieve the JSON of your modal.
 
 To completely reset the modal and start over, press the **_Reset_** modal button!
 
@@ -51,14 +75,6 @@ The JSON you retrieve after finishing your modal can be used to either preview t
 
 :::
 
-## Color previewer
-
-To preview a color, run the command `/utils color view` and insert either a hex or an rgb value (not both). This will prompt with an embed and image of the color.
-
-## Domain safety check
-
-To check the safety of a domain, run the command `/utils domain validate_safety` and insert the domain name or a url. This will check the safety and reply with the results.
-
 ## QR-code generator
 
 To generate a QR-code, run the command `/utils generate_qr` and insert the metadata of the qr-code. Husqy will send an embed with the generated qr-code.
@@ -67,12 +83,16 @@ To generate a QR-code, run the command `/utils generate_qr` and insert the metad
 
 To convert to seconds, run the command `/utils convert_to_seconds` and insert the desired days, hours, minutes and seconds to convert. Once everything is filled in, the total amount of seconds will be returned.
 
-## Transcibing Discord voice messages
+## Additional info & commands
 
-The `/transcibe_voice_message` command provides you with an easy way to convert voices messages sent in a Discord text chat to a readable text.
+:::info Available commands
 
-:::warning
+These functions provides the following commands:
 
-Currently only English is officially supported. Feel free to try this with other languages.
+- `/utils custom_embed send`;
+- `/utils custom_modal create`;
+- `/utils custom_modal preview`;
+- `/utils convert_to_seconds`;
+- `/utils generate_qr`;
 
 :::

@@ -217,6 +217,6 @@ Serverstats variables are additional Husqy variables which can only be used in t
 
 :::info Available commands
 
-This module does not provide any commands.
+- `/serverstats info`
 
 :::

@@ -88,7 +88,7 @@ The free version of Husqy has a limit of 3 quick reminders per user per server.
 Repeated reminders are the more advanced types of reminders, they can be created by server administrators using the Husqy dashboard. They provide the following extra properties:
 
 - `Content is embed`: Wether the content is a Husqy embed configuration;
-- `Content`: The content configuration of the message to send, this does support Husqy embed configuration, make sure you set: content_is_embed to True;
+- `Content`: The content configuration of the message to send, this does support Husqy embed configuration, see [Utils custom embeds](https://husqy.xyz/docs/functions/utils#custom-embeds), make sure you set: content_is_embed to True;
 - `Schedule`: The specific schedule to use, this can be a [`cron`](#trigger-type-cron) or [`interval`](#trigger-type-interval) based schedule;
 
 As you can see, these reminder type provide more control over the message when compared to the quick reminders, things like `Title` and `Description` are not used. Although they are called "reminders" they can have different uses for different use cases. You can, for example, use these to schedule messages to channels.

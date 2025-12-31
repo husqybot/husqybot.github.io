@@ -27,3 +27,15 @@ To play Rock, Paper, Scissors, run the command `/games rock_paper_scissors` and 
 ## Higher/Lower (single player)
 
 To play Higher/Lower, run the command `/games higher_lower`. You will get prompted with a hint number. You have to select if you think the secret number is higher, equal to or lower than the hint number.
+
+## Additional info & commands
+
+:::info Available commands
+
+These functions provides the following commands:
+
+- `/games higher_lower`;
+- `/games rock_paper_scissors`;
+- `/games heads_or_tails`;
+
+:::

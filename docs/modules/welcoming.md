@@ -91,7 +91,7 @@ Responses are the primary interaction for three of the welcoming module componen
 3. **Channel leave message**: For responses targeted for the `Leave messages` component;
 
 <br/>
-These responses can be an Husqy JSON embed config (when the response should be an embed) or they can be a normal message. When the responses for a component are not randomized, a response must be selected to use for sending.
+These responses can be an Husqy JSON embed config, see [Utils custom embeds](https://husqy.xyz/docs/functions/utils#custom-embeds) (when the response should be an embed) or they can be a normal message. When the responses for a component are not randomized, a response must be selected to use for sending.
 
 :::tip
 
@@ -106,19 +106,13 @@ The free version of Husqy has a limit of 1 response per response type per server
 
 :::
 
-:::danger
-
-When using an embed, please use the custom_embed creator Husqy provides to ensure that the embed get send correctly! Not using this may cause Husqy not to send an embed.
-
-:::
-
 ### Creating a response
 
 Responses can be created by server administrators using the [Welcoming dashboard](#additional-info--commands). To create a response, press the `Go to responses` button within one of the component boxes. You will be redirected to the general responses page. Here, click the `Create new response` button, you will be redirected to a new page where a form with the settings needs to be filled in. This form includes:
 
 - Response type: the type of the response;
 - Is embed: if the content of the response is going to be a Husqy JSON embed config.
-- Content: the content of the response. Can also be Husqy embed JSON configuration.
+- Content: the content of the response. Can also be Husqy embed JSON configuration, see [Utils custom embeds](https://husqy.xyz/docs/functions/utils#custom-embeds).
 
 ### Deleting a response
 
@@ -158,6 +152,6 @@ To delete a timedrole, go to the [Welcoming dashboard](#additional-info--command
 
 :::info Available commands
 
-This module does not provide any commands.
+- `/welcoming info`
 
 :::

@@ -2,7 +2,7 @@
     "openapi": "3.1.0",
     "info": {
         "title": "Husqy.modules.logging",
-        "version": "2.2.0"
+        "version": "2.3.0"
     },
     "servers": [
         {
@@ -769,26 +769,16 @@
                 "summary": "Delete The Privacy Data Of A User For The Husqy.Modules.Logging Microservice",
                 "description": "Delete user entries.",
                 "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_modules_logging_microservice_privacy_delete_user_entries_delete",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteUserEntriesDeleteRequest"
+                            }
                         }
                     },
-                    {
-                        "name": "privacy_member_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Privacy Member Id"
-                        }
-                    }
-                ],
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -801,54 +791,54 @@
                         }
                     },
                     "400": {
+                        "description": "Bad Request",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Bad Request"
+                        }
                     },
                     "401": {
+                        "description": "Unauthorized",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Unauthorized"
+                        }
                     },
                     "403": {
+                        "description": "Forbidden",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Forbidden"
+                        }
                     },
                     "404": {
+                        "description": "Not Found",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Not Found"
+                        }
                     },
                     "500": {
+                        "description": "Internal Server Error",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Internal Server Error"
+                        }
                     }
                 }
             }
@@ -999,6 +989,24 @@
                     "data"
                 ],
                 "title": "ApiResponse[StatusGetResponse]"
+            },
+            "DeleteUserEntriesDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "privacy_member_id": {
+                        "type": "integer",
+                        "title": "Privacy Member Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "privacy_member_id"
+                ],
+                "title": "DeleteUserEntriesDeleteRequest"
             },
             "DeleteUserEntriesDeleteResponse": {
                 "properties": {
@@ -1432,7 +1440,7 @@
                         ],
                         "title": "Log Games"
                     },
-                    "log_audio_join": {
+                    "log_help": {
                         "anyOf": [
                             {
                                 "type": "boolean"
@@ -1441,161 +1449,7 @@
                                 "type": "null"
                             }
                         ],
-                        "title": "Log Audio Join"
-                    },
-                    "log_audio_leave": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Leave"
-                    },
-                    "log_audio_stop": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Stop"
-                    },
-                    "log_audio_skip": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Skip"
-                    },
-                    "log_audio_pause": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Pause"
-                    },
-                    "log_audio_resume": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Resume"
-                    },
-                    "log_audio_nowplaying": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Nowplaying"
-                    },
-                    "log_audio_queue": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Queue"
-                    },
-                    "log_music_play": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Music Play"
-                    },
-                    "log_music_playnext": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Music Playnext"
-                    },
-                    "log_music_remove": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Music Remove"
-                    },
-                    "log_music_shuffle": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Music Shuffle"
-                    },
-                    "log_music_search": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Music Search"
-                    },
-                    "log_radio_play": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Radio Play"
-                    },
-                    "log_support": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Support"
+                        "title": "Log Help"
                     },
                     "log_modules": {
                         "anyOf": [
@@ -1652,28 +1506,6 @@
                         ],
                         "title": "Log Customembed Create"
                     },
-                    "log_audio_seek": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Seek"
-                    },
-                    "log_music_tts": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Music Tts"
-                    },
                     "log_vckick": {
                         "anyOf": [
                             {
@@ -1717,17 +1549,6 @@
                             }
                         ],
                         "title": "Log Channel Unlock"
-                    },
-                    "log_audio_loop": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Loop"
                     },
                     "log_channel_join": {
                         "anyOf": [
@@ -1916,50 +1737,6 @@
                         ],
                         "title": "Log User Camera Stream Stopped"
                     },
-                    "log_color_viewed": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Color Viewed"
-                    },
-                    "log_audio_volume": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Volume"
-                    },
-                    "log_audio_restart": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Audio Restart"
-                    },
-                    "log_domain_validated": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Domain Validated"
-                    },
                     "log_qr_generated": {
                         "anyOf": [
                             {
@@ -1981,17 +1758,6 @@
                             }
                         ],
                         "title": "Log Time Converted"
-                    },
-                    "log_voice_message_transcribe": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Log Voice Message Transcribe"
                     },
                     "log_meme": {
                         "anyOf": [
@@ -3188,79 +2954,9 @@
                         "title": "Log Games",
                         "default": true
                     },
-                    "log_audio_join": {
+                    "log_help": {
                         "type": "boolean",
-                        "title": "Log Audio Join",
-                        "default": true
-                    },
-                    "log_audio_leave": {
-                        "type": "boolean",
-                        "title": "Log Audio Leave",
-                        "default": true
-                    },
-                    "log_audio_stop": {
-                        "type": "boolean",
-                        "title": "Log Audio Stop",
-                        "default": true
-                    },
-                    "log_audio_skip": {
-                        "type": "boolean",
-                        "title": "Log Audio Skip",
-                        "default": true
-                    },
-                    "log_audio_pause": {
-                        "type": "boolean",
-                        "title": "Log Audio Pause",
-                        "default": true
-                    },
-                    "log_audio_resume": {
-                        "type": "boolean",
-                        "title": "Log Audio Resume",
-                        "default": true
-                    },
-                    "log_audio_nowplaying": {
-                        "type": "boolean",
-                        "title": "Log Audio Nowplaying",
-                        "default": true
-                    },
-                    "log_audio_queue": {
-                        "type": "boolean",
-                        "title": "Log Audio Queue",
-                        "default": true
-                    },
-                    "log_music_play": {
-                        "type": "boolean",
-                        "title": "Log Music Play",
-                        "default": true
-                    },
-                    "log_music_playnext": {
-                        "type": "boolean",
-                        "title": "Log Music Playnext",
-                        "default": true
-                    },
-                    "log_music_remove": {
-                        "type": "boolean",
-                        "title": "Log Music Remove",
-                        "default": true
-                    },
-                    "log_music_shuffle": {
-                        "type": "boolean",
-                        "title": "Log Music Shuffle",
-                        "default": true
-                    },
-                    "log_music_search": {
-                        "type": "boolean",
-                        "title": "Log Music Search",
-                        "default": true
-                    },
-                    "log_radio_play": {
-                        "type": "boolean",
-                        "title": "Log Radio Play",
-                        "default": true
-                    },
-                    "log_support": {
-                        "type": "boolean",
-                        "title": "Log Support",
+                        "title": "Log Help",
                         "default": true
                     },
                     "log_modules": {
@@ -3288,16 +2984,6 @@
                         "title": "Log Customembed Create",
                         "default": true
                     },
-                    "log_audio_seek": {
-                        "type": "boolean",
-                        "title": "Log Audio Seek",
-                        "default": true
-                    },
-                    "log_music_tts": {
-                        "type": "boolean",
-                        "title": "Log Music Tts",
-                        "default": true
-                    },
                     "log_vckick": {
                         "type": "boolean",
                         "title": "Log Vckick",
@@ -3316,11 +3002,6 @@
                     "log_channel_unlock": {
                         "type": "boolean",
                         "title": "Log Channel Unlock",
-                        "default": true
-                    },
-                    "log_audio_loop": {
-                        "type": "boolean",
-                        "title": "Log Audio Loop",
                         "default": true
                     },
                     "log_channel_join": {
@@ -3408,26 +3089,6 @@
                         "title": "Log User Camera Stream Stopped",
                         "default": true
                     },
-                    "log_color_viewed": {
-                        "type": "boolean",
-                        "title": "Log Color Viewed",
-                        "default": true
-                    },
-                    "log_audio_volume": {
-                        "type": "boolean",
-                        "title": "Log Audio Volume",
-                        "default": true
-                    },
-                    "log_audio_restart": {
-                        "type": "boolean",
-                        "title": "Log Audio Restart",
-                        "default": true
-                    },
-                    "log_domain_validated": {
-                        "type": "boolean",
-                        "title": "Log Domain Validated",
-                        "default": true
-                    },
                     "log_qr_generated": {
                         "type": "boolean",
                         "title": "Log Qr Generated",
@@ -3436,11 +3097,6 @@
                     "log_time_converted": {
                         "type": "boolean",
                         "title": "Log Time Converted",
-                        "default": true
-                    },
-                    "log_voice_message_transcribe": {
-                        "type": "boolean",
-                        "title": "Log Voice Message Transcribe",
                         "default": true
                     },
                     "log_meme": {

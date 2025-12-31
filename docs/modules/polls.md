@@ -222,5 +222,6 @@ This module provides the following commands:
 - `/polls delete`;
 - `/polls close`;
 - `/polls details`;
+- `/polls info`;
 
 :::

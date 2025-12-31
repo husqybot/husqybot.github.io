@@ -2,7 +2,7 @@
     "openapi": "3.1.0",
     "info": {
         "title": "Husqy.modules.serverstats",
-        "version": "2.2.0"
+        "version": "2.3.0"
     },
     "servers": [
         {
@@ -4154,26 +4154,16 @@
                 "summary": "Add The Modules Autoresponder Check Time Stats",
                 "description": "Endpoint to add the modules autoresponder check time stats.",
                 "operationId": "Add_the_modules_autoresponder_check_time_stats_stats_modules_autoresponder_check_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "check_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Check Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesAutoresponderCheckTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -6038,26 +6028,16 @@
                 "summary": "Add The Modules Verifier Check Time Stats",
                 "description": "Endpoint to add the modules verifier check time stats.",
                 "operationId": "Add_the_modules_verifier_check_time_stats_stats_modules_verifier_check_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "check_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Check Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesVerifierCheckTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -7166,26 +7146,16 @@
                 "summary": "Add The Modules Reactionroles Check Time Stats",
                 "description": "Endpoint to add the modules reactionroles check time stats.",
                 "operationId": "Add_the_modules_reactionroles_check_time_stats_stats_modules_reactionroles_check_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "check_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Check Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesReactionrolesCheckTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -8105,26 +8075,16 @@
                 "summary": "Add The Modules Reminders Send Time Stats",
                 "description": "Endpoint to add the modules reminders send time stats.",
                 "operationId": "Add_the_modules_reminders_send_time_stats_stats_modules_reminders_send_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "send_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Send Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesRemindersSendTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -8855,26 +8815,16 @@
                 "summary": "Add The Modules Rules Check Time Stats",
                 "description": "Endpoint to add the modules rules check time stats.",
                 "operationId": "Add_the_modules_rules_check_time_stats_stats_modules_rules_check_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "check_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Check Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesRulesCheckTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -9416,26 +9366,16 @@
                 "summary": "Add The Modules Tags Check Time Stats",
                 "description": "Endpoint to add the modules tags check time stats.",
                 "operationId": "Add_the_modules_tags_check_time_stats_stats_modules_tags_check_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "check_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Check Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesTagsCheckTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -9977,26 +9917,16 @@
                 "summary": "Add The Modules Tempchannels Created Check Time Stats",
                 "description": "Endpoint to add the modules tempchannels created check time stats.",
                 "operationId": "Add_the_modules_tempchannels_created_check_time_stats_stats_modules_tempchannels_created_check_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "check_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Check Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesTempchannelsCreatedCheckTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -10160,26 +10090,16 @@
                 "summary": "Add The Modules Tempchannels Deleted Check Time Stats",
                 "description": "Endpoint to add the modules tempchannels deleted check time stats.",
                 "operationId": "Add_the_modules_tempchannels_deleted_check_time_stats_stats_modules_tempchannels_deleted_check_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "check_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Check Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesTempchannelsDeletedCheckTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -12331,26 +12251,16 @@
                 "summary": "Add The Modules Welcoming Check Time Stats",
                 "description": "Endpoint to add the modules welcoming check time stats.",
                 "operationId": "Add_the_modules_welcoming_check_time_stats_stats_modules_welcoming_check_time_post",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
-                        }
-                    },
-                    {
-                        "name": "check_time",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "title": "Check Time"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatsModulesWelcomingCheckTimePostRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -13402,26 +13312,16 @@
                 "summary": "Delete The Privacy Data Of A User For The Husqy.Modules.Welcoming Microservice",
                 "description": "Delete user entries.",
                 "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_modules_welcoming_microservice_privacy_delete_user_entries_delete",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteUserEntriesDeleteRequest"
+                            }
                         }
                     },
-                    {
-                        "name": "privacy_member_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Privacy Member Id"
-                        }
-                    }
-                ],
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -13434,54 +13334,54 @@
                         }
                     },
                     "400": {
+                        "description": "Bad Request",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Bad Request"
+                        }
                     },
                     "401": {
+                        "description": "Unauthorized",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Unauthorized"
+                        }
                     },
                     "403": {
+                        "description": "Forbidden",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Forbidden"
+                        }
                     },
                     "404": {
+                        "description": "Not Found",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Not Found"
+                        }
                     },
                     "500": {
+                        "description": "Internal Server Error",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Internal Server Error"
+                        }
                     }
                 }
             }
@@ -15392,6 +15292,24 @@
                 ],
                 "title": "CountersUpdatePostResponse"
             },
+            "DeleteUserEntriesDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "privacy_member_id": {
+                        "type": "integer",
+                        "title": "Privacy Member Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "privacy_member_id"
+                ],
+                "title": "DeleteUserEntriesDeleteRequest"
+            },
             "DeleteUserEntriesDeleteResponse": {
                 "properties": {
                     "message": {
@@ -16757,6 +16675,24 @@
                 ],
                 "title": "StatsModulesAutoresponderCheckTimeGetResponse"
             },
+            "StatsModulesAutoresponderCheckTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "check_time": {
+                        "type": "number",
+                        "title": "Check Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "check_time"
+                ],
+                "title": "StatsModulesAutoresponderCheckTimePostRequest"
+            },
             "StatsModulesAutoresponderCheckTimePostResponse": {
                 "properties": {
                     "message": {
@@ -17554,6 +17490,24 @@
                 ],
                 "title": "StatsModulesReactionrolesCheckTimeGetResponse"
             },
+            "StatsModulesReactionrolesCheckTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "check_time": {
+                        "type": "number",
+                        "title": "Check Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "check_time"
+                ],
+                "title": "StatsModulesReactionrolesCheckTimePostRequest"
+            },
             "StatsModulesReactionrolesCheckTimePostResponse": {
                 "properties": {
                     "message": {
@@ -17907,6 +17861,24 @@
                 ],
                 "title": "StatsModulesRemindersSendTimeGetResponse"
             },
+            "StatsModulesRemindersSendTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "send_time": {
+                        "type": "number",
+                        "title": "Send Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "send_time"
+                ],
+                "title": "StatsModulesRemindersSendTimePostRequest"
+            },
             "StatsModulesRemindersSendTimePostResponse": {
                 "properties": {
                     "message": {
@@ -17935,6 +17907,24 @@
                     "stats"
                 ],
                 "title": "StatsModulesRulesCheckTimeGetResponse"
+            },
+            "StatsModulesRulesCheckTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "check_time": {
+                        "type": "number",
+                        "title": "Check Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "check_time"
+                ],
+                "title": "StatsModulesRulesCheckTimePostRequest"
             },
             "StatsModulesRulesCheckTimePostResponse": {
                 "properties": {
@@ -18153,6 +18143,24 @@
                 ],
                 "title": "StatsModulesTagsCheckTimeGetResponse"
             },
+            "StatsModulesTagsCheckTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "check_time": {
+                        "type": "number",
+                        "title": "Check Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "check_time"
+                ],
+                "title": "StatsModulesTagsCheckTimePostRequest"
+            },
             "StatsModulesTagsCheckTimePostResponse": {
                 "properties": {
                     "message": {
@@ -18276,6 +18284,24 @@
                 ],
                 "title": "StatsModulesTempchannelsCreatedCheckTimeGetResponse"
             },
+            "StatsModulesTempchannelsCreatedCheckTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "check_time": {
+                        "type": "number",
+                        "title": "Check Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "check_time"
+                ],
+                "title": "StatsModulesTempchannelsCreatedCheckTimePostRequest"
+            },
             "StatsModulesTempchannelsCreatedCheckTimePostResponse": {
                 "properties": {
                     "message": {
@@ -18398,6 +18424,24 @@
                     "stats"
                 ],
                 "title": "StatsModulesTempchannelsDeletedCheckTimeGetResponse"
+            },
+            "StatsModulesTempchannelsDeletedCheckTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "check_time": {
+                        "type": "number",
+                        "title": "Check Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "check_time"
+                ],
+                "title": "StatsModulesTempchannelsDeletedCheckTimePostRequest"
             },
             "StatsModulesTempchannelsDeletedCheckTimePostResponse": {
                 "properties": {
@@ -18851,6 +18895,24 @@
                 ],
                 "title": "StatsModulesVerifierCheckTimeGetResponse"
             },
+            "StatsModulesVerifierCheckTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "check_time": {
+                        "type": "number",
+                        "title": "Check Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "check_time"
+                ],
+                "title": "StatsModulesVerifierCheckTimePostRequest"
+            },
             "StatsModulesVerifierCheckTimePostResponse": {
                 "properties": {
                     "message": {
@@ -18879,6 +18941,24 @@
                     "stats"
                 ],
                 "title": "StatsModulesWelcomingCheckTimeGetResponse"
+            },
+            "StatsModulesWelcomingCheckTimePostRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "check_time": {
+                        "type": "number",
+                        "title": "Check Time"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "check_time"
+                ],
+                "title": "StatsModulesWelcomingCheckTimePostRequest"
             },
             "StatsModulesWelcomingCheckTimePostResponse": {
                 "properties": {
