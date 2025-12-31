@@ -22,10 +22,8 @@ This documentation aims to provide you with all the information you need to use 
 
 ## What are Husqy functions?
 
-Husqy functions are functionalities which work immediatly when Husqy joins our Discord server. All members can use these commands (with respect to their Husqy privacy settings) when they want. Current Husqy functions are:
+Husqy functions are functionalities which work immediately when Husqy joins our Discord server. All members can use these commands (with respect to their Husqy privacy settings) when they want. Current Husqy functions are:
 
-- [Music & radio](functions/music-and-radio)
-- [Moderation](functions/moderation)
 - [Games](functions/games)
 - [Miscellaneous](functions/miscellaneous)
 - [Utils](functions/utils)

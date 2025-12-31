@@ -146,6 +146,6 @@ To remove an entry from the components monitoring list, go to the [Socials dashb
 
 :::info Available commands
 
-This module does not provide any commands.
+- `/socials info`
 
 :::

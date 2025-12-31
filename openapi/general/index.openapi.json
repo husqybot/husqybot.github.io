@@ -2,7 +2,7 @@
     "openapi": "3.1.0",
     "info": {
         "title": "Husqy.general",
-        "version": "2.2.1"
+        "version": "2.3.0"
     },
     "servers": [
         {
@@ -1366,26 +1366,16 @@
                 "summary": "Delete The Privacy Data Of A User For The Husqy.General Microservice",
                 "description": "Delete user entries.",
                 "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_general_microservice_privacy_delete_user_entries_delete",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteUserEntriesDeleteRequest"
+                            }
                         }
                     },
-                    {
-                        "name": "privacy_member_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Privacy Member Id"
-                        }
-                    }
-                ],
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -1398,54 +1388,54 @@
                         }
                     },
                     "400": {
+                        "description": "Bad Request",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Bad Request"
+                        }
                     },
                     "401": {
+                        "description": "Unauthorized",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Unauthorized"
+                        }
                     },
                     "403": {
+                        "description": "Forbidden",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Forbidden"
+                        }
                     },
                     "404": {
+                        "description": "Not Found",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Not Found"
+                        }
                     },
                     "500": {
+                        "description": "Internal Server Error",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Internal Server Error"
+                        }
                     }
                 }
             }
@@ -1847,6 +1837,24 @@
                     "target"
                 ],
                 "title": "AuthorizePostResponse"
+            },
+            "DeleteUserEntriesDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "privacy_member_id": {
+                        "type": "integer",
+                        "title": "Privacy Member Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "privacy_member_id"
+                ],
+                "title": "DeleteUserEntriesDeleteRequest"
             },
             "DeleteUserEntriesDeleteResponse": {
                 "properties": {
@@ -2408,26 +2416,6 @@
                         ],
                         "title": "Auto Delete"
                     },
-                    "max_warns": {
-                        "type": "string",
-                        "title": "Max Warns"
-                    },
-                    "auto_kick_enabled": {
-                        "type": "boolean",
-                        "title": "Auto Kick Enabled",
-                        "default": true
-                    },
-                    "auto_kick_role_id": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Auto Kick Role Id"
-                    },
                     "module_logging": {
                         "type": "boolean",
                         "title": "Module Logging",
@@ -2511,8 +2499,7 @@
                     "language",
                     "gmt",
                     "unit_system",
-                    "auto_delete",
-                    "max_warns"
+                    "auto_delete"
                 ],
                 "title": "Settings"
             },
@@ -2601,39 +2588,6 @@
                             }
                         ],
                         "title": "Auto Delete"
-                    },
-                    "max_warns": {
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Max Warns"
-                    },
-                    "auto_kick_enabled": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Auto Kick Enabled"
-                    },
-                    "auto_kick_role_id": {
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Auto Kick Role Id"
                     }
                 },
                 "type": "object",

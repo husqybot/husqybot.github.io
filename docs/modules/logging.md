@@ -49,7 +49,7 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
 1. `log_errors`: Logs when an error with Husqy occurs with an Husqy interaction;
 2. `log_info`: Logs when one of the info commands is used;
 3. `log_settings_changed`: Logs when a Husqy setting for the server is changed;
-4. `log_support`: Logs when the support command is used;
+4. `log_help`: Logs when the help command for Husqy support is used;
 5. `log_modules`: Logs when a module is enabled/disabled or changed;
 
 </details>
@@ -110,33 +110,7 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
   <summary>Miscellaneous events</summary>
 
 1. `log_games`: Logs when a Husqy game is played;
-2. `log_voice_message_transcribe`: Logs when a Discord audio message in a text channel is transcribed to text;
-3. `log_meme`: Logs when a random meme is requested;
-
-</details>
-
-<details>
-  <summary>Audio events</summary>
-
-1. `log_audio_join`: Logs when Husqy joins a voice channel;
-2. `log_audio_leave`: Logs when Husqy leaves a voice channel;
-3. `log_audio_stop`: Logs when the audio playback is stopped by a user;
-4. `log_audio_skip`: Logs when the current playing song is skipped by a user;
-5. `log_audio_pause`: Logs when a user requested to pause the current playing song;
-6. `log_audio_resume`: Logs when the current playing song is resumed after a pause request;
-7. `log_audio_nowplaying`: Logs when the current playing song is requested;
-8. `log_audio_queue`: Logs when the current queue is requested;
-9. `log_music_play`: Logs when a new song is added to the queue;
-10. `log_music_playnext`: Logs when a new song is added to the queue directly after the current playing song;
-11. `log_music_tts`: Logs when a text-to-speech message is added to the queue;
-12. `log_music_remove`: Logs when a song is removed from the queue;
-13. `log_music_shuffle`: Logs when the queue is shuffled;
-14. `log_music_search`: Logs when a source is searched for a query;
-15. `log_radio_play`: Logs when radio is played;
-16. `log_audio_seek`: Logs when a user requested to seek to a specified timestamp;
-17. `log_audio_loop`: Logs when the loop is enabled/disabled for the current song;
-18. `log_audio_volume`: Logs when the volume is changed;
-19. `log_audio_restart`: Logs when a song is requested to restart by a user;
+2. `log_meme`: Logs when a random meme is requested;
 
 </details>
 
@@ -348,5 +322,13 @@ The [Logging dashboard](#additional-info) is the place to change the settings of
   1. Go to [https://dashboard.husqy.xyz/](https://dashboard.husqy.xyz/);
   2. Select the target server;
   3. In the sidebar press the **_Logging_** tab;
+
+:::
+
+:::info Available commands
+
+This module provides the following commands:
+
+- `/logging info`;
 
 :::

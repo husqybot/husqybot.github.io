@@ -45,7 +45,7 @@ A Husqy reactionrole panel is essentially a message in Discord where reactions (
 
 :::tip
 
-Use the Husqy embed utility to create an embed message for your reactionrole panels.
+For custom embeds, see [Utils custom embeds](https://husqy.xyz/docs/functions/utils#custom-embeds)
 
 :::
 

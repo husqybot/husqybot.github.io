@@ -123,7 +123,7 @@ The free version of Husqy has a limit of 3 responses per server.
 Responses can be created by server administrators using the [Autoresponder dashboard](#additional-info--commands). To create a response, press the `Go to responses` button in the responses explanation box. On the new page, the current list of responses will be shown and a button `Create response` will be present in the top right of the screen. When pressing the `Create response` button you will be redirected to a new page where a form with the settings needs to be filled in. This form includes:
 
 - Response type: the type of the response;
-- Responce content (when response type is "Message" or "Embed"): the content of the response. Can also be Husqy embed JSON configuration.
+- Response content (when response type is "Message" or "Embed"): the content of the response. Can also be Discord embed JSON configuration see [Utils custom embeds](https://husqy.xyz/docs/functions/utils#custom-embeds).
 - Emoji (when response type is "Reaction"): the emoji to attach to the message;
 
 ### Deleting responses

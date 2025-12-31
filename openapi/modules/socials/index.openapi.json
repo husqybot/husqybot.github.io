@@ -2,7 +2,7 @@
     "openapi": "3.1.0",
     "info": {
         "title": "Husqy.modules.socials",
-        "version": "2.2.0"
+        "version": "2.3.0"
     },
     "servers": [
         {
@@ -2229,26 +2229,16 @@
                 "summary": "Delete The Privacy Data Of A User For The Husqy.Modules.Welcoming Microservice",
                 "description": "Delete user entries.",
                 "operationId": "Delete_the_privacy_data_of_a_user_for_the_Husqy_modules_welcoming_microservice_privacy_delete_user_entries_delete",
-                "parameters": [
-                    {
-                        "name": "guild_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Guild Id"
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteUserEntriesDeleteRequest"
+                            }
                         }
                     },
-                    {
-                        "name": "privacy_member_id",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Privacy Member Id"
-                        }
-                    }
-                ],
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -2261,54 +2251,54 @@
                         }
                     },
                     "400": {
+                        "description": "Bad Request",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Bad Request"
+                        }
                     },
                     "401": {
+                        "description": "Unauthorized",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Unauthorized"
+                        }
                     },
                     "403": {
+                        "description": "Forbidden",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Forbidden"
+                        }
                     },
                     "404": {
+                        "description": "Not Found",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Not Found"
+                        }
                     },
                     "500": {
+                        "description": "Internal Server Error",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetailsBase"
                                 }
                             }
-                        },
-                        "description": "Internal Server Error"
+                        }
                     }
                 }
             }
@@ -2651,6 +2641,24 @@
                     "data"
                 ],
                 "title": "ApiResponse[StatusGetResponse]"
+            },
+            "DeleteUserEntriesDeleteRequest": {
+                "properties": {
+                    "guild_id": {
+                        "type": "integer",
+                        "title": "Guild Id"
+                    },
+                    "privacy_member_id": {
+                        "type": "integer",
+                        "title": "Privacy Member Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guild_id",
+                    "privacy_member_id"
+                ],
+                "title": "DeleteUserEntriesDeleteRequest"
             },
             "DeleteUserEntriesDeleteResponse": {
                 "properties": {
@@ -3330,17 +3338,12 @@
                     "channel_id": {
                         "type": "integer",
                         "title": "Channel Id"
-                    },
-                    "message_id": {
-                        "type": "integer",
-                        "title": "Message Id"
                     }
                 },
                 "type": "object",
                 "required": [
                     "guild_id",
-                    "channel_id",
-                    "message_id"
+                    "channel_id"
                 ],
                 "title": "MemePostRequest"
             },

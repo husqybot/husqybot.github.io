@@ -149,6 +149,6 @@ This module provides the following commands:
 - `/giveaways create`;
 - `/giveaways delete`;
 - `/giveaways reroll`;
-- `/giveaways list`;
+- `/giveaways info`;
 
 :::

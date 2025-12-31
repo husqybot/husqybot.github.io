@@ -52,7 +52,7 @@ The verifier module gets enabled with default settings which you can change to f
 - `Type`: The type of verification required;
 - `Verifier channel`: The channel where the verification messages to users will be send, this can be a text channel in your Discord server or the users DM;
 - `Passphrase`: The passphrase users will need to enter before becoming verified. This is only required when the verifier type is set to "Passphrase";
-- `Message content`: The content of the message to send to users asking them to verify them self. This message can be a Husqy embed config (just make sure to toggle the "Is embed?" button);
+- `Message content`: The content of the message to send to users asking them to verify them self. This message can be a custom embed, see [Utils custom embeds](https://husqy.xyz/docs/functions/utils#custom-embeds) (just make sure to toggle the "Is embed?" button);
 - `Completed verification content`: The content of the message to send to users when they have successfully verified them self. This message can be a Husqy embed config (just make sure to toggle the "Is embed?" button);
 - `Verified role IDs`: The roles to give to the users when the have successfully verified them self.
 
@@ -104,5 +104,6 @@ Using this command will also trigger the rules configured in the rules module to
 This module provides the following commands:
 
 - `/verifier entry retrigger`;
+- `/verifier info`;
 
 :::

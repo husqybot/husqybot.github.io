@@ -60,7 +60,7 @@ A Husqy ticket panel is essentially a message in Discord where ticket type butto
 
 :::tip
 
-- Use the Husqy embed utility to create an embed message to use in some configuration of the panel.
+- For custom embeds, see [Utils custom embeds](https://husqy.xyz/docs/functions/utils#custom-embeds).
 - Use the Husqy modal utility to create an modal form to use in the form content.
 
 :::
